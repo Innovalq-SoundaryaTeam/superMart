@@ -252,3 +252,46 @@ body.dark-mode .upi-app{
 }
 body.dark-mode .cart-table th{background:#252525;}
 body.dark-mode .sm-toast{background:#333;}
+
+/* ================================================
+   RESPONSIVE — MOBILE FIXES
+================================================ */
+@media(max-width:768px){
+
+  /* Auth */
+  .auth-card{padding:32px 20px;}
+  .auth-page{padding:60px 0;}
+
+  /* Cart — scrollable table on mobile */
+  .cart-section{padding:70px 0 40px;}
+  .cart-table{overflow-x:auto;}
+  .cart-table table{min-width:520px;}
+  .cart-item-img{width:50px;height:50px;}
+
+  /* Wishlist */
+  .wishlist-section{padding:70px 0 40px;}
+
+  /* Dashboard / Orders / Profile */
+  .dashboard-section{padding:70px 0 40px;}
+  .dash-content{padding:20px 16px;}
+  .dash-sidebar{margin-bottom:20px;}
+  .dash-user-info{padding:20px;}
+
+  /* Payment */
+  .payment-section{padding:70px 0 40px;}
+  .payment-method-card{padding:14px 12px;}
+
+  /* Toast — full width on mobile */
+  .sm-toast{right:12px;left:12px;max-width:100%;bottom:16px;}
+
+  /* Order rows wrap nicely */
+  .order-row{flex-direction:column;align-items:flex-start;gap:8px;}
+  .order-row .text-end{text-align:left !important;}
+}
+
+@media(max-width:480px){
+  .auth-card{padding:24px 16px;border-radius:14px;}
+  .dash-content{padding:16px 12px;}
+  .product-card img{height:180px;}
+  .qty-control{gap:4px;}
+}
