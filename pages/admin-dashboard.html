@@ -117,7 +117,19 @@ body{font-family:'Open Sans',sans-serif;background:#f0f2f5;color:#2d3748;display
 /* ── Toast ── */
 #aToast{position:fixed;bottom:22px;right:22px;z-index:9999;padding:12px 20px;border-radius:12px;background:#1a1d27;color:#fff;font-size:14px;font-weight:600;opacity:0;transition:opacity .3s;pointer-events:none;min-width:220px;}
 
-@media(max-width:768px){#adminSidebar{width:0;overflow:hidden;}#adminMain{margin-left:0;}}
+/* ── Mobile sidebar toggle ── */
+.sb-toggle{display:none;position:fixed;top:12px;left:12px;z-index:1200;background:#e92424;color:#fff;border:none;border-radius:10px;width:40px;height:40px;font-size:16px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.3);}
+.sb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:999;}
+@media(max-width:768px){
+  .sb-toggle{display:flex;align-items:center;justify-content:center;}
+  #adminSidebar{width:256px;transform:translateX(-100%);transition:transform .3s;position:fixed;z-index:1000;}
+  #adminSidebar.open{transform:translateX(0);}
+  .sb-overlay.open{display:block;}
+  #adminMain{margin-left:0;}
+  .topbar{padding:13px 14px 13px 62px;}
+  .ac{padding:16px;}
+  .od-info-grid{grid-template-columns:1fr;}
+}
 
 /* ── Admin Dark Mode ── */
 body.adm-dark{background:#0f1117;color:#e8eaf0;}
@@ -145,6 +157,11 @@ body.adm-dark .site-btn{background:#e92424;}
 </style>
 </head>
 <body>
+
+<!-- Mobile sidebar toggle button -->
+<button class="sb-toggle" id="sbToggle"><i class="fa-solid fa-bars"></i></button>
+<!-- Mobile overlay -->
+<div class="sb-overlay" id="sbOverlay"></div>
 
 <!-- Sidebar -->
 <aside id="adminSidebar">
@@ -517,6 +534,15 @@ document.querySelectorAll('.sec-link').forEach(a=>a.addEventListener('click',fun
 function adminLogout(){localStorage.removeItem('smAdmin');window.location.href='admin-login.html';}
 document.getElementById('adminLogout').addEventListener('click',adminLogout);
 document.getElementById('adminLogoutTop').addEventListener('click',adminLogout);
+
+/* ── Mobile sidebar toggle ── */
+const sbToggle=document.getElementById('sbToggle'),sbOverlay=document.getElementById('sbOverlay'),sidebar=document.getElementById('adminSidebar');
+function openSidebar(){sidebar.classList.add('open');sbOverlay.classList.add('open');}
+function closeSidebar(){sidebar.classList.remove('open');sbOverlay.classList.remove('open');}
+sbToggle.addEventListener('click',openSidebar);
+sbOverlay.addEventListener('click',closeSidebar);
+/* Close sidebar when a nav item is clicked on mobile */
+document.querySelectorAll('.sb-nav a[data-sec]').forEach(a=>a.addEventListener('click',()=>{if(window.innerWidth<=768)closeSidebar();}));
 
 /* ── Theme Toggle ── */
 (function(){
