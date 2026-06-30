@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SuperMart | Fresh Deals Every Week</title>
+<meta name="description" content="Shop fresh groceries, dairy, bakery products, beverages and household essentials with amazing weekly discounts.">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/dark-mode.css">
+<link rel="stylesheet" href="../assets/css/rtl.css">
+<link rel="stylesheet" href="../assets/css/features.css">
+<link rel="stylesheet" href="../assets/css/enhance.css">
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- Top Bar -->
+<div class="top-bar py-2">
+<div class="container d-flex justify-content-between align-items-center">
+<span><i class="fa-regular fa-clock"></i> Mon - Sun : 8:00 AM - 10:00 PM</span>
+<a href="store-locator.html" class="text-decoration-none"><i class="fa-solid fa-location-dot"></i> Find a Store</a>
+</div>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg shadow-sm sticky-top">
+<div class="container">
+<a class="navbar-brand fw-bold logo" href="index.html">SuperMart</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+<div class="collapse navbar-collapse" id="navMenu">
+<form class="nav-search-wrap d-flex mx-lg-4" role="search">
+<input type="text" class="nav-search-input" placeholder="Search for products..." aria-label="Search products">
+<button type="submit" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+<div class="search-suggest"></div>
+</form>
+<ul class="navbar-nav ms-auto align-items-lg-center">
+<li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="home2.html">Home2</a></li>
+<li class="nav-item"><a class="nav-link" href="offers.html">Offers</a></li>
+<li class="nav-item"><a class="nav-link" href="categories.html">Categories</a></li>
+<li class="nav-item"><a class="nav-link" href="store-locator.html">Stores</a></li>
+<li class="nav-item"><a class="nav-link" href="loyalty-card.html">Loyalty</a></li>
+<li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+<li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+<li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+</ul>
+<div class="d-flex align-items-center gap-2 ms-lg-3">
+<a href="cart.html" class="nav-icon-btn" title="Cart">
+<i class="fa-solid fa-cart-shopping"></i>
+<span class="cart-badge" id="cartCountNav">0</span>
+</a>
+<a href="wishlist.html" class="nav-icon-btn" title="Wishlist"><i class="fa-solid fa-heart"></i></a>
+<a href="admin-login.html" class="nav-icon-btn" title="Admin Panel"><i class="fa-solid fa-user-shield"></i></a>
+<button id="themeToggle" class="btn btn-danger ms-1" aria-pressed="false" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+</div>
+</div>
+</div>
+</nav>
+
+<main id="main-content">
+
+<!-- Hero Banner -->
+<section class="hero-slider">
+<div class="hero-slide active">
+<div class="container">
+<div class="row align-items-center">
+<div class="col-lg-6">
+<h1 class="display-4 fw-bold">This Week's Best Deals</h1>
+<p class="lead">Save up to 50% on groceries, snacks, bakery items, beverages and household essentials.</p>
+<div class="hero-cta"><a href="offers.html" class="btn btn-danger btn-lg me-2">Shop Offers</a>
+<a href="store-locator.html" class="btn btn-warning btn-lg">Find Store</a></div>
+</div>
+<div class="col-lg-6 text-center">
+<img src="../assets/images/hero-banner.png" class="hero-slide-img" alt="Fresh produce at SuperMart" loading="eager" fetchpriority="high">
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Animated Counters -->
+<section class="counters-section bg-section">
+<div class="container">
+<div class="row g-4">
+<div class="col-6 col-md-3 counter-box reveal">
+<i class="fa-solid fa-store"></i>
+<div class="counter-num" data-target="48" data-suffix="+">0</div>
+<div class="counter-label">Stores Nationwide</div>
+</div>
+<div class="col-6 col-md-3 counter-box reveal">
+<i class="fa-solid fa-users"></i>
+<div class="counter-num" data-target="250000" data-suffix="+">0</div>
+<div class="counter-label">Happy Customers</div>
+</div>
+<div class="col-6 col-md-3 counter-box reveal">
+<i class="fa-solid fa-box-open"></i>
+<div class="counter-num" data-target="5000" data-suffix="+">0</div>
+<div class="counter-label">Products in Stock</div>
+</div>
+<div class="col-6 col-md-3 counter-box reveal">
+<i class="fa-solid fa-tags"></i>
+<div class="counter-num" data-target="60" data-suffix="%">0</div>
+<div class="counter-label">Max Weekly Discount</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Browse Offers -->
+<section class="py-5">
+<div class="container">
+<div class="text-center mb-4"><h2>Browse Offers</h2></div>
+<div class="text-center mb-4" role="group">
+<button class="btn btn-outline-danger filter-btn active me-1" data-filter="all">All</button>
+<button class="btn btn-outline-danger filter-btn me-1" data-filter="produce">Produce</button>
+<button class="btn btn-outline-danger filter-btn me-1" data-filter="dairy">Dairy</button>
+<button class="btn btn-outline-danger filter-btn me-1" data-filter="bakery">Bakery</button>
+<button class="btn btn-outline-danger filter-btn me-1" data-filter="snacks">Snacks</button>
+<button class="btn btn-outline-danger filter-btn" data-filter="beverages">Beverages</button>
+</div>
+<div class="row g-4">
+
+<div class="col-md-6 col-lg-3 offer-item produce">
+<div class="product-card" data-product data-rating="4.4" data-reviews="65" data-brand="SuperMart Choice" data-discount="40" data-new="0" data-name="Fresh Apples" data-price="108" data-img="../assets/images/product-fresh-apples.png" data-cat="Produce" data-badge="40% OFF" data-original="180">
+<span class="discount-badge">40% OFF</span>
+<img src="../assets/images/product-fresh-apples.png" alt="Fresh Apples" loading="lazy">
+<div class="card-body">
+<span class="card-delivery-tag"><i class="fa-solid fa-bolt"></i> Delivery in 15 mins</span><span class="card-pack-size">1 kg</span><br><h5><a href="product-details.html?id=Fresh-Apples" class="text-decoration-none text-reset">Fresh Apples</a></h5><div class="rating-slot"></div>
+<p class="mb-2"><s class="text-muted">₹180</s> <strong class="text-danger">₹108</strong></p>
+<small class="text-muted d-block mb-2">Valid Until: Sunday</small>
+<div class="product-actions">
+<button class="btn-add-cart" data-add-cart><i class="fa-solid fa-cart-plus me-1"></i>Add to Cart</button>
+
+<button class="btn-wishlist" data-wishlist title="Add to Wishlist"><i class="fa-solid fa-heart"></i></button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col-md-6 col-lg-3 offer-item dairy">
+<div class="product-card" data-product data-rating="3.9" data-reviews="794" data-brand="FreshFarm" data-discount="25" data-new="0" data-name="Fresh Milk" data-price="60" data-img="../assets/images/product-fresh-milk.png" data-cat="Dairy" data-badge="25% OFF" data-original="80">
+<span class="discount-badge">25% OFF</span>
+<img src="../assets/images/product-fresh-milk.png" alt="Fresh Milk" loading="lazy">
+<div class="card-body">
+<span class="card-delivery-tag"><i class="fa-solid fa-bolt"></i> Delivery in 15 mins</span><span class="card-pack-size">1 L</span><br><h5><a href="product-details.html?id=Fresh-Milk" class="text-decoration-none text-reset">Fresh Milk</a></h5><div class="rating-slot"></div>
+<p class="mb-2"><s class="text-muted">₹80</s> <strong class="text-danger">₹60</strong></p>
+<small class="text-muted d-block mb-2">Valid Until: Sunday</small>
+<div class="product-actions">
+<button class="btn-add-cart" data-add-cart><i class="fa-solid fa-cart-plus me-1"></i>Add to Cart</button>
+
+<button class="btn-wishlist" data-wishlist title="Add to Wishlist"><i class="fa-solid fa-heart"></i></button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col-md-6 col-lg-3 offer-item bakery">
+<div class="product-card" data-product data-rating="4.4" data-reviews="72" data-brand="FreshFarm" data-discount="30" data-new="0" data-name="Whole Wheat Bread" data-price="42" data-img="../assets/images/product-whole-wheat-bread.png" data-cat="Bakery" data-badge="30% OFF" data-original="60">
+<span class="discount-badge">30% OFF</span>
+<img src="../assets/images/product-whole-wheat-bread.png" alt="Whole Wheat Bread" loading="lazy">
+<div class="card-body">
+<span class="card-delivery-tag"><i class="fa-solid fa-bolt"></i> Delivery in 15 mins</span><span class="card-pack-size">400 g</span><br><h5><a href="product-details.html?id=Whole-Wheat-Bread" class="text-decoration-none text-reset">Whole Wheat Bread</a></h5><div class="rating-slot"></div>
+<p class="mb-2"><s class="text-muted">₹60</s> <strong class="text-danger">₹42</strong></p>
+<small class="text-muted d-block mb-2">Valid Until: Sunday</small>
+<div class="product-actions">
+<button class="btn-add-cart" data-add-cart><i class="fa-solid fa-cart-plus me-1"></i>Add to Cart</button>
+
+<button class="btn-wishlist" data-wishlist title="Add to Wishlist"><i class="fa-solid fa-heart"></i></button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col-md-6 col-lg-3 offer-item snacks">
+<div class="product-card" data-product data-rating="3.9" data-reviews="557" data-brand="FreshFarm" data-discount="50" data-new="0" data-name="Potato Chips" data-price="25" data-img="../assets/images/product-potato-chips.png" data-cat="Snacks" data-badge="50% OFF" data-original="50">
+<span class="discount-badge">50% OFF</span>
+<img src="../assets/images/product-potato-chips.png" alt="Potato Chips" loading="lazy">
+<div class="card-body">
+<span class="card-delivery-tag"><i class="fa-solid fa-bolt"></i> Delivery in 15 mins</span><span class="card-pack-size">200 g</span><br><h5><a href="product-details.html?id=Potato-Chips" class="text-decoration-none text-reset">Potato Chips</a></h5><div class="rating-slot"></div>
+<p class="mb-2"><s class="text-muted">₹50</s> <strong class="text-danger">₹25</strong></p>
+<small class="text-muted d-block mb-2">Valid Until: Sunday</small>
+<div class="product-actions">
+<button class="btn-add-cart" data-add-cart><i class="fa-solid fa-cart-plus me-1"></i>Add to Cart</button>
+
+<button class="btn-wishlist" data-wishlist title="Add to Wishlist"><i class="fa-solid fa-heart"></i></button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col-md-6 col-lg-3 offer-item beverages">
+<div class="product-card" data-product data-rating="4.5" data-reviews="758" data-brand="GreenLeaf" data-discount="20" data-new="0" data-name="Orange Juice" data-price="96" data-img="../assets/images/product-orange-juice.png" data-cat="Beverages" data-badge="20% OFF" data-original="120">
+<span class="discount-badge">20% OFF</span>
+<img src="../assets/images/product-orange-juice.png" alt="Orange Juice" loading="lazy">
+<div class="card-body">
+<span class="card-delivery-tag"><i class="fa-solid fa-bolt"></i> Delivery in 15 mins</span><span class="card-pack-size">1 L</span><br><h5><a href="product-details.html?id=Orange-Juice" class="text-decoration-none text-reset">Orange Juice</a></h5><div class="rating-slot"></div>
+<p class="mb-2"><s class="text-muted">₹120</s> <strong class="text-danger">₹96</strong></p>
+<small class="text-muted d-block mb-2">Valid Until: Sunday</small>
+<div class="product-actions">
+<button class="btn-add-cart" data-add-cart><i class="fa-solid fa-cart-plus me-1"></i>Add to Cart</button>
+
+<button class="btn-wishlist" data-wishlist title="Add to Wishlist"><i class="fa-solid fa-heart"></i></button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col-md-6 col-lg-3 offer-item produce">
+<div class="product-card" data-product data-rating="4.2" data-reviews="324" data-brand="FreshFarm" data-discount="15" data-new="0" data-name="Bananas" data-price="51" data-img="../assets/images/product-bananas.png" data-cat="Produce" data-badge="15% OFF" data-original="60">
+<span class="discount-badge">15% OFF</span>
+<img src="../assets/images/product-bananas.png" alt="Bananas" loading="lazy">
+<div class="card-body">
+<span class="card-delivery-tag"><i class="fa-solid fa-bolt"></i> Delivery in 15 mins</span><span class="card-pack-size">1 kg</span><br><h5><a href="product-details.html?id=Bananas" class="text-decoration-none text-reset">Bananas</a></h5><div class="rating-slot"></div>
+<p class="mb-2"><s class="text-muted">₹60</s> <strong class="text-danger">₹51</strong></p>
+<small class="text-muted d-block mb-2">Valid Until: Sunday</small>
+<div class="product-actions">
+<button class="btn-add-cart" data-add-cart><i class="fa-solid fa-cart-plus me-1"></i>Add to Cart</button>
+
+<button class="btn-wishlist" data-wishlist title="Add to Wishlist"><i class="fa-solid fa-heart"></i></button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col-md-6 col-lg-3 offer-item dairy">
+<div class="product-card" data-product data-rating="4.5" data-reviews="388" data-brand="SuperMart Choice" data-discount="20" data-new="0" data-name="Cheddar Cheese" data-price="176" data-img="../assets/images/product-cheddar-cheese.png" data-cat="Dairy" data-badge="20% OFF" data-original="220">
+<span class="discount-badge">20% OFF</span>
+<img src="../assets/images/product-cheddar-cheese.png" alt="Cheddar Cheese" loading="lazy">
+<div class="card-body">
+<span class="card-delivery-tag"><i class="fa-solid fa-bolt"></i> Delivery in 15 mins</span><span class="card-pack-size">500 g</span><br><h5><a href="product-details.html?id=Cheddar-Cheese" class="text-decoration-none text-reset">Cheddar Cheese</a></h5><div class="rating-slot"></div>
+<p class="mb-2"><s class="text-muted">₹220</s> <strong class="text-danger">₹176</strong></p>
+<small class="text-muted d-block mb-2">Valid Until: Sunday</small>
+<div class="product-actions">
+<button class="btn-add-cart" data-add-cart><i class="fa-solid fa-cart-plus me-1"></i>Add to Cart</button>
+
+<button class="btn-wishlist" data-wishlist title="Add to Wishlist"><i class="fa-solid fa-heart"></i></button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col-md-6 col-lg-3 offer-item bakery">
+<div class="product-card" data-product data-rating="3.9" data-reviews="821" data-brand="SuperMart Choice" data-discount="35" data-new="0" data-name="Croissants" data-price="58" data-img="../assets/images/product-butter-croissants.png" data-cat="Bakery" data-badge="35% OFF" data-original="90">
+<span class="discount-badge">35% OFF</span>
+<img src="../assets/images/product-butter-croissants.png" alt="Butter Croissants" loading="lazy">
+<div class="card-body">
+<span class="card-delivery-tag"><i class="fa-solid fa-bolt"></i> Delivery in 15 mins</span><span class="card-pack-size">400 g</span><br><h5><a href="product-details.html?id=Croissants" class="text-decoration-none text-reset">Croissants</a></h5><div class="rating-slot"></div>
+<p class="mb-2"><s class="text-muted">₹90</s> <strong class="text-danger">₹58</strong></p>
+<small class="text-muted d-block mb-2">Valid Until: Sunday</small>
+<div class="product-actions">
+<button class="btn-add-cart" data-add-cart><i class="fa-solid fa-cart-plus me-1"></i>Add to Cart</button>
+
+<button class="btn-wishlist" data-wishlist title="Add to Wishlist"><i class="fa-solid fa-heart"></i></button>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="text-center mt-4">
+<a href="offers.html" class="btn btn-outline-danger">View All Offers</a>
+</div>
+</div>
+</section>
+
+<!-- Weekly Offers Countdown -->
+<section class="py-4" style="background:var(--color-section);">
+<div class="container text-center">
+<h2 class="mb-1"><i class="fa-solid fa-calendar-week text-danger me-2"></i>This Week's Offers</h2>
+<p class="text-muted mb-2">Fresh deals every week — refreshed every Monday. Hurry, this week's prices end soon!</p>
+<div id="weeklyCountdown" class="fw-bold fs-5 text-danger mb-2">Loading…</div>
+<a href="offers.html" class="btn btn-outline-danger">View All Weekly Offers</a>
+</div>
+</section>
+
+<!-- Flash Sale -->
+<section class="flash-sale py-4">
+<div class="container text-center">
+<h2>⚡ Flash Sale Today Only ⚡</h2>
+<p>Buy 2 Get 1 Free on Selected Snacks &amp; Beverages</p>
+<a href="offers.html" class="btn btn-warning mt-2">Shop Flash Deals</a>
+</div>
+</section>
+
+<!-- Quick Links -->
+<section class="py-4 bg-section">
+<div class="container">
+<div class="row g-3 text-center">
+<div class="col-6 col-md-3"><a href="cart.html" class="d-block p-4 bg-white rounded shadow-sm text-decoration-none" style="border-radius:14px!important;"><i class="fa-solid fa-cart-shopping fa-2x text-danger mb-2"></i><div class="fw-bold">My Cart</div></a></div>
+<div class="col-6 col-md-3"><a href="wishlist.html" class="d-block p-4 bg-white rounded shadow-sm text-decoration-none" style="border-radius:14px!important;"><i class="fa-solid fa-heart fa-2x text-danger mb-2"></i><div class="fw-bold">Wishlist</div></a></div>
+<div class="col-6 col-md-3"><a href="orders.html" class="d-block p-4 bg-white rounded shadow-sm text-decoration-none" style="border-radius:14px!important;"><i class="fa-solid fa-bag-shopping fa-2x text-danger mb-2"></i><div class="fw-bold">My Orders</div></a></div>
+<div class="col-6 col-md-3"><a href="login.html" class="d-block p-4 bg-white rounded shadow-sm text-decoration-none" style="border-radius:14px!important;"><i class="fa-solid fa-user fa-2x text-danger mb-2"></i><div class="fw-bold">Login / Register</div></a></div>
+</div>
+</div>
+</section>
+
+<!-- Loyalty -->
+<section class="py-5">
+<div class="container">
+<div class="row align-items-center">
+<div class="col-lg-6">
+<h2>Join Our Loyalty Program</h2>
+<p>Earn points on every purchase and redeem rewards.</p>
+<form id="loyaltyForm" class="mt-4" novalidate>
+<div class="mb-3"><label for="fullName" class="form-label">Full Name</label><input type="text" id="fullName" class="form-control" placeholder="Full Name"></div>
+<div class="mb-3"><label for="loyaltyEmail" class="form-label">Email Address</label><input type="email" id="loyaltyEmail" class="form-control" placeholder="Email Address"></div>
+<div class="mb-3"><label for="phone" class="form-label">Phone Number</label><input type="tel" id="phone" class="form-control" placeholder="Phone Number"></div>
+<button type="submit" class="btn btn-danger">Join Loyalty Program</button>
+</form>
+</div>
+<div class="col-lg-6 text-center">
+<i class="fa-solid fa-credit-card loyalty-icon"></i>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Store Locator -->
+<section class="bg-section py-5">
+<div class="container text-center">
+<h2>Find Your Nearest Store</h2>
+<p>Locate a branch near you in seconds.</p>
+<a href="store-locator.html" class="btn btn-warning">Find Branch</a>
+</div>
+</section>
+
+<!-- Newsletter -->
+<section class="newsletter py-5">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-8 text-center">
+<h2>Subscribe for Weekly Deals</h2>
+<p>Get exclusive discounts and weekly offers directly in your inbox.</p>
+<div class="row g-2 justify-content-center" id="nlForm">
+<div class="col-md-8"><input type="email" id="newsletterEmail" class="form-control" placeholder="Enter your email" style="height:55px;"></div>
+<div class="col-md-4"><button class="btn btn-danger w-100" style="height:55px;" onclick="subscribeNewsletter()">Subscribe</button></div>
+</div>
+<div class="subscribe-success" id="nlSuccess">
+<div class="ss-icon"><i class="fa-solid fa-circle-check"></i></div>
+<h3>You're In! 🎉</h3>
+<p>Subscribed! Watch your inbox for weekly deals.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer py-5">
+<div class="container">
+<div class="row">
+<div class="col-lg-3 col-md-6 mb-4">
+<h5>SuperMart</h5>
+<p>Fresh groceries every day, at honest prices.</p>
+</div>
+<div class="col-lg-3 col-md-6 mb-4">
+<h5>Quick Links</h5>
+<ul class="list-unstyled">
+<li><a href="index.html">Home</a></li>
+<li><a href="offers.html">Offers</a></li>
+<li><a href="categories.html">Categories</a></li>
+<li><a href="store-locator.html">Stores</a></li>
+</ul>
+</div>
+<div class="col-lg-3 col-md-6 mb-4">
+<h5>Admin</h5>
+<ul class="list-unstyled">
+<li><a href="admin-login.html">Admin Panel</a></li>
+<li><a href="admin-dashboard.html">Dashboard</a></li>
+</ul>
+</div>
+<div class="col-lg-3 col-md-6 mb-4">
+<h5>Contact</h5>
+<p><i class="fa-solid fa-phone me-2"></i>+91 9876543210</p>
+<p><i class="fa-solid fa-envelope me-2"></i>info@supermart.com</p>
+<div class="mt-3">
+<a href="#" aria-label="Facebook"><i class="fab fa-facebook fa-lg me-3"></i></a>
+<a href="#" aria-label="Instagram"><i class="fab fa-instagram fa-lg me-3"></i></a>
+<a href="#" aria-label="Twitter"><i class="fab fa-twitter fa-lg"></i></a>
+</div>
+<div class="mt-3">
+<a href="login.html" class="btn btn-outline-light btn-sm me-1"><i class="fa-solid fa-user me-1"></i>Login</a>
+<a href="register.html" class="btn btn-outline-light btn-sm me-1"><i class="fa-solid fa-user-plus me-1"></i>Register</a>
+<a href="admin-login.html" class="btn btn-outline-light btn-sm">Admin</a>
+</div>
+</div>
+</div>
+<hr>
+<div class="text-center">&copy; 2026 SuperMart. All Rights Reserved.</div>
+</div>
+</footer>
+
+<div class="sm-toast" id="smToast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/features.js"></script>
+<script src="../assets/js/enhance.js"></script>
+<script src="../assets/js/products-data.js"></script>
+<script>
+function subscribeNewsletter(){
+  const em=document.getElementById('newsletterEmail').value.trim();
+  if(!em||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){showToast('Please enter a valid email address.','error');return;}
+  window.location.href='404.html';
+}
+// Auth state update
+const user=JSON.parse(localStorage.getItem('smUser')||'{}');
+if(user.name){
+  document.getElementById('authArea').innerHTML=`
+    <a href="profile.html" class="btn btn-outline-danger btn-sm me-1"><i class="fa-solid fa-user me-1"></i>${user.name.split(' ')[0]}</a>
+    <a href="#" class="btn btn-danger btn-sm" onclick="logoutNow(event)">Logout</a>
+  `;
+}
+function logoutNow(e){e.preventDefault();localStorage.removeItem('smUser');location.reload();}
+</script>
+</body>
+</html>

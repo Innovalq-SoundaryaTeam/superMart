@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PixelCraft Agency | Creative Digital Solutions</title>
+<meta name="description" content="Award-winning digital agency specialising in branding, web design, and growth marketing for ambitious brands.">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/dark-mode.css">
+<link rel="stylesheet" href="../assets/css/rtl.css">
+<link rel="stylesheet" href="../assets/css/features.css">
+<link rel="stylesheet" href="../assets/css/enhance.css">
+<style>
+/* ── AGENCY HERO ── */
+.agency-hero{
+  min-height:100vh;
+  background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+  display:flex;align-items:center;
+  position:relative;overflow:hidden;
+  padding:100px 0 60px;
+}
+.agency-hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 70% 50%,rgba(230,57,70,.18) 0%,transparent 70%);
+}
+.agency-hero h1{color:#fff;font-size:clamp(2.2rem,5vw,4rem);line-height:1.15;font-weight:900;}
+.agency-hero .lead{color:rgba(255,255,255,.75);font-size:1.15rem;}
+.agency-hero .hero-badge{
+  display:inline-block;background:rgba(230,57,70,.2);border:1px solid rgba(230,57,70,.5);
+  color:#E63946;border-radius:50px;padding:6px 18px;font-size:13px;font-weight:700;
+  letter-spacing:.5px;margin-bottom:20px;
+}
+.hero-float-card{
+  background:rgba(255,255,255,.06);backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.12);border-radius:16px;
+  padding:18px 22px;color:#fff;
+  display:flex;align-items:center;gap:14px;margin-bottom:14px;
+  transition:var(--transition);
+}
+.hero-float-card:hover{background:rgba(255,255,255,.1);transform:translateX(6px);}
+.hero-float-card i{font-size:1.5rem;color:#E63946;}
+.hero-float-card .fc-title{font-weight:700;font-size:15px;}
+.hero-float-card .fc-sub{font-size:12px;color:rgba(255,255,255,.55);}
+
+/* ── MARQUEE CLIENT STRIP ── */
+.client-marquee{background:#111;padding:16px 0;overflow:hidden;}
+.marquee-inner{display:flex;gap:60px;animation:marquee 22s linear infinite;white-space:nowrap;}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.marquee-inner span{color:rgba(255,255,255,.35);font-weight:700;font-size:15px;letter-spacing:2px;text-transform:uppercase;}
+
+/* ── SECTION LABEL ── */
+.section-label{
+  display:inline-block;background:rgba(230,57,70,.1);color:var(--color-primary);
+  border-radius:50px;padding:5px 16px;font-size:12px;font-weight:700;
+  letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;
+}
+
+/* ── SERVICE CARDS ── */
+.svc-card{
+  background:var(--color-card);border-radius:16px;padding:32px 28px;
+  box-shadow:var(--shadow);transition:var(--transition);height:100%;
+  border-bottom:3px solid transparent;
+}
+.svc-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-hover);border-bottom-color:var(--color-primary);}
+.svc-icon{
+  width:60px;height:60px;border-radius:14px;background:rgba(230,57,70,.1);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;color:var(--color-primary);margin-bottom:20px;
+  transition:var(--transition);
+}
+.svc-card:hover .svc-icon{background:var(--color-primary);color:#fff;}
+
+/* ── PORTFOLIO ── */
+.portfolio-item{
+  position:relative;border-radius:16px;overflow:hidden;
+  box-shadow:var(--shadow);transition:var(--transition);
+}
+.portfolio-item img{width:100%;height:240px;object-fit:cover;transition:var(--transition);}
+.portfolio-item:hover img{transform:scale(1.07);}
+.portfolio-overlay{
+  position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(0,0,0,.85));
+  opacity:0;transition:var(--transition);display:flex;align-items:flex-end;padding:20px;
+}
+.portfolio-item:hover .portfolio-overlay{opacity:1;}
+.portfolio-overlay h6{color:#fff;margin:0;font-size:15px;}
+.portfolio-overlay span{color:rgba(255,255,255,.7);font-size:12px;}
+.port-tag{
+  position:absolute;top:14px;left:14px;background:var(--color-primary);
+  color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px;
+}
+
+/* ── PROCESS ── */
+.process-step{text-align:center;position:relative;}
+.process-step::after{
+  content:'';position:absolute;top:28px;left:calc(50% + 40px);
+  width:calc(100% - 80px);height:2px;background:var(--color-border);
+}
+.process-step:last-child::after{display:none;}
+.step-circle{
+  width:56px;height:56px;border-radius:50%;background:var(--color-primary);color:#fff;
+  font-weight:800;font-size:1.1rem;display:flex;align-items:center;justify-content:center;
+  margin:0 auto 16px;box-shadow:0 4px 15px rgba(230,57,70,.3);
+}
+
+/* ── STATS ── */
+.stat-strip{
+  background:linear-gradient(135deg,var(--color-primary),#ff6b6b);
+  color:#fff;padding:60px 0;
+}
+.stat-item{text-align:center;}
+.stat-item .num{font-size:2.8rem;font-weight:900;font-family:'Nunito',sans-serif;line-height:1;}
+.stat-item .lbl{font-size:14px;opacity:.85;margin-top:6px;}
+
+/* ── TESTIMONIALS ── */
+.testi-card{
+  background:var(--color-card);border-radius:16px;padding:28px;
+  box-shadow:var(--shadow);transition:var(--transition);height:100%;
+}
+.testi-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-hover);}
+.testi-quote{font-size:2.5rem;color:var(--color-primary);line-height:1;margin-bottom:10px;}
+.testi-stars{color:#FFD166;font-size:14px;margin-bottom:12px;}
+.testi-avatar{width:48px;height:48px;border-radius:50%;object-fit:cover;}
+
+/* ── TEAM ── */
+.agency-team-card{
+  background:var(--color-card);border-radius:16px;overflow:hidden;
+  box-shadow:var(--shadow);transition:var(--transition);text-align:center;
+}
+.agency-team-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-hover);}
+.agency-team-card img{width:100%;height:220px;object-fit:cover;}
+.agency-team-card .card-body{padding:20px;}
+.social-links a{color:#aaa;margin:0 5px;font-size:14px;transition:var(--transition);}
+.social-links a:hover{color:var(--color-primary);}
+
+/* ── CTA SECTION ── */
+.agency-cta{
+  background:linear-gradient(135deg,#0f0c29,#302b63);
+  color:#fff;text-align:center;padding:100px 0;
+}
+.agency-cta h2{color:#fff;font-size:clamp(1.8rem,4vw,3rem);}
+.agency-cta p{color:rgba(255,255,255,.7);font-size:1.1rem;}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- Top Bar -->
+<div class="top-bar py-2">
+<div class="container d-flex justify-content-between align-items-center">
+<span><i class="fa-solid fa-award me-1"></i> Award-Winning Digital Agency since 2015</span>
+<a href="contact.html" class="text-decoration-none"><i class="fa-solid fa-phone me-1"></i> +91 98765 43210</a>
+</div>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg shadow-sm sticky-top" style="background:rgba(15,12,41,.97);backdrop-filter:blur(10px);">
+<div class="container">
+<a class="navbar-brand fw-bold" href="home2.html" style="color:#E63946;font-size:1.6rem;">Pixel<span style="color:#fff;">Craft</span></a>
+<button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu2" aria-label="Toggle navigation">
+<i class="fa-solid fa-bars text-white"></i>
+</button>
+<div class="collapse navbar-collapse" id="navMenu2">
+<ul class="navbar-nav ms-auto align-items-lg-center">
+<li class="nav-item"><a class="nav-link active" href="home2.html" style="color:rgba(255,255,255,.85);">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="services.html" style="color:rgba(255,255,255,.85);">Services</a></li>
+<li class="nav-item"><a class="nav-link" href="pricing.html" style="color:rgba(255,255,255,.85);">Pricing</a></li>
+<li class="nav-item"><a class="nav-link" href="blog.html" style="color:rgba(255,255,255,.85);">Blog</a></li>
+<li class="nav-item"><a class="nav-link" href="about.html" style="color:rgba(255,255,255,.85);">About</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html" style="color:rgba(255,255,255,.85);">Contact</a></li>
+</ul>
+<div class="d-flex align-items-center gap-2 ms-lg-3">
+<a href="contact.html" class="btn btn-danger btn-sm px-4">Get a Quote</a>
+<button id="themeToggle" class="btn btn-outline-light btn-sm ms-2" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+</div>
+</div>
+</div>
+</nav>
+
+<main id="main-content">
+
+<!-- ── HERO ── -->
+<section class="agency-hero">
+<div class="container position-relative">
+<div class="row align-items-center g-5">
+<div class="col-lg-6">
+<span class="hero-badge"><i class="fa-solid fa-star me-1"></i> #1 Rated Agency 2025</span>
+<h1>We Build Digital<br><span style="color:#E63946;">Experiences</span> That Convert</h1>
+<p class="lead mt-3 mb-4">From bold brands to high-performance websites — PixelCraft turns strategy into stunning digital reality for ambitious businesses.</p>
+<div class="d-flex gap-3 flex-wrap">
+<a href="services.html" class="btn btn-danger btn-lg px-5">Our Services</a>
+<a href="contact.html" class="btn btn-outline-light btn-lg px-5">Talk to Us</a>
+</div>
+<div class="mt-4 d-flex align-items-center gap-3">
+<div class="d-flex">
+<img src="../assets/images/agency-client-1.jpg" data-fallback="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=36&h=36&fit=crop&crop=face" style="width:36px;height:36px;border-radius:50%;border:2px solid #E63946;margin-right:-10px;" alt="client">
+<img src="../assets/images/agency-client-2.jpg" data-fallback="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=36&h=36&fit=crop&crop=face" style="width:36px;height:36px;border-radius:50%;border:2px solid #E63946;margin-right:-10px;" alt="client">
+<img src="../assets/images/agency-client-3.jpg" data-fallback="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=36&h=36&fit=crop&crop=face" style="width:36px;height:36px;border-radius:50%;border:2px solid #E63946;" alt="client">
+</div>
+<span style="color:rgba(255,255,255,.7);font-size:13px;"><strong style="color:#FFD166;">200+</strong> happy clients worldwide</span>
+</div>
+</div>
+<div class="col-lg-6">
+<div class="hero-float-card reveal">
+<i class="fa-solid fa-palette"></i>
+<div><div class="fc-title">Brand Identity Design</div><div class="fc-sub">Logos, guidelines, visual systems</div></div>
+<span class="ms-auto badge bg-danger">New</span>
+</div>
+<div class="hero-float-card reveal">
+<i class="fa-solid fa-code"></i>
+<div><div class="fc-title">Web Development</div><div class="fc-sub">Custom, fast, scalable websites</div></div>
+<span class="ms-auto text-success small fw-bold">✓ Live</span>
+</div>
+<div class="hero-float-card reveal">
+<i class="fa-solid fa-chart-line"></i>
+<div><div class="fc-title">Growth Marketing</div><div class="fc-sub">SEO, PPC, social strategy</div></div>
+<div class="ms-auto text-end"><div style="color:#FFD166;font-weight:700;">+312%</div><div class="fc-sub">avg ROI</div></div>
+</div>
+<div class="hero-float-card reveal">
+<i class="fa-solid fa-mobile-screen"></i>
+<div><div class="fc-title">Mobile App Design</div><div class="fc-sub">iOS & Android UX/UI</div></div>
+<span class="ms-auto badge bg-warning text-dark">Hot</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Client Marquee -->
+<div class="client-marquee">
+<div class="marquee-inner">
+<span>Google</span><span>Microsoft</span><span>Shopify</span><span>Airbnb</span><span>Stripe</span>
+<span>Figma</span><span>Notion</span><span>Slack</span><span>HubSpot</span><span>Mailchimp</span>
+<!-- duplicate for seamless loop -->
+<span>Google</span><span>Microsoft</span><span>Shopify</span><span>Airbnb</span><span>Stripe</span>
+<span>Figma</span><span>Notion</span><span>Slack</span><span>HubSpot</span><span>Mailchimp</span>
+</div>
+</div>
+
+<!-- ── SERVICES ── -->
+<section class="py-5">
+<div class="container">
+<div class="text-center mb-5">
+<span class="section-label">What We Do</span>
+<h2 class="mt-2">Services Built for Growth</h2>
+<p class="text-muted mx-auto" style="max-width:540px;">We combine creativity with technology to deliver measurable results across every digital channel.</p>
+</div>
+<div class="row g-4">
+<div class="col-md-6 col-lg-4 reveal">
+<div class="svc-card">
+<div class="svc-icon"><i class="fa-solid fa-palette"></i></div>
+<h5>Brand Identity</h5>
+<p class="text-muted">Distinctive logos, colour palettes, and brand guidelines that make you unforgettable.</p>
+<a href="service-details.html" class="text-danger fw-bold small">Learn more <i class="fa-solid fa-arrow-right ms-1"></i></a>
+</div>
+</div>
+<div class="col-md-6 col-lg-4 reveal">
+<div class="svc-card">
+<div class="svc-icon"><i class="fa-solid fa-code"></i></div>
+<h5>Web Development</h5>
+<p class="text-muted">Lightning-fast, SEO-optimised websites built with modern frameworks and clean code.</p>
+<a href="service-details.html" class="text-danger fw-bold small">Learn more <i class="fa-solid fa-arrow-right ms-1"></i></a>
+</div>
+</div>
+<div class="col-md-6 col-lg-4 reveal">
+<div class="svc-card">
+<div class="svc-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+<h5>SEO & Content</h5>
+<p class="text-muted">Rank higher and drive qualified traffic with data-driven SEO and content strategy.</p>
+<a href="service-details.html" class="text-danger fw-bold small">Learn more <i class="fa-solid fa-arrow-right ms-1"></i></a>
+</div>
+</div>
+<div class="col-md-6 col-lg-4 reveal">
+<div class="svc-card">
+<div class="svc-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+<h5>UI / UX Design</h5>
+<p class="text-muted">User-centred interfaces that delight users and drive higher conversion rates.</p>
+<a href="service-details.html" class="text-danger fw-bold small">Learn more <i class="fa-solid fa-arrow-right ms-1"></i></a>
+</div>
+</div>
+<div class="col-md-6 col-lg-4 reveal">
+<div class="svc-card">
+<div class="svc-icon"><i class="fa-solid fa-bullhorn"></i></div>
+<h5>Paid Advertising</h5>
+<p class="text-muted">Profitable Google Ads, Meta, and LinkedIn campaigns managed end-to-end.</p>
+<a href="service-details.html" class="text-danger fw-bold small">Learn more <i class="fa-solid fa-arrow-right ms-1"></i></a>
+</div>
+</div>
+<div class="col-md-6 col-lg-4 reveal">
+<div class="svc-card">
+<div class="svc-icon"><i class="fa-solid fa-video"></i></div>
+<h5>Video & Motion</h5>
+<p class="text-muted">Scroll-stopping reels, explainer videos, and motion graphics for every platform.</p>
+<a href="service-details.html" class="text-danger fw-bold small">Learn more <i class="fa-solid fa-arrow-right ms-1"></i></a>
+</div>
+</div>
+</div>
+<div class="text-center mt-5">
+<a href="services.html" class="btn btn-outline-danger px-5">View All Services</a>
+</div>
+</div>
+</section>
+
+<!-- ── STATS ── -->
+<div class="stat-strip">
+<div class="container">
+<div class="row g-4 text-center">
+<div class="col-6 col-md-3 stat-item">
+<div class="num counter-num" data-target="200" data-suffix="+">0</div>
+<div class="lbl">Projects Delivered</div>
+</div>
+<div class="col-6 col-md-3 stat-item">
+<div class="num counter-num" data-target="98" data-suffix="%">0</div>
+<div class="lbl">Client Satisfaction</div>
+</div>
+<div class="col-6 col-md-3 stat-item">
+<div class="num counter-num" data-target="12" data-suffix=" yrs">0</div>
+<div class="lbl">Industry Experience</div>
+</div>
+<div class="col-6 col-md-3 stat-item">
+<div class="num counter-num" data-target="35" data-suffix="+">0</div>
+<div class="lbl">Awards Won</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ── PORTFOLIO ── -->
+<section class="py-5 bg-section">
+<div class="container">
+<div class="text-center mb-5">
+<span class="section-label">Our Work</span>
+<h2 class="mt-2">Selected Projects</h2>
+<p class="text-muted">A glimpse of what we've built for brands like yours.</p>
+</div>
+<div class="row g-4">
+<div class="col-md-6 col-lg-4 reveal">
+<div class="portfolio-item">
+<span class="port-tag">Branding</span>
+<img src="../assets/images/portfolio-branding.jpg" data-fallback="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=450&fit=crop" alt="Branding project">
+<div class="portfolio-overlay"><div><h6>NovaBrew Coffee Co.</h6><span>Brand Identity · Packaging</span></div></div>
+</div>
+</div>
+<div class="col-md-6 col-lg-4 reveal">
+<div class="portfolio-item">
+<span class="port-tag">Web Dev</span>
+<img src="../assets/images/portfolio-web.jpg" data-fallback="https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&h=450&fit=crop" alt="Web development project">
+<div class="portfolio-overlay"><div><h6>LuxStay Boutique Hotels</h6><span>Website · Booking System</span></div></div>
+</div>
+</div>
+<div class="col-md-6 col-lg-4 reveal">
+<div class="portfolio-item">
+<span class="port-tag">UI/UX</span>
+<img src="../assets/images/portfolio-mobile.jpg" data-fallback="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=450&fit=crop" alt="Mobile app design">
+<div class="portfolio-overlay"><div><h6>FitTrack App</h6><span>Mobile UX · iOS & Android</span></div></div>
+</div>
+</div>
+<div class="col-md-6 col-lg-4 reveal">
+<div class="portfolio-item">
+<span class="port-tag">Marketing</span>
+<img src="../assets/images/portfolio-marketing.jpg" data-fallback="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=450&fit=crop" alt="Marketing campaign">
+<div class="portfolio-overlay"><div><h6>EcoNest Furniture</h6><span>SEO · Google Ads · +280% Traffic</span></div></div>
+</div>
+</div>
+<div class="col-md-6 col-lg-4 reveal">
+<div class="portfolio-item">
+<span class="port-tag">Branding</span>
+<img src="../assets/images/portfolio-education.jpg" data-fallback="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&h=450&fit=crop" alt="Education branding">
+<div class="portfolio-overlay"><div><h6>LearnVault EdTech</h6><span>Brand · Web · Content</span></div></div>
+</div>
+</div>
+<div class="col-md-6 col-lg-4 reveal">
+<div class="portfolio-item">
+<span class="port-tag">Video</span>
+<img src="../assets/images/portfolio-video.jpg" data-fallback="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&h=450&fit=crop" alt="Video production">
+<div class="portfolio-overlay"><div><h6>AquaPure Water</h6><span>Brand Film · Social Content</span></div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ── HOW WE WORK ── -->
+<section class="py-5">
+<div class="container">
+<div class="text-center mb-5">
+<span class="section-label">Our Process</span>
+<h2 class="mt-2">How We Work</h2>
+<p class="text-muted">A proven 4-step process that keeps projects on time, on brief and on budget.</p>
+</div>
+<div class="row g-4 text-center">
+<div class="col-md-3 reveal">
+<div class="process-step">
+<div class="step-circle">1</div>
+<h6 class="fw-bold">Discover</h6>
+<p class="text-muted small">We deep-dive into your goals, audience, and competition to shape a winning strategy.</p>
+</div>
+</div>
+<div class="col-md-3 reveal">
+<div class="process-step">
+<div class="step-circle">2</div>
+<h6 class="fw-bold">Design</h6>
+<p class="text-muted small">Our creatives craft wireframes and visual concepts aligned with your brand voice.</p>
+</div>
+</div>
+<div class="col-md-3 reveal">
+<div class="process-step">
+<div class="step-circle">3</div>
+<h6 class="fw-bold">Build</h6>
+<p class="text-muted small">Developers bring designs to life — clean code, fast load times, fully tested.</p>
+</div>
+</div>
+<div class="col-md-3 reveal">
+<div class="process-step">
+<div class="step-circle">4</div>
+<h6 class="fw-bold">Launch & Grow</h6>
+<p class="text-muted small">We ship, monitor, and optimise continuously so your results keep improving.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="py-5 bg-section">
+<div class="container">
+<div class="text-center mb-5">
+<span class="section-label">Client Love</span>
+<h2 class="mt-2">What Our Clients Say</h2>
+</div>
+<div class="row g-4">
+<div class="col-md-4 reveal">
+<div class="testi-card">
+<div class="testi-quote">"</div>
+<div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+<p class="text-muted mb-4">"PixelCraft redesigned our entire brand in 3 weeks. The results were jaw-dropping — our conversion rate jumped 68% in the first month."</p>
+<div class="d-flex align-items-center gap-3">
+<img src="../assets/images/agency-testi-sarah.jpg" data-fallback="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=60&h=60&fit=crop&crop=face" class="testi-avatar" alt="Sarah">
+<div><div class="fw-bold">Sarah Chen</div><div class="text-muted small">CEO, NovaBrew Coffee</div></div>
+</div>
+</div>
+</div>
+<div class="col-md-4 reveal">
+<div class="testi-card">
+<div class="testi-quote">"</div>
+<div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+<p class="text-muted mb-4">"We tried three agencies before PixelCraft. Nobody else came close to their level of creativity and communication. Truly world-class."</p>
+<div class="d-flex align-items-center gap-3">
+<img src="../assets/images/agency-testi-rohan.jpg" data-fallback="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face" class="testi-avatar" alt="Rohan">
+<div><div class="fw-bold">Rohan Mehta</div><div class="text-muted small">Founder, LuxStay Hotels</div></div>
+</div>
+</div>
+</div>
+<div class="col-md-4 reveal">
+<div class="testi-card">
+<div class="testi-quote">"</div>
+<div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+<p class="text-muted mb-4">"Our Google Ads ROI went from 120% to 410% after handing campaigns to PixelCraft. They know exactly what they're doing."</p>
+<div class="d-flex align-items-center gap-3">
+<img src="../assets/images/agency-testi-anika.jpg" data-fallback="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop&crop=face" class="testi-avatar" alt="Anika">
+<div><div class="fw-bold">Anika Patel</div><div class="text-muted small">CMO, EcoNest Furniture</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ── TEAM ── -->
+<section class="py-5">
+<div class="container">
+<div class="text-center mb-5">
+<span class="section-label">Meet the Team</span>
+<h2 class="mt-2">The Minds Behind the Magic</h2>
+</div>
+<div class="row g-4 justify-content-center">
+<div class="col-md-6 col-lg-3 reveal">
+<div class="agency-team-card">
+<img src="../assets/images/agency-team-alex.jpg" data-fallback="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face" alt="Alex Morgan">
+<div class="card-body">
+<h6 class="fw-bold mb-1">Alex Morgan</h6>
+<small class="text-muted">Creative Director</small>
+<div class="social-links mt-2">
+<a href="#"><i class="fab fa-linkedin"></i></a>
+<a href="#"><i class="fab fa-twitter"></i></a>
+<a href="#"><i class="fab fa-behance"></i></a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-lg-3 reveal">
+<div class="agency-team-card">
+<img src="../assets/images/agency-team-priya.jpg" data-fallback="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=300&h=300&fit=crop&crop=face" alt="Priya Sharma">
+<div class="card-body">
+<h6 class="fw-bold mb-1">Priya Sharma</h6>
+<small class="text-muted">Head of UX</small>
+<div class="social-links mt-2">
+<a href="#"><i class="fab fa-linkedin"></i></a>
+<a href="#"><i class="fab fa-dribbble"></i></a>
+<a href="#"><i class="fab fa-behance"></i></a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-lg-3 reveal">
+<div class="agency-team-card">
+<img src="../assets/images/agency-team-james.jpg" data-fallback="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop&crop=face" alt="James Lee">
+<div class="card-body">
+<h6 class="fw-bold mb-1">James Lee</h6>
+<small class="text-muted">Lead Developer</small>
+<div class="social-links mt-2">
+<a href="#"><i class="fab fa-linkedin"></i></a>
+<a href="#"><i class="fab fa-github"></i></a>
+<a href="#"><i class="fab fa-twitter"></i></a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-lg-3 reveal">
+<div class="agency-team-card">
+<img src="../assets/images/agency-team-nina.jpg" data-fallback="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=300&h=300&fit=crop&crop=face" alt="Nina Okafor">
+<div class="card-body">
+<h6 class="fw-bold mb-1">Nina Okafor</h6>
+<small class="text-muted">Growth Strategist</small>
+<div class="social-links mt-2">
+<a href="#"><i class="fab fa-linkedin"></i></a>
+<a href="#"><i class="fab fa-twitter"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="agency-cta">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-7 text-center">
+<span class="section-label" style="background:rgba(255,255,255,.1);color:#FFD166;">Ready to Scale?</span>
+<h2 class="mt-3 mb-3">Let's Build Something <span style="color:#E63946;">Remarkable</span> Together</h2>
+<p>Tell us about your project and we'll come back with a free strategy brief within 24 hours.</p>
+<div class="d-flex gap-3 justify-content-center flex-wrap mt-4">
+<a href="contact.html" class="btn btn-danger btn-lg px-5">Start a Project</a>
+<a href="pricing.html" class="btn btn-outline-light btn-lg px-5">See Pricing</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer py-5">
+<div class="container">
+<div class="row">
+<div class="col-lg-4 mb-4">
+<h5 style="color:#E63946;font-size:1.4rem;">Pixel<span style="color:#fff;">Craft</span></h5>
+<p>Award-winning digital agency helping brands grow faster online through design, technology, and performance marketing.</p>
+<div class="mt-3">
+<a href="#" class="me-3"><i class="fab fa-instagram fa-lg"></i></a>
+<a href="#" class="me-3"><i class="fab fa-linkedin fa-lg"></i></a>
+<a href="#" class="me-3"><i class="fab fa-twitter fa-lg"></i></a>
+<a href="#"><i class="fab fa-dribbble fa-lg"></i></a>
+</div>
+</div>
+<div class="col-lg-2 col-md-4 mb-4">
+<h5>Services</h5>
+<ul class="list-unstyled">
+<li><a href="service-details.html">Brand Identity</a></li>
+<li><a href="service-details.html">Web Development</a></li>
+<li><a href="service-details.html">SEO & Content</a></li>
+<li><a href="service-details.html">UI/UX Design</a></li>
+<li><a href="service-details.html">Paid Ads</a></li>
+</ul>
+</div>
+<div class="col-lg-2 col-md-4 mb-4">
+<h5>Company</h5>
+<ul class="list-unstyled">
+<li><a href="about.html">About Us</a></li>
+<li><a href="blog.html">Blog</a></li>
+<li><a href="pricing.html">Pricing</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</div>
+<div class="col-lg-4 col-md-4 mb-4">
+<h5>Get In Touch</h5>
+<p><i class="fa-solid fa-envelope me-2 text-danger"></i>hello@pixelcraft.agency</p>
+<p><i class="fa-solid fa-phone me-2 text-danger"></i>+91 98765 43210</p>
+<p><i class="fa-solid fa-location-dot me-2 text-danger"></i>Mumbai, India</p>
+<a href="contact.html" class="btn btn-danger btn-sm mt-2">Contact Us</a>
+</div>
+</div>
+<hr style="border-color:rgba(255,255,255,.1);">
+<div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+<small>&copy; 2026 PixelCraft Agency. All Rights Reserved.</small>
+<small>
+<a href="index.html" class="text-muted me-3">← Switch to SuperMart Template</a>
+<a href="#" class="text-muted me-2">Privacy</a>
+<a href="#" class="text-muted">Terms</a>
+</small>
+</div>
+</div>
+</footer>
+
+<div class="sm-toast" id="smToast"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/features.js"></script>
+<script src="../assets/js/enhance.js"></script>
+</body>
+</html>

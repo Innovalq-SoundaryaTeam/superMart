@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SuperMart – Image Replacement Guide</title>
+<style>
+  body { font-family: Arial, sans-serif; max-width: 1100px; margin: 0 auto; padding: 24px; background: #f8f9fa; color: #212529; }
+  h1 { color: #E63946; margin-bottom: 4px; }
+  .subtitle { color: #666; margin-top: 0; margin-bottom: 32px; }
+  .how-to { background: #fff3cd; border-left: 4px solid #ffc107; padding: 16px 20px; border-radius: 4px; margin-bottom: 32px; }
+  .how-to h3 { margin-top: 0; }
+  .how-to ol { margin-bottom: 0; }
+  h2 { background: #E63946; color: #fff; padding: 10px 16px; border-radius: 6px; margin-top: 40px; margin-bottom: 0; }
+  table { width: 100%; border-collapse: collapse; background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,.1); margin-bottom: 8px; }
+  th { background: #343a40; color: #fff; text-align: left; padding: 10px 14px; font-size: 13px; }
+  td { padding: 9px 14px; border-bottom: 1px solid #dee2e6; font-size: 14px; vertical-align: middle; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #f1f3f5; }
+  .filename { font-family: monospace; background: #e9ecef; padding: 2px 6px; border-radius: 3px; font-size: 13px; color: #c7254e; white-space: nowrap; }
+  .size { color: #6c757d; font-size: 12px; white-space: nowrap; }
+  .tag { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: bold; }
+  .tag-product { background: #d1ecf1; color: #0c5460; }
+  .tag-team { background: #d4edda; color: #155724; }
+  .tag-blog { background: #fff3cd; color: #856404; }
+  .tag-cat { background: #e2d9f3; color: #432874; }
+  .tag-service { background: #fce8e8; color: #721c24; }
+  .tag-agency { background: #d0e4ff; color: #003580; }
+  .tag-hero { background: #ffe8a1; color: #665000; }
+  .tag-avatar { background: #f0f0f0; color: #444; }
+  .note { font-size: 12px; color: #888; font-style: italic; }
+  .folder-path { background: #212529; color: #69ff9c; padding: 12px 18px; border-radius: 6px; font-family: monospace; font-size: 15px; margin: 16px 0; display: block; }
+  .count { float: right; font-size: 13px; font-weight: normal; opacity: .8; }
+</style>
+</head>
+<body>
+
+<h1>SuperMart – Image Replacement Guide</h1>
+<p class="subtitle">Complete list of every image in the project with the filename you should use.</p>
+
+<div class="how-to">
+  <h3>📌 How to replace images</h3>
+  <ol>
+    <li>Find the <code>assets/images/</code> folder inside your project (it's already created)</li>
+    <li>Rename your image file to exactly match the <strong>Save as filename</strong> column below</li>
+    <li>Copy it into <code>assets/images/</code></li>
+    <li>Done — the website will automatically use it</li>
+  </ol>
+  <p style="margin-bottom:0;">✅ Images can be <strong>JPG or PNG</strong> — both formats work. If a JPG isn't found the site automatically tries PNG, and vice versa. Use the recommended size as a guide.</p>
+</div>
+
+<span class="folder-path">📁  supermart-enhanced-fixed (5) / assets / images /  ← paste all images here</span>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2>index.html — Home Page 1 <span class="count">9 images</span></h2>
+<table>
+  <tr><th>Save as filename</th><th>What the image shows</th><th>Recommended size</th><th>Type</th></tr>
+  <tr><td><span class="filename">hero-banner.jpg</span></td><td>Homepage hero slider — fresh produce / grocery store interior</td><td class="size">1200 × 600 px</td><td><span class="tag tag-hero">Hero</span></td></tr>
+  <tr><td><span class="filename">product-fresh-apples.jpg</span></td><td>Red apples (product card)</td><td class="size">600 × 600 px</td><td><span class="tag tag-product">Product</span></td></tr>
+  <tr><td><span class="filename">product-fresh-milk.jpg</span></td><td>Fresh milk carton or glass</td><td class="size">600 × 600 px</td><td><span class="tag tag-product">Product</span></td></tr>
+  <tr><td><span class="filename">product-whole-wheat-bread.jpg</span></td><td>Whole wheat bread loaf</td><td class="size">600 × 600 px</td><td><span class="tag tag-product">Product</span></td></tr>
+  <tr><td><span class="filename">product-potato-chips.jpg</span></td><td>Potato chips / crisps packet</td><td class="size">600 × 600 px</td><td><span class="tag tag-product">Product</span></td></tr>
+  <tr><td><span class="filename">product-orange-juice.jpg</span></td><td>Orange juice bottle or glass</td><td class="size">600 × 600 px</td><td><span class="tag tag-product">Product</span></td></tr>
+  <tr><td><span class="filename">product-bananas.jpg</span></td><td>Yellow bananas bunch</td><td class="size">600 × 600 px</td><td><span class="tag tag-product">Product</span></td></tr>
+  <tr><td><span class="filename">product-cheddar-cheese.jpg</span></td><td>Cheddar cheese block or slices</td><td class="size">600 × 600 px</td><td><span class="tag tag-product">Product</span></td></tr>
+  <tr><td><span class="filename">product-butter-croissants.jpg</span></td><td>Butter croissants (bakery)</td><td class="size">600 × 600 px</td><td><span class="tag tag-product">Product</span></td></tr>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2>about.html — About Us <span class="count">4 images</span></h2>
+<table>
+  <tr><th>Save as filename</th><th>What the image shows</th><th>Recommended size</th><th>Type</th></tr>
+  <tr><td><span class="filename">about-store.jpg</span></td><td>Interior of a SuperMart store — aisles, shelves, bright lighting</td><td class="size">800 × 500 px</td><td><span class="tag tag-hero">Store</span></td></tr>
+  <tr><td><span class="filename">team-anita-rao.jpg</span></td><td>Portrait of Anita Rao — Store Director (woman, professional)</td><td class="size">400 × 400 px</td><td><span class="tag tag-team">Team</span></td></tr>
+  <tr><td><span class="filename">team-vikram-shah.jpg</span></td><td>Portrait of Vikram Shah — Operations Manager (man, professional)</td><td class="size">400 × 400 px</td><td><span class="tag tag-team">Team</span></td></tr>
+  <tr><td><span class="filename">team-priya-menon.jpg</span></td><td>Portrait of Priya Menon — Customer Experience Lead (woman, professional)</td><td class="size">400 × 400 px</td><td><span class="tag tag-team">Team</span></td></tr>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2>blog.html — Blog Listing <span class="count">6 images</span></h2>
+<table>
+  <tr><th>Save as filename</th><th>What the image shows</th><th>Recommended size</th><th>Type</th></tr>
+  <tr><td><span class="filename">blog-budget-recipes.jpg</span></td><td>Budget-friendly family meal / colourful food bowls</td><td class="size">600 × 400 px</td><td><span class="tag tag-blog">Blog</span></td></tr>
+  <tr><td><span class="filename">blog-nutrition-labels.jpg</span></td><td>Person reading a food nutrition label</td><td class="size">600 × 400 px</td><td><span class="tag tag-blog">Blog</span></td></tr>
+  <tr><td><span class="filename">blog-grocery-bill.jpg</span></td><td>Grocery shopping / fresh produce at market</td><td class="size">600 × 400 px</td><td><span class="tag tag-blog">Blog</span></td></tr>
+  <tr><td><span class="filename">blog-seasonal-produce.jpg</span></td><td>Colourful seasonal fruits and vegetables</td><td class="size">600 × 400 px</td><td><span class="tag tag-blog">Blog</span></td></tr>
+  <tr><td><span class="filename">blog-meal-prep.jpg</span></td><td>Meal prep containers with food laid out</td><td class="size">600 × 400 px</td><td><span class="tag tag-blog">Blog</span></td></tr>
+  <tr><td><span class="filename">blog-food-storage.jpg</span></td><td>Food storage containers or fridge organisation</td><td class="size">600 × 400 px</td><td><span class="tag tag-blog">Blog</span></td></tr>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2>blog-details.html — Blog Article Page <span class="count">13 images</span></h2>
+<table>
+  <tr><th>Save as filename</th><th>What the image shows</th><th>Recommended size</th><th>Type</th></tr>
+  <tr><td><span class="filename">blog-grocery-bill.jpg</span></td><td>Article hero — same as blog listing (reuse)</td><td class="size">1400 × 600 px</td><td><span class="tag tag-hero">Hero</span></td></tr>
+  <tr><td><span class="filename">blog-author-meera.jpg</span></td><td>Author portrait — Meera Nair (woman, face crop)</td><td class="size">200 × 200 px</td><td><span class="tag tag-avatar">Avatar</span></td></tr>
+  <tr><td><span class="filename">blog-detail-inline.jpg</span></td><td>Inline article image — weekly offer planning / grocery list</td><td class="size">800 × 500 px</td><td><span class="tag tag-blog">Blog</span></td></tr>
+  <tr><td><span class="filename">comment-ravi.jpg</span></td><td>Comment avatar — Ravi (man, face crop, small)</td><td class="size">100 × 100 px</td><td><span class="tag tag-avatar">Avatar</span></td></tr>
+  <tr><td><span class="filename">comment-priya.jpg</span></td><td>Comment avatar — Priya (woman, face crop, small)</td><td class="size">100 × 100 px</td><td><span class="tag tag-avatar">Avatar</span></td></tr>
+  <tr><td><span class="filename">comment-arjun.jpg</span></td><td>Comment avatar — Arjun (man, face crop, small)</td><td class="size">100 × 100 px</td><td><span class="tag tag-avatar">Avatar</span></td></tr>
+  <tr><td><span class="filename">blog-related-healthy-eating.jpg</span></td><td>Related post card — healthy colourful meal bowl</td><td class="size">400 × 280 px</td><td><span class="tag tag-blog">Blog</span></td></tr>
+  <tr><td><span class="filename">blog-seasonal-produce.jpg</span></td><td>Related post card — seasonal produce (reuse)</td><td class="size">400 × 280 px</td><td><span class="tag tag-blog">Blog</span></td></tr>
+  <tr><td><span class="filename">blog-meal-prep.jpg</span></td><td>Related post card — freezer meal prep (reuse)</td><td class="size">400 × 280 px</td><td><span class="tag tag-blog">Blog</span></td></tr>
+  <tr><td><span class="filename">blog-related-healthy-eating.jpg</span></td><td>Sidebar recent post thumbnail — healthy eating (reuse)</td><td class="size">80 × 80 px</td><td><span class="tag tag-blog">Blog</span></td></tr>
+  <tr><td><span class="filename">blog-seasonal-produce.jpg</span></td><td>Sidebar recent post thumbnail — July produce (reuse)</td><td class="size">80 × 80 px</td><td><span class="tag tag-blog">Blog</span></td></tr>
+  <tr><td><span class="filename">blog-meal-prep.jpg</span></td><td>Sidebar recent post thumbnail — freezer cooking (reuse)</td><td class="size">80 × 80 px</td><td><span class="tag tag-blog">Blog</span></td></tr>
+  <tr><td><span class="filename">product-fresh-milk.jpg</span></td><td>Sidebar recent post thumbnail — dairy tips (reuse)</td><td class="size">80 × 80 px</td><td><span class="tag tag-blog">Blog</span></td></tr>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2>categories.html — All Categories <span class="count">15 images</span></h2>
+<table>
+  <tr><th>Save as filename</th><th>What the image shows</th><th>Recommended size</th><th>Type</th></tr>
+  <tr><td><span class="filename">cat-produce.jpg</span></td><td>Fresh fruits &amp; vegetables / produce section</td><td class="size">600 × 400 px</td><td><span class="tag tag-cat">Category</span></td></tr>
+  <tr><td><span class="filename">cat-dairy.jpg</span></td><td>Dairy products — milk bottles, cheese, yogurt</td><td class="size">600 × 400 px</td><td><span class="tag tag-cat">Category</span></td></tr>
+  <tr><td><span class="filename">cat-meat.jpg</span></td><td>Fresh meat / butcher counter</td><td class="size">600 × 400 px</td><td><span class="tag tag-cat">Category</span></td></tr>
+  <tr><td><span class="filename">cat-bakery.jpg</span></td><td>Bakery items — breads, muffins, pastries</td><td class="size">600 × 400 px</td><td><span class="tag tag-cat">Category</span></td></tr>
+  <tr><td><span class="filename">cat-frozen.jpg</span></td><td>Frozen foods — ice cream, frozen vegetables, peas</td><td class="size">600 × 400 px</td><td><span class="tag tag-cat">Category</span></td></tr>
+  <tr><td><span class="filename">cat-snacks.jpg</span></td><td>Snacks — chips, biscuits, namkeen</td><td class="size">600 × 400 px</td><td><span class="tag tag-cat">Category</span></td></tr>
+  <tr><td><span class="filename">cat-beverages.jpg</span></td><td>Beverages — juice bottles, cola, water</td><td class="size">600 × 400 px</td><td><span class="tag tag-cat">Category</span></td></tr>
+  <tr><td><span class="filename">cat-household.jpg</span></td><td>Household items — cleaning sprays, mops</td><td class="size">600 × 400 px</td><td><span class="tag tag-cat">Category</span></td></tr>
+  <tr><td><span class="filename">cat-baby-kids.jpg</span></td><td>Baby products — diapers, wipes, bottles</td><td class="size">600 × 400 px</td><td><span class="tag tag-cat">Category</span></td></tr>
+  <tr><td><span class="filename">cat-rice.jpg</span></td><td>Rice grains / rice bag</td><td class="size">600 × 400 px</td><td><span class="tag tag-cat">Category</span></td></tr>
+  <tr><td><span class="filename">cat-pulses.jpg</span></td><td>Lentils / pulses / dal in bowls</td><td class="size">600 × 400 px</td><td><span class="tag tag-cat">Category</span></td></tr>
+  <tr><td><span class="filename">cat-spices.jpg</span></td><td>Colourful spices in bowls or jars</td><td class="size">600 × 400 px</td><td><span class="tag tag-cat">Category</span></td></tr>
+  <tr><td><span class="filename">cat-personal-care.jpg</span></td><td>Personal care — shampoo, soap, skincare bottles</td><td class="size">600 × 400 px</td><td><span class="tag tag-cat">Category</span></td></tr>
+  <tr><td><span class="filename">cat-cleaning.jpg</span></td><td>Cleaning essentials — mop, spray bottles, scrubbers</td><td class="size">600 × 400 px</td><td><span class="tag tag-cat">Category</span></td></tr>
+  <tr><td><span class="filename">cat-pet-food.jpg</span></td><td>Pet food — dog/cat bowls, kibble, pouches</td><td class="size">600 × 400 px</td><td><span class="tag tag-cat">Category</span></td></tr>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2>services.html — Services Page <span class="count">8 images</span></h2>
+<table>
+  <tr><th>Save as filename</th><th>What the image shows</th><th>Recommended size</th><th>Type</th></tr>
+  <tr><td><span class="filename">service-express-delivery.jpg</span></td><td>Delivery person on scooter / express grocery delivery</td><td class="size">600 × 400 px</td><td><span class="tag tag-service">Service</span></td></tr>
+  <tr><td><span class="filename">service-scheduled-delivery.jpg</span></td><td>Calendar or scheduled delivery — person planning groceries</td><td class="size">600 × 400 px</td><td><span class="tag tag-service">Service</span></td></tr>
+  <tr><td><span class="filename">service-catering.jpg</span></td><td>Catering / food spread at an event or buffet</td><td class="size">600 × 400 px</td><td><span class="tag tag-service">Service</span></td></tr>
+  <tr><td><span class="filename">service-loyalty.jpg</span></td><td>Loyalty rewards — loyalty card, points, shopping</td><td class="size">600 × 400 px</td><td><span class="tag tag-service">Service</span></td></tr>
+  <tr><td><span class="filename">service-business.jpg</span></td><td>Business accounts — office setting, team working</td><td class="size">600 × 400 px</td><td><span class="tag tag-service">Service</span></td></tr>
+  <tr><td><span class="filename">service-subscription.jpg</span></td><td>Subscription box — grocery box being packed</td><td class="size">600 × 400 px</td><td><span class="tag tag-service">Service</span></td></tr>
+  <tr><td><span class="filename">service-click-collect.jpg</span></td><td>Click &amp; collect — person picking up grocery bags at store</td><td class="size">600 × 400 px</td><td><span class="tag tag-service">Service</span></td></tr>
+  <tr><td><span class="filename">service-gift-cards.jpg</span></td><td>Gift cards — gift card in hand / gift wrapped package</td><td class="size">600 × 400 px</td><td><span class="tag tag-service">Service</span></td></tr>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2>service-details.html — Express Delivery Detail <span class="count">1 image</span></h2>
+<table>
+  <tr><th>Save as filename</th><th>What the image shows</th><th>Recommended size</th><th>Type</th></tr>
+  <tr><td><span class="filename">service-express-delivery.jpg</span></td><td>Large banner — delivery scooter / bags (reuse from services.html)</td><td class="size">900 × 400 px</td><td><span class="tag tag-service">Service</span></td></tr>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2>pricing.html — Pricing Page <span class="count">3 images</span></h2>
+<table>
+  <tr><th>Save as filename</th><th>What the image shows</th><th>Recommended size</th><th>Type</th></tr>
+  <tr><td><span class="filename">testi-karthik.jpg</span></td><td>Testimonial avatar — Karthik (man, face crop)</td><td class="size">100 × 100 px</td><td><span class="tag tag-avatar">Avatar</span></td></tr>
+  <tr><td><span class="filename">testi-ananya.jpg</span></td><td>Testimonial avatar — Ananya (woman, face crop)</td><td class="size">100 × 100 px</td><td><span class="tag tag-avatar">Avatar</span></td></tr>
+  <tr><td><span class="filename">testi-ramesh.jpg</span></td><td>Testimonial avatar — Ramesh (man, face crop)</td><td class="size">100 × 100 px</td><td><span class="tag tag-avatar">Avatar</span></td></tr>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2>home2.html — Digital Agency Page <span class="count">16 images</span></h2>
+<table>
+  <tr><th>Save as filename</th><th>What the image shows</th><th>Recommended size</th><th>Type</th></tr>
+  <tr><td><span class="filename">agency-client-1.jpg</span></td><td>Client face avatar #1 (stacked overlap row)</td><td class="size">80 × 80 px</td><td><span class="tag tag-avatar">Avatar</span></td></tr>
+  <tr><td><span class="filename">agency-client-2.jpg</span></td><td>Client face avatar #2 (stacked overlap row)</td><td class="size">80 × 80 px</td><td><span class="tag tag-avatar">Avatar</span></td></tr>
+  <tr><td><span class="filename">agency-client-3.jpg</span></td><td>Client face avatar #3 (stacked overlap row)</td><td class="size">80 × 80 px</td><td><span class="tag tag-avatar">Avatar</span></td></tr>
+  <tr><td><span class="filename">portfolio-branding.jpg</span></td><td>Portfolio item — branding / logo design project</td><td class="size">600 × 400 px</td><td><span class="tag tag-agency">Agency</span></td></tr>
+  <tr><td><span class="filename">portfolio-web.jpg</span></td><td>Portfolio item — web development / laptop with code</td><td class="size">600 × 400 px</td><td><span class="tag tag-agency">Agency</span></td></tr>
+  <tr><td><span class="filename">portfolio-mobile.jpg</span></td><td>Portfolio item — mobile app / phone screen UI</td><td class="size">600 × 400 px</td><td><span class="tag tag-agency">Agency</span></td></tr>
+  <tr><td><span class="filename">portfolio-marketing.jpg</span></td><td>Portfolio item — marketing campaign / analytics dashboard</td><td class="size">600 × 400 px</td><td><span class="tag tag-agency">Agency</span></td></tr>
+  <tr><td><span class="filename">portfolio-education.jpg</span></td><td>Portfolio item — education branding / books, learning</td><td class="size">600 × 400 px</td><td><span class="tag tag-agency">Agency</span></td></tr>
+  <tr><td><span class="filename">portfolio-video.jpg</span></td><td>Portfolio item — video production / camera, studio</td><td class="size">600 × 400 px</td><td><span class="tag tag-agency">Agency</span></td></tr>
+  <tr><td><span class="filename">agency-testi-sarah.jpg</span></td><td>Testimonial avatar — Sarah (woman, face crop)</td><td class="size">100 × 100 px</td><td><span class="tag tag-avatar">Avatar</span></td></tr>
+  <tr><td><span class="filename">agency-testi-rohan.jpg</span></td><td>Testimonial avatar — Rohan (man, face crop)</td><td class="size">100 × 100 px</td><td><span class="tag tag-avatar">Avatar</span></td></tr>
+  <tr><td><span class="filename">agency-testi-anika.jpg</span></td><td>Testimonial avatar — Anika (woman, face crop)</td><td class="size">100 × 100 px</td><td><span class="tag tag-avatar">Avatar</span></td></tr>
+  <tr><td><span class="filename">agency-team-alex.jpg</span></td><td>Team member — Alex Morgan (Creative Director, man)</td><td class="size">400 × 400 px</td><td><span class="tag tag-team">Team</span></td></tr>
+  <tr><td><span class="filename">agency-team-priya.jpg</span></td><td>Team member — Priya Sharma (Lead Designer, woman)</td><td class="size">400 × 400 px</td><td><span class="tag tag-team">Team</span></td></tr>
+  <tr><td><span class="filename">agency-team-james.jpg</span></td><td>Team member — James Lee (Dev Lead, man)</td><td class="size">400 × 400 px</td><td><span class="tag tag-team">Team</span></td></tr>
+  <tr><td><span class="filename">agency-team-nina.jpg</span></td><td>Team member — Nina Okafor (Strategy, woman)</td><td class="size">400 × 400 px</td><td><span class="tag tag-team">Team</span></td></tr>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2>profile.html / orders.html <span class="count">1 image</span></h2>
+<table>
+  <tr><th>Save as filename</th><th>What the image shows</th><th>Recommended size</th><th>Type</th></tr>
+  <tr><td><span class="filename">profile-avatar.jpg</span></td><td>Default user profile avatar (neutral, placeholder person)</td><td class="size">200 × 200 px</td><td><span class="tag tag-avatar">Avatar</span></td></tr>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2>products-data.js — Product Catalogue (all pages) <span class="count">32 images</span></h2>
+<p style="margin:8px 0 4px;font-size:14px;color:#555;">These appear on: Products, Cart, Wishlist, Search, Offers, and the Homepage featured grid.</p>
+<table>
+  <tr><th>#</th><th>Save as filename</th><th>Product name</th><th>Category</th></tr>
+  <tr><td>1</td><td><span class="filename">product-fresh-apples.jpg</span></td><td>Fresh Apples</td><td>Fruits</td></tr>
+  <tr><td>2</td><td><span class="filename">product-bananas.jpg</span></td><td>Bananas</td><td>Fruits</td></tr>
+  <tr><td>3</td><td><span class="filename">product-fresh-milk.jpg</span></td><td>Fresh Milk (1L)</td><td>Dairy</td></tr>
+  <tr><td>4</td><td><span class="filename">product-cheddar-cheese.jpg</span></td><td>Cheddar Cheese</td><td>Dairy</td></tr>
+  <tr><td>5</td><td><span class="filename">product-whole-wheat-bread.jpg</span></td><td>Whole Wheat Bread</td><td>Bakery</td></tr>
+  <tr><td>6</td><td><span class="filename">product-butter-croissants.jpg</span></td><td>Butter Croissants</td><td>Bakery</td></tr>
+  <tr><td>7</td><td><span class="filename">product-potato-chips.jpg</span></td><td>Potato Chips</td><td>Snacks</td></tr>
+  <tr><td>8</td><td><span class="filename">product-orange-juice.jpg</span></td><td>Orange Juice (1L)</td><td>Beverages</td></tr>
+  <tr><td>9</td><td><span class="filename">product-basmati-rice.jpg</span></td><td>Basmati Rice (5kg)</td><td>Rice</td></tr>
+  <tr><td>10</td><td><span class="filename">product-toor-dal.jpg</span></td><td>Toor Dal (1kg)</td><td>Pulses</td></tr>
+  <tr><td>11</td><td><span class="filename">product-turmeric-powder.jpg</span></td><td>Turmeric Powder (200g)</td><td>Spices</td></tr>
+  <tr><td>12</td><td><span class="filename">product-frozen-green-peas.jpg</span></td><td>Frozen Green Peas (500g)</td><td>Frozen Foods</td></tr>
+  <tr><td>13</td><td><span class="filename">product-herbal-shampoo.jpg</span></td><td>Herbal Shampoo (340ml)</td><td>Personal Care</td></tr>
+  <tr><td>14</td><td><span class="filename">product-multi-surface-cleaner.jpg</span></td><td>Multi-Surface Cleaner</td><td>Cleaning Essentials</td></tr>
+  <tr><td>15</td><td><span class="filename">product-dry-dog-food.jpg</span></td><td>Dry Dog Food (3kg)</td><td>Pet Food</td></tr>
+  <tr><td>16</td><td><span class="filename">product-green-capsicum.jpg</span></td><td>Green Capsicum</td><td>Vegetables</td></tr>
+  <tr><td>17</td><td><span class="filename">product-cauliflower.jpg</span></td><td>Cauliflower</td><td>Vegetables</td></tr>
+  <tr><td>18</td><td><span class="filename">product-masala-tea.jpg</span></td><td>Masala Tea (1kg)</td><td>Beverages</td></tr>
+  <tr><td>19</td><td><span class="filename">product-frozen-corn.jpg</span></td><td>Frozen Corn (500g)</td><td>Frozen Foods</td></tr>
+  <tr><td>20</td><td><span class="filename">product-frozen-mixed-veg.jpg</span></td><td>Frozen Mixed Vegetables (500g)</td><td>Frozen Foods</td></tr>
+  <tr><td>21</td><td><span class="filename">product-chicken-breast.jpg</span></td><td>Chicken Breast (500g)</td><td>Meat</td></tr>
+  <tr><td>22</td><td><span class="filename">product-mutton-curry-cut.jpg</span></td><td>Mutton Curry Cut (500g)</td><td>Meat</td></tr>
+  <tr><td>23</td><td><span class="filename">product-garbage-bags.jpg</span></td><td>Garbage Bags (30pc)</td><td>Household</td></tr>
+  <tr><td>24</td><td><span class="filename">product-sona-masoori-rice.jpg</span></td><td>Sona Masoori Rice (5kg)</td><td>Rice</td></tr>
+  <tr><td>25</td><td><span class="filename">product-moong-dal.jpg</span></td><td>Moong Dal (1kg)</td><td>Pulses</td></tr>
+  <tr><td>26</td><td><span class="filename">product-red-chilli-powder.jpg</span></td><td>Red Chilli Powder (200g)</td><td>Spices</td></tr>
+  <tr><td>27</td><td><span class="filename">product-body-wash.jpg</span></td><td>Body Wash (250ml)</td><td>Personal Care</td></tr>
+  <tr><td>28</td><td><span class="filename">product-floor-cleaner.jpg</span></td><td>Floor Cleaner (1L)</td><td>Cleaning Essentials</td></tr>
+  <tr><td>29</td><td><span class="filename">product-dishwash-liquid.jpg</span></td><td>Dishwash Liquid (500ml)</td><td>Cleaning Essentials</td></tr>
+  <tr><td>30</td><td><span class="filename">product-cat-food.jpg</span></td><td>Cat Food Pouches (Pack of 6)</td><td>Pet Food</td></tr>
+  <tr><td>31</td><td><span class="filename">product-baby-diapers.jpg</span></td><td>Baby Diapers (Pack of 30)</td><td>Baby &amp; Kids</td></tr>
+  <tr><td>32</td><td><span class="filename">product-baby-wipes.jpg</span></td><td>Baby Wipes (Pack of 80)</td><td>Baby &amp; Kids</td></tr>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2>offers.html — Weekly Offers (extra products) <span class="count">12 extra images</span></h2>
+<p style="margin:8px 0 4px;font-size:14px;color:#555;">These products appear only on offers.html and are not in the product catalogue.</p>
+<table>
+  <tr><th>Save as filename</th><th>Product name</th><th>Category</th></tr>
+  <tr><td><span class="filename">product-mixed-nuts.jpg</span></td><td>Mixed Nuts</td><td>Snacks</td></tr>
+  <tr><td><span class="filename">product-cola.jpg</span></td><td>Cola 1.5L</td><td>Beverages</td></tr>
+  <tr><td><span class="filename">product-tomatoes.jpg</span></td><td>Fresh Tomatoes</td><td>Vegetables</td></tr>
+  <tr><td><span class="filename">product-greek-yogurt.jpg</span></td><td>Greek Yogurt</td><td>Dairy</td></tr>
+  <tr><td><span class="filename">product-baguette.jpg</span></td><td>Baguette</td><td>Bakery</td></tr>
+  <tr><td><span class="filename">product-tortilla-chips.jpg</span></td><td>Tortilla Chips</td><td>Snacks</td></tr>
+  <tr><td><span class="filename">product-mineral-water.jpg</span></td><td>Mineral Water 1L</td><td>Beverages</td></tr>
+  <tr><td><span class="filename">product-carrots.jpg</span></td><td>Carrots</td><td>Vegetables</td></tr>
+  <tr><td><span class="filename">product-butter.jpg</span></td><td>Butter 200g</td><td>Dairy</td></tr>
+  <tr><td><span class="filename">product-chocolate-muffins.jpg</span></td><td>Chocolate Muffins</td><td>Bakery</td></tr>
+  <tr><td><span class="filename">product-popcorn.jpg</span></td><td>Popcorn</td><td>Snacks</td></tr>
+  <tr><td><span class="filename">product-iced-tea.jpg</span></td><td>Iced Tea 500ml</td><td>Beverages</td></tr>
+</table>
+
+<div style="margin-top:40px;padding:16px 20px;background:#d1ecf1;border-left:4px solid #0c5460;border-radius:4px;">
+  <strong>Total images: 103</strong> (many are reused across pages — unique files needed: ~78)<br>
+  <span style="font-size:13px;color:#555;">Note: Images marked "reuse" don't need a separate file — just the one copy in <code>assets/images/</code> is shared across pages.</span>
+</div>
+
+</body>
+</html>

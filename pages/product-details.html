@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Details | SuperMart</title>
+<meta name="description" content="View full product details, pricing, reviews and related products at SuperMart.">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/dark-mode.css">
+<link rel="stylesheet" href="../assets/css/rtl.css">
+<link rel="stylesheet" href="../assets/css/features.css">
+<link rel="stylesheet" href="../assets/css/enhance.css">
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<div class="top-bar py-2">
+<div class="container d-flex justify-content-between align-items-center">
+<span><i class="fa-regular fa-clock"></i> Mon - Sun : 8:00 AM - 10:00 PM</span>
+<a href="store-locator.html" class="text-decoration-none"><i class="fa-solid fa-location-dot"></i> Find a Store</a>
+</div>
+</div>
+
+<nav class="navbar navbar-expand-lg shadow-sm sticky-top">
+<div class="container">
+<a class="navbar-brand fw-bold logo" href="index.html">SuperMart</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+<div class="collapse navbar-collapse" id="navMenu">
+<form class="nav-search-wrap d-flex mx-lg-4" role="search">
+<input type="text" class="nav-search-input" placeholder="Search for products..." aria-label="Search products">
+<button type="submit" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+<div class="search-suggest"></div>
+</form>
+<ul class="navbar-nav ms-auto align-items-lg-center">
+<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="home2.html">Home2</a></li>
+<li class="nav-item"><a class="nav-link" href="offers.html">Offers</a></li>
+<li class="nav-item"><a class="nav-link" href="categories.html">Categories</a></li>
+<li class="nav-item"><a class="nav-link" href="store-locator.html">Stores</a></li>
+<li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+<li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+</ul>
+<div class="d-flex align-items-center gap-2 ms-lg-3">
+<a href="cart.html" class="nav-icon-btn" title="Cart"><i class="fa-solid fa-cart-shopping"></i><span class="cart-badge" id="cartCountNav">0</span></a>
+<a href="wishlist.html" class="nav-icon-btn" title="Wishlist"><i class="fa-solid fa-heart"></i></a>
+<span id="authArea"><a href="login.html" class="nav-icon-btn" title="Login"><i class="fa-solid fa-user"></i></a></span>
+<button id="themeToggle" class="btn btn-danger ms-1" aria-pressed="false" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+</div>
+</div>
+</div>
+</nav>
+
+<main id="main-content">
+
+<section class="pd-section">
+<div class="container">
+
+<nav aria-label="breadcrumb" class="mb-4">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+<li class="breadcrumb-item"><a href="offers.html">Offers</a></li>
+<li class="breadcrumb-item active" id="pdBreadcrumb" aria-current="page">Product</li>
+</ol>
+</nav>
+
+<div class="row g-5 align-items-start">
+
+<div class="col-lg-5">
+<div class="pd-gallery-main"><img id="pdMainImg" src="" alt="" loading="eager"></div>
+<div class="pd-thumbs" id="pdThumbs"></div>
+</div>
+
+<div class="col-lg-7">
+<span class="pd-badge" id="pdBadge">SALE</span>
+<h1 id="pdTitle">Loading…</h1>
+<div id="pdRating" class="mb-2"></div>
+<div class="pd-price" id="pdPrice"></div>
+
+<p class="mt-3" id="pdDesc"></p>
+
+<ul class="pd-feature-list">
+<li><i class="fa-solid fa-circle-check"></i>100% Fresh &amp; Quality Checked</li>
+<li><i class="fa-solid fa-bolt text-danger"></i> Delivered in 15 Minutes &mdash; Same-Day Delivery Guaranteed</li>
+<li><i class="fa-solid fa-circle-check"></i>Easy 7-Day Replacement</li>
+<li><i class="fa-solid fa-circle-check"></i>Secure Payment Options</li>
+</ul>
+
+<div class="pd-pack-sizes mb-3">
+<label class="form-label fw-bold d-block">Select Pack Size</label>
+<div class="pack-size-options" id="pdPackSizes"></div>
+</div>
+
+<div class="d-flex align-items-center gap-4 flex-wrap">
+<div class="pd-qty">
+<button id="pdQtyMinus" type="button" aria-label="Decrease quantity">−</button>
+<input type="text" id="pdQty" value="1" aria-label="Quantity">
+<button id="pdQtyPlus" type="button" aria-label="Increase quantity">+</button>
+</div>
+<span class="text-muted" id="pdBrand"></span>
+</div>
+
+<div class="pd-actions">
+<button class="btn btn-danger" id="pdAddCart"><i class="fa-solid fa-cart-plus me-2"></i>Add to Cart</button>
+<button class="btn btn-warning" id="pdBuyNow">Buy Now</button>
+<button class="btn btn-outline-danger" id="pdWishlist"><i class="fa-regular fa-heart me-2"></i>Wishlist</button>
+</div>
+</div>
+</div>
+
+<!-- Tabs: Description / Reviews -->
+<div class="mt-5">
+<ul class="nav pd-tabs nav-tabs" role="tablist">
+<li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tabDesc" type="button">Description</button></li>
+<li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tabReviews" type="button">Ratings &amp; Reviews</button></li>
+</ul>
+<div class="tab-content pt-4">
+<div class="tab-pane fade show active" id="tabDesc">
+<p id="pdFullDesc"></p>
+</div>
+<div class="tab-pane fade" id="tabReviews">
+<div class="review-summary">
+<div class="big-score" id="reviewScore">4.5</div>
+<div>
+<div class="stars mb-1" id="reviewStars"></div>
+<div class="text-muted" id="reviewCountText">Based on customer reviews</div>
+</div>
+</div>
+<div id="reviewsList"></div>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- Related Products -->
+<section class="related-section bg-section">
+<div class="container">
+<h3 class="mb-4">You May Also Like</h3>
+<div class="row g-4" id="relatedProducts"></div>
+</div>
+</section>
+
+</main>
+
+<footer class="footer py-5">
+<div class="container">
+<div class="row">
+<div class="col-lg-3 col-md-6 mb-4"><h5>SuperMart</h5><p>Fresh groceries every day, at honest prices.</p></div>
+<div class="col-lg-3 col-md-6 mb-4"><h5>Quick Links</h5><ul class="list-unstyled">
+<li><a href="index.html">Home</a></li><li><a href="offers.html">Offers</a></li><li><a href="categories.html">Categories</a></li><li><a href="store-locator.html">Stores</a></li>
+</ul></div>
+<div class="col-lg-3 col-md-6 mb-4"><h5>My Account</h5><ul class="list-unstyled">
+<li><a href="cart.html">Cart</a></li><li><a href="wishlist.html">Wishlist</a></li><li><a href="orders.html">My Orders</a></li>
+</ul></div>
+<div class="col-lg-3 col-md-6 mb-4">
+<h5>Subscribe to Newsletter</h5>
+<p>Get weekly deals straight to your inbox.</p>
+<div class="row g-2" id="nlForm">
+<div class="col-12"><input type="email" id="newsletterEmail" class="form-control" placeholder="Enter your email"></div>
+<div class="col-12"><button class="btn btn-danger w-100" onclick="subscribeNewsletter()">Subscribe</button></div>
+</div>
+<div class="subscribe-success" id="nlSuccess"><i class="fa-solid fa-circle-check me-2"></i>Subscribed!</div>
+</div>
+</div>
+<hr>
+<div class="text-center">&copy; 2026 SuperMart. All Rights Reserved.</div>
+</div>
+</footer>
+
+<div class="sm-toast" id="smToast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/features.js"></script>
+<script src="../assets/js/enhance.js"></script>
+<script src="../assets/js/products-data.js"></script>
+<script>
+function subscribeNewsletter(){
+  const em=document.getElementById('newsletterEmail').value.trim();
+  if(!em||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){showToast('Please enter a valid email address.','error');return;}
+  document.getElementById('newsletterEmail').value='';
+  document.getElementById('nlForm').classList.add('d-none');
+  document.getElementById('nlSuccess').classList.add('show');
+  showToast('Subscribed! Look out for deals in your inbox.','success');
+}
+
+const SAMPLE_REVIEWS = [
+  {name:"Aisha K.", rating:5, text:"Excellent quality and arrived super fresh. Will definitely order again!"},
+  {name:"Rohan M.", rating:4, text:"Good value for the price. Packaging could be a little better."},
+  {name:"Priya S.", rating:5, text:"Exactly as pictured, great taste and fast delivery within minutes."},
+  {name:"Karthik V.", rating:4, text:"Solid everyday purchase, consistent quality every time I order."},
+];
+
+document.addEventListener('DOMContentLoaded', function(){
+  const params = new URLSearchParams(window.location.search);
+  const idParam = params.get('id');
+  const products = window.SM_PRODUCTS || [];
+
+  let product = null;
+
+  // 1) Prefer the exact data handed off by the card that was just clicked
+  //    (image or title). This guarantees the details page always matches
+  //    the product the shopper actually clicked, even for items that
+  //    aren't in the shared SM_PRODUCTS catalog.
+  try{
+    const clickedRaw = sessionStorage.getItem('sm_clicked_product');
+    if(clickedRaw){
+      const clicked = JSON.parse(clickedRaw);
+      if(clicked && clicked.name && idParam &&
+         clicked.name.trim().replace(/\s+/g,'-').toLowerCase() === idParam.toLowerCase()){
+        product = {
+          id: 'card-'+slugify(clicked.name),
+          name: clicked.name,
+          price: clicked.price,
+          original: clicked.original,
+          cat: clicked.cat || 'General',
+          brand: clicked.brand || 'SuperMart Choice',
+          rating: clicked.rating || 4.3,
+          reviews: clicked.reviews || 50,
+          img: clicked.img,
+          desc: buildAutoDesc(clicked.name, clicked.cat, clicked.pack)
+        };
+      }
+    }
+  }catch(e){ /* sessionStorage unavailable — fall through to catalog lookup */ }
+
+  function slugify(s){ return (s||'').toLowerCase().replace(/\s+/g,'-'); }
+  function buildAutoDesc(name, cat, pack){
+    const c = (cat||'grocery').toLowerCase();
+    const sizeNote = pack ? (' Pack size: '+pack+'.') : '';
+    return name+' — a quality '+c+' pick from SuperMart, freshly stocked and quality-checked before dispatch.'+sizeNote;
+  }
+
+  // 2) Fall back to the shared catalog (used by search, related products, etc.)
+  if(!product && idParam){
+    const idNum = parseInt(idParam);
+    const slug = idParam.toLowerCase().replace(/-/g,' ').trim();
+    product = products.find(p=>p.id===idNum) ||
+              products.find(p=>p.name.toLowerCase().replace(/\s+/g,'-')===idParam.toLowerCase()) ||
+              products.find(p=>p.name.toLowerCase()===slug) ||
+              products.find(p=>p.name.toLowerCase().startsWith(slug)) ||
+              products.find(p=>p.name.toLowerCase().includes(slug));
+  }
+
+  // 3) Last resort: build a generic product straight from the URL id itself
+  //    rather than silently showing an unrelated product.
+  if(!product && idParam){
+    const niceName = idParam.replace(/-/g,' ').replace(/\b\w/g, c=>c.toUpperCase());
+    product = {
+      id: 'url-'+slugify(niceName), name: niceName, price: 99, original: 129,
+      cat: 'General', brand: 'SuperMart Choice', rating: 4.2, reviews: 25,
+      img: '../assets/images/hero-banner.png',
+      desc: buildAutoDesc(niceName, 'General', '')
+    };
+  }
+
+  if(!product) product = products[0];
+  if(!product) return;
+
+  document.title = product.name+" | SuperMart";
+  document.getElementById('pdBreadcrumb').textContent = product.name;
+  document.getElementById('pdTitle').textContent = product.name;
+  document.getElementById('pdMainImg').src = product.img;
+  document.getElementById('pdMainImg').alt = product.name;
+  document.getElementById('pdBrand').textContent = 'Brand: '+(product.brand||'SuperMart');
+  document.getElementById('pdDesc').textContent = product.desc;
+  document.getElementById('pdFullDesc').textContent = product.desc+" Sourced and quality-checked to bring you the best of "+product.cat.toLowerCase()+" — available in multiple pack sizes, stocked fresh and delivered to your door in just 15 minutes with same-day delivery.";
+  const discount = product.original ? Math.round(100-(product.price/product.original*100)) : 0;
+  document.getElementById('pdBadge').textContent = discount+'% OFF';
+  document.getElementById('pdRating').innerHTML = starsHtml(product.rating, product.reviews);
+  document.getElementById('reviewScore').textContent = product.rating.toFixed(1);
+  document.getElementById('reviewStars').innerHTML = starsHtml(product.rating,0);
+  document.getElementById('reviewCountText').textContent = 'Based on '+(product.reviews||0)+' customer reviews';
+
+  /* ---- PACK SIZE OPTIONS (kg/g for produce & dry goods, L/ml for liquids) ---- */
+  const isLiquid = /\(?\d*\s*(l|ml)\)?$/i.test(product.name) || ['Beverages'].includes(product.cat);
+  const sizeOptions = isLiquid
+    ? [{label:'1 L', sub:'Best Value', mult:1}, {label:'500 ml', sub:'', mult:0.55}, {label:'250 ml', sub:'', mult:0.3}]
+    : [{label:'1 kg', sub:'Best Value', mult:1}, {label:'500 g', sub:'', mult:0.55}, {label:'250 g', sub:'', mult:0.3}];
+  let selectedSize = sizeOptions[0];
+
+  function renderPrice(){
+    const price = Math.round(product.price*selectedSize.mult);
+    const original = product.original ? Math.round(product.original*selectedSize.mult) : null;
+    document.getElementById('pdPrice').innerHTML = '₹'+price+(original?' <s>₹'+original+'</s>':'')+' <small class="text-muted">/ '+selectedSize.label+'</small>';
+    return price;
+  }
+  const packWrap = document.getElementById('pdPackSizes');
+  sizeOptions.forEach((sz,i)=>{
+    const btn = document.createElement('button');
+    btn.type='button';
+    btn.className = 'pack-size-pill'+(i===0?' active':'');
+    btn.innerHTML = sz.label+(sz.sub?'<small>'+sz.sub+'</small>':'');
+    btn.addEventListener('click', function(){
+      packWrap.querySelectorAll('.pack-size-pill').forEach(p=>p.classList.remove('active'));
+      this.classList.add('active');
+      selectedSize = sz;
+      renderPrice();
+    });
+    packWrap.appendChild(btn);
+  });
+  renderPrice();
+
+  // Thumbnails (reuse same image a few times as gallery demo)
+  const thumbsWrap = document.getElementById('pdThumbs');
+  [product.img, product.img, product.img].forEach((src,i)=>{
+    const img = document.createElement('img');
+    img.src = src; img.alt = product.name+' thumbnail '+(i+1);
+    if(i===0) img.classList.add('active');
+    thumbsWrap.appendChild(img);
+  });
+  // re-bind thumbnail click (enhance.js binds on DOMContentLoaded before these were created)
+  thumbsWrap.querySelectorAll('img').forEach(t=>t.addEventListener('click',function(){
+    thumbsWrap.querySelectorAll('img').forEach(x=>x.classList.remove('active'));
+    this.classList.add('active');
+    document.getElementById('pdMainImg').src=this.src;
+  }));
+
+  // Reviews list
+  const reviewsList = document.getElementById('reviewsList');
+  SAMPLE_REVIEWS.forEach(r=>{
+    const div = document.createElement('div');
+    div.className='review-card';
+    div.innerHTML = `<div class="d-flex justify-content-between"><strong>${r.name}</strong><span class="stars">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</span></div><p class="mb-0 mt-2">${r.text}</p>`;
+    reviewsList.appendChild(div);
+  });
+
+  // Related products (same category, excluding current)
+  const related = products.filter(p=>p.cat===product.cat && p.id!==product.id).slice(0,4);
+  const fallback = products.filter(p=>p.id!==product.id).slice(0,4);
+  const showList = related.length ? related : fallback;
+  const relWrap = document.getElementById('relatedProducts');
+  showList.forEach(p=>{
+    const disc = p.original ? Math.round(100-(p.price/p.original*100)) : 0;
+    const col = document.createElement('div');
+    col.className = 'col-md-6 col-lg-3';
+    col.innerHTML = `
+      <div class="product-card h-100" data-product data-name="${p.name}" data-price="${p.price}" data-original="${p.original}" data-img="${p.img}" data-cat="${p.cat}" data-badge="${disc}% OFF" data-rating="${p.rating}" data-reviews="${p.reviews}" data-brand="${p.brand}">
+        <span class="discount-badge">${disc}% OFF</span>
+        <a href="product-details.html?id=${p.id}"><img src="${p.img}" alt="${p.name}" loading="lazy"></a>
+        <div class="card-body">
+          <h5><a href="product-details.html?id=${p.id}" class="text-decoration-none text-reset">${p.name}</a></h5>
+          <div class="rating-slot"></div>
+          <p class="mb-2"><s class="text-muted">₹${p.original}</s> <strong class="text-danger">₹${p.price}</strong></p>
+          <div class="product-actions">
+            <button class="btn-add-cart" data-add-cart><i class="fa-solid fa-cart-plus me-1"></i>Add to Cart</button>
+            <button class="btn-wishlist" data-wishlist title="Add to Wishlist"><i class="fa-solid fa-heart"></i></button>
+          </div>
+        </div>
+      </div>`;
+    relWrap.appendChild(col);
+  });
+  // Render ratings + bind cart/wishlist for the dynamically-injected related cards
+  relWrap.querySelectorAll('[data-rating]').forEach(card=>{
+    const slot = card.querySelector('.rating-slot');
+    if(slot) slot.innerHTML = starsHtml(parseFloat(card.dataset.rating), parseInt(card.dataset.reviews)||0);
+  });
+  relWrap.querySelectorAll('[data-add-cart]').forEach(btn=>{
+    btn.addEventListener('click', function(){
+      const card=this.closest('[data-product]');
+      addToCart({name:card.dataset.name, price:parseInt(card.dataset.price), img:card.dataset.img, cat:card.dataset.cat, badge:card.dataset.badge, original:card.dataset.original});
+      showToast(card.dataset.name+' added to cart 🛒','success');
+    });
+  });
+  relWrap.querySelectorAll('[data-wishlist]').forEach(btn=>{
+    const card=btn.closest('[data-product]');
+    if(isWishlisted(card.dataset.name)) btn.classList.add('active');
+    btn.addEventListener('click', function(){
+      toggleWishlist({name:card.dataset.name, price:parseInt(card.dataset.price), img:card.dataset.img, cat:card.dataset.cat, badge:card.dataset.badge, original:card.dataset.original}, this);
+    });
+  });
+
+  // Wishlist state for main product
+  if(isWishlisted(product.name)) document.getElementById('pdWishlist').classList.add('active');
+
+  // Actions
+  function buildItem(){
+    return {name:product.name+' ('+selectedSize.label+')', price:renderPrice(), img:product.img, cat:product.cat, badge:discount+'% OFF', original:product.original ? Math.round(product.original*selectedSize.mult) : null, size:selectedSize.label};
+  }
+  document.getElementById('pdAddCart').addEventListener('click', function(){
+    const qty = parseInt(document.getElementById('pdQty').value)||1;
+    for(let i=0;i<qty;i++) addToCart(buildItem());
+    showToast(product.name+' added to cart 🛒','success');
+  });
+  document.getElementById('pdBuyNow').addEventListener('click', function(){
+    const qty = parseInt(document.getElementById('pdQty').value)||1;
+    const item = buildItem(); item.qty = qty;
+    localStorage.setItem('smCart', JSON.stringify([item]));
+    updateCartCount();
+    window.location.href='payment.html';
+  });
+  document.getElementById('pdWishlist').addEventListener('click', function(){
+    toggleWishlist(buildItem(), this);
+  });
+});
+</script>
+</body>
+</html>

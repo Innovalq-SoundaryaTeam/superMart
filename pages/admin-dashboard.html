@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel | SuperMart</title>
+<meta name="robots" content="noindex">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Open Sans',sans-serif;background:#f0f2f5;color:#2d3748;display:flex;min-height:100vh;}
+
+/* ── Sidebar ── */
+#adminSidebar{width:256px;min-height:100vh;background:#1a1d27;position:fixed;left:0;top:0;z-index:1000;display:flex;flex-direction:column;transition:width .3s;}
+.sb-brand{padding:22px 20px;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:10px;}
+.sb-icon{width:36px;height:36px;background:#e92424;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;flex-shrink:0;}
+.sb-text{font-family:'Nunito',sans-serif;font-weight:800;font-size:1.05rem;color:#fff;line-height:1.1;}
+.sb-text small{font-size:11px;color:#666;font-weight:400;}
+.sb-nav{flex:1;padding:12px 0;overflow-y:auto;}
+.nav-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#7a8099;padding:10px 20px 4px;}
+.sb-nav a{display:flex;align-items:center;gap:11px;padding:10px 20px;color:#cdd1e0;text-decoration:none;font-size:13.5px;font-weight:600;transition:all .2s;cursor:pointer;border-left:3px solid transparent;}
+.sb-nav a:hover{color:#fff;background:rgba(255,255,255,.05);}
+.sb-nav a.active{color:#fff;background:rgba(233,36,36,.15);border-left-color:#e92424;}
+.sb-nav a i{width:17px;text-align:center;font-size:14px;}
+.sb-badge{margin-left:auto;background:#e92424;color:#fff;border-radius:10px;font-size:11px;padding:1px 7px;}
+.sb-footer{padding:16px 20px;border-top:1px solid rgba(255,255,255,.08);}
+.sb-admin{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.sb-avt{width:36px;height:36px;border-radius:50%;background:#e92424;display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;}
+.sb-aname{font-size:13px;color:#ccc;font-weight:600;}
+.sb-arole{font-size:11px;color:#555;}
+.btn-logout{width:100%;background:rgba(233,36,36,.12);color:#e92424;border:1px solid rgba(233,36,36,.25);border-radius:8px;padding:8px;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;}
+.btn-logout:hover{background:#e92424;color:#fff;}
+
+/* ── Main ── */
+#adminMain{margin-left:256px;flex:1;min-height:100vh;}
+.topbar{background:#fff;border-bottom:1px solid #e8ecf0;padding:13px 26px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;box-shadow:0 1px 4px rgba(0,0,0,.05);}
+.topbar .pg-title{font-family:'Nunito',sans-serif;font-weight:800;font-size:1.15rem;color:#1a1d27;}
+.topbar .pg-crumb{font-size:12px;color:#666;margin-top:1px;}
+.topbar-right{display:flex;align-items:center;gap:10px;}
+.notif-btn{background:#f5f5f5;border:none;width:37px;height:37px;border-radius:10px;cursor:pointer;position:relative;color:#222;font-size:14px;}
+.ndot{width:8px;height:8px;background:#e92424;border-radius:50%;position:absolute;top:5px;right:6px;border:2px solid #f5f5f5;}
+.site-btn{background:#1a1d27;color:#fff;border:none;border-radius:10px;padding:7px 16px;font-size:13px;font-weight:600;cursor:pointer;text-decoration:none;}
+.ac{padding:26px;}
+
+/* ── Sections ── */
+.sec{display:none;}.sec.active{display:block;}
+
+/* ── KPI Cards ── */
+.kpi{background:#fff;border-radius:14px;padding:22px;box-shadow:0 2px 10px rgba(0,0,0,.06);}
+.kpi-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:19px;margin-bottom:13px;}
+.kpi-num{font-family:'Nunito',sans-serif;font-weight:800;font-size:1.8rem;color:#1a1d27;}
+.kpi-lbl{font-size:13px;color:#555;font-weight:600;margin-top:2px;}
+.kpi-chg{font-size:12px;font-weight:600;margin-top:7px;}
+.up{color:#22c55e;}.down{color:#ef4444;}
+
+/* ── Cards ── */
+.acard{background:#fff;border-radius:14px;padding:22px;box-shadow:0 2px 10px rgba(0,0,0,.06);margin-bottom:22px;}
+.acard-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;}
+.acard-head h5{font-family:'Nunito',sans-serif;font-weight:800;font-size:.98rem;margin:0;color:#1a1d27;}
+
+/* ── Table ── */
+.atbl{width:100%;border-collapse:collapse;}
+.atbl th{padding:9px 13px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#444;border-bottom:2px solid #f0f2f5;text-align:left;}
+.atbl td{padding:12px 13px;font-size:13.5px;border-bottom:1px solid #f5f7fa;vertical-align:middle;}
+.atbl tbody tr:hover{background:#fafbfc;}
+.atbl tbody tr:last-child td{border-bottom:none;}
+
+/* ── Badges ── */
+.bs{padding:4px 11px;border-radius:20px;font-size:12px;font-weight:700;}
+.b-placed{background:#eff6ff;color:#2563eb;}
+.b-processing{background:#fff7ed;color:#d97706;}
+.b-shipped{background:#f0fdf4;color:#16a34a;}
+.b-outfordelivery{background:#fdf4ff;color:#9333ea;}
+.b-delivered{background:#dcfce7;color:#15803d;}
+.b-cancelled{background:#fef2f2;color:#dc2626;}
+
+/* ── Tracking ── */
+.trk-search{max-width:500px;margin:0 auto 28px;}
+.trk-search .form-control{border-radius:12px 0 0 12px;height:48px;border:2px solid #e8ecf0;font-size:14px;}
+.trk-search .trk-btn{border-radius:0 12px 12px 0;height:48px;background:#e92424;border:none;color:#fff;font-weight:700;padding:0 22px;cursor:pointer;}
+.trk-card{max-width:680px;margin:0 auto;}
+.trk-header{background:linear-gradient(135deg,#1a1d27,#2d3748);border-radius:14px 14px 0 0;padding:22px 26px;color:#fff;}
+.trk-header .ord-lbl{font-size:11px;color:#888;margin-bottom:3px;text-transform:uppercase;letter-spacing:1px;}
+.trk-meta{display:flex;gap:22px;margin-top:12px;flex-wrap:wrap;}
+.trk-meta .mi label{font-size:11px;color:#888;display:block;}
+.trk-meta .mi span{font-size:14px;font-weight:600;}
+.trk-steps{background:#fff;border-radius:0 0 14px 14px;padding:26px 28px;box-shadow:0 4px 20px rgba(0,0,0,.08);}
+.step-row{display:flex;align-items:flex-start;gap:14px;position:relative;}
+.step-row:not(:last-child) .step-line{position:absolute;left:18px;top:36px;width:2px;height:46px;background:#e8ecf0;}
+.step-row:not(:last-child).sdone .step-line{background:#22c55e;}
+.step-circ{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;border:2px solid #e8ecf0;background:#fff;color:#ccc;z-index:1;}
+.step-row.sdone .step-circ{background:#22c55e;border-color:#22c55e;color:#fff;}
+.step-row.sactive .step-circ{background:#e92424;border-color:#e92424;color:#fff;animation:pulse 1.5s infinite;}
+.step-body{flex:1;padding-bottom:34px;}
+.step-lbl{font-weight:700;font-size:14px;}
+.step-desc{font-size:12px;color:#9aa0b4;margin-top:2px;}
+.step-time{font-size:11px;color:#bbb;margin-top:3px;}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(233,36,36,.4)}50%{box-shadow:0 0 0 8px rgba(233,36,36,0)}}
+.upd-btns{display:flex;gap:7px;flex-wrap:wrap;margin-top:16px;}
+.upd-btns button{font-size:12px;padding:5px 13px;border-radius:20px;border:1.5px solid #e8ecf0;background:#f5f7fa;color:#555;cursor:pointer;font-weight:600;transition:all .2s;}
+.upd-btns button:hover,.upd-btns button.sel{background:#e92424;color:#fff;border-color:#e92424;}
+.upd-btns button.cancel-sel{background:#fef2f2;color:#dc2626;border-color:#fca5a5;}
+
+/* ── Products ── */
+.pthmb{width:40px;height:40px;border-radius:8px;object-fit:contain;background:#f5f5f5;border:1px solid #eee;padding:2px;}
+
+/* ── Avatar ── */
+.avp{width:32px;height:32px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0;}
+
+/* ── Form ── */
+.af label{font-size:13px;font-weight:600;color:#555;margin-bottom:3px;display:block;}
+.af .form-control,.af .form-select{border-radius:10px;border:1.5px solid #e8ecf0;font-size:13.5px;}
+.af .form-control:focus,.af .form-select:focus{border-color:#e92424;box-shadow:0 0 0 3px rgba(233,36,36,.1);}
+
+/* ── Toast ── */
+#aToast{position:fixed;bottom:22px;right:22px;z-index:9999;padding:12px 20px;border-radius:12px;background:#1a1d27;color:#fff;font-size:14px;font-weight:600;opacity:0;transition:opacity .3s;pointer-events:none;min-width:220px;}
+
+@media(max-width:768px){#adminSidebar{width:0;overflow:hidden;}#adminMain{margin-left:0;}}
+
+/* ── Admin Dark Mode ── */
+body.adm-dark{background:#0f1117;color:#e8eaf0;}
+body.adm-dark #adminSidebar{background:#111318;border-right:1px solid rgba(255,255,255,.05);}
+body.adm-dark .sb-brand{border-bottom-color:rgba(255,255,255,.05);}
+body.adm-dark .sb-footer{border-top-color:rgba(255,255,255,.05);}
+body.adm-dark .topbar{background:#1a1d27;border-bottom-color:#2a2d3a;box-shadow:0 1px 4px rgba(0,0,0,.3);}
+body.adm-dark .topbar .pg-title{color:#e8eaf0;}
+body.adm-dark .topbar .pg-crumb{color:#666;}
+body.adm-dark .notif-btn{background:#2a2d3a;color:#ccc;}
+body.adm-dark .kpi,.adm-dark .acard,.adm-dark .settings-card,.adm-dark .af{background:#1e2130;box-shadow:0 2px 10px rgba(0,0,0,.25);}
+body.adm-dark .kpi-num{color:#e8eaf0;}
+body.adm-dark .kpi-lbl{color:#9aa0b4;}
+body.adm-dark .acard-head h5{color:#e8eaf0;}
+body.adm-dark .atbl th{color:#9aa0b4;border-bottom-color:#2a2d3a;}
+body.adm-dark .atbl td{border-bottom-color:#1e2130;color:#cdd1e0;}
+body.adm-dark .atbl tbody tr:hover{background:#252837;}
+body.adm-dark .sec-hdr h4{color:#e8eaf0;}
+body.adm-dark .trk-result,.adm-dark .trk-card{background:#1e2130;}
+body.adm-dark .trk-step-label{color:#cdd1e0;}
+body.adm-dark .trk-step-desc{color:#888;}
+body.adm-dark .af .form-control,.adm-dark .af .form-select{background:#252837;color:#e8eaf0;border-color:#3a3d4a;}
+body.adm-dark .form-control,.adm-dark .form-select{background:#252837;color:#e8eaf0;border-color:#3a3d4a;}
+body.adm-dark .site-btn{background:#e92424;}
+</style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<aside id="adminSidebar">
+  <div class="sb-brand">
+    <div class="sb-icon"><i class="fa-solid fa-store"></i></div>
+    <div class="sb-text">SuperMart<small>Admin Panel</small></div>
+  </div>
+  <nav class="sb-nav">
+    <div class="nav-lbl">Main</div>
+    <a class="active" data-sec="dashboard"><i class="fa-solid fa-gauge-high"></i>Dashboard</a>
+    <a data-sec="orders"><i class="fa-solid fa-bag-shopping"></i>Orders<span class="sb-badge" id="sbNewOrders">0</span></a>
+    <a data-sec="tracking"><i class="fa-solid fa-truck-fast"></i>Package Tracking</a>
+    <div class="nav-lbl" style="margin-top:6px;">Catalog</div>
+    <a data-sec="products"><i class="fa-solid fa-boxes-stacked"></i>Products</a>
+    <a data-sec="customers"><i class="fa-solid fa-users"></i>Customers</a>
+    <div class="nav-lbl" style="margin-top:6px;">Insights</div>
+    <a data-sec="reports"><i class="fa-solid fa-chart-line"></i>Reports</a>
+    <div class="nav-lbl" style="margin-top:6px;">System</div>
+    <a data-sec="settings"><i class="fa-solid fa-sliders"></i>Settings</a>
+    <a href="index.html" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i>View Storefront</a>
+  </nav>
+  <div class="sb-footer">
+    <div class="sb-admin">
+      <div class="sb-avt"><i class="fa-solid fa-user-tie"></i></div>
+      <div><div class="sb-aname">Administrator</div><div class="sb-arole">Super Admin</div></div>
+    </div>
+    <button class="btn-logout" id="adminLogout"><i class="fa-solid fa-right-from-bracket me-2"></i>Logout</button>
+  </div>
+</aside>
+
+<!-- Main -->
+<div id="adminMain">
+  <div class="topbar">
+    <div>
+      <div class="pg-title" id="pgTitle">Dashboard</div>
+      <div class="pg-crumb" id="pgCrumb">SuperMart Admin → Dashboard</div>
+    </div>
+    <div class="topbar-right">
+      <button class="notif-btn"><i class="fa-solid fa-bell"></i><span class="ndot"></span></button>
+      <button class="notif-btn" id="adminThemeToggle" title="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+      <a href="index.html" class="site-btn" target="_blank"><i class="fa-solid fa-store me-1"></i>View Site</a>
+      <button class="btn-logout" id="adminLogoutTop" style="width:auto;padding:7px 16px;"><i class="fa-solid fa-right-from-bracket me-1"></i>Logout</button>
+    </div>
+  </div>
+
+  <div class="ac">
+
+    <!-- ══════════ DASHBOARD ══════════ -->
+    <div class="sec active" id="sec-dashboard">
+      <div class="row g-3 mb-4">
+        <div class="col-sm-6 col-xl-3"><div class="kpi">
+          <div class="kpi-icon" style="background:#fff0f0;color:#e92424;"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+          <div class="kpi-num" id="kpiRev">₹0</div><div class="kpi-lbl">Total Revenue</div>
+          <div class="kpi-chg up"><i class="fa-solid fa-arrow-trend-up me-1"></i>+18.4% this month</div>
+        </div></div>
+        <div class="col-sm-6 col-xl-3"><div class="kpi">
+          <div class="kpi-icon" style="background:#eff6ff;color:#2563eb;"><i class="fa-solid fa-bag-shopping"></i></div>
+          <div class="kpi-num" id="kpiOrd">0</div><div class="kpi-lbl">Total Orders</div>
+          <div class="kpi-chg up"><i class="fa-solid fa-arrow-trend-up me-1"></i>+7 new today</div>
+        </div></div>
+        <div class="col-sm-6 col-xl-3"><div class="kpi">
+          <div class="kpi-icon" style="background:#f0fdf4;color:#16a34a;"><i class="fa-solid fa-users"></i></div>
+          <div class="kpi-num" id="kpiCust">0</div><div class="kpi-lbl">Total Customers</div>
+          <div class="kpi-chg up"><i class="fa-solid fa-arrow-trend-up me-1"></i>+12 this week</div>
+        </div></div>
+        <div class="col-sm-6 col-xl-3"><div class="kpi">
+          <div class="kpi-icon" style="background:#fdf4ff;color:#9333ea;"><i class="fa-solid fa-boxes-stacked"></i></div>
+          <div class="kpi-num" id="kpiProd">0</div><div class="kpi-lbl">Active Products</div>
+          <div class="kpi-chg up"><i class="fa-solid fa-arrow-trend-up me-1"></i>+3 added</div>
+        </div></div>
+      </div>
+
+      <div class="row g-4 mb-4">
+        <div class="col-lg-8"><div class="acard" style="margin-bottom:0;">
+          <div class="acard-head"><h5><i class="fa-solid fa-chart-line text-danger me-2"></i>Revenue — Last 7 Days</h5></div>
+          <canvas id="revenueChart" height="100"></canvas>
+        </div></div>
+        <div class="col-lg-4"><div class="acard" style="margin-bottom:0;">
+          <div class="acard-head"><h5><i class="fa-solid fa-chart-pie text-danger me-2"></i>Order Status</h5></div>
+          <canvas id="statusChart" height="200"></canvas>
+        </div></div>
+      </div>
+
+      <div class="acard">
+        <div class="acard-head">
+          <h5><i class="fa-solid fa-clock-rotate-left text-danger me-2"></i>Recent Orders</h5>
+          <a href="#" data-sec="orders" class="sec-link" style="font-size:13px;color:#e92424;font-weight:600;">View All →</a>
+        </div>
+        <div class="table-responsive">
+          <table class="atbl"><thead><tr><th>Order ID</th><th>Customer</th><th>Items</th><th>Total</th><th>Status</th><th>Date</th></tr></thead>
+          <tbody id="recentOrdTbody"></tbody></table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════ ORDERS ══════════ -->
+    <div class="sec" id="sec-orders">
+      <div class="row g-3 mb-4">
+        <div class="col-6 col-md-3"><div class="kpi text-center py-3"><div class="kpi-num" id="osAll">0</div><div class="kpi-lbl">All Orders</div></div></div>
+        <div class="col-6 col-md-3"><div class="kpi text-center py-3"><div class="kpi-num" style="color:#d97706;" id="osPend">0</div><div class="kpi-lbl">Pending</div></div></div>
+        <div class="col-6 col-md-3"><div class="kpi text-center py-3"><div class="kpi-num" style="color:#9333ea;" id="osShip">0</div><div class="kpi-lbl">Shipped</div></div></div>
+        <div class="col-6 col-md-3"><div class="kpi text-center py-3"><div class="kpi-num" style="color:#16a34a;" id="osDone">0</div><div class="kpi-lbl">Delivered</div></div></div>
+      </div>
+      <div class="acard">
+        <div class="acard-head">
+          <h5><i class="fa-solid fa-bag-shopping text-danger me-2"></i>All Orders</h5>
+          <div class="d-flex gap-2 flex-wrap">
+            <input type="text" id="ordSearch" class="form-control form-control-sm" placeholder="Search ID or customer…" style="width:210px;border-radius:8px;">
+            <select id="ordFilter" class="form-select form-select-sm" style="width:150px;border-radius:8px;">
+              <option value="all">All Status</option>
+              <option value="Placed">Placed</option>
+              <option value="Processing">Processing</option>
+              <option value="Shipped">Shipped</option>
+              <option value="Out for Delivery">Out for Delivery</option>
+              <option value="Delivered">Delivered</option>
+              <option value="Cancelled">Cancelled</option>
+            </select>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="atbl"><thead><tr><th>Order ID</th><th>Customer</th><th>Items</th><th>Total</th><th>Date</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody id="allOrdTbody"></tbody></table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════ TRACKING ══════════ -->
+    <div class="sec" id="sec-tracking">
+      <div class="trk-search">
+        <div class="input-group">
+          <input type="text" id="trkInput" class="form-control" placeholder="Enter Order ID — e.g. SM-20240003">
+          <button class="trk-btn" id="trkBtn"><i class="fa-solid fa-magnifying-glass me-1"></i>Track</button>
+        </div>
+        <div class="mt-2 text-center" style="font-size:12px;color:#aaa;">Try: SM-20240001 · SM-20240003 · SM-20240004 · SM-20240007</div>
+      </div>
+
+      <div id="trkPlaceholder" style="text-align:center;padding:56px 0;color:#ccc;">
+        <i class="fa-solid fa-truck-fast" style="font-size:3.5rem;display:block;margin-bottom:14px;color:#e8ecf0;"></i>
+        <p style="font-size:15px;font-weight:600;color:#aaa;">Enter an Order ID to track the package</p>
+        <p style="font-size:13px;">View and update every stage of the delivery journey.</p>
+      </div>
+      <div id="trkEmpty" style="display:none;text-align:center;padding:56px 0;color:#bbb;">
+        <i class="fa-solid fa-circle-xmark" style="font-size:3rem;display:block;margin-bottom:12px;color:#fca5a5;"></i>
+        <p>No order found with that ID.</p>
+      </div>
+      <div id="trkResult" style="display:none;">
+        <div class="trk-card">
+          <div class="trk-header">
+            <div class="ord-lbl">ORDER</div>
+            <h4 id="trkId" style="font-family:'Nunito',sans-serif;font-weight:800;margin:0;"></h4>
+            <div class="trk-meta">
+              <div class="mi"><label>Customer</label><span id="trkCust">—</span></div>
+              <div class="mi"><label>Date Placed</label><span id="trkDate">—</span></div>
+              <div class="mi"><label>Total</label><span id="trkTotal">—</span></div>
+              <div class="mi"><label>Payment</label><span id="trkPay">—</span></div>
+            </div>
+          </div>
+          <div class="trk-steps" id="trkSteps"></div>
+          <div class="acard" style="border-radius:0 0 14px 14px;margin-top:0;border-top:1px solid #f0f2f5;">
+            <h6 style="font-weight:700;margin-bottom:10px;font-size:13px;"><i class="fa-solid fa-pen text-danger me-1"></i>Update Delivery Status</h6>
+            <div class="upd-btns" id="updBtns"></div>
+            <button id="saveTrkBtn" class="btn btn-danger mt-3" style="border-radius:10px;font-weight:700;padding:8px 22px;">
+              <i class="fa-solid fa-floppy-disk me-1"></i>Save Status
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════ PRODUCTS ══════════ -->
+    <div class="sec" id="sec-products">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="acard">
+            <div class="acard-head"><h5><i class="fa-solid fa-plus-circle text-danger me-2"></i>Add New Product</h5></div>
+            <form id="addProdForm" class="af">
+              <div class="mb-3"><label>Product Name</label><input type="text" class="form-control" id="apName" placeholder="e.g. Organic Honey" required></div>
+              <div class="mb-3"><label>Category</label>
+                <select class="form-select" id="apCat">
+                  <option>Fruits</option><option>Dairy</option><option>Bakery</option>
+                  <option>Snacks</option><option>Beverages</option><option>Frozen Foods</option>
+                  <option>Household</option><option>Produce</option>
+                </select>
+              </div>
+              <div class="row g-2 mb-3">
+                <div class="col-6"><label>Sale Price (₹)</label><input type="number" class="form-control" id="apPrice" placeholder="0"></div>
+                <div class="col-6"><label>MRP (₹)</label><input type="number" class="form-control" id="apMrp" placeholder="0"></div>
+              </div>
+              <div class="mb-3"><label>Brand</label><input type="text" class="form-control" id="apBrand" placeholder="e.g. FreshFarm"></div>
+              <div class="mb-3"><label>Image URL</label><input type="url" class="form-control" id="apImg" placeholder="https://…"></div>
+              <div class="mb-3"><label>Description</label><textarea class="form-control" id="apDesc" rows="2" placeholder="Short product description…"></textarea></div>
+              <button type="submit" class="btn btn-danger w-100" style="border-radius:10px;font-weight:700;"><i class="fa-solid fa-plus me-1"></i>Add Product</button>
+            </form>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="acard">
+            <div class="acard-head">
+              <h5><i class="fa-solid fa-list text-danger me-2"></i>Product Catalog</h5>
+              <span class="badge" style="background:#e92424;" id="prodCount">0</span>
+            </div>
+            <div class="table-responsive">
+              <table class="atbl"><thead><tr><th>Image</th><th>Name</th><th>Category</th><th>Price</th><th>MRP</th><th>Discount</th><th></th></tr></thead>
+              <tbody id="prodTbody"></tbody></table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════ CUSTOMERS ══════════ -->
+    <div class="sec" id="sec-customers">
+      <div class="acard">
+        <div class="acard-head">
+          <h5><i class="fa-solid fa-users text-danger me-2"></i>Customer Directory</h5>
+          <input type="text" id="custSearch" class="form-control form-control-sm" placeholder="Search…" style="width:200px;border-radius:8px;">
+        </div>
+        <div class="table-responsive">
+          <table class="atbl"><thead><tr><th>Customer</th><th>Email</th><th>Phone</th><th>Orders</th><th>Total Spent</th><th>Joined</th><th>Status</th></tr></thead>
+          <tbody id="custTbody"></tbody></table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════ REPORTS ══════════ -->
+    <div class="sec" id="sec-reports">
+      <div class="row g-3 mb-4">
+        <div class="col-md-4"><div class="kpi"><div class="kpi-num">₹1,47,280</div><div class="kpi-lbl">Revenue This Month</div><div class="kpi-chg up"><i class="fa-solid fa-arrow-trend-up me-1"></i>+22% vs last month</div></div></div>
+        <div class="col-md-4"><div class="kpi"><div class="kpi-num">342</div><div class="kpi-lbl">Orders This Month</div><div class="kpi-chg up"><i class="fa-solid fa-arrow-trend-up me-1"></i>+58 vs last month</div></div></div>
+        <div class="col-md-4"><div class="kpi"><div class="kpi-num">₹430</div><div class="kpi-lbl">Avg. Order Value</div><div class="kpi-chg down"><i class="fa-solid fa-arrow-trend-down me-1"></i>-₹12 vs last month</div></div></div>
+      </div>
+      <div class="row g-4 mb-4">
+        <div class="col-lg-8"><div class="acard" style="margin-bottom:0;">
+          <div class="acard-head"><h5><i class="fa-solid fa-chart-bar text-danger me-2"></i>Monthly Revenue 2026</h5></div>
+          <canvas id="monthlyChart" height="120"></canvas>
+        </div></div>
+        <div class="col-lg-4"><div class="acard" style="margin-bottom:0;">
+          <div class="acard-head"><h5><i class="fa-solid fa-chart-pie text-danger me-2"></i>Sales by Category</h5></div>
+          <canvas id="catChart" height="220"></canvas>
+        </div></div>
+      </div>
+      <div class="acard">
+        <div class="acard-head"><h5><i class="fa-solid fa-star text-danger me-2"></i>Top Selling Products</h5></div>
+        <table class="atbl"><thead><tr><th>#</th><th>Product</th><th>Category</th><th>Units Sold</th><th>Revenue</th><th>Growth</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><strong>Fresh Milk (1L)</strong></td><td>Dairy</td><td>1,240</td><td>₹74,400</td><td><span class="up fw-bold">+34%</span></td></tr>
+          <tr><td>2</td><td><strong>Fresh Apples</strong></td><td>Produce</td><td>980</td><td>₹1,05,840</td><td><span class="up fw-bold">+21%</span></td></tr>
+          <tr><td>3</td><td><strong>Potato Chips</strong></td><td>Snacks</td><td>870</td><td>₹21,750</td><td><span class="up fw-bold">+15%</span></td></tr>
+          <tr><td>4</td><td><strong>Orange Juice</strong></td><td>Beverages</td><td>654</td><td>₹62,784</td><td><span class="down fw-bold">-3%</span></td></tr>
+          <tr><td>5</td><td><strong>Bananas</strong></td><td>Produce</td><td>620</td><td>₹31,620</td><td><span class="up fw-bold">+9%</span></td></tr>
+        </tbody></table>
+      </div>
+    </div>
+
+    <!-- ══════════ SETTINGS ══════════ -->
+    <div class="sec" id="sec-settings">
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="acard">
+            <div class="acard-head"><h5><i class="fa-solid fa-store text-danger me-2"></i>Store Information</h5></div>
+            <form class="af" onsubmit="return false;">
+              <div class="mb-3"><label>Store Name</label><input class="form-control" value="SuperMart"></div>
+              <div class="mb-3"><label>Contact Email</label><input type="email" class="form-control" value="info@supermart.com"></div>
+              <div class="mb-3"><label>Contact Phone</label><input class="form-control" value="+91 9876543210"></div>
+              <div class="mb-3"><label>Address</label><textarea class="form-control" rows="2">123 Market Street, Chennai, TN 600001</textarea></div>
+              <div class="mb-3"><label>Delivery Radius (km)</label><input type="number" class="form-control" value="15"></div>
+              <button type="button" class="btn btn-danger" style="border-radius:10px;font-weight:700;" onclick="toast('Store settings saved!','success')"><i class="fa-solid fa-floppy-disk me-1"></i>Save Changes</button>
+            </form>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="acard">
+            <div class="acard-head"><h5><i class="fa-solid fa-user-shield text-danger me-2"></i>Admin Credentials</h5></div>
+            <form class="af" onsubmit="return false;">
+              <div class="mb-3"><label>Username</label><input class="form-control" value="admin"></div>
+              <div class="mb-3"><label>New Password</label><input type="password" class="form-control" placeholder="Enter new password"></div>
+              <div class="mb-3"><label>Confirm Password</label><input type="password" class="form-control" placeholder="Confirm password"></div>
+              <button type="button" class="btn btn-danger" style="border-radius:10px;font-weight:700;" onclick="toast('Password updated!','success')"><i class="fa-solid fa-lock me-1"></i>Update Password</button>
+            </form>
+          </div>
+          <div class="acard">
+            <div class="acard-head"><h5><i class="fa-solid fa-truck text-danger me-2"></i>Delivery Settings</h5></div>
+            <form class="af" onsubmit="return false;">
+              <div class="row g-2 mb-3">
+                <div class="col-6"><label>Standard Delivery (₹)</label><input type="number" class="form-control" value="49"></div>
+                <div class="col-6"><label>Express Delivery (₹)</label><input type="number" class="form-control" value="99"></div>
+              </div>
+              <div class="mb-3"><label>Free Delivery Above (₹)</label><input type="number" class="form-control" value="499"></div>
+              <button type="button" class="btn btn-danger" style="border-radius:10px;font-weight:700;" onclick="toast('Delivery settings saved!','success')"><i class="fa-solid fa-floppy-disk me-1"></i>Save</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /ac -->
+</div><!-- /adminMain -->
+
+<div id="aToast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="../assets/js/products-data.js"></script>
+<script>
+/* ── Auth ── */
+if(localStorage.getItem('smAdmin')!=='true') window.location.href='admin-login.html';
+
+/* ── Toast ── */
+function toast(msg,type='info'){
+  const t=document.getElementById('aToast'),c={success:'#16a34a',error:'#dc2626',info:'#2563eb',warning:'#d97706'};
+  t.style.background=c[type]||'#1a1d27';t.textContent=msg;t.style.opacity='1';
+  setTimeout(()=>t.style.opacity='0',2800);
+}
+
+/* ── Data ── */
+let ORDERS=JSON.parse(localStorage.getItem('smAdminOrders')||'null')||[
+  {id:'SM-20240001',cust:'Priya Menon',    email:'priya@email.com',  phone:'+91 98765 11111',items:'Fresh Apples, Milk, Bread',        total:486, date:'Jun 20, 2026',pay:'UPI',             status:'Delivered',         step:5},
+  {id:'SM-20240002',cust:'Ravi Kumar',      email:'ravi@email.com',   phone:'+91 98765 22222',items:'Potato Chips, Orange Juice',       total:220, date:'Jun 18, 2026',pay:'Credit Card',      status:'Delivered',         step:5},
+  {id:'SM-20240003',cust:'Ananya Singh',    email:'ananya@email.com', phone:'+91 98765 33333',items:'Cheddar Cheese, Croissants',       total:334, date:'Jun 25, 2026',pay:'Net Banking',      status:'Shipped',           step:3},
+  {id:'SM-20240004',cust:'Vikram Shah',     email:'vikram@email.com', phone:'+91 98765 44444',items:'Bananas, Cheddar Cheese',          total:198, date:'Jun 27, 2026',pay:'Cash on Delivery',  status:'Out for Delivery',  step:4},
+  {id:'SM-20240005',cust:'Meera Nair',      email:'meera@email.com',  phone:'+91 98765 55555',items:'Whole Wheat Bread x2',             total:84,  date:'Jun 10, 2026',pay:'UPI',             status:'Delivered',         step:5},
+  {id:'SM-20240006',cust:'Arjun Patel',     email:'arjun@email.com',  phone:'+91 98765 66666',items:'Mixed Nuts, Orange Juice',         total:336, date:'Jun 05, 2026',pay:'Credit Card',      status:'Cancelled',         step:0},
+  {id:'SM-20240007',cust:'Sunita Reddy',    email:'sunita@email.com', phone:'+91 98765 77777',items:'Fresh Milk x3, Butter Croissants', total:238, date:'Jun 28, 2026',pay:'UPI',             status:'Processing',        step:2},
+  {id:'SM-20240008',cust:'Karthik Iyer',    email:'karthik@email.com',phone:'+91 98765 88888',items:'Potato Chips, Mixed Nuts',         total:265, date:'Jun 29, 2026',pay:'Net Banking',      status:'Placed',            step:1},
+];
+function saveOrders(){localStorage.setItem('smAdminOrders',JSON.stringify(ORDERS));}
+
+const CUSTS=[
+  {name:'Priya Menon',  email:'priya@email.com',  phone:'+91 98765 11111',orders:8, spent:'₹4,280',joined:'Jan 2026',active:true},
+  {name:'Ravi Kumar',   email:'ravi@email.com',   phone:'+91 98765 22222',orders:14,spent:'₹7,640',joined:'Nov 2025',active:true},
+  {name:'Ananya Singh', email:'ananya@email.com', phone:'+91 98765 33333',orders:5, spent:'₹2,310',joined:'Mar 2026',active:true},
+  {name:'Vikram Shah',  email:'vikram@email.com', phone:'+91 98765 44444',orders:3, spent:'₹1,190',joined:'May 2026',active:true},
+  {name:'Meera Nair',   email:'meera@email.com',  phone:'+91 98765 55555',orders:11,spent:'₹5,940',joined:'Feb 2026',active:true},
+  {name:'Arjun Patel',  email:'arjun@email.com',  phone:'+91 98765 66666',orders:2, spent:'₹620',  joined:'Jun 2026',active:false},
+  {name:'Sunita Reddy', email:'sunita@email.com', phone:'+91 98765 77777',orders:6, spent:'₹3,120',joined:'Apr 2026',active:true},
+  {name:'Karthik Iyer', email:'karthik@email.com',phone:'+91 98765 88888',orders:1, spent:'₹265',  joined:'Jun 2026',active:true},
+];
+
+const TRK_STEPS=[
+  {label:'Order Placed',      desc:'Your order has been received and confirmed.',     icon:'fa-circle-check',  time:'9:00 AM'},
+  {label:'Processing',        desc:'We\'re picking and packing your items carefully.',icon:'fa-box-open',      time:'11:30 AM'},
+  {label:'Shipped',           desc:'Your order has left our warehouse.',              icon:'fa-truck',         time:'7:00 AM'},
+  {label:'Out for Delivery',  desc:'Package is on the way — arriving today!',        icon:'fa-motorcycle',    time:'2:00 PM'},
+  {label:'Delivered',         desc:'Package delivered successfully. Enjoy!',          icon:'fa-house-chimney-check',time:'6:15 PM'},
+];
+
+const SBADGE_MAP={
+  'Placed':'b-placed','Processing':'b-processing','Shipped':'b-shipped',
+  'Out for Delivery':'b-outfordelivery','Delivered':'b-delivered','Cancelled':'b-cancelled'
+};
+const AVT_COLORS=['#e92424','#2563eb','#16a34a','#9333ea','#d97706','#0891b2','#be185d','#0f766e'];
+
+/* ── Navigation ── */
+const SEC_TITLES={dashboard:'Dashboard',orders:'Order Management',tracking:'Package Tracking',products:'Product Catalog',customers:'Customer Directory',reports:'Reports & Analytics',settings:'Settings'};
+function switchSec(name){
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.sb-nav a[data-sec]').forEach(a=>a.classList.remove('active'));
+  const s=document.getElementById('sec-'+name);if(s)s.classList.add('active');
+  const a=document.querySelector('.sb-nav a[data-sec="'+name+'"]');if(a)a.classList.add('active');
+  document.getElementById('pgTitle').textContent=SEC_TITLES[name]||name;
+  document.getElementById('pgCrumb').textContent='SuperMart Admin → '+(SEC_TITLES[name]||name);
+  if(name==='dashboard'){refreshKPIs();renderRecentOrders();initCharts();}
+  if(name==='orders'){refreshKPIs();renderAllOrders();}
+  if(name==='products'){renderProds();}
+  if(name==='customers'){renderCusts();}
+  if(name==='reports'){initReportCharts();}
+}
+document.querySelectorAll('.sb-nav a[data-sec]').forEach(a=>a.addEventListener('click',function(e){e.preventDefault();switchSec(this.dataset.sec);}));
+document.querySelectorAll('.sec-link').forEach(a=>a.addEventListener('click',function(e){e.preventDefault();switchSec(this.dataset.sec);}));
+function adminLogout(){localStorage.removeItem('smAdmin');window.location.href='admin-login.html';}
+document.getElementById('adminLogout').addEventListener('click',adminLogout);
+document.getElementById('adminLogoutTop').addEventListener('click',adminLogout);
+
+/* ── Theme Toggle ── */
+(function(){
+  if(localStorage.getItem('smAdminDark')==='1') document.body.classList.add('adm-dark');
+  function updateIcon(){
+    const dark=document.body.classList.contains('adm-dark');
+    document.getElementById('adminThemeToggle').innerHTML=dark?'<i class="fa-solid fa-sun"></i>':'<i class="fa-solid fa-moon"></i>';
+  }
+  updateIcon();
+  document.getElementById('adminThemeToggle').addEventListener('click',function(){
+    const isDark=document.body.classList.toggle('adm-dark');
+    localStorage.setItem('smAdminDark',isDark?'1':'0');
+    updateIcon();
+  });
+})();
+
+/* ── KPIs ── */
+function refreshKPIs(){
+  const rev=ORDERS.filter(o=>o.status!=='Cancelled').reduce((s,o)=>s+o.total,0);
+  document.getElementById('kpiRev').textContent='₹'+rev.toLocaleString('en-IN');
+  document.getElementById('kpiOrd').textContent=ORDERS.length;
+  document.getElementById('kpiCust').textContent=CUSTS.length;
+  const custom=JSON.parse(localStorage.getItem('smAdminProducts')||'[]');
+  document.getElementById('kpiProd').textContent=(window.SM_PRODUCTS||[]).length+custom.length;
+  document.getElementById('sbNewOrders').textContent=ORDERS.length;
+  document.getElementById('osAll').textContent=ORDERS.length;
+  document.getElementById('osPend').textContent=ORDERS.filter(o=>['Placed','Processing'].includes(o.status)).length;
+  document.getElementById('osShip').textContent=ORDERS.filter(o=>['Shipped','Out for Delivery'].includes(o.status)).length;
+  document.getElementById('osDone').textContent=ORDERS.filter(o=>o.status==='Delivered').length;
+}
+
+/* ── Recent Orders ── */
+function renderRecentOrders(){
+  document.getElementById('recentOrdTbody').innerHTML=ORDERS.slice(0,5).map((o,i)=>`
+    <tr>
+      <td><strong>#${o.id}</strong></td>
+      <td><div style="display:flex;align-items:center;gap:8px;"><div class="avp" style="background:${AVT_COLORS[i%8]};">${o.cust[0]}</div>${o.cust}</div></td>
+      <td style="color:#9aa0b4;font-size:13px;">${o.items}</td>
+      <td><strong>₹${o.total.toLocaleString('en-IN')}</strong></td>
+      <td><span class="bs ${SBADGE_MAP[o.status]||''}">${o.status}</span></td>
+      <td style="color:#aaa;font-size:13px;">${o.date}</td>
+    </tr>`).join('');
+}
+
+/* ── All Orders ── */
+function renderAllOrders(filter='all',search=''){
+  let list=ORDERS;
+  if(filter!=='all')list=list.filter(o=>o.status===filter);
+  if(search){const q=search.toLowerCase();list=list.filter(o=>o.id.toLowerCase().includes(q)||o.cust.toLowerCase().includes(q));}
+  document.getElementById('allOrdTbody').innerHTML=!list.length
+    ?'<tr><td colspan="7" class="text-center py-4" style="color:#aaa;">No orders found.</td></tr>'
+    :list.map((o,i)=>`
+      <tr>
+        <td><strong>#${o.id}</strong></td>
+        <td><div style="display:flex;align-items:center;gap:8px;"><div class="avp" style="background:${AVT_COLORS[ORDERS.indexOf(o)%8]};">${o.cust[0]}</div><div><div style="font-weight:600;">${o.cust}</div><div style="font-size:12px;color:#aaa;">${o.email}</div></div></div></td>
+        <td style="font-size:13px;color:#666;">${o.items}</td>
+        <td><strong>₹${o.total.toLocaleString('en-IN')}</strong></td>
+        <td style="font-size:13px;color:#aaa;">${o.date}</td>
+        <td><span class="bs ${SBADGE_MAP[o.status]||''}">${o.status}</span></td>
+        <td><button class="btn btn-sm btn-outline-secondary" style="border-radius:8px;font-size:12px;" onclick="quickTrack('${o.id}')"><i class="fa-solid fa-truck-fast me-1"></i>Track</button></td>
+      </tr>`).join('');
+}
+document.getElementById('ordSearch').addEventListener('input',function(){renderAllOrders(document.getElementById('ordFilter').value,this.value);});
+document.getElementById('ordFilter').addEventListener('change',function(){renderAllOrders(this.value,document.getElementById('ordSearch').value);});
+function quickTrack(id){switchSec('tracking');document.getElementById('trkInput').value=id;doTrack(id);}
+
+/* ── Tracking ── */
+let curOrd=null,selStep=null;
+function doTrack(rawId){
+  const id=rawId.trim().toUpperCase();
+  const o=ORDERS.find(x=>x.id===id);
+  document.getElementById('trkPlaceholder').style.display='none';
+  if(!o){document.getElementById('trkResult').style.display='none';document.getElementById('trkEmpty').style.display='block';return;}
+  document.getElementById('trkEmpty').style.display='none';
+  document.getElementById('trkResult').style.display='block';
+  curOrd=o;selStep=o.step;
+  document.getElementById('trkId').textContent='#'+o.id;
+  document.getElementById('trkCust').textContent=o.cust;
+  document.getElementById('trkDate').textContent=o.date;
+  document.getElementById('trkTotal').textContent='₹'+o.total.toLocaleString('en-IN');
+  document.getElementById('trkPay').textContent=o.pay;
+  renderTrkSteps(o.step);renderUpdBtns(o.step);
+}
+function renderTrkSteps(cur){
+  if(curOrd&&curOrd.status==='Cancelled'){
+    document.getElementById('trkSteps').innerHTML='<div style="text-align:center;padding:28px 0;color:#dc2626;"><i class="fa-solid fa-ban" style="font-size:2.5rem;display:block;margin-bottom:10px;"></i><strong>Order Cancelled</strong><br><span style="font-size:13px;color:#aaa;">This order was cancelled and will not be delivered.</span></div>';return;
+  }
+  document.getElementById('trkSteps').innerHTML=TRK_STEPS.map((s,i)=>{
+    const n=i+1,done=cur>=n,active=cur===n;
+    return`<div class="step-row ${done?'sdone':''} ${active?'sactive':''}">
+      ${i<TRK_STEPS.length-1?'<div class="step-line"></div>':''}
+      <div class="step-circ"><i class="fa-solid ${s.icon}"></i></div>
+      <div class="step-body">
+        <div class="step-lbl" style="color:${done?'#1a1d27':'#bbb'};">${s.label}</div>
+        <div class="step-desc" style="color:${done?'#666':'#ddd'};">${s.desc}</div>
+        ${done?`<div class="step-time">Jun 28, 2026 · ${s.time}</div>`:''}
+      </div></div>`;
+  }).join('');
+}
+function renderUpdBtns(cur){
+  const ss=['Placed','Processing','Shipped','Out for Delivery','Delivered'];
+  document.getElementById('updBtns').innerHTML=
+    ss.map((s,i)=>`<button class="${selStep===i+1?'sel':''}" data-step="${i+1}" onclick="selStep=${i+1};renderUpdBtns(${i+1})">${s}</button>`).join('')+
+    `<button class="${selStep===0?'cancel-sel':''}" onclick="selStep=0;renderUpdBtns(-1)" style="background:#fef2f2;color:#dc2626;border-color:#fca5a5;">Cancel Order</button>`;
+}
+document.getElementById('trkBtn').addEventListener('click',()=>doTrack(document.getElementById('trkInput').value));
+document.getElementById('trkInput').addEventListener('keydown',e=>{if(e.key==='Enter')doTrack(e.target.value);});
+document.getElementById('saveTrkBtn').addEventListener('click',function(){
+  if(!curOrd)return;
+  const statuses=['','Placed','Processing','Shipped','Out for Delivery','Delivered'];
+  const idx=ORDERS.findIndex(o=>o.id===curOrd.id);if(idx===-1)return;
+  ORDERS[idx].step=selStep;
+  ORDERS[idx].status=selStep===0?'Cancelled':statuses[selStep];
+  saveOrders();curOrd=ORDERS[idx];
+  renderTrkSteps(selStep);refreshKPIs();
+  toast('Status updated: '+ORDERS[idx].status,'success');
+});
+
+/* ── Products ── */
+function getCustProds(){return JSON.parse(localStorage.getItem('smAdminProducts')||'[]');}
+function saveCustProds(l){localStorage.setItem('smAdminProducts',JSON.stringify(l));}
+function getHiddenIds(){return JSON.parse(localStorage.getItem('smHiddenProds')||'[]');}
+function saveHiddenIds(a){localStorage.setItem('smHiddenProds',JSON.stringify(a));}
+function renderProds(){
+  const base=(window.SM_PRODUCTS||[]).filter(p=>!getHiddenIds().includes(p.id)),
+        custom=getCustProds(),all=[...base,...custom];
+  document.getElementById('prodCount').textContent=all.length+' products';
+  document.getElementById('prodTbody').innerHTML=all.map((p,i)=>{
+    const disc=p.original?Math.round((1-p.price/p.original)*100):0,isC=i>=base.length;
+    const delBtn=`<button class="btn btn-sm btn-outline-danger" style="border-radius:8px;font-size:12px;" onclick="${isC?`delProd(${i-base.length})`:`delBuiltin(${p.id})`}" title="Delete"><i class="fa-solid fa-trash"></i></button>`;
+    return`<tr>
+      <td><img src="${p.img||'https://via.placeholder.com/40'}" class="pthmb" onerror="this.src='https://via.placeholder.com/40?text=IMG'" alt=""></td>
+      <td><strong>${p.name}</strong>${isC?' <span style="font-size:10px;background:#fff7ed;color:#d97706;padding:1px 6px;border-radius:6px;">Custom</span>':''}</td>
+      <td style="color:#9aa0b4;">${p.cat}</td>
+      <td><strong>₹${p.price}</strong></td>
+      <td style="text-decoration:line-through;color:#aaa;">${p.original?'₹'+p.original:'—'}</td>
+      <td>${disc?`<span style="color:#16a34a;font-weight:700;">${disc}% OFF</span>`:'—'}</td>
+      <td>${delBtn}</td>
+    </tr>`;
+  }).join('');
+}
+function delBuiltin(id){const h=getHiddenIds();if(!h.includes(id)){h.push(id);saveHiddenIds(h);}renderProds();refreshKPIs();toast('Product removed.','info');}
+function delProd(i){const l=getCustProds(),n=l[i]?.name;l.splice(i,1);saveCustProds(l);renderProds();refreshKPIs();toast((n||'Product')+' removed.','info');}
+document.getElementById('addProdForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  const name=document.getElementById('apName').value.trim(),cat=document.getElementById('apCat').value;
+  const price=parseFloat(document.getElementById('apPrice').value)||0;
+  const original=parseFloat(document.getElementById('apMrp').value)||null;
+  const img=document.getElementById('apImg').value.trim()||'https://via.placeholder.com/300?text='+encodeURIComponent(name);
+  const desc=document.getElementById('apDesc').value.trim(),brand=document.getElementById('apBrand').value.trim()||'SuperMart';
+  if(!name||!price){toast('Fill Product Name and Price.','error');return;}
+  const l=getCustProds();l.push({name,cat,price,original,img,desc,brand});saveCustProds(l);
+  this.reset();renderProds();refreshKPIs();toast(name+' added!','success');
+});
+
+/* ── Customers ── */
+function renderCusts(q=''){
+  let list=CUSTS;if(q){const s=q.toLowerCase();list=list.filter(c=>c.name.toLowerCase().includes(s)||c.email.toLowerCase().includes(s));}
+  document.getElementById('custTbody').innerHTML=list.map((c,i)=>`
+    <tr>
+      <td><div style="display:flex;align-items:center;gap:9px;"><div class="avp" style="background:${AVT_COLORS[i%8]};">${c.name[0]}</div><strong>${c.name}</strong></div></td>
+      <td style="color:#666;">${c.email}</td><td style="color:#666;">${c.phone}</td>
+      <td><strong>${c.orders}</strong></td>
+      <td><strong style="color:#e92424;">${c.spent}</strong></td>
+      <td style="color:#aaa;">${c.joined}</td>
+      <td><span class="bs ${c.active?'b-delivered':'b-cancelled'}">${c.active?'Active':'Inactive'}</span></td>
+    </tr>`).join('');
+}
+document.getElementById('custSearch').addEventListener('input',function(){renderCusts(this.value);});
+
+/* ── Charts ── */
+let rChart,sChart,mChart,cChart;
+function initCharts(){
+  if(rChart)return;
+  rChart=new Chart(document.getElementById('revenueChart').getContext('2d'),{type:'line',data:{labels:['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],datasets:[{label:'Revenue',data:[4200,6800,5100,8400,7200,12500,9800],borderColor:'#e92424',backgroundColor:'rgba(233,36,36,.08)',tension:.4,fill:true,pointBackgroundColor:'#e92424',pointRadius:4}]},options:{plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{callback:v=>'₹'+v.toLocaleString('en-IN')}},x:{grid:{display:false}}}}});
+  const sc=ORDERS.reduce((acc,o)=>{acc[o.status]=(acc[o.status]||0)+1;return acc;},{});
+  sChart=new Chart(document.getElementById('statusChart').getContext('2d'),{type:'doughnut',data:{labels:Object.keys(sc),datasets:[{data:Object.values(sc),backgroundColor:['#bfdbfe','#fde68a','#bbf7d0','#e9d5ff','#86efac','#fca5a5'],borderWidth:0}]},options:{plugins:{legend:{position:'bottom',labels:{font:{size:11}}}},cutout:'65%'}});
+}
+function initReportCharts(){
+  if(mChart)return;
+  mChart=new Chart(document.getElementById('monthlyChart').getContext('2d'),{type:'bar',data:{labels:['Jan','Feb','Mar','Apr','May','Jun'],datasets:[{label:'Revenue',data:[82000,91000,108000,125000,134000,147000],backgroundColor:'rgba(233,36,36,.8)',borderRadius:8}]},options:{plugins:{legend:{display:false}},scales:{y:{ticks:{callback:v=>'₹'+(v/1000).toFixed(0)+'k'}},x:{grid:{display:false}}}}});
+  cChart=new Chart(document.getElementById('catChart').getContext('2d'),{type:'pie',data:{labels:['Produce','Dairy','Bakery','Snacks','Beverages','Other'],datasets:[{data:[28,22,15,18,12,5],backgroundColor:['#e92424','#2563eb','#16a34a','#d97706','#9333ea','#64748b'],borderWidth:0}]},options:{plugins:{legend:{position:'bottom',labels:{font:{size:11}}}}}});
+}
+
+/* ── Init ── */
+window.addEventListener('DOMContentLoaded',function(){refreshKPIs();renderRecentOrders();initCharts();});
+</script>
+</body>
+</html>

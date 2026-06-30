@@ -1,0 +1,22 @@
+SUPERMART WEBSITE — CREDITS
+=============================
+
+FRAMEWORKS & LIBRARIES
+  Bootstrap 5.3.3       https://getbootstrap.com
+  Font Awesome 6.5.2    https://fontawesome.com
+
+FONTS
+  Nunito                https://fonts.google.com/specimen/Nunito
+  Open Sans             https://fonts.google.com/specimen/Open+Sans
+
+IMAGES
+  Stock photography sourced from Unsplash (https://unsplash.com),
+  used under the Unsplash License. Replace with your own product and
+  store photography before commercial launch.
+
+ICONS
+  Font Awesome Free icon set.
+
+DEVELOPMENT
+  Built as a static front-end template — no backend or database
+  required. See README.md for setup instructions.

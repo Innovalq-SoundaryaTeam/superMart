@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10 Smart Ways to Cut Your Grocery Bill This Month | SuperMart Blog</title>
+<meta name="description" content="Practical, proven strategies to slash your weekly grocery spend without sacrificing quality or nutrition.">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/dark-mode.css">
+<link rel="stylesheet" href="../assets/css/rtl.css">
+<link rel="stylesheet" href="../assets/css/features.css">
+<link rel="stylesheet" href="../assets/css/enhance.css">
+<style>
+/* ── ARTICLE HERO ── */
+.article-hero{
+  position:relative;height:460px;overflow:hidden;
+}
+.article-hero img{width:100%;height:100%;object-fit:cover;}
+.article-hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.1) 0%,rgba(0,0,0,.7) 100%);
+  display:flex;align-items:flex-end;
+}
+.article-hero-content{padding:40px;}
+.article-cat{
+  display:inline-block;background:var(--color-primary);color:#fff;
+  border-radius:6px;padding:4px 14px;font-size:12px;font-weight:700;
+  margin-bottom:12px;
+}
+.article-hero-content h1{color:#fff;font-size:clamp(1.5rem,3.5vw,2.4rem);margin-bottom:0;}
+
+/* ── ARTICLE META ── */
+.article-meta{
+  display:flex;flex-wrap:wrap;gap:20px;align-items:center;
+  padding:20px 0;border-bottom:1px solid var(--color-border);
+  margin-bottom:30px;
+}
+.author-mini img{width:42px;height:42px;border-radius:50%;object-fit:cover;margin-right:10px;}
+.meta-pill{font-size:13px;color:#888;display:flex;align-items:center;gap:6px;}
+.author-role{font-size:12px;color:#888;}
+.meta-pill i{color:var(--color-primary);}
+
+/* ── ARTICLE BODY ── */
+.article-body{font-size:1.05rem;line-height:1.9;color:var(--color-text);}
+.article-body h2{font-size:1.5rem;margin:40px 0 16px;color:var(--color-text);}
+.article-body h3{font-size:1.2rem;margin:30px 0 12px;color:var(--color-text);}
+.article-body p{margin-bottom:20px;}
+.article-body ul,
+.article-body ol{margin-bottom:20px;padding-left:24px;}
+.article-body li{margin-bottom:8px;}
+.article-body blockquote{
+  border-left:4px solid var(--color-primary);
+  padding:16px 20px;margin:28px 0;
+  background:rgba(230,57,70,.05);border-radius:0 8px 8px 0;
+  font-style:italic;font-size:1.1rem;
+}
+.article-body .tip-box{
+  background:rgba(255,209,102,.12);border:1px solid rgba(255,209,102,.4);
+  border-radius:12px;padding:18px 20px;margin:28px 0;
+}
+.article-body .tip-box strong{color:#b58a00;}
+.article-inline-img{border-radius:14px;margin:28px 0;box-shadow:var(--shadow);}
+
+/* ── SHARE BAR ── */
+.share-bar{
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  padding:20px 0;border-top:1px solid var(--color-border);
+  border-bottom:1px solid var(--color-border);margin:40px 0;
+}
+.share-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 18px;border-radius:8px;font-size:13px;
+  font-weight:600;text-decoration:none;transition:var(--transition);
+  color:#fff;
+}
+.share-btn:hover{opacity:.88;transform:translateY(-2px);color:#fff;}
+.share-btn.fb{background:#1877f2;}
+.share-btn.tw{background:#1da1f2;}
+.share-btn.wa{background:#25d366;}
+.share-btn.li{background:#0a66c2;}
+
+/* ── TAGS ── */
+.tag-pill{
+  display:inline-block;background:var(--color-section);
+  color:var(--color-text);border-radius:6px;
+  padding:4px 14px;font-size:12px;font-weight:600;
+  margin:3px;text-decoration:none;transition:var(--transition);
+}
+.tag-pill:hover{background:var(--color-primary);color:#fff;}
+
+/* ── AUTHOR BIO ── */
+.author-bio{
+  background:var(--color-card);border-radius:16px;
+  box-shadow:var(--shadow);padding:28px;
+  display:flex;gap:20px;align-items:flex-start;margin:40px 0;
+}
+.author-bio img{width:80px;height:80px;border-radius:50%;object-fit:cover;flex-shrink:0;}
+
+/* ── COMMENTS ── */
+.comment-item{display:flex;gap:14px;margin-bottom:24px;}
+.comment-avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0;}
+.comment-bubble{background:var(--color-section);border-radius:12px;padding:14px 18px;flex:1;}
+.comment-bubble .c-name{font-weight:700;font-size:14px;}
+.comment-bubble .c-date{font-size:12px;color:#aaa;margin-left:8px;}
+.comment-bubble p{font-size:14px;color:var(--color-text);margin-bottom:0;margin-top:6px;}
+
+/* ── RELATED POSTS ── */
+.related-post-card{
+  background:var(--color-card);border-radius:14px;overflow:hidden;
+  box-shadow:var(--shadow);transition:var(--transition);height:100%;
+}
+.related-post-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-hover);}
+.related-post-card img{height:160px;object-fit:cover;width:100%;}
+.related-post-card .rp-body{padding:16px;}
+
+/* ── SIDEBAR ── */
+.blog-sidebar-card{
+  background:var(--color-card);border-radius:14px;
+  box-shadow:var(--shadow);padding:22px;margin-bottom:24px;
+}
+.blog-sidebar-card h6{font-weight:700;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--color-primary);}
+.recent-post-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--color-border);}
+.recent-post-item:last-child{border-bottom:none;}
+.recent-post-item img{width:60px;height:60px;object-fit:cover;border-radius:8px;flex-shrink:0;}
+.recent-post-item .rp-title{font-size:13px;font-weight:600;color:var(--color-text);text-decoration:none;display:block;}
+.recent-post-item .rp-title:hover{color:var(--color-primary);}
+.recent-post-item .rp-date{font-size:11px;color:#aaa;}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- Top Bar -->
+<div class="top-bar py-2">
+<div class="container d-flex justify-content-between align-items-center">
+<span><i class="fa-regular fa-clock"></i> Mon - Sun : 8:00 AM - 10:00 PM</span>
+<a href="store-locator.html" class="text-decoration-none"><i class="fa-solid fa-location-dot"></i> Find a Store</a>
+</div>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg shadow-sm sticky-top">
+<div class="container">
+<a class="navbar-brand fw-bold logo" href="index.html">SuperMart</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"><span class="navbar-toggler-icon"></span></button>
+<div class="collapse navbar-collapse" id="navMenu">
+<ul class="navbar-nav ms-auto align-items-lg-center">
+<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="home2.html">Home2</a></li>
+<li class="nav-item"><a class="nav-link" href="offers.html">Offers</a></li>
+<li class="nav-item"><a class="nav-link" href="categories.html">Categories</a></li>
+<li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+<li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+<li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+</ul>
+<div class="d-flex align-items-center gap-2 ms-lg-3">
+<a href="cart.html" class="nav-icon-btn"><i class="fa-solid fa-cart-shopping"></i><span class="cart-badge" id="cartCountNav">0</span></a>
+<span id="authArea"><a href="login.html" class="nav-icon-btn" title="Login"><i class="fa-solid fa-user"></i></a></span>
+<button id="themeToggle" class="btn btn-danger ms-1" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+</div>
+</div>
+</div>
+</nav>
+
+<main id="main-content">
+
+<!-- Article Hero Image -->
+<div class="article-hero">
+<img src="../assets/images/blog-grocery-bill.png" alt="Smart grocery shopping tips">
+<div class="article-hero-overlay">
+<div class="article-hero-content">
+<span class="article-cat">Saving Tips</span>
+<h1>10 Smart Ways to Cut Your Grocery Bill This Month</h1>
+</div>
+</div>
+</div>
+
+<section class="py-5">
+<div class="container">
+
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="mb-4">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+<li class="breadcrumb-item"><a href="blog.html">Blog</a></li>
+<li class="breadcrumb-item active">10 Smart Ways to Cut Your Grocery Bill</li>
+</ol>
+</nav>
+
+<div class="row g-5">
+
+<!-- Article -->
+<div class="col-lg-8">
+
+<!-- Meta -->
+<div class="article-meta">
+<div class="author-mini d-flex align-items-center">
+<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face" alt="Meera Nair">
+<div><div class="fw-bold" style="font-size:14px;">Meera Nair</div><div class="author-role">SuperMart Food Editor</div></div>
+</div>
+<span class="meta-pill"><i class="fa-regular fa-calendar"></i> June 18, 2026</span>
+<span class="meta-pill"><i class="fa-solid fa-clock"></i> 7 min read</span>
+<span class="meta-pill"><i class="fa-solid fa-eye"></i> 14,201 views</span>
+<span class="meta-pill ms-auto"><i class="fa-solid fa-comments"></i> 23 comments</span>
+</div>
+
+<!-- Body -->
+<div class="article-body">
+
+<p>With food prices still higher than pre-pandemic levels, finding ways to stretch your grocery budget further has never been more important. The good news? You don't have to sacrifice quality or nutrition to spend less. These 10 strategies, used consistently, can reduce the average household grocery spend by 20–30%.</p>
+
+<h2>1. Plan Your Meals a Week Ahead</h2>
+<p>Meal planning is the single most effective way to cut grocery waste — and therefore cost. Before you shop, write down every meal for the week. Then build your shopping list from <em>only</em> what those meals require. Research shows meal-planners spend 23% less than unplanned shoppers and waste 40% less food.</p>
+<div class="tip-box">
+<strong>⚡ Pro Tip:</strong> Use overlapping ingredients across multiple meals. For example, if you buy a bag of spinach, plan dishes that use it in three different meals across the week — a smoothie, a pasta, and a side salad.
+</div>
+
+<h2>2. Shop Your Offers Page First</h2>
+<p>Always check the <a href="offers.html" class="text-danger">weekly offers</a> before writing your shopping list. Reverse-engineer your meal plan around what's on discount. If chicken breasts are 35% off this week, make two chicken-based meals. This "discount-first" approach can save ₹400–₹800 on an average monthly shop.</p>
+
+<img src="../assets/images/blog-detail-inline.png" class="w-100 article-inline-img" alt="Weekly offer planning">
+
+<h2>3. Buy Staples in Bulk</h2>
+<p>Rice, lentils, spices, oil, sugar, and flour don't expire quickly. Buying these in larger pack sizes typically reduces the per-unit cost by 15–25%. SuperMart's 5 kg bags of Basmati rice and 1 kg packs of lentils are significantly cheaper per gram than smaller equivalents.</p>
+
+<h2>4. Embrace the "Ugly" Produce Section</h2>
+<p>Slightly misshapen fruits and vegetables are nutritionally identical to perfect-looking ones. Many supermarkets sell these at 20–40% off. They taste the same and are perfect for cooking, smoothies, or curries where appearance doesn't matter.</p>
+
+<blockquote>"A wonky carrot still makes a perfect dal. Stop paying a beauty premium for food that becomes invisible the moment it's cooked."</blockquote>
+
+<h2>5. Join the Loyalty Program</h2>
+<p>If you're not collecting <a href="loyalty-card.html" class="text-danger">loyalty points</a>, you're leaving money on the table. At SuperMart, you earn 1 point per ₹10 spent. Points redeem at a 1:1 value against future purchases. A family spending ₹8,000/month earns ₹800 back annually — that's more than a free week of groceries.</p>
+
+<h2>6. Shop on Weekday Mornings</h2>
+<p>Stores often mark down fresh produce, meat, and bakery items in the morning before restocking. Weekday mornings also tend to have shorter queues and better stock availability. Evening shoppers get the leftovers.</p>
+
+<h2>7. Avoid Shopping When Hungry</h2>
+<p>This is old advice because it's always true. Studies consistently show that hungry shoppers spend 20–40% more and make significantly more impulse purchases. Eat before you go — or shop online where impulse buying is easier to avoid.</p>
+
+<h2>8. Compare Price Per Unit, Not Package Price</h2>
+<p>A ₹120 bottle of oil might seem more expensive than a ₹85 bottle. But if the ₹120 bottle is 1 litre and the ₹85 one is 500 ml, the bigger bottle is actually cheaper per millilitre. Always check the price-per-unit label on the shelf edge.</p>
+
+<h2>9. Cook in Batches and Freeze</h2>
+<p>Cooking large batches and freezing portions in individual servings eliminates the temptation of expensive takeaway on tired evenings. Foods that freeze exceptionally well include soups, curries, pasta sauces, and cooked lentils — precisely the budget-friendly staples that form the backbone of an efficient grocery shop.</p>
+
+<h2>10. Use the SuperMart App for Flash Sales</h2>
+<p>Our app sends push notifications 30 minutes before flash sales go live. These can be 40–60% off on specific categories and last as little as 2 hours. Enabling notifications means you never miss a deal that could transform your week's grocery cost.</p>
+
+<div class="tip-box">
+<strong>💰 Monthly Savings Summary:</strong> Implementing all 10 strategies typically saves a family of 4 between ₹1,200 and ₹2,500 per month — enough for a restaurant meal out, or reinvested back into higher-quality proteins and fresh produce.
+</div>
+
+<p>The best grocery budgeting approach isn't about deprivation — it's about intention. Plan deliberately, shop the discounts first, and let your kitchen do the heavy lifting. Your wallet will thank you.</p>
+
+</div><!-- /article-body -->
+
+<!-- Tags -->
+<div class="mt-4 mb-3">
+<strong class="me-2">Tags:</strong>
+<a href="blog.html" class="tag-pill">Saving Tips</a>
+<a href="blog.html" class="tag-pill">Budgeting</a>
+<a href="blog.html" class="tag-pill">Grocery Shopping</a>
+<a href="blog.html" class="tag-pill">Meal Planning</a>
+<a href="blog.html" class="tag-pill">Weekly Offers</a>
+</div>
+
+<!-- Share Bar -->
+<div class="share-bar">
+<strong>Share:</strong>
+<a href="#" class="share-btn fb"><i class="fab fa-facebook-f"></i> Facebook</a>
+<a href="#" class="share-btn tw"><i class="fab fa-twitter"></i> Twitter</a>
+<a href="#" class="share-btn wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+<a href="#" class="share-btn li"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+</div>
+
+<!-- Author Bio -->
+<div class="author-bio">
+<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face" alt="Meera Nair">
+<div>
+<h6 class="fw-bold mb-1">Meera Nair</h6>
+<div class="text-muted small mb-2">Food Editor & Nutrition Writer at SuperMart</div>
+<p class="text-muted small mb-2">Meera has been writing about food, budgeting, and sustainable eating for 8 years. She believes that eating well on a budget is a skill — not a sacrifice.</p>
+<a href="blog.html" class="btn btn-outline-danger btn-sm">More by Meera</a>
+</div>
+</div>
+
+<!-- Comments -->
+<h5 class="fw-bold mb-4">23 Comments</h5>
+
+<div class="comment-item">
+<img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=44&h=44&fit=crop&crop=face" class="comment-avatar" alt="Ravi">
+<div class="comment-bubble">
+<span class="c-name">Ravi Kumar</span><span class="c-date">Jun 19, 2026</span>
+<p>The meal planning tip changed everything for us. We went from spending ₹12,000 to ₹8,500 a month in just 6 weeks. Incredible article!</p>
+</div>
+</div>
+
+<div class="comment-item">
+<img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=44&h=44&fit=crop&crop=face" class="comment-avatar" alt="Priya">
+<div class="comment-bubble">
+<span class="c-name">Priya Menon</span><span class="c-date">Jun 20, 2026</span>
+<p>Point 8 (price per unit) is so underrated. I started doing this and immediately stopped buying certain "budget" brands that were actually more expensive per gram!</p>
+</div>
+</div>
+
+<div class="comment-item">
+<img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=44&h=44&fit=crop&crop=face" class="comment-avatar" alt="Arjun">
+<div class="comment-bubble">
+<span class="c-name">Arjun S.</span><span class="c-date">Jun 22, 2026</span>
+<p>Batch cooking tip is a lifesaver! I make a big pot of dal every Sunday and it covers lunches for the whole week. Costs about ₹150 for 7 portions.</p>
+</div>
+</div>
+
+<!-- Comment Form -->
+<h6 class="fw-bold mt-4 mb-3">Leave a Comment</h6>
+<form id="commentForm" novalidate>
+<div class="row g-3">
+<div class="col-sm-6"><input type="text" class="form-control" id="commentName" placeholder="Your Name" required></div>
+<div class="col-sm-6"><input type="email" class="form-control" id="commentEmail" placeholder="Email (not published)" required></div>
+<div class="col-12"><textarea class="form-control" id="commentText" rows="4" placeholder="Share your thoughts…" required></textarea></div>
+<div class="col-12"><button type="submit" class="btn btn-danger">Post Comment</button></div>
+</div>
+</form>
+
+<!-- Related Posts -->
+<h5 class="fw-bold mt-5 mb-4">Related Articles</h5>
+<div class="row g-4">
+<div class="col-md-4">
+<div class="related-post-card">
+<img src="../assets/images/blog-related-healthy-eating.png" alt="Healthy eating">
+<div class="rp-body">
+<small class="text-muted">Nutrition</small>
+<a href="blog-details.html" class="d-block fw-bold mt-1" style="font-size:14px;color:var(--color-text);">5 High-Protein Meals Under ₹200</a>
+<small class="text-muted">Jun 10, 2026</small>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="related-post-card">
+<img src="../assets/images/blog-seasonal-produce.png" alt="Seasonal produce">
+<div class="rp-body">
+<small class="text-muted">Seasonal</small>
+<a href="blog-details.html" class="d-block fw-bold mt-1" style="font-size:14px;color:var(--color-text);">What to Buy in July for Maximum Savings</a>
+<small class="text-muted">Jun 5, 2026</small>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="related-post-card">
+<img src="../assets/images/blog-meal-prep.png" alt="Freezer meal prep">
+<div class="rp-body">
+<small class="text-muted">Meal Prep</small>
+<a href="blog-details.html" class="d-block fw-bold mt-1" style="font-size:14px;color:var(--color-text);">The Beginner's Guide to Freezer Cooking</a>
+<small class="text-muted">May 28, 2026</small>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- /col-lg-8 -->
+
+<!-- Sidebar -->
+<div class="col-lg-4">
+
+<!-- Search -->
+<div class="blog-sidebar-card">
+<h6>Search</h6>
+<div class="input-group">
+<input type="text" class="form-control" placeholder="Search articles…">
+<button class="btn btn-danger"><i class="fa-solid fa-magnifying-glass"></i></button>
+</div>
+</div>
+
+<!-- Recent Posts -->
+<div class="blog-sidebar-card">
+<h6>Recent Posts</h6>
+<div class="recent-post-item">
+<img src="../assets/images/blog-related-healthy-eating.png" alt="Healthy meals">
+<div>
+<a href="blog-details.html" class="rp-title">5 High-Protein Meals Under ₹200</a>
+<span class="rp-date">Jun 10, 2026</span>
+</div>
+</div>
+<div class="recent-post-item">
+<img src="../assets/images/blog-seasonal-produce.png" alt="July produce">
+<div>
+<a href="blog-details.html" class="rp-title">What to Buy in July for Maximum Savings</a>
+<span class="rp-date">Jun 5, 2026</span>
+</div>
+</div>
+<div class="recent-post-item">
+<img src="../assets/images/blog-meal-prep.png" alt="Freezer cooking">
+<div>
+<a href="blog-details.html" class="rp-title">The Beginner's Guide to Freezer Cooking</a>
+<span class="rp-date">May 28, 2026</span>
+</div>
+</div>
+<div class="recent-post-item">
+<img src="../assets/images/product-fresh-milk.png" alt="Dairy">
+<div>
+<a href="blog-details.html" class="rp-title">Is Full-Fat Dairy Worth It? Nutritionist Weighs In</a>
+<span class="rp-date">May 20, 2026</span>
+</div>
+</div>
+</div>
+
+<!-- Categories -->
+<div class="blog-sidebar-card">
+<h6>Categories</h6>
+<ul class="list-unstyled mb-0">
+<li class="d-flex justify-content-between py-2 border-bottom"><a href="blog.html" class="text-muted">Saving Tips</a><span class="badge bg-danger">12</span></li>
+<li class="d-flex justify-content-between py-2 border-bottom"><a href="blog.html" class="text-muted">Recipes</a><span class="badge bg-danger">18</span></li>
+<li class="d-flex justify-content-between py-2 border-bottom"><a href="blog.html" class="text-muted">Nutrition</a><span class="badge bg-danger">9</span></li>
+<li class="d-flex justify-content-between py-2 border-bottom"><a href="blog.html" class="text-muted">Meal Planning</a><span class="badge bg-danger">7</span></li>
+<li class="d-flex justify-content-between py-2"><a href="blog.html" class="text-muted">Seasonal Guide</a><span class="badge bg-danger">5</span></li>
+</ul>
+</div>
+
+<!-- Tags -->
+<div class="blog-sidebar-card">
+<h6>Popular Tags</h6>
+<div>
+<a href="blog.html" class="tag-pill">Budget</a>
+<a href="blog.html" class="tag-pill">Recipes</a>
+<a href="blog.html" class="tag-pill">Healthy</a>
+<a href="blog.html" class="tag-pill">Seasonal</a>
+<a href="blog.html" class="tag-pill">Meal Prep</a>
+<a href="blog.html" class="tag-pill">Dairy</a>
+<a href="blog.html" class="tag-pill">Vegetables</a>
+<a href="blog.html" class="tag-pill">Snacks</a>
+<a href="blog.html" class="tag-pill">Protein</a>
+</div>
+</div>
+
+<!-- Newsletter -->
+<div class="blog-sidebar-card" style="background:linear-gradient(135deg,var(--color-primary),#ff6b6b);color:#fff;">
+<h6 style="color:#fff;">Get Articles by Email</h6>
+<p style="color:rgba(255,255,255,.85);font-size:13px;">Weekly food tips and saving guides straight to your inbox.</p>
+<input type="email" class="form-control mb-2" id="sidebarEmail" placeholder="Your email address" style="background:#fff;color:#333;">
+<button class="btn btn-warning w-100 fw-bold" onclick="sidebarSubscribe()">Subscribe Free</button>
+</div>
+
+</div><!-- /col-lg-4 -->
+</div><!-- /row -->
+</div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer py-5">
+<div class="container">
+<div class="row">
+<div class="col-lg-3 col-md-6 mb-4"><h5>SuperMart</h5><p>Fresh groceries every day, at honest prices.</p></div>
+<div class="col-lg-3 col-md-6 mb-4"><h5>Quick Links</h5><ul class="list-unstyled">
+<li><a href="index.html">Home</a></li><li><a href="offers.html">Offers</a></li>
+<li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li>
+</ul></div>
+<div class="col-lg-3 col-md-6 mb-4"><h5>Blog Topics</h5><ul class="list-unstyled">
+<li><a href="blog.html">Saving Tips</a></li><li><a href="blog.html">Recipes</a></li>
+<li><a href="blog.html">Nutrition</a></li><li><a href="blog.html">Meal Planning</a></li>
+</ul></div>
+<div class="col-lg-3 col-md-6 mb-4"><h5>Contact</h5>
+<p><i class="fa-solid fa-phone me-2"></i>+91 9876543210</p>
+<p><i class="fa-solid fa-envelope me-2"></i>info@supermart.com</p>
+</div>
+</div>
+<hr><div class="text-center">&copy; 2026 SuperMart. All Rights Reserved.</div>
+</div>
+</footer>
+
+<div class="sm-toast" id="smToast"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/features.js"></script>
+<script>
+document.getElementById('commentForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  const name=document.getElementById('commentName').value.trim();
+  const email=document.getElementById('commentEmail').value.trim();
+  const text=document.getElementById('commentText').value.trim();
+  if(!name||!email||!text){showToast('Please fill in all fields.','error');return;}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){showToast('Please enter a valid email.','error');return;}
+  showToast('Comment posted! It will appear after review.','success');
+  this.reset();
+});
+function sidebarSubscribe(){
+  const em=document.getElementById('sidebarEmail').value.trim();
+  if(!em||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){showToast('Please enter a valid email.','error');return;}
+  document.getElementById('sidebarEmail').value='';
+  showToast('Subscribed! Welcome to the SuperMart newsletter.','success');
+}
+</script>
+</body>
+</html>

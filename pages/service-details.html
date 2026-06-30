@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Express Delivery | SuperMart Services</title>
+<meta name="description" content="SuperMart Express Delivery — fresh groceries at your door in 15 minutes, 7 days a week.">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/dark-mode.css">
+<link rel="stylesheet" href="../assets/css/rtl.css">
+<link rel="stylesheet" href="../assets/css/features.css">
+<link rel="stylesheet" href="../assets/css/enhance.css">
+<style>
+/* ── SERVICE DETAIL HERO ── */
+.sd-hero{
+  background:linear-gradient(135deg,var(--color-primary),#ff6b6b);
+  color:#fff;padding:80px 0;
+}
+.sd-hero h1{color:#fff;font-size:clamp(1.8rem,4vw,3rem);}
+.sd-hero p{color:rgba(255,255,255,.85);font-size:1.1rem;}
+.sd-hero-badge{
+  display:inline-block;background:rgba(255,255,255,.2);
+  border-radius:50px;padding:5px 16px;font-size:13px;
+  font-weight:700;margin-bottom:16px;
+}
+/* ── FEATURE LIST ── */
+.feature-item{
+  display:flex;gap:14px;align-items:flex-start;margin-bottom:20px;
+}
+.feature-icon{
+  width:44px;height:44px;border-radius:12px;
+  background:rgba(230,57,70,.1);color:var(--color-primary);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;flex-shrink:0;transition:var(--transition);
+}
+.feature-item:hover .feature-icon{background:var(--color-primary);color:#fff;}
+/* ── PRICING TABLE ── */
+.price-card{
+  background:var(--color-card);border-radius:18px;
+  box-shadow:var(--shadow);padding:36px 28px;
+  text-align:center;transition:var(--transition);
+  position:relative;height:100%;
+  border:2px solid transparent;
+}
+.price-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-hover);}
+.price-card.popular{border-color:var(--color-primary);}
+.popular-badge{
+  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  background:var(--color-primary);color:#fff;
+  padding:4px 20px;border-radius:50px;font-size:12px;font-weight:700;
+  white-space:nowrap;
+}
+.price-amount{font-size:3rem;font-weight:900;color:var(--color-primary);line-height:1;}
+.price-period{font-size:14px;color:#888;}
+.price-card ul{list-style:none;padding:0;text-align:left;margin:24px 0;}
+.price-card ul li{
+  padding:9px 0;border-bottom:1px solid var(--color-border);
+  font-size:14px;display:flex;align-items:center;gap:10px;
+}
+.price-card ul li i.fa-check{color:var(--color-primary);}
+.price-card ul li i.fa-xmark{color:#ccc;}
+/* ── HOW IT WORKS ── */
+.how-step{
+  display:flex;gap:16px;align-items:flex-start;margin-bottom:28px;
+}
+.how-num{
+  width:40px;height:40px;border-radius:50%;
+  background:var(--color-primary);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:1rem;flex-shrink:0;
+}
+/* ── SIDEBAR ── */
+.sd-sidebar-card{
+  background:var(--color-card);border-radius:14px;
+  box-shadow:var(--shadow);padding:24px;margin-bottom:24px;
+}
+.related-svc-link{
+  display:flex;align-items:center;gap:12px;padding:10px 0;
+  border-bottom:1px solid var(--color-border);text-decoration:none;
+  color:var(--color-text);transition:var(--transition);
+}
+.related-svc-link:last-child{border-bottom:none;}
+.related-svc-link:hover{color:var(--color-primary);}
+.related-svc-link i{color:var(--color-primary);}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- Top Bar -->
+<div class="top-bar py-2">
+<div class="container d-flex justify-content-between align-items-center">
+<span><i class="fa-regular fa-clock"></i> Mon - Sun : 8:00 AM - 10:00 PM</span>
+<a href="store-locator.html" class="text-decoration-none"><i class="fa-solid fa-location-dot"></i> Find a Store</a>
+</div>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg shadow-sm sticky-top">
+<div class="container">
+<a class="navbar-brand fw-bold logo" href="index.html">SuperMart</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"><span class="navbar-toggler-icon"></span></button>
+<div class="collapse navbar-collapse" id="navMenu">
+<ul class="navbar-nav ms-auto align-items-lg-center">
+<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="home2.html">Home2</a></li>
+<li class="nav-item"><a class="nav-link" href="offers.html">Offers</a></li>
+<li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
+<li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+</ul>
+<div class="d-flex align-items-center gap-2 ms-lg-3">
+<a href="cart.html" class="nav-icon-btn"><i class="fa-solid fa-cart-shopping"></i><span class="cart-badge" id="cartCountNav">0</span></a>
+<span id="authArea"><a href="login.html" class="nav-icon-btn" title="Login"><i class="fa-solid fa-user"></i></a></span>
+<button id="themeToggle" class="btn btn-danger ms-1" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+</div>
+</div>
+</div>
+</nav>
+
+<main id="main-content">
+
+<!-- Hero -->
+<div class="sd-hero">
+<div class="container">
+<nav aria-label="breadcrumb" class="mb-3">
+<ol class="breadcrumb" style="--bs-breadcrumb-divider-color:rgba(255,255,255,.6);">
+<li class="breadcrumb-item"><a href="index.html" style="color:rgba(255,255,255,.8);">Home</a></li>
+<li class="breadcrumb-item"><a href="services.html" style="color:rgba(255,255,255,.8);">Services</a></li>
+<li class="breadcrumb-item active" style="color:#fff;">Express Delivery</li>
+</ol>
+</nav>
+<span class="sd-hero-badge"><i class="fa-solid fa-bolt me-1"></i> Most Popular Service</span>
+<h1>Express Grocery Delivery</h1>
+<p>Fresh groceries from shelf to your door in 15 minutes — any day, any time between 8 AM and 10 PM.</p>
+<div class="d-flex gap-3 mt-4 flex-wrap">
+<a href="offers.html" class="btn btn-warning btn-lg">Shop Now</a>
+<a href="#pricing" class="btn btn-outline-light btn-lg">View Plans</a>
+</div>
+</div>
+</div>
+
+<!-- Content + Sidebar -->
+<section class="py-5">
+<div class="container">
+<div class="row g-5">
+
+<!-- Main Content -->
+<div class="col-lg-8">
+
+<!-- Hero Image -->
+<img src="../assets/images/service-express-delivery.png" class="w-100 rounded-4 shadow mb-5" alt="Express Delivery" style="max-height:400px;object-fit:cover;">
+
+<!-- Description -->
+<h3 class="mb-3">What is Express Delivery?</h3>
+<p class="text-muted">SuperMart Express Delivery is our flagship same-day grocery service. Using a network of 48 dark stores and our own delivery fleet, we pick, pack, and deliver your groceries in record time — often under 15 minutes.</p>
+<p class="text-muted">Whether you've run out of milk at breakfast or need fresh vegetables for dinner, Express Delivery fills the gap without the hassle of a supermarket trip.</p>
+
+<!-- Features -->
+<h4 class="mt-5 mb-4">What's Included</h4>
+<div class="feature-item reveal">
+<div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
+<div><h6 class="fw-bold mb-1">15-Minute Delivery Promise</h6><p class="text-muted mb-0">Our rider is dispatched the moment your order is confirmed. Live tracking lets you watch every step on the map.</p></div>
+</div>
+<div class="feature-item reveal">
+<div class="feature-icon"><i class="fa-solid fa-temperature-low"></i></div>
+<div><h6 class="fw-bold mb-1">Cold Chain Maintained</h6><p class="text-muted mb-0">Dairy, meat and frozen items are carried in insulated bags to maintain safe temperatures from store to your door.</p></div>
+</div>
+<div class="feature-item reveal">
+<div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+<div><h6 class="fw-bold mb-1">100% Freshness Guarantee</h6><p class="text-muted mb-0">Not happy with an item? We'll refund or replace it — no questions asked within 24 hours of delivery.</p></div>
+</div>
+<div class="feature-item reveal">
+<div class="feature-icon"><i class="fa-solid fa-tags"></i></div>
+<div><h6 class="fw-bold mb-1">Same Prices as In-Store</h6><p class="text-muted mb-0">No delivery mark-up on products. All weekly offers and discounts apply to Express orders too.</p></div>
+</div>
+<div class="feature-item reveal">
+<div class="feature-icon"><i class="fa-solid fa-comments"></i></div>
+<div><h6 class="fw-bold mb-1">Real-Time Order Support</h6><p class="text-muted mb-0">Chat with our support team inside the app for instant help — item swaps, address changes, and more.</p></div>
+</div>
+
+<!-- How It Works -->
+<h4 class="mt-5 mb-4">How It Works</h4>
+<div class="how-step reveal">
+<div class="how-num">1</div>
+<div><h6 class="fw-bold mb-1">Browse &amp; Add to Cart</h6><p class="text-muted mb-0">Search from 5,000+ products and add items at in-store prices with all current offers applied automatically.</p></div>
+</div>
+<div class="how-step reveal">
+<div class="how-num">2</div>
+<div><h6 class="fw-bold mb-1">Choose Delivery Time</h6><p class="text-muted mb-0">Select "Express (15 min)" at checkout or pick a scheduled slot for later in the day or week.</p></div>
+</div>
+<div class="how-step reveal">
+<div class="how-num">3</div>
+<div><h6 class="fw-bold mb-1">We Pick &amp; Pack</h6><p class="text-muted mb-0">Our trained pickers grab your items from the nearest dark store, quality-check everything, and seal it for delivery.</p></div>
+</div>
+<div class="how-step reveal">
+<div class="how-num">4</div>
+<div><h6 class="fw-bold mb-1">Delivered to Your Door</h6><p class="text-muted mb-0">Your rider arrives — track them live. Leave delivery instructions (e.g. "Leave at door") in the app.</p></div>
+</div>
+
+<!-- Pricing Table -->
+<h4 class="mt-5 mb-4" id="pricing">Delivery Plans</h4>
+<div class="row g-4">
+<div class="col-md-4 reveal">
+<div class="price-card">
+<h6 class="text-muted mb-1">Pay-As-You-Go</h6>
+<div class="price-amount">₹49</div>
+<div class="price-period">per delivery</div>
+<ul>
+<li><i class="fa-solid fa-check"></i>Express & Scheduled</li>
+<li><i class="fa-solid fa-check"></i>Live tracking</li>
+<li><i class="fa-solid fa-check"></i>Free over ₹500 order</li>
+<li><i class="fa-solid fa-xmark text-muted"></i>Priority packing</li>
+<li><i class="fa-solid fa-xmark text-muted"></i>Loyalty multiplier</li>
+</ul>
+<a href="cart.html" class="btn btn-outline-danger w-100">Start Shopping</a>
+</div>
+</div>
+<div class="col-md-4 reveal">
+<div class="price-card popular">
+<span class="popular-badge">Most Popular</span>
+<h6 class="text-muted mb-1">Monthly Pass</h6>
+<div class="price-amount">₹199</div>
+<div class="price-period">per month</div>
+<ul>
+<li><i class="fa-solid fa-check"></i>Unlimited deliveries</li>
+<li><i class="fa-solid fa-check"></i>Live tracking</li>
+<li><i class="fa-solid fa-check"></i>No minimum order</li>
+<li><i class="fa-solid fa-check"></i>Priority packing</li>
+<li><i class="fa-solid fa-xmark text-muted"></i>Loyalty multiplier</li>
+</ul>
+<a href="cart.html" class="btn btn-danger w-100">Get Monthly Pass</a>
+</div>
+</div>
+<div class="col-md-4 reveal">
+<div class="price-card">
+<h6 class="text-muted mb-1">Annual Pass</h6>
+<div class="price-amount">₹999</div>
+<div class="price-period">per year</div>
+<ul>
+<li><i class="fa-solid fa-check"></i>Unlimited deliveries</li>
+<li><i class="fa-solid fa-check"></i>Live tracking</li>
+<li><i class="fa-solid fa-check"></i>No minimum order</li>
+<li><i class="fa-solid fa-check"></i>Priority packing</li>
+<li><i class="fa-solid fa-check"></i>2× loyalty points</li>
+</ul>
+<a href="cart.html" class="btn btn-outline-danger w-100">Best Value</a>
+</div>
+</div>
+</div>
+
+<!-- FAQ -->
+<h4 class="mt-5 mb-4">Frequently Asked Questions</h4>
+<div class="accordion" id="sdFaq">
+<div class="accordion-item mb-2 rounded-3 overflow-hidden border-0 shadow-sm">
+<h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">What is the minimum order for Express Delivery?</button></h2>
+<div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#sdFaq">
+<div class="accordion-body text-muted">There's no minimum order value for Express Delivery, however orders below ₹500 attract a ₹49 delivery fee. Orders above ₹500 are delivered free of charge.</div>
+</div>
+</div>
+<div class="accordion-item mb-2 rounded-3 overflow-hidden border-0 shadow-sm">
+<h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">What areas do you deliver to?</button></h2>
+<div id="faq2" class="accordion-collapse collapse" data-bs-parent="#sdFaq">
+<div class="accordion-body text-muted">We deliver within a 5 km radius of each of our 48 store locations. Enter your PIN code on the homepage to check availability in your area.</div>
+</div>
+</div>
+<div class="accordion-item mb-2 rounded-3 overflow-hidden border-0 shadow-sm">
+<h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">What if an item is out of stock?</button></h2>
+<div id="faq3" class="accordion-collapse collapse" data-bs-parent="#sdFaq">
+<div class="accordion-body text-muted">Our picker will contact you via the app chat to suggest a substitute. You can approve, reject, or choose your own replacement — all in real time.</div>
+</div>
+</div>
+<div class="accordion-item mb-2 rounded-3 overflow-hidden border-0 shadow-sm">
+<h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">Can I schedule a delivery in advance?</button></h2>
+<div id="faq4" class="accordion-collapse collapse" data-bs-parent="#sdFaq">
+<div class="accordion-body text-muted">Yes! Select "Scheduled Delivery" at checkout and pick any 2-hour window up to 7 days in advance. Great for weekly grocery planning.</div>
+</div>
+</div>
+<div class="accordion-item mb-2 rounded-3 overflow-hidden border-0 shadow-sm">
+<h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">How do refunds work?</button></h2>
+<div id="faq5" class="accordion-collapse collapse" data-bs-parent="#sdFaq">
+<div class="accordion-body text-muted">If you're unhappy with any item — wrong product, damaged packaging, substandard freshness — report it within 24 hours in the app and we'll issue an instant refund or replacement.</div>
+</div>
+</div>
+</div>
+
+</div><!-- /col-lg-8 -->
+
+<!-- Sidebar -->
+<div class="col-lg-4">
+
+<!-- Quick CTA -->
+<div class="sd-sidebar-card" style="background:linear-gradient(135deg,var(--color-primary),#ff6b6b);color:#fff;">
+<h5 style="color:#fff;">Ready to order?</h5>
+<p style="color:rgba(255,255,255,.85);font-size:14px;">Start shopping now and get your groceries in 15 minutes.</p>
+<a href="offers.html" class="btn btn-warning w-100 fw-bold">Shop Now</a>
+</div>
+
+<!-- Service Stats -->
+<div class="sd-sidebar-card">
+<h6 class="fw-bold mb-3">Express Delivery Stats</h6>
+<div class="d-flex justify-content-between py-2 border-bottom"><span class="text-muted">Avg. Delivery Time</span><strong>12 min</strong></div>
+<div class="d-flex justify-content-between py-2 border-bottom"><span class="text-muted">On-Time Rate</span><strong class="text-success">97.4%</strong></div>
+<div class="d-flex justify-content-between py-2 border-bottom"><span class="text-muted">Customer Rating</span><strong>4.8 ⭐</strong></div>
+<div class="d-flex justify-content-between py-2"><span class="text-muted">Coverage Areas</span><strong>48 cities</strong></div>
+</div>
+
+<!-- Other Services -->
+<div class="sd-sidebar-card">
+<h6 class="fw-bold mb-3">Other Services</h6>
+<a href="services.html" class="related-svc-link"><i class="fa-solid fa-calendar-check"></i><span>Scheduled Delivery</span><i class="fa-solid fa-chevron-right ms-auto text-muted"></i></a>
+<a href="services.html" class="related-svc-link"><i class="fa-solid fa-utensils"></i><span>Catering & Events</span><i class="fa-solid fa-chevron-right ms-auto text-muted"></i></a>
+<a href="services.html" class="related-svc-link"><i class="fa-solid fa-award"></i><span>Loyalty Rewards</span><i class="fa-solid fa-chevron-right ms-auto text-muted"></i></a>
+<a href="services.html" class="related-svc-link"><i class="fa-solid fa-briefcase"></i><span>Business Accounts</span><i class="fa-solid fa-chevron-right ms-auto text-muted"></i></a>
+<a href="services.html" class="related-svc-link"><i class="fa-solid fa-box-open"></i><span>Subscription Boxes</span><i class="fa-solid fa-chevron-right ms-auto text-muted"></i></a>
+</div>
+
+<!-- Contact Box -->
+<div class="sd-sidebar-card">
+<h6 class="fw-bold mb-3">Need Help?</h6>
+<p class="text-muted small">Our team is available 8 AM – 10 PM every day.</p>
+<a href="contact.html" class="btn btn-outline-danger w-100 mb-2"><i class="fa-solid fa-comments me-2"></i>Live Chat</a>
+<a href="tel:+919876543210" class="btn btn-outline-secondary w-100"><i class="fa-solid fa-phone me-2"></i>+91 98765 43210</a>
+</div>
+
+</div><!-- /col-lg-4 -->
+</div><!-- /row -->
+</div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer py-5">
+<div class="container">
+<div class="row">
+<div class="col-lg-3 col-md-6 mb-4"><h5>SuperMart</h5><p>Fresh groceries every day, at honest prices.</p></div>
+<div class="col-lg-3 col-md-6 mb-4"><h5>Services</h5><ul class="list-unstyled">
+<li><a href="service-details.html">Express Delivery</a></li>
+<li><a href="services.html">All Services</a></li>
+<li><a href="pricing.html">Pricing</a></li>
+</ul></div>
+<div class="col-lg-3 col-md-6 mb-4"><h5>My Account</h5><ul class="list-unstyled">
+<li><a href="orders.html">My Orders</a></li>
+<li><a href="wishlist.html">Wishlist</a></li>
+<li><a href="profile.html">Profile</a></li>
+</ul></div>
+<div class="col-lg-3 col-md-6 mb-4"><h5>Contact</h5>
+<p><i class="fa-solid fa-phone me-2"></i>+91 9876543210</p>
+<p><i class="fa-solid fa-envelope me-2"></i>info@supermart.com</p>
+</div>
+</div>
+<hr><div class="text-center">&copy; 2026 SuperMart. All Rights Reserved.</div>
+</div>
+</footer>
+
+<div class="sm-toast" id="smToast"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/features.js"></script>
+<script src="../assets/js/enhance.js"></script>
+</body>
+</html>

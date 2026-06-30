@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing & Subscription Plans | SuperMart</title>
+<meta name="description" content="Choose a SuperMart delivery plan — Pay-As-You-Go, Monthly Pass, or Annual Pass. Unlimited grocery delivery from ₹199/month.">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/dark-mode.css">
+<link rel="stylesheet" href="../assets/css/rtl.css">
+<link rel="stylesheet" href="../assets/css/features.css">
+<link rel="stylesheet" href="../assets/css/enhance.css">
+<style>
+/* ── PRICING HERO ── */
+.pricing-hero{
+  background:linear-gradient(135deg,#0f0c29,#302b63);
+  color:#fff;padding:80px 0 100px;text-align:center;position:relative;
+}
+.pricing-hero h1{color:#fff;font-size:clamp(2rem,4.5vw,3.2rem);}
+.pricing-hero p{color:rgba(255,255,255,.75);font-size:1.1rem;}
+.billing-toggle{
+  display:inline-flex;background:rgba(255,255,255,.1);
+  border-radius:50px;padding:4px;gap:4px;margin-top:20px;
+}
+.billing-toggle button{
+  background:transparent;border:none;color:rgba(255,255,255,.7);
+  padding:8px 24px;border-radius:50px;font-weight:600;font-size:14px;
+  cursor:pointer;transition:var(--transition);
+}
+.billing-toggle button.active{background:#fff;color:#302b63;}
+.save-chip{
+  background:#FFD166;color:#333;border-radius:50px;
+  padding:2px 10px;font-size:11px;font-weight:700;margin-left:6px;
+}
+
+/* ── PRICING CARDS ── */
+.plan-card{
+  background:var(--color-card);border-radius:20px;
+  box-shadow:var(--shadow);padding:38px 28px;
+  position:relative;height:100%;transition:var(--transition);
+  border:2px solid transparent;
+}
+.plan-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-hover);}
+.plan-card.popular{
+  border-color:var(--color-primary);
+  transform:translateY(-12px);
+  box-shadow:0 20px 50px rgba(230,57,70,.2);
+}
+.plan-card.popular:hover{transform:translateY(-18px);}
+.plan-badge{
+  position:absolute;top:-16px;left:50%;transform:translateX(-50%);
+  background:var(--color-primary);color:#fff;
+  padding:5px 22px;border-radius:50px;font-size:12px;font-weight:700;
+  white-space:nowrap;box-shadow:0 4px 12px rgba(230,57,70,.3);
+}
+.plan-name{font-size:14px;text-transform:uppercase;letter-spacing:1.5px;color:#888;font-weight:700;}
+.plan-price{font-size:3.2rem;font-weight:900;color:var(--color-text);line-height:1;margin:12px 0 4px;}
+.plan-price span.curr{font-size:1.4rem;vertical-align:top;margin-top:8px;display:inline-block;}
+.plan-period{font-size:13px;color:#aaa;}
+.plan-desc{font-size:14px;color:#888;margin:16px 0 20px;min-height:40px;}
+.plan-features{list-style:none;padding:0;margin:0 0 28px;}
+.plan-features li{
+  display:flex;align-items:center;gap:10px;
+  padding:9px 0;border-bottom:1px solid var(--color-border);
+  font-size:14px;
+}
+.plan-features li:last-child{border-bottom:none;}
+.plan-features li i.yes{color:var(--color-primary);}
+.plan-features li i.no{color:#ddd;}
+
+/* ── COMPARISON TABLE ── */
+.comp-table{border-radius:16px;overflow:hidden;box-shadow:var(--shadow);}
+.comp-table th{background:var(--color-primary);color:#fff;font-weight:700;padding:14px 18px;}
+.comp-table td{padding:13px 18px;border-color:var(--color-border);font-size:14px;}
+.comp-table tr:nth-child(even) td{background:rgba(0,0,0,.02);}
+.comp-table .check{color:var(--color-primary);font-size:16px;}
+.comp-table .cross{color:#ddd;font-size:14px;}
+
+/* ── TRUST STRIP ── */
+.trust-strip{
+  background:var(--color-section);padding:40px 0;text-align:center;
+}
+.trust-item{display:flex;flex-direction:column;align-items:center;gap:8px;}
+.trust-item i{font-size:2rem;color:var(--color-primary);}
+.trust-item span{font-size:13px;font-weight:600;color:var(--color-text);}
+
+/* ── FAQ ── */
+.pricing-faq .accordion-button:not(.collapsed){background:var(--color-primary);color:#fff;}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- Top Bar -->
+<div class="top-bar py-2">
+<div class="container d-flex justify-content-between align-items-center">
+<span><i class="fa-regular fa-clock"></i> Mon - Sun : 8:00 AM - 10:00 PM</span>
+<a href="store-locator.html" class="text-decoration-none"><i class="fa-solid fa-location-dot"></i> Find a Store</a>
+</div>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg shadow-sm sticky-top">
+<div class="container">
+<a class="navbar-brand fw-bold logo" href="index.html">SuperMart</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"><span class="navbar-toggler-icon"></span></button>
+<div class="collapse navbar-collapse" id="navMenu">
+<ul class="navbar-nav ms-auto align-items-lg-center">
+<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="home2.html">Home2</a></li>
+<li class="nav-item"><a class="nav-link" href="offers.html">Offers</a></li>
+<li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+<li class="nav-item"><a class="nav-link active" href="pricing.html">Pricing</a></li>
+<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+</ul>
+<div class="d-flex align-items-center gap-2 ms-lg-3">
+<a href="cart.html" class="nav-icon-btn"><i class="fa-solid fa-cart-shopping"></i><span class="cart-badge" id="cartCountNav">0</span></a>
+<span id="authArea"><a href="login.html" class="nav-icon-btn" title="Login"><i class="fa-solid fa-user"></i></a></span>
+<button id="themeToggle" class="btn btn-danger ms-1" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+</div>
+</div>
+</div>
+</nav>
+
+<main id="main-content">
+
+<!-- Hero -->
+<div class="pricing-hero">
+<div class="container">
+<nav aria-label="breadcrumb" class="mb-3">
+<ol class="breadcrumb justify-content-center" style="--bs-breadcrumb-divider-color:rgba(255,255,255,.5);">
+<li class="breadcrumb-item"><a href="index.html" style="color:rgba(255,255,255,.7);">Home</a></li>
+<li class="breadcrumb-item active" style="color:#fff;">Pricing</li>
+</ol>
+</nav>
+<h1>Simple, Honest Pricing</h1>
+<p>No hidden fees. No minimum orders on passes. Cancel or upgrade anytime.</p>
+<div class="billing-toggle" id="billingToggle">
+<button class="active" onclick="switchBilling('monthly',this)">Monthly</button>
+<button onclick="switchBilling('annual',this)">Annual <span class="save-chip">Save 58%</span></button>
+</div>
+</div>
+</div>
+
+<!-- Plans -->
+<section class="py-5" style="margin-top:-60px;">
+<div class="container">
+<div class="row g-4 align-items-start justify-content-center">
+
+<!-- Pay-As-You-Go -->
+<div class="col-md-6 col-lg-4 reveal">
+<div class="plan-card">
+<div class="plan-name">Pay-As-You-Go</div>
+<div class="plan-price"><span class="curr">₹</span><span class="price-val" data-monthly="49" data-annual="49">49</span></div>
+<div class="plan-period per-label">per delivery</div>
+<div class="plan-desc">Perfect for occasional shoppers who order a few times a month.</div>
+<ul class="plan-features">
+<li><i class="fa-solid fa-check yes"></i>Express &amp; Scheduled delivery</li>
+<li><i class="fa-solid fa-check yes"></i>Live order tracking</li>
+<li><i class="fa-solid fa-check yes"></i>Free delivery over ₹500</li>
+<li><i class="fa-solid fa-check yes"></i>All weekly offers</li>
+<li><i class="fa-solid fa-xmark no"></i>Unlimited free deliveries</li>
+<li><i class="fa-solid fa-xmark no"></i>Priority packing</li>
+<li><i class="fa-solid fa-xmark no"></i>Double loyalty points</li>
+<li><i class="fa-solid fa-xmark no"></i>Early flash sale access</li>
+</ul>
+<a href="offers.html" class="btn btn-outline-danger w-100 py-3 fw-bold">Start Shopping Free</a>
+<p class="text-center text-muted small mt-2">No sign-up required</p>
+</div>
+</div>
+
+<!-- Monthly Pass -->
+<div class="col-md-6 col-lg-4 reveal">
+<div class="plan-card popular">
+<span class="plan-badge">Most Popular</span>
+<div class="plan-name">Monthly Pass</div>
+<div class="plan-price"><span class="curr">₹</span><span class="price-val" data-monthly="199" data-annual="166">199</span></div>
+<div class="plan-period per-label">per month</div>
+<div class="plan-desc">Best for families and regular shoppers who order multiple times a week.</div>
+<ul class="plan-features">
+<li><i class="fa-solid fa-check yes"></i>Unlimited free deliveries</li>
+<li><i class="fa-solid fa-check yes"></i>Express &amp; Scheduled delivery</li>
+<li><i class="fa-solid fa-check yes"></i>Live order tracking</li>
+<li><i class="fa-solid fa-check yes"></i>No minimum order value</li>
+<li><i class="fa-solid fa-check yes"></i>Priority packing</li>
+<li><i class="fa-solid fa-check yes"></i>Early flash sale access</li>
+<li><i class="fa-solid fa-xmark no"></i>Double loyalty points</li>
+<li><i class="fa-solid fa-xmark no"></i>Dedicated account manager</li>
+</ul>
+<a href="register.html" class="btn btn-danger w-100 py-3 fw-bold">Get Monthly Pass</a>
+<p class="text-center text-muted small mt-2">Cancel anytime. No lock-in.</p>
+</div>
+</div>
+
+<!-- Annual / Business -->
+<div class="col-md-6 col-lg-4 reveal">
+<div class="plan-card">
+<div class="plan-name">Annual Pass</div>
+<div class="plan-price"><span class="curr">₹</span><span class="price-val" data-monthly="999" data-annual="999">999</span></div>
+<div class="plan-period per-label" id="annualPeriodLabel">per year</div>
+<div class="plan-desc">The best value for power shoppers. Pay once, save all year.</div>
+<ul class="plan-features">
+<li><i class="fa-solid fa-check yes"></i>Everything in Monthly Pass</li>
+<li><i class="fa-solid fa-check yes"></i>Double loyalty points (2×)</li>
+<li><i class="fa-solid fa-check yes"></i>Early flash sale access</li>
+<li><i class="fa-solid fa-check yes"></i>Exclusive annual-member deals</li>
+<li><i class="fa-solid fa-check yes"></i>Free gift box on sign-up</li>
+<li><i class="fa-solid fa-check yes"></i>Priority customer support</li>
+<li><i class="fa-solid fa-check yes"></i>Free returns on any order</li>
+<li><i class="fa-solid fa-check yes"></i>Dedicated account manager</li>
+</ul>
+<a href="register.html" class="btn btn-warning w-100 py-3 fw-bold text-dark">Get Annual Pass</a>
+<p class="text-center text-muted small mt-2">Equivalent to ₹83/month. Best value.</p>
+</div>
+</div>
+
+</div><!-- /row -->
+
+<!-- Business CTA -->
+<div class="row justify-content-center mt-4">
+<div class="col-lg-8">
+<div class="p-4 rounded-4 text-center" style="background:var(--color-section);border:1px solid var(--color-border);">
+<i class="fa-solid fa-briefcase text-danger fa-2x mb-2"></i>
+<h5 class="fw-bold">Need a Business Account?</h5>
+<p class="text-muted mb-3">Custom pricing for restaurants, offices, and catering businesses. Includes NET-30 invoicing, bulk discounts, and a dedicated account manager.</p>
+<a href="contact.html" class="btn btn-danger px-5">Talk to Sales</a>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- Trust Strip -->
+<div class="trust-strip">
+<div class="container">
+<div class="row g-4 justify-content-center">
+<div class="col-6 col-md-3">
+<div class="trust-item"><i class="fa-solid fa-rotate-left"></i><span>Cancel Anytime</span></div>
+</div>
+<div class="col-6 col-md-3">
+<div class="trust-item"><i class="fa-solid fa-shield-halved"></i><span>Secure Payment</span></div>
+</div>
+<div class="col-6 col-md-3">
+<div class="trust-item"><i class="fa-solid fa-face-smile"></i><span>Freshness Guaranteed</span></div>
+</div>
+<div class="col-6 col-md-3">
+<div class="trust-item"><i class="fa-solid fa-headset"></i><span>24/7 Support</span></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Feature Comparison -->
+<section class="py-5">
+<div class="container">
+<h3 class="text-center mb-5">Compare All Features</h3>
+<div class="table-responsive">
+<table class="table comp-table align-middle">
+<thead>
+<tr>
+<th style="width:40%;">Feature</th>
+<th class="text-center">Pay-As-You-Go</th>
+<th class="text-center" style="background:#c92e3a;">Monthly Pass</th>
+<th class="text-center">Annual Pass</th>
+</tr>
+</thead>
+<tbody>
+<tr><td><strong>Delivery Fee</strong></td><td class="text-center">₹49/order</td><td class="text-center fw-bold text-danger">Free (unlimited)</td><td class="text-center fw-bold">Free (unlimited)</td></tr>
+<tr><td><strong>Minimum Order</strong></td><td class="text-center">None (₹49 delivery fee under ₹500)</td><td class="text-center">None</td><td class="text-center">None</td></tr>
+<tr><td><strong>Express 15-Min Delivery</strong></td><td class="text-center"><i class="fa-solid fa-check check"></i></td><td class="text-center"><i class="fa-solid fa-check check"></i></td><td class="text-center"><i class="fa-solid fa-check check"></i></td></tr>
+<tr><td><strong>Scheduled Delivery</strong></td><td class="text-center"><i class="fa-solid fa-check check"></i></td><td class="text-center"><i class="fa-solid fa-check check"></i></td><td class="text-center"><i class="fa-solid fa-check check"></i></td></tr>
+<tr><td><strong>Live Tracking</strong></td><td class="text-center"><i class="fa-solid fa-check check"></i></td><td class="text-center"><i class="fa-solid fa-check check"></i></td><td class="text-center"><i class="fa-solid fa-check check"></i></td></tr>
+<tr><td><strong>Weekly Offers &amp; Discounts</strong></td><td class="text-center"><i class="fa-solid fa-check check"></i></td><td class="text-center"><i class="fa-solid fa-check check"></i></td><td class="text-center"><i class="fa-solid fa-check check"></i></td></tr>
+<tr><td><strong>Priority Packing</strong></td><td class="text-center"><i class="fa-solid fa-xmark cross"></i></td><td class="text-center"><i class="fa-solid fa-check check"></i></td><td class="text-center"><i class="fa-solid fa-check check"></i></td></tr>
+<tr><td><strong>Early Flash Sale Access</strong></td><td class="text-center"><i class="fa-solid fa-xmark cross"></i></td><td class="text-center"><i class="fa-solid fa-check check"></i></td><td class="text-center"><i class="fa-solid fa-check check"></i></td></tr>
+<tr><td><strong>Loyalty Points Multiplier</strong></td><td class="text-center">1×</td><td class="text-center">1×</td><td class="text-center fw-bold text-danger">2×</td></tr>
+<tr><td><strong>Free Returns</strong></td><td class="text-center"><i class="fa-solid fa-xmark cross"></i></td><td class="text-center"><i class="fa-solid fa-xmark cross"></i></td><td class="text-center"><i class="fa-solid fa-check check"></i></td></tr>
+<tr><td><strong>Annual Gift Box</strong></td><td class="text-center"><i class="fa-solid fa-xmark cross"></i></td><td class="text-center"><i class="fa-solid fa-xmark cross"></i></td><td class="text-center"><i class="fa-solid fa-check check"></i></td></tr>
+<tr><td><strong>Dedicated Account Manager</strong></td><td class="text-center"><i class="fa-solid fa-xmark cross"></i></td><td class="text-center"><i class="fa-solid fa-xmark cross"></i></td><td class="text-center"><i class="fa-solid fa-check check"></i></td></tr>
+<tr>
+<td></td>
+<td class="text-center"><a href="offers.html" class="btn btn-outline-danger btn-sm px-4">Start Free</a></td>
+<td class="text-center"><a href="register.html" class="btn btn-danger btn-sm px-4">Get Monthly</a></td>
+<td class="text-center"><a href="register.html" class="btn btn-warning btn-sm px-4 text-dark">Get Annual</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
+<!-- Testimonials -->
+<section class="py-5 bg-section">
+<div class="container">
+<h3 class="text-center mb-5">What Pass Members Say</h3>
+<div class="row g-4">
+<div class="col-md-4 reveal">
+<div class="testi-card" style="background:var(--color-card);border-radius:16px;padding:28px;box-shadow:var(--shadow);height:100%;">
+<div style="color:#FFD166;margin-bottom:10px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+<p class="text-muted">"Monthly Pass paid for itself after 5 deliveries. With a family of 4, we order almost daily. Best ₹199 I spend every month."</p>
+<div class="d-flex align-items-center gap-3 mt-3">
+<img src="../assets/images/testi-karthik.png" data-fallback="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=44&h=44&fit=crop&crop=face" style="width:44px;height:44px;border-radius:50%;object-fit:cover;" alt="Karthik">
+<div><strong>Karthik R.</strong><br><small class="text-muted">Monthly Pass Member, Chennai</small></div>
+</div>
+</div>
+</div>
+<div class="col-md-4 reveal">
+<div class="testi-card" style="background:var(--color-card);border-radius:16px;padding:28px;box-shadow:var(--shadow);height:100%;">
+<div style="color:#FFD166;margin-bottom:10px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+<p class="text-muted">"The Annual Pass double points feature alone is worth it. I redeemed ₹1,800 in loyalty points in the first 4 months — essentially free groceries."</p>
+<div class="d-flex align-items-center gap-3 mt-3">
+<img src="../assets/images/testi-ananya.png" data-fallback="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=44&h=44&fit=crop&crop=face" style="width:44px;height:44px;border-radius:50%;object-fit:cover;" alt="Ananya">
+<div><strong>Ananya K.</strong><br><small class="text-muted">Annual Pass Member, Bangalore</small></div>
+</div>
+</div>
+</div>
+<div class="col-md-4 reveal">
+<div class="testi-card" style="background:var(--color-card);border-radius:16px;padding:28px;box-shadow:var(--shadow);height:100%;">
+<div style="color:#FFD166;margin-bottom:10px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+<p class="text-muted">"As a restaurant owner, the Business Account means I get invoices monthly and a 12% bulk discount. Saves hours of admin compared to regular shopping."</p>
+<div class="d-flex align-items-center gap-3 mt-3">
+<img src="../assets/images/testi-ramesh.png" data-fallback="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=44&h=44&fit=crop&crop=face" style="width:44px;height:44px;border-radius:50%;object-fit:cover;" alt="Ramesh">
+<div><strong>Ramesh N.</strong><br><small class="text-muted">Business Account, Coimbatore</small></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section class="py-5 pricing-faq">
+<div class="container">
+<h3 class="text-center mb-5">Frequently Asked Questions</h3>
+<div class="row justify-content-center">
+<div class="col-lg-8">
+<div class="accordion" id="pricingFaq">
+
+<div class="accordion-item mb-3 border-0 shadow-sm rounded-3 overflow-hidden">
+<h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#pf1">Can I cancel my Monthly Pass anytime?</button></h2>
+<div id="pf1" class="accordion-collapse collapse show" data-bs-parent="#pricingFaq">
+<div class="accordion-body text-muted">Yes — cancel anytime before your next billing date and you won't be charged again. Your pass benefits continue until the end of the current period.</div>
+</div>
+</div>
+
+<div class="accordion-item mb-3 border-0 shadow-sm rounded-3 overflow-hidden">
+<h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pf2">Is there really no minimum order with a Pass?</button></h2>
+<div id="pf2" class="accordion-collapse collapse" data-bs-parent="#pricingFaq">
+<div class="accordion-body text-muted">Correct — Pass holders can order a single bottle of milk if they like, with no delivery fee. We don't impose a minimum order on any Pass tier.</div>
+</div>
+</div>
+
+<div class="accordion-item mb-3 border-0 shadow-sm rounded-3 overflow-hidden">
+<h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pf3">How does the Annual Pass save 58%?</button></h2>
+<div id="pf3" class="accordion-collapse collapse" data-bs-parent="#pricingFaq">
+<div class="accordion-body text-muted">The Monthly Pass costs ₹199 × 12 = ₹2,388 per year. The Annual Pass is ₹999 — a saving of ₹1,389 (58% off). Plus you get extra benefits like double loyalty points and a gift box.</div>
+</div>
+</div>
+
+<div class="accordion-item mb-3 border-0 shadow-sm rounded-3 overflow-hidden">
+<h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pf4">Can I upgrade from Monthly to Annual mid-cycle?</button></h2>
+<div id="pf4" class="accordion-collapse collapse" data-bs-parent="#pricingFaq">
+<div class="accordion-body text-muted">Yes. We'll prorate the remaining days on your Monthly Pass and apply the credit towards the Annual Pass cost automatically. Contact support and we'll process it within minutes.</div>
+</div>
+</div>
+
+<div class="accordion-item mb-3 border-0 shadow-sm rounded-3 overflow-hidden">
+<h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pf5">What payment methods do you accept?</button></h2>
+<div id="pf5" class="accordion-collapse collapse" data-bs-parent="#pricingFaq">
+<div class="accordion-body text-muted">We accept UPI (GPay, PhonePe, BHIM), all major credit/debit cards (Visa, Mastercard, RuPay), net banking, and Cash on Delivery for regular orders (not available for subscriptions).</div>
+</div>
+</div>
+
+<div class="accordion-item mb-3 border-0 shadow-sm rounded-3 overflow-hidden">
+<h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pf6">Do loyalty points work with a Pass?</button></h2>
+<div id="pf6" class="accordion-collapse collapse" data-bs-parent="#pricingFaq">
+<div class="accordion-body text-muted">Absolutely. All Pass tiers earn loyalty points on every purchase. Annual Pass members earn points at 2× the normal rate — every ₹10 earns 2 points instead of 1.</div>
+</div>
+</div>
+
+</div><!-- /accordion -->
+<div class="text-center mt-4">
+<p class="text-muted">Still have questions?</p>
+<a href="contact.html" class="btn btn-outline-danger px-5">Contact Support</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section style="background:linear-gradient(135deg,var(--color-primary),#ff6b6b);padding:80px 0;text-align:center;">
+<div class="container">
+<h2 style="color:#fff;font-size:clamp(1.6rem,3.5vw,2.4rem);">Ready to Save on Every Delivery?</h2>
+<p style="color:rgba(255,255,255,.8);font-size:1.1rem;">Join 50,000+ Pass members who never pay a delivery fee.</p>
+<div class="d-flex gap-3 justify-content-center flex-wrap mt-4">
+<a href="register.html" class="btn btn-warning btn-lg px-5 fw-bold text-dark">Get Monthly Pass — ₹199</a>
+<a href="offers.html" class="btn btn-outline-light btn-lg px-5">Browse Offers First</a>
+</div>
+</div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer py-5">
+<div class="container">
+<div class="row">
+<div class="col-lg-3 col-md-6 mb-4"><h5>SuperMart</h5><p>Fresh groceries every day, at honest prices.</p></div>
+<div class="col-lg-3 col-md-6 mb-4"><h5>Quick Links</h5><ul class="list-unstyled">
+<li><a href="index.html">Home</a></li><li><a href="offers.html">Offers</a></li>
+<li><a href="services.html">Services</a></li><li><a href="pricing.html">Pricing</a></li>
+</ul></div>
+<div class="col-lg-3 col-md-6 mb-4"><h5>My Account</h5><ul class="list-unstyled">
+<li><a href="profile.html">Profile</a></li><li><a href="orders.html">Orders</a></li>
+<li><a href="wishlist.html">Wishlist</a></li><li><a href="loyalty-card.html">Loyalty</a></li>
+</ul></div>
+<div class="col-lg-3 col-md-6 mb-4"><h5>Contact</h5>
+<p><i class="fa-solid fa-phone me-2"></i>+91 9876543210</p>
+<p><i class="fa-solid fa-envelope me-2"></i>info@supermart.com</p>
+</div>
+</div>
+<hr><div class="text-center">&copy; 2026 SuperMart. All Rights Reserved.</div>
+</div>
+</footer>
+
+<div class="sm-toast" id="smToast"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/features.js"></script>
+<script src="../assets/js/enhance.js"></script>
+<script>
+function switchBilling(type, btn){
+  document.querySelectorAll('#billingToggle button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const isAnnual = type === 'annual';
+  document.querySelectorAll('.price-val').forEach(el=>{
+    el.textContent = isAnnual ? el.dataset.annual : el.dataset.monthly;
+  });
+  document.querySelectorAll('.per-label').forEach(el=>{
+    if(el.id === 'annualPeriodLabel') return;
+    el.textContent = isAnnual ? 'per month (billed annually)' : 'per month';
+  });
+  if(document.getElementById('annualPeriodLabel')){
+    document.getElementById('annualPeriodLabel').textContent = isAnnual ? 'per year' : 'per year';
+  }
+}
+</script>
+</body>
+</html>

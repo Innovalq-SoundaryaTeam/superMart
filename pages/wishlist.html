@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wishlist | SuperMart</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/dark-mode.css">
+<link rel="stylesheet" href="../assets/css/features.css">
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<div class="top-bar py-2"><div class="container d-flex justify-content-between align-items-center">
+<span><i class="fa-regular fa-clock"></i> Mon - Sun : 8:00 AM - 10:00 PM</span>
+<a href="store-locator.html"><i class="fa-solid fa-location-dot"></i> Find a Store</a>
+</div></div>
+<nav class="navbar navbar-expand-lg shadow-sm sticky-top"><div class="container">
+<a class="navbar-brand fw-bold logo" href="index.html">SuperMart</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"><span class="navbar-toggler-icon"></span></button>
+<div class="collapse navbar-collapse" id="navMenu">
+<ul class="navbar-nav ms-auto align-items-lg-center">
+<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="offers.html">Offers</a></li>
+<li class="nav-item"><a class="nav-link" href="categories.html">Categories</a></li>
+</ul>
+<div class="d-flex align-items-center gap-2 ms-lg-3">
+<a href="cart.html" class="nav-icon-btn"><i class="fa-solid fa-cart-shopping"></i><span class="cart-badge" id="cartCountNav">0</span></a>
+<a href="wishlist.html" class="nav-icon-btn" style="background:var(--color-primary);color:#fff;"><i class="fa-solid fa-heart"></i></a>
+<span id="authArea"><a href="login.html" class="nav-icon-btn" title="Login"><i class="fa-solid fa-user"></i></a></span>
+<button id="themeToggle" class="btn btn-danger" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+</div>
+</div></div></nav>
+
+<main id="main-content" class="wishlist-section">
+<div class="container">
+<div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+<div>
+<h2><i class="fa-solid fa-heart me-2 text-danger"></i>My Wishlist</h2>
+<p class="text-muted mb-0" id="wishlistCount">0 saved items</p>
+</div>
+<button class="btn btn-outline-danger" onclick="clearWishlist()"><i class="fa-solid fa-trash me-1"></i>Clear All</button>
+</div>
+
+<div id="wishEmpty" class="wishlist-empty">
+<i class="fa-regular fa-heart"></i>
+<h4 class="mt-3">Your wishlist is empty</h4>
+<p class="text-muted">Save items you love by clicking the heart icon!</p>
+<a href="offers.html" class="btn btn-danger mt-3">Browse Products</a>
+</div>
+
+<div id="wishGrid" class="row g-4 d-none"></div>
+</div>
+</main>
+
+<footer class="footer py-5">
+<div class="container"><div class="text-center">&copy; 2026 SuperMart. All Rights Reserved.</div></div>
+</footer>
+
+<div class="sm-toast" id="smToast"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/features.js"></script>
+<script>
+function renderWishlist(){
+  const wl=getWishlist();
+  const empty=document.getElementById('wishEmpty');
+  const grid=document.getElementById('wishGrid');
+  const count=document.getElementById('wishlistCount');
+  count.textContent=wl.length+' saved item'+(wl.length!==1?'s':'');
+  if(wl.length===0){empty.classList.remove('d-none');grid.classList.add('d-none');return;}
+  empty.classList.add('d-none');
+  grid.classList.remove('d-none');
+  grid.innerHTML=wl.map((it,idx)=>`
+  <div class="col-md-6 col-lg-3">
+    <div class="product-card">
+      <span class="discount-badge">${it.badge||'SALE'}</span>
+      <img src="${it.img}" alt="${it.name}">
+      <div class="card-body">
+        <h6 class="fw-bold mb-1">${it.name}</h6>
+        <p class="mb-2"><s class="text-muted">₹${it.original||Math.round(it.price*1.25)}</s> <strong class="text-danger">₹${it.price}</strong></p>
+        <div class="product-actions">
+          <button class="btn-add-cart" onclick="moveToCart(${idx})"><i class="fa-solid fa-cart-plus me-1"></i>Add to Cart</button>
+          <button class="btn-wishlist active" onclick="removeWish(${idx})" title="Remove from wishlist"><i class="fa-solid fa-heart"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>`).join('');
+}
+function moveToCart(idx){
+  const wl=getWishlist();
+  const item=wl[idx];
+  addToCart(item);
+  wl.splice(idx,1);
+  localStorage.setItem('smWishlist',JSON.stringify(wl));
+  renderWishlist();
+  updateCartCount();
+  showToast(item.name+' moved to cart!','success');
+}
+function removeWish(idx){
+  const wl=getWishlist();
+  wl.splice(idx,1);
+  localStorage.setItem('smWishlist',JSON.stringify(wl));
+  renderWishlist();
+  showToast('Removed from wishlist','info');
+}
+function clearWishlist(){
+  if(confirm('Clear entire wishlist?')){
+    localStorage.setItem('smWishlist','[]');
+    renderWishlist();
+    showToast('Wishlist cleared','info');
+  }
+}
+renderWishlist();
+</script>
+</body>
+</html>

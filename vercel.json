@@ -1,0 +1,17 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/pages/index.html" },
+    { "source": "/home", "destination": "/pages/index.html" },
+    { "source": "/offers", "destination": "/pages/offers.html" },
+    { "source": "/categories", "destination": "/pages/categories.html" },
+    { "source": "/about", "destination": "/pages/about.html" },
+    { "source": "/blog", "destination": "/pages/blog.html" },
+    { "source": "/services", "destination": "/pages/services.html" },
+    { "source": "/contact", "destination": "/pages/contact.html" },
+    { "source": "/cart", "destination": "/pages/cart.html" },
+    { "source": "/wishlist", "destination": "/pages/wishlist.html" },
+    { "source": "/orders", "destination": "/pages/orders.html" },
+    { "source": "/payment", "destination": "/pages/payment.html" },
+    { "source": "/admin", "destination": "/pages/admin-dashboard.html" }
+  ]
+}

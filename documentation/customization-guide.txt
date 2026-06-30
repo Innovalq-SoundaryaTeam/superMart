@@ -1,0 +1,65 @@
+SUPERMART WEBSITE — CUSTOMIZATION GUIDE
+=========================================
+
+COLORS / THEME
+  All brand colors live as CSS variables at the top of
+  assets/css/style.css:
+
+      --color-primary   : #E63946  (brand red — buttons, badges, links)
+      --color-secondary : #FFD166  (accent yellow — secondary CTAs)
+      --color-bg         : #FFFFFF
+      --color-text       : #2D2D2D
+      --color-section    : #F8F8F8
+
+  Change these values to re-skin the entire site in one place. Dark
+  mode overrides for the same variables live in
+  assets/css/dark-mode.css.
+
+FONTS
+  Two Google Fonts are loaded in the <head> of every page:
+  Nunito (headings) and Open Sans (body text). To swap fonts, change
+  the <link> tag and the font-family rules in style.css (the `body`
+  and `h1..h6` selectors).
+
+ADDING / EDITING PRODUCT CARDS
+  Product cards on index.html and offers.html were generated from
+  Python helper scripts at the project root (gen_index.py,
+  gen_offers.py). Edit the PRODUCTS list in those scripts and re-run
+  them with `python3 gen_index.py` / `python3 gen_offers.py` to
+  regenerate the pages, or simply duplicate a `.offer-card` block by
+  hand directly in the HTML — each card needs:
+    - a discount-badge with the % off
+    - an <img> with descriptive alt text
+    - name, struck-through original price, sale price
+    - a category class (produce / dairy / bakery / snacks / beverages)
+      used by the JS filter buttons
+
+ADDING A NEW PAGE
+  1. Copy the <head>, top bar, navbar and footer markup from an
+     existing page in pages/ so navigation stays consistent.
+  2. Add a new <li><a> entry to the navbar in every page (or, if using
+     the generator, add it to NAV_ITEMS in build_pages.py and
+     regenerate).
+  3. Link the new page from the footer "Quick Links" column if it
+     should be globally reachable.
+
+DARK MODE
+  Toggled by the moon/sun button in the navbar (id="themeToggle").
+  JS in assets/js/main.js adds/removes the `dark-mode` class on
+  <body> and stores the choice in localStorage so it persists across
+  pages and visits. To change which elements respond to dark mode,
+  add overrides to assets/css/dark-mode.css using the
+  `body.dark-mode .your-selector { ... }` pattern.
+
+RTL (RIGHT-TO-LEFT) SUPPORT
+  Add `dir="rtl"` to the <html> tag of any page to mirror the layout
+  for RTL languages (Arabic, Hebrew, etc.). All mirroring rules live in
+  assets/css/rtl.css and are scoped to `html[dir="rtl"]` so they have
+  no effect when the attribute is absent.
+
+FORM VALIDATION RULES
+  Validation logic lives in assets/js/main.js. Each form has its own
+  small handler (contact, loyalty, newsletter, store search) using the
+  shared isValidEmail()/isValidPhone()/showError() helpers. Edit the
+  rules inside the relevant handler to change required fields or
+  validation patterns.

@@ -1,0 +1,45 @@
+SUPERMART WEBSITE — INSTALLATION GUIDE
+========================================
+
+1. EXTRACT THE FILES
+   Unzip the project to any folder on your computer or web server.
+
+2. NO BUILD STEP REQUIRED
+   This is a static HTML/CSS/JS site — there is no npm install, no
+   compiler, no database. All CSS/JS/Font/Icon libraries load from
+   public CDNs (jsdelivr, fonts.googleapis.com, cdnjs.cloudflare.com).
+
+3. VIEWING LOCALLY
+   Option A — double-click pages/index.html to open it directly in
+   your browser.
+
+   Option B — run a local static server from the project root so that
+   relative paths and the Google Maps iframe behave the same way they
+   will in production:
+
+       python3 -m http.server 8000
+
+   Then open http://localhost:8000/pages/index.html
+
+4. DEPLOYING TO A WEB SERVER
+   Upload the entire project folder (assets/, pages/, robots.txt,
+   sitemap.xml) to your web host. Set your homepage redirect/rewrite so
+   that "/" serves "pages/index.html", or move the contents of pages/
+   up to the web root if your host doesn't support rewrites.
+
+5. CONNECTING THE FORMS
+   - Contact form (contact.html): replace the placeholder
+     "https://formspree.io/f/your-form-id" action URL with your own
+     Formspree endpoint (or any form backend that accepts POST).
+   - Newsletter forms (index.html, blog.html, coming-soon.html):
+     replace the JS demo handler in assets/js/main.js with a real
+     Mailchimp embed/API call when ready.
+
+6. CONNECTING THE MAP
+   Replace the iframe src in store-locator.html with your own Google
+   Maps embed code (Google Maps > Share > Embed a map), or your
+   preferred map provider.
+
+7. BROWSER SUPPORT
+   Tested against current Chrome, Firefox, Safari, and Edge. Internet
+   Explorer is not supported (Bootstrap 5 drops IE11 support).
