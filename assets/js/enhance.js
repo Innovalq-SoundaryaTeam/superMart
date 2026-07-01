@@ -240,7 +240,12 @@ document.addEventListener('DOMContentLoaded', function(){
     if(rc) rc.textContent = visible+' products found';
   }
   if(document.querySelector('.offer-item')) updateResultCount();
-  document.querySelectorAll('.filter-btn').forEach(btn=>btn.addEventListener('click',()=>setTimeout(applyAllFilters,10)));
+  document.querySelectorAll('.filter-btn').forEach(btn=>btn.addEventListener('click',function(){
+    document.querySelectorAll('.filter-btn').forEach(b=>{b.classList.remove('active');b.setAttribute('aria-pressed','false');});
+    this.classList.add('active');
+    this.setAttribute('aria-pressed','true');
+    setTimeout(applyAllFilters,10);
+  }));
 
   const clearBtn = document.getElementById('clearFiltersBtn');
   if(clearBtn){
