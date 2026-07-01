@@ -18,8 +18,8 @@
 }
 @keyframes heroFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
 @media(max-width:767px){
-  .hero-slider{min-height:auto;padding:60px 0 30px;}
-  .hero-slide-img{animation:none;max-height:260px;object-fit:cover;border-radius:12px;}
+  .hero-slider{min-height:auto;padding-bottom:40px;}
+  .hero-slide-img{max-height:320px;object-fit:contain;margin-top:20px;}
 }
 .hero-slider .display-4{animation:heroFadeUp .7s ease both;}
 .hero-slider .lead{animation:heroFadeUp .7s .12s ease both;}
