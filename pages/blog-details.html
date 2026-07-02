@@ -172,11 +172,11 @@
 
 <!-- Article Hero Image -->
 <div class="article-hero">
-<img src="../assets/images/blog-grocery-bill.png" alt="Smart grocery shopping tips">
+<img id="postHeroImg" src="../assets/images/blog-grocery-bill.png" alt="Blog post hero">
 <div class="article-hero-overlay">
 <div class="article-hero-content">
-<span class="article-cat">Saving Tips</span>
-<h1>10 Smart Ways to Cut Your Grocery Bill This Month</h1>
+<span class="article-cat" id="postCat">Saving Tips</span>
+<h1 id="postTitle">10 Smart Ways to Cut Your Grocery Bill This Month</h1>
 </div>
 </div>
 </div>
@@ -189,7 +189,7 @@
 <ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
 <li class="breadcrumb-item"><a href="blog.html">Blog</a></li>
-<li class="breadcrumb-item active">10 Smart Ways to Cut Your Grocery Bill</li>
+<li class="breadcrumb-item active" id="postBreadcrumb">10 Smart Ways to Cut Your Grocery Bill</li>
 </ol>
 </nav>
 
@@ -211,7 +211,7 @@
 </div>
 
 <!-- Body -->
-<div class="article-body">
+<div class="article-body" id="postBody">
 
 <p>With food prices still higher than pre-pandemic levels, finding ways to stretch your grocery budget further has never been more important. The good news? You don't have to sacrifice quality or nutrition to spend less. These 10 strategies, used consistently, can reduce the average household grocery spend by 20–30%.</p>
 
@@ -496,6 +496,129 @@ function sidebarSubscribe(){
   document.getElementById('sidebarEmail').value='';
   showToast('Subscribed! Welcome to the SuperMart newsletter.','success');
 }
+
+/* ---- DYNAMIC POST LOADER ---- */
+const POSTS = {
+  'grocery-bill': {
+    img:'../assets/images/blog-grocery-bill.png',
+    cat:'Saving Tips', date:'June 2, 2026', read:'7 min', views:'14,201',
+    title:'10 Smart Ways to Cut Your Grocery Bill This Month',
+    body:`<p>With food prices still higher than pre-pandemic levels, finding ways to stretch your grocery budget further has never been more important. These 10 strategies, used consistently, can reduce the average household grocery spend by 20–30%.</p>
+<h2>1. Plan Your Meals a Week Ahead</h2><p>Meal planning is the single most effective way to cut grocery waste. Before you shop, write down every meal for the week and build your list from only what those meals require. Research shows meal-planners spend 23% less and waste 40% less food.</p>
+<div class="tip-box"><strong>⚡ Pro Tip:</strong> Use overlapping ingredients across meals. If you buy spinach, plan dishes that use it across three different meals — a smoothie, a pasta, and a side salad.</div>
+<h2>2. Shop Your Offers Page First</h2><p>Always check the <a href="offers.html" class="text-danger">weekly offers</a> before writing your list. Reverse-engineer your meal plan around what's on discount. If chicken is 35% off, make two chicken-based meals. This "discount-first" approach saves ₹400–₹800 a month.</p>
+<img src="../assets/images/blog-detail-inline.png" class="w-100 article-inline-img" alt="Weekly offer planning">
+<h2>3. Buy Staples in Bulk</h2><p>Rice, lentils, spices, oil, and flour don't expire quickly. Buying in larger pack sizes reduces per-unit cost by 15–25%.</p>
+<h2>4. Embrace "Ugly" Produce</h2><p>Slightly misshapen fruits and vegetables are nutritionally identical to perfect ones. Many stores sell these at 20–40% off — perfect for cooking, smoothies, or curries.</p>
+<blockquote>"A wonky carrot still makes a perfect dal. Stop paying a beauty premium for food that becomes invisible the moment it's cooked."</blockquote>
+<h2>5. Join the Loyalty Program</h2><p>If you're not collecting <a href="loyalty-card.html" class="text-danger">loyalty points</a>, you're leaving money on the table. A family spending ₹8,000/month earns ₹800 back annually.</p>
+<h2>6. Shop on Weekday Mornings</h2><p>Stores mark down fresh produce, meat, and bakery items in the morning before restocking. Evening shoppers get the leftovers.</p>
+<h2>7. Avoid Shopping When Hungry</h2><p>Studies consistently show that hungry shoppers spend 20–40% more and make significantly more impulse purchases.</p>
+<h2>8. Compare Price Per Unit</h2><p>A ₹120 bottle of oil might seem pricier than ₹85 — but check the per-ml price. Bigger packs are often cheaper per unit.</p>
+<h2>9. Cook in Batches and Freeze</h2><p>Cook large batches and freeze portions. Soups, curries, pasta sauces, and lentils freeze exceptionally well.</p>
+<h2>10. Use the SuperMart App for Flash Sales</h2><p>Our app sends push notifications 30 minutes before flash sales go live — up to 60% off for as little as 2 hours.</p>
+<div class="tip-box"><strong>💰 Summary:</strong> Implementing all 10 strategies typically saves a family of 4 between ₹1,200 and ₹2,500 per month.</div>`
+  },
+  'budget-recipes': {
+    img:'../assets/images/blog-budget-recipes.png',
+    cat:'Recipes', date:'June 18, 2026', read:'6 min', views:'9,842',
+    title:'5 Budget-Friendly Family Recipes Under ₹150',
+    body:`<p>Feeding a family well without overspending is easier than you think. These five recipes use affordable, widely available ingredients and come together in under 30 minutes each.</p>
+<h2>1. Masala Dal Tadka</h2><p>Toor dal is one of the most nutritious and affordable staples available. Pressure-cook 1 cup toor dal with turmeric, then temper with mustard seeds, dried red chillies, garlic, and a generous knob of ghee. Serve with rice. Cost: ₹40 for 4 servings.</p>
+<div class="tip-box"><strong>⚡ Tip:</strong> Double the batch and refrigerate for up to 3 days. Dal actually tastes better the next day as the spices deepen.</div>
+<h2>2. Vegetable Pulao</h2><p>Basmati rice cooked with whole spices (bay leaf, cloves, cardamom) and whatever vegetables you have — peas, carrots, beans — makes a complete one-pot meal. Cost: ₹60 for 4 servings.</p>
+<img src="../assets/images/blog-detail-inline.png" class="w-100 article-inline-img" alt="Budget family cooking">
+<h2>3. Aloo Gobi</h2><p>Potatoes and cauliflower are two of the most cost-effective vegetables year-round. Sauté with cumin, coriander, turmeric, and finish with fresh coriander. Cost: ₹35 for 4 servings.</p>
+<blockquote>"The most expensive ingredient in a meal is often the one you already have at home going to waste."</blockquote>
+<h2>4. Egg Curry</h2><p>Hard-boil 6 eggs, then simmer in a rich tomato-onion masala gravy. High-protein, incredibly filling, and costs around ₹70 for 4 servings.</p>
+<h2>5. Poha Breakfast Bowl</h2><p>Flattened rice sautéed with mustard seeds, curry leaves, green chillies, onions, and a squeeze of lemon. Ready in 10 minutes, costs ₹20 per serving, and keeps you full until lunch.</p>
+<div class="tip-box"><strong>🍽️ Meal Plan Tip:</strong> Combine all 5 recipes across a week and you'll feed a family of 4 for under ₹1,000 — that's just ₹250 per person for the entire week of home lunches and dinners.</div>`
+  },
+  'nutrition-labels': {
+    img:'../assets/images/blog-nutrition-labels.png',
+    cat:'Health Guides', date:'June 10, 2026', read:'5 min', views:'7,319',
+    title:'How to Read Nutrition Labels Like a Pro',
+    body:`<p>The nutrition label on every packaged food is one of the most powerful tools for making healthier choices — yet most people ignore it or find it confusing. Here's your plain-English guide.</p>
+<h2>Start With Serving Size</h2><p>Everything on the label is based on the serving size listed at the top. A packet of chips that says "150 kcal per serving" might contain 3 servings — meaning the whole bag is 450 kcal. Always check how many servings are in the package before reading anything else.</p>
+<div class="tip-box"><strong>⚡ Watch Out:</strong> Manufacturers sometimes use unrealistically small serving sizes to make calorie counts look lower. A "serving" of breakfast cereal is often just 30g — about half of what most people actually pour.</div>
+<h2>Calories vs. Nutrition</h2><p>Calories tell you how much energy is in a food, but not whether that energy is nutritious. 200 kcal of almonds (healthy fats, protein, fibre) is very different from 200 kcal of plain biscuits (refined carbs, little nutrition). Look beyond just calories.</p>
+<img src="../assets/images/blog-detail-inline.png" class="w-100 article-inline-img" alt="Reading nutrition labels">
+<h2>The Nutrients to Limit</h2><p>Keep an eye on: <strong>saturated fat</strong> (raises LDL cholesterol), <strong>added sugars</strong> (distinct from natural sugars in fruit/milk), and <strong>sodium</strong> (linked to blood pressure). A daily limit of 2,000 mg sodium is a common guideline.</p>
+<blockquote>"If sugar is listed in the first three ingredients, the product is essentially a dessert — regardless of what the front of the packet claims."</blockquote>
+<h2>The Nutrients to Seek</h2><p>Look for foods high in dietary fibre (aim for 25–38g/day), protein, vitamin D, calcium, iron, and potassium. These are the nutrients most people don't get enough of.</p>
+<h2>The % Daily Value Guide</h2><p>The % DV column tells you what percentage of the recommended daily amount one serving provides. A quick rule: 5% or less is low; 20% or more is high. Use this to quickly compare similar products side by side.</p>
+<div class="tip-box"><strong>🏷️ Label Shortcuts:</strong> When comparing two similar products, flip to the label and pick the one with more fibre, less added sugar, and less sodium. That single habit covers 80% of what matters.</div>`
+  },
+  'seasonal-produce': {
+    img:'../assets/images/blog-seasonal-produce.png',
+    cat:'Recipes', date:'May 27, 2026', read:'4 min', views:'5,611',
+    title:'Seasonal Produce Guide: What to Buy This Summer',
+    body:`<p>Shopping seasonally is the easiest way to get fresher produce at lower prices. In-season fruit and vegetables are harvested at peak ripeness, travel shorter distances, and don't require expensive storage — all of which translates to better taste and better value.</p>
+<h2>Why Seasonal Produce Costs Less</h2><p>When a crop is in peak season, supply is high and prices drop. Out-of-season produce is either imported or grown in artificial conditions, both of which add significant cost. Shopping seasonally can reduce your fresh produce spend by 25–40%.</p>
+<div class="tip-box"><strong>🌿 Summer Picks:</strong> Tomatoes, green capsicum, cucumber, bottle gourd (lauki), ridge gourd, raw mango, watermelon, muskmelon, and corn are all at their best and cheapest right now.</div>
+<h2>Summer Recipe Ideas</h2><p>Make the most of summer abundance: raw mango chutney, chilled cucumber raita, watermelon mint cooler, tomato shorba, and lauki kofta. These dishes celebrate peak-season produce at its finest.</p>
+<img src="../assets/images/blog-detail-inline.png" class="w-100 article-inline-img" alt="Fresh summer produce">
+<blockquote>"Eat what the season offers and you automatically eat better, spend less, and support local farmers."</blockquote>
+<h2>How to Store Summer Produce</h2><p>Tomatoes keep best at room temperature — the fridge actually makes them mealy. Cucumbers and capsicum do well in the fridge crisper drawer. Whole watermelons can sit on the counter for 1–2 weeks; once cut, refrigerate and consume within 3 days.</p>
+<h2>What's Coming in Autumn</h2><p>Start planning ahead: carrots, beets, sweet potato, pomegranate, and guava will be in peak season from October. Buying and freezing some summer surplus now can bridge the gap.</p>
+<div class="tip-box"><strong>🛒 Smart Shop:</strong> Check the <a href="offers.html" class="text-danger">Offers page</a> weekly — seasonal produce items often coincide with our best percentage discounts.</div>`
+  },
+  'meal-prep': {
+    img:'../assets/images/blog-meal-prep.png',
+    cat:'Saving Tips', date:'May 19, 2026', read:'6 min', views:'11,043',
+    title:'Meal Prep 101: Save Time and Money Every Week',
+    body:`<p>Meal prepping — cooking components or full meals in advance — is one of the most effective habits for saving both time and money. A Sunday session of 90 minutes can eliminate daily cooking stress and cut your weekly food spend by 30%.</p>
+<h2>The Core Principle: Cook Once, Eat Multiple Times</h2><p>Instead of cooking from scratch every evening, you prepare building blocks: a large pot of dal, a batch of roasted vegetables, cooked rice or roti dough, and a protein base. These components combine into different meals throughout the week.</p>
+<div class="tip-box"><strong>⚡ Start Simple:</strong> Don't try to prep 7 full meals at once. Start by just prepping 3 dinner bases. That alone removes daily decision-making and significantly reduces food waste.</div>
+<h2>What to Prep First</h2><p><strong>Grains:</strong> Cook a large batch of rice or quinoa — stores in the fridge for 5 days. <strong>Dal or beans:</strong> Pressure-cook a double batch; freezes perfectly for up to 3 months. <strong>Roasted vegetables:</strong> Toss any vegetables in oil and roast at 200°C for 25 minutes. <strong>Chopped aromatics:</strong> Pre-chop onions, garlic, and ginger — they store in the fridge for 4–5 days.</p>
+<img src="../assets/images/blog-detail-inline.png" class="w-100 article-inline-img" alt="Meal prep containers">
+<blockquote>"Meal prep isn't about eating the same thing every day. It's about having enough components that you can assemble 10 different meals from the same 5 ingredients."</blockquote>
+<h2>Storage Tips</h2><p>Use airtight glass containers — they're safer for reheating and don't absorb odours. Label everything with the date. Cooked grains and vegetables last 4–5 days; cooked meats and fish last 3–4 days; soups and curries last 4–5 days and often taste better the next day.</p>
+<h2>The Money Maths</h2><p>The average family spends ₹300–₹600 on takeaway per week when they skip cooking due to time. Meal prepping eliminates almost all of those orders. At ₹400/week saved, that's ₹1,600 per month — enough for a significant portion of your grocery budget itself.</p>
+<div class="tip-box"><strong>🥘 SuperMart Pick:</strong> Stock up on toor dal, basmati rice, frozen vegetables, and eggs on your weekly shop — four ingredients that form the backbone of almost any meal prep session.</div>`
+  },
+  'food-storage': {
+    img:'../assets/images/blog-food-storage.png',
+    cat:'Health Guides', date:'May 12, 2026', read:'5 min', views:'6,788',
+    title:'Understanding Food Storage & Freshness',
+    body:`<p>Improper food storage is one of the biggest sources of household food waste — and therefore wasted money. Learning where and how to store different foods can add days to their shelf life and significantly cut your weekly waste.</p>
+<h2>The Fridge vs. Counter Debate</h2><p>Not everything belongs in the fridge. In fact, refrigerating some foods actually degrades their quality. <strong>Counter only:</strong> tomatoes (fridge makes them mealy), whole potatoes (cold converts starch to sugar), onions (moisture causes rot), garlic, bananas (fridge blackens the skin). <strong>Fridge always:</strong> cut fruit and vegetables, leafy greens, dairy, meat, cooked food.</p>
+<div class="tip-box"><strong>⚡ Rule of Thumb:</strong> If it came from the warm section of a grocery store, it stores at room temperature. If it came from a chilled section, it belongs in your fridge.</div>
+<h2>Extend Leafy Green Life</h2><p>Wash greens, spin or pat dry, then wrap loosely in a paper towel before placing in an airtight container in the fridge crisper drawer. The towel absorbs moisture that would otherwise cause wilting and sliminess. This method extends life from 3 days to up to 10 days.</p>
+<img src="../assets/images/blog-detail-inline.png" class="w-100 article-inline-img" alt="Food storage organisation">
+<blockquote>"The best-before date tells you about quality, not safety. Many foods remain perfectly safe to eat days after that date — use your senses to judge."</blockquote>
+<h2>The Freezer Is Your Best Friend</h2><p>Almost everything can be frozen: bread, cooked rice, dal, grated cheese, overripe bananas (perfect for baking), meat, fish, and even milk. When produce is about to turn, freeze it. A bag of almost-overripe tomatoes becomes the base for next week's curry.</p>
+<h2>FIFO: First In, First Out</h2><p>When you bring home new groceries, move older items to the front and put new items at the back. This simple habit — used by every professional kitchen — ensures you always use what's oldest first and dramatically reduces expiry-date waste.</p>
+<div class="tip-box"><strong>🧊 Storage Quick-Reference:</strong> Tomatoes (counter, 1 week) · Leafy greens (fridge crisper, up to 10 days) · Bananas (counter, peel and freeze when spotted) · Cooked rice (fridge, 4 days or freeze) · Hard cheese (fridge, 3–4 weeks) · Raw meat (fridge, 1–2 days; freezer, 3–4 months).</div>`
+  }
+};
+
+(function(){
+  const post = new URLSearchParams(window.location.search).get('post') || 'grocery-bill';
+  const data = POSTS[post] || POSTS['grocery-bill'];
+  // Hero
+  const heroImg = document.getElementById('postHeroImg');
+  if(heroImg){ heroImg.src = data.img; heroImg.alt = data.title; }
+  const catEl = document.getElementById('postCat');
+  if(catEl) catEl.textContent = data.cat;
+  const titleEl = document.getElementById('postTitle');
+  if(titleEl) titleEl.textContent = data.title;
+  // Breadcrumb
+  const bc = document.getElementById('postBreadcrumb');
+  if(bc) bc.textContent = data.title;
+  // Meta pills
+  const pills = document.querySelectorAll('.meta-pill');
+  pills.forEach(function(p){
+    if(p.querySelector('.fa-calendar')) p.innerHTML = '<i class="fa-regular fa-calendar"></i> ' + data.date;
+    if(p.querySelector('.fa-clock')) p.innerHTML = '<i class="fa-solid fa-clock"></i> ' + data.read + ' read';
+    if(p.querySelector('.fa-eye')) p.innerHTML = '<i class="fa-solid fa-eye"></i> ' + data.views + ' views';
+  });
+  // Body
+  const body = document.getElementById('postBody');
+  if(body) body.innerHTML = data.body;
+  // Page title
+  document.title = data.title + ' | SuperMart Blog';
+})();
 </script>
 </body>
 </html>
