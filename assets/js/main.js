@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const style = document.createElement('style');
         style.textContent = `
           #rtlToggle{
-            position:fixed;top:62px;right:16px;z-index:99999;
+            position:fixed;top:85px;right:16px;z-index:99999;
             background:var(--color-primary,#E63946);color:#fff;
             border:none;border-radius:0 0 8px 8px;
             padding:4px 12px 6px;font-size:11px;font-weight:700;
