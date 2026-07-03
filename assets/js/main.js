@@ -38,11 +38,12 @@
 /* =====================================
    RTL TOGGLE (Left ↔ Right direction)
    Persists in localStorage as smRTL.
-   Applies before paint to avoid flash.
+   Uses body class so Bootstrap navbar
+   layout stays intact on mobile.
 ===================================== */
 (function initRTL(){
   if(localStorage.getItem('smRTL')==='1'){
-    document.documentElement.setAttribute('dir','rtl');
+    document.body.classList.add('rtl-mode');
   }
 })();
 
@@ -104,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ---- RTL FLOATING BUTTON ----
     if (!document.getElementById('rtlToggle')) {
-        const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+        const isRTL = document.body.classList.contains('rtl-mode');
 
         // Inject styles
         const style = document.createElement('style');
@@ -133,8 +134,8 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.appendChild(rtlBtn);
 
         rtlBtn.addEventListener('click', () => {
-            const nowRTL = document.documentElement.getAttribute('dir') !== 'rtl';
-            document.documentElement.setAttribute('dir', nowRTL ? 'rtl' : 'ltr');
+            const nowRTL = !document.body.classList.contains('rtl-mode');
+            document.body.classList.toggle('rtl-mode', nowRTL);
             localStorage.setItem('smRTL', nowRTL ? '1' : '0');
             rtlBtn.innerHTML = nowRTL
               ? '<i class="fa-solid fa-arrow-right-long"></i> LTR'

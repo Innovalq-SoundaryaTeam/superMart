@@ -1,63 +1,57 @@
 /* ==========================================================
    RTL SUPPORT
-   This file is only meaningful when <html dir="rtl"> is set.
-   Toggle RTL by adding dir="rtl" to the <html> tag (e.g. for
-   Arabic / Hebrew locales) — the rules below mirror spacing,
-   alignment and directional icons.
+   Activated by adding class "rtl-mode" to <body>.
+   The navbar is intentionally kept in LTR so Bootstrap's
+   responsive layout doesn't break on mobile.
+   All page content (main, sections, footer, hero) flips RTL.
 ========================================================== */
 
-html[dir="rtl"] body{
+/* ---- CONTENT AREAS ONLY (navbar excluded) ---- */
+body.rtl-mode main,
+body.rtl-mode .page-hero,
+body.rtl-mode .page-header,
+body.rtl-mode section,
+body.rtl-mode .hero-slider,
+body.rtl-mode .footer{
     direction:rtl;
     text-align:right;
 }
 
-html[dir="rtl"] .navbar-nav .nav-link{
-    margin-left:0;
-    margin-right:10px;
-}
-
-html[dir="rtl"] .navbar-nav .nav-link::after{
-    left:auto;
-    right:0;
-}
-
-html[dir="rtl"] .discount-badge{
+/* ---- PRODUCT BADGE ---- */
+body.rtl-mode .discount-badge{
     right:auto;
     left:10px;
 }
 
-html[dir="rtl"] .benefit-item{
+/* ---- FLEX ITEMS ---- */
+body.rtl-mode .benefit-item{
     flex-direction:row-reverse;
 }
 
-html[dir="rtl"] .me-2,
-html[dir="rtl"] .me-3{
+/* ---- BOOTSTRAP SPACING UTILITIES (inside content) ---- */
+body.rtl-mode main .me-2,
+body.rtl-mode main .me-3{
     margin-right:0 !important;
     margin-left:.5rem !important;
 }
 
-html[dir="rtl"] .ms-2,
-html[dir="rtl"] .ms-3,
-html[dir="rtl"] .ms-lg-3{
+body.rtl-mode main .ms-2,
+body.rtl-mode main .ms-3{
     margin-left:0 !important;
     margin-right:.5rem !important;
 }
 
-html[dir="rtl"] .fa-chevron-right::before{
-    content:"\f053"; /* swap to chevron-left visually */
+/* ---- ICON DIRECTION ---- */
+body.rtl-mode .fa-chevron-right::before{
+    content:"\f053";
 }
 
-html[dir="rtl"] .fa-chevron-left::before{
+body.rtl-mode .fa-chevron-left::before{
     content:"\f054";
 }
 
-html[dir="rtl"] .store-card i,
-html[dir="rtl"] .value-card i,
-html[dir="rtl"] .benefit-item i{
+body.rtl-mode .store-card i,
+body.rtl-mode .value-card i,
+body.rtl-mode .benefit-item i{
     margin-left:0;
-}
-
-html[dir="rtl"] .navbar-toggler{
-    margin-left:0;
-    margin-right:auto;
 }
