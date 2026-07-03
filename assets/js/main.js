@@ -102,26 +102,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-    // ---- RTL BUTTON (inject next to theme toggle) ----
-    if (themeToggle && !document.getElementById('rtlToggle')) {
+    // ---- RTL FLOATING BUTTON ----
+    if (!document.getElementById('rtlToggle')) {
         const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+
+        // Inject styles
+        const style = document.createElement('style');
+        style.textContent = `
+          #rtlToggle{
+            position:fixed;bottom:80px;left:0;z-index:9999;
+            background:var(--color-primary,#E63946);color:#fff;
+            border:none;border-radius:0 8px 8px 0;
+            padding:10px 14px;font-size:13px;font-weight:700;
+            cursor:pointer;box-shadow:2px 2px 10px rgba(0,0,0,.25);
+            display:flex;align-items:center;gap:6px;
+            transition:padding .2s,background .2s;
+            writing-mode:initial;
+          }
+          #rtlToggle:hover{background:#c1121f;padding-left:20px;}
+          html[dir="rtl"] #rtlToggle{
+            left:auto;right:0;
+            border-radius:8px 0 0 8px;
+          }
+          html[dir="rtl"] #rtlToggle:hover{padding-left:14px;padding-right:20px;}
+        `;
+        document.head.appendChild(style);
+
         const rtlBtn = document.createElement('button');
         rtlBtn.id = 'rtlToggle';
-        rtlBtn.className = 'btn btn-outline-danger ms-1';
-        rtlBtn.setAttribute('aria-label', 'Toggle text direction');
-        rtlBtn.setAttribute('title', 'Toggle LTR / RTL');
+        rtlBtn.setAttribute('aria-label', 'Toggle text direction LTR / RTL');
+        rtlBtn.setAttribute('title', 'Switch layout direction');
         rtlBtn.innerHTML = isRTL
-          ? '<i class="fa-solid fa-arrow-right-to-bracket"></i> LTR'
-          : '<i class="fa-solid fa-arrow-right-from-bracket"></i> RTL';
-        themeToggle.insertAdjacentElement('afterend', rtlBtn);
+          ? '<i class="fa-solid fa-arrow-right-long"></i> LTR'
+          : '<i class="fa-solid fa-arrow-left-long"></i> RTL';
+        document.body.appendChild(rtlBtn);
 
         rtlBtn.addEventListener('click', () => {
             const nowRTL = document.documentElement.getAttribute('dir') !== 'rtl';
             document.documentElement.setAttribute('dir', nowRTL ? 'rtl' : 'ltr');
             localStorage.setItem('smRTL', nowRTL ? '1' : '0');
             rtlBtn.innerHTML = nowRTL
-              ? '<i class="fa-solid fa-arrow-right-to-bracket"></i> LTR'
-              : '<i class="fa-solid fa-arrow-right-from-bracket"></i> RTL';
+              ? '<i class="fa-solid fa-arrow-right-long"></i> LTR'
+              : '<i class="fa-solid fa-arrow-left-long"></i> RTL';
         });
     }
 
