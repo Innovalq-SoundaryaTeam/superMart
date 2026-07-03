@@ -360,14 +360,18 @@ document.addEventListener("DOMContentLoaded", () => {
             isValid = false;
         }
 
-        if (dob.value === "") {
-            showError(dob, "Date of birth is required");
-            isValid = false;
-        }
+        // DOB is optional — no validation required
 
         if (isValid) {
-            showSuccess(loyaltyForm, "Welcome aboard! Check your inbox to confirm.");
-            loyaltyForm.reset();
+            loyaltyForm.innerHTML = `
+                <div class="text-center py-4">
+                    <div class="mb-3" style="font-size:3.5rem;color:#E63946;">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <h4 class="fw-bold mb-2">Welcome aboard! \u{1F389}</h4>
+                    <p class="text-muted mb-0">You've successfully joined the SuperMart Loyalty Program.<br>Check your inbox to confirm your membership and get your card details.</p>
+                </div>
+            `;
         }
 
     });
