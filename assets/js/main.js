@@ -35,6 +35,17 @@
    visit if no stored choice exists yet.
 ===================================== */
 
+/* =====================================
+   RTL TOGGLE (Left ↔ Right direction)
+   Persists in localStorage as smRTL.
+   Applies before paint to avoid flash.
+===================================== */
+(function initRTL(){
+  if(localStorage.getItem('smRTL')==='1'){
+    document.documentElement.setAttribute('dir','rtl');
+  }
+})();
+
 (function initTheme(){
 
     const stored = localStorage.getItem("theme");
@@ -89,6 +100,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
         });
 
+    }
+
+    // ---- RTL BUTTON (inject next to theme toggle) ----
+    if (themeToggle && !document.getElementById('rtlToggle')) {
+        const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+        const rtlBtn = document.createElement('button');
+        rtlBtn.id = 'rtlToggle';
+        rtlBtn.className = 'btn btn-outline-danger ms-1';
+        rtlBtn.setAttribute('aria-label', 'Toggle text direction');
+        rtlBtn.setAttribute('title', 'Toggle LTR / RTL');
+        rtlBtn.innerHTML = isRTL
+          ? '<i class="fa-solid fa-arrow-right-to-bracket"></i> LTR'
+          : '<i class="fa-solid fa-arrow-right-from-bracket"></i> RTL';
+        themeToggle.insertAdjacentElement('afterend', rtlBtn);
+
+        rtlBtn.addEventListener('click', () => {
+            const nowRTL = document.documentElement.getAttribute('dir') !== 'rtl';
+            document.documentElement.setAttribute('dir', nowRTL ? 'rtl' : 'ltr');
+            localStorage.setItem('smRTL', nowRTL ? '1' : '0');
+            rtlBtn.innerHTML = nowRTL
+              ? '<i class="fa-solid fa-arrow-right-to-bracket"></i> LTR'
+              : '<i class="fa-solid fa-arrow-right-from-bracket"></i> RTL';
+        });
     }
 
 });
