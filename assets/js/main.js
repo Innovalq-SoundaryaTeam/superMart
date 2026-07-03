@@ -110,21 +110,17 @@ document.addEventListener("DOMContentLoaded", () => {
         const style = document.createElement('style');
         style.textContent = `
           #rtlToggle{
-            position:fixed;bottom:80px;left:0;z-index:9999;
+            position:fixed;top:0;left:50%;transform:translateX(-50%);
+            z-index:99999;
             background:var(--color-primary,#E63946);color:#fff;
-            border:none;border-radius:0 8px 8px 0;
-            padding:10px 14px;font-size:13px;font-weight:700;
-            cursor:pointer;box-shadow:2px 2px 10px rgba(0,0,0,.25);
+            border:none;border-radius:0 0 10px 10px;
+            padding:5px 20px 8px;font-size:12px;font-weight:700;
+            cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.2);
             display:flex;align-items:center;gap:6px;
+            letter-spacing:.5px;text-transform:uppercase;
             transition:padding .2s,background .2s;
-            writing-mode:initial;
           }
-          #rtlToggle:hover{background:#c1121f;padding-left:20px;}
-          html[dir="rtl"] #rtlToggle{
-            left:auto;right:0;
-            border-radius:8px 0 0 8px;
-          }
-          html[dir="rtl"] #rtlToggle:hover{padding-left:14px;padding-right:20px;}
+          #rtlToggle:hover{background:#c1121f;padding-bottom:14px;}
         `;
         document.head.appendChild(style);
 
