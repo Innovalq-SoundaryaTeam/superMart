@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const style = document.createElement('style');
         style.textContent = `
           #rtlToggle{
-            position:fixed;top:90px;left:0;z-index:99999;
+            position:fixed;top:110px;left:0;z-index:99999;
             background:var(--color-primary,#E63946);color:#fff;
             border:none;border-radius:0 6px 6px 0;
             padding:6px 14px 6px 10px;font-size:11px;font-weight:700;
@@ -121,6 +121,9 @@ document.addEventListener("DOMContentLoaded", () => {
             transition:background .2s,padding .2s;
           }
           #rtlToggle:hover{background:#c1121f;padding-left:16px;}
+          @media(max-width:991.98px){
+            #rtlToggle{top:150px;}
+          }
         `;
         document.head.appendChild(style);
 
