@@ -226,11 +226,7 @@
 <!-- Other Services -->
 <div class="sd-sidebar-card">
 <h6 class="fw-bold mb-3">Other Services</h6>
-<a href="services.html" class="related-svc-link"><i class="fa-solid fa-calendar-check"></i><span>Scheduled Delivery</span><i class="fa-solid fa-chevron-right ms-auto text-muted"></i></a>
-<a href="services.html" class="related-svc-link"><i class="fa-solid fa-utensils"></i><span>Catering & Events</span><i class="fa-solid fa-chevron-right ms-auto text-muted"></i></a>
-<a href="services.html" class="related-svc-link"><i class="fa-solid fa-award"></i><span>Loyalty Rewards</span><i class="fa-solid fa-chevron-right ms-auto text-muted"></i></a>
-<a href="services.html" class="related-svc-link"><i class="fa-solid fa-briefcase"></i><span>Business Accounts</span><i class="fa-solid fa-chevron-right ms-auto text-muted"></i></a>
-<a href="services.html" class="related-svc-link"><i class="fa-solid fa-box-open"></i><span>Subscription Boxes</span><i class="fa-solid fa-chevron-right ms-auto text-muted"></i></a>
+<div id="sd-other-services"></div>
 </div>
 
 <!-- Contact Box -->
@@ -531,6 +527,24 @@
   document.getElementById('sd-cta-sub').textContent = d.ctaSub;
   var ctaBtn = document.getElementById('sd-cta-btn');
   ctaBtn.textContent = d.ctaBtn; ctaBtn.href = d.ctaHref;
+
+  // Other Services sidebar — all services except current
+  var ALL_SERVICES = [
+    {key:'express-delivery', icon:'fa-bolt',         label:'Express Delivery',    href:'service-details.html?service=express-delivery'},
+    {key:'scheduled-delivery', icon:'fa-calendar-check', label:'Scheduled Delivery', href:'service-details.html?service=scheduled-delivery'},
+    {key:'catering',         icon:'fa-utensils',     label:'Catering & Events',   href:'service-details.html?service=catering'},
+    {key:'loyalty',          icon:'fa-award',        label:'Loyalty Rewards',     href:'loyalty-card.html'},
+    {key:'business',         icon:'fa-briefcase',    label:'Business Accounts',   href:'service-details.html?service=business'},
+    {key:'subscription',     icon:'fa-box-open',     label:'Subscription Boxes',  href:'pricing.html'}
+  ];
+  document.getElementById('sd-other-services').innerHTML = ALL_SERVICES
+    .filter(function(s){ return s.key !== svc; })
+    .map(function(s){
+      return '<a href="'+s.href+'" class="related-svc-link">'+
+        '<i class="fa-solid '+s.icon+'"></i>'+
+        '<span>'+s.label+'</span>'+
+        '<i class="fa-solid fa-chevron-right ms-auto text-muted"></i></a>';
+    }).join('');
 })();
 </script>
 </body>
