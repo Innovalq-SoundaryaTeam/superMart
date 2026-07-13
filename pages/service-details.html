@@ -132,12 +132,12 @@
 <ol class="breadcrumb" style="--bs-breadcrumb-divider-color:rgba(255,255,255,.6);">
 <li class="breadcrumb-item"><a href="index.html" style="color:rgba(255,255,255,.8);">Home</a></li>
 <li class="breadcrumb-item"><a href="services.html" style="color:rgba(255,255,255,.8);">Services</a></li>
-<li class="breadcrumb-item active" style="color:#fff;">Express Delivery</li>
+<li class="breadcrumb-item active" style="color:#fff;" id="sd-breadcrumb">Express Delivery</li>
 </ol>
 </nav>
-<span class="sd-hero-badge"><i class="fa-solid fa-bolt me-1"></i> Most Popular Service</span>
-<h1>Express Grocery Delivery</h1>
-<p>Fresh groceries from shelf to your door in 15 minutes — any day, any time between 8 AM and 10 PM.</p>
+<span class="sd-hero-badge" id="sd-badge"><i class="fa-solid fa-bolt me-1" id="sd-badge-icon"></i> <span id="sd-badge-text">Most Popular Service</span></span>
+<h1 id="sd-title">Express Grocery Delivery</h1>
+<p id="sd-hero-desc">Fresh groceries from shelf to your door in 15 minutes — any day, any time between 8 AM and 10 PM.</p>
 <div class="d-flex gap-3 mt-4 flex-wrap">
 <a href="offers.html" class="btn btn-warning btn-lg">Shop Now</a>
 <a href="#pricing" class="btn btn-outline-light btn-lg">View Plans</a>
@@ -154,139 +154,50 @@
 <div class="col-lg-8">
 
 <!-- Hero Image -->
-<img src="../assets/images/service-express-delivery.png" class="w-100 rounded-4 shadow mb-5" alt="Express Delivery" style="max-height:400px;object-fit:cover;">
+<img src="../assets/images/service-express-delivery.png" id="sd-img" class="w-100 rounded-4 shadow mb-5" alt="Express Delivery" style="max-height:400px;object-fit:cover;">
 
 <!-- Description -->
-<h3 class="mb-3">What is Express Delivery?</h3>
+<h3 class="mb-3" id="sd-what-h">What is Express Delivery?</h3>
+<div id="sd-about">
 <p class="text-muted">SuperMart Express Delivery is our flagship same-day grocery service. Using a network of 48 dark stores and our own delivery fleet, we pick, pack, and deliver your groceries in record time — often under 15 minutes.</p>
 <p class="text-muted">Whether you've run out of milk at breakfast or need fresh vegetables for dinner, Express Delivery fills the gap without the hassle of a supermarket trip.</p>
+</div>
 
 <!-- Features -->
 <h4 class="mt-5 mb-4">What's Included</h4>
-<div class="feature-item reveal">
-<div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
-<div><h6 class="fw-bold mb-1">15-Minute Delivery Promise</h6><p class="text-muted mb-0">Our rider is dispatched the moment your order is confirmed. Live tracking lets you watch every step on the map.</p></div>
-</div>
-<div class="feature-item reveal">
-<div class="feature-icon"><i class="fa-solid fa-temperature-low"></i></div>
-<div><h6 class="fw-bold mb-1">Cold Chain Maintained</h6><p class="text-muted mb-0">Dairy, meat and frozen items are carried in insulated bags to maintain safe temperatures from store to your door.</p></div>
-</div>
-<div class="feature-item reveal">
-<div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
-<div><h6 class="fw-bold mb-1">100% Freshness Guarantee</h6><p class="text-muted mb-0">Not happy with an item? We'll refund or replace it — no questions asked within 24 hours of delivery.</p></div>
-</div>
-<div class="feature-item reveal">
-<div class="feature-icon"><i class="fa-solid fa-tags"></i></div>
-<div><h6 class="fw-bold mb-1">Same Prices as In-Store</h6><p class="text-muted mb-0">No delivery mark-up on products. All weekly offers and discounts apply to Express orders too.</p></div>
-</div>
-<div class="feature-item reveal">
-<div class="feature-icon"><i class="fa-solid fa-comments"></i></div>
-<div><h6 class="fw-bold mb-1">Real-Time Order Support</h6><p class="text-muted mb-0">Chat with our support team inside the app for instant help — item swaps, address changes, and more.</p></div>
+<div id="sd-features">
+<div class="feature-item reveal"><div class="feature-icon"><i class="fa-solid fa-bolt"></i></div><div><h6 class="fw-bold mb-1">15-Minute Delivery Promise</h6><p class="text-muted mb-0">Our rider is dispatched the moment your order is confirmed. Live tracking lets you watch every step on the map.</p></div></div>
+<div class="feature-item reveal"><div class="feature-icon"><i class="fa-solid fa-temperature-low"></i></div><div><h6 class="fw-bold mb-1">Cold Chain Maintained</h6><p class="text-muted mb-0">Dairy, meat and frozen items are carried in insulated bags to maintain safe temperatures from store to your door.</p></div></div>
+<div class="feature-item reveal"><div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div><div><h6 class="fw-bold mb-1">100% Freshness Guarantee</h6><p class="text-muted mb-0">Not happy with an item? We'll refund or replace it — no questions asked within 24 hours of delivery.</p></div></div>
+<div class="feature-item reveal"><div class="feature-icon"><i class="fa-solid fa-tags"></i></div><div><h6 class="fw-bold mb-1">Same Prices as In-Store</h6><p class="text-muted mb-0">No delivery mark-up on products. All weekly offers and discounts apply to Express orders too.</p></div></div>
+<div class="feature-item reveal"><div class="feature-icon"><i class="fa-solid fa-comments"></i></div><div><h6 class="fw-bold mb-1">Real-Time Order Support</h6><p class="text-muted mb-0">Chat with our support team inside the app for instant help — item swaps, address changes, and more.</p></div></div>
 </div>
 
 <!-- How It Works -->
 <h4 class="mt-5 mb-4">How It Works</h4>
-<div class="how-step reveal">
-<div class="how-num">1</div>
-<div><h6 class="fw-bold mb-1">Browse &amp; Add to Cart</h6><p class="text-muted mb-0">Search from 5,000+ products and add items at in-store prices with all current offers applied automatically.</p></div>
-</div>
-<div class="how-step reveal">
-<div class="how-num">2</div>
-<div><h6 class="fw-bold mb-1">Choose Delivery Time</h6><p class="text-muted mb-0">Select "Express (15 min)" at checkout or pick a scheduled slot for later in the day or week.</p></div>
-</div>
-<div class="how-step reveal">
-<div class="how-num">3</div>
-<div><h6 class="fw-bold mb-1">We Pick &amp; Pack</h6><p class="text-muted mb-0">Our trained pickers grab your items from the nearest dark store, quality-check everything, and seal it for delivery.</p></div>
-</div>
-<div class="how-step reveal">
-<div class="how-num">4</div>
-<div><h6 class="fw-bold mb-1">Delivered to Your Door</h6><p class="text-muted mb-0">Your rider arrives — track them live. Leave delivery instructions (e.g. "Leave at door") in the app.</p></div>
+<div id="sd-steps">
+<div class="how-step reveal"><div class="how-num">1</div><div><h6 class="fw-bold mb-1">Browse &amp; Add to Cart</h6><p class="text-muted mb-0">Search from 5,000+ products and add items at in-store prices with all current offers applied automatically.</p></div></div>
+<div class="how-step reveal"><div class="how-num">2</div><div><h6 class="fw-bold mb-1">Choose Delivery Time</h6><p class="text-muted mb-0">Select "Express (15 min)" at checkout or pick a scheduled slot for later in the day or week.</p></div></div>
+<div class="how-step reveal"><div class="how-num">3</div><div><h6 class="fw-bold mb-1">We Pick &amp; Pack</h6><p class="text-muted mb-0">Our trained pickers grab your items from the nearest dark store, quality-check everything, and seal it for delivery.</p></div></div>
+<div class="how-step reveal"><div class="how-num">4</div><div><h6 class="fw-bold mb-1">Delivered to Your Door</h6><p class="text-muted mb-0">Your rider arrives — track them live. Leave delivery instructions (e.g. "Leave at door") in the app.</p></div></div>
 </div>
 
 <!-- Pricing Table -->
-<h4 class="mt-5 mb-4" id="pricing">Delivery Plans</h4>
-<div class="row g-4">
-<div class="col-md-4 reveal">
-<div class="price-card">
-<h6 class="text-muted mb-1">Pay-As-You-Go</h6>
-<div class="price-amount">₹49</div>
-<div class="price-period">per delivery</div>
-<ul>
-<li><i class="fa-solid fa-check"></i>Express & Scheduled</li>
-<li><i class="fa-solid fa-check"></i>Live tracking</li>
-<li><i class="fa-solid fa-check"></i>Free over ₹500 order</li>
-<li><i class="fa-solid fa-xmark text-muted"></i>Priority packing</li>
-<li><i class="fa-solid fa-xmark text-muted"></i>Loyalty multiplier</li>
-</ul>
-<a href="cart.html" class="btn btn-outline-danger w-100">Start Shopping</a>
-</div>
-</div>
-<div class="col-md-4 reveal">
-<div class="price-card popular">
-<span class="popular-badge">Most Popular</span>
-<h6 class="text-muted mb-1">Monthly Pass</h6>
-<div class="price-amount">₹199</div>
-<div class="price-period">per month</div>
-<ul>
-<li><i class="fa-solid fa-check"></i>Unlimited deliveries</li>
-<li><i class="fa-solid fa-check"></i>Live tracking</li>
-<li><i class="fa-solid fa-check"></i>No minimum order</li>
-<li><i class="fa-solid fa-check"></i>Priority packing</li>
-<li><i class="fa-solid fa-xmark text-muted"></i>Loyalty multiplier</li>
-</ul>
-<a href="cart.html" class="btn btn-danger w-100">Get Monthly Pass</a>
-</div>
-</div>
-<div class="col-md-4 reveal">
-<div class="price-card">
-<h6 class="text-muted mb-1">Annual Pass</h6>
-<div class="price-amount">₹999</div>
-<div class="price-period">per year</div>
-<ul>
-<li><i class="fa-solid fa-check"></i>Unlimited deliveries</li>
-<li><i class="fa-solid fa-check"></i>Live tracking</li>
-<li><i class="fa-solid fa-check"></i>No minimum order</li>
-<li><i class="fa-solid fa-check"></i>Priority packing</li>
-<li><i class="fa-solid fa-check"></i>2× loyalty points</li>
-</ul>
-<a href="cart.html" class="btn btn-outline-danger w-100">Best Value</a>
-</div>
-</div>
+<h4 class="mt-5 mb-4" id="pricing">Plans &amp; Pricing</h4>
+<div class="row g-4" id="sd-pricing">
+<div class="col-md-4 reveal"><div class="price-card"><h6 class="text-muted mb-1">Pay-As-You-Go</h6><div class="price-amount">₹49</div><div class="price-period">per delivery</div><ul><li><i class="fa-solid fa-check"></i>Express &amp; Scheduled</li><li><i class="fa-solid fa-check"></i>Live tracking</li><li><i class="fa-solid fa-check"></i>Free over ₹500 order</li><li><i class="fa-solid fa-xmark text-muted"></i>Priority packing</li><li><i class="fa-solid fa-xmark text-muted"></i>Loyalty multiplier</li></ul><a href="cart.html" class="btn btn-outline-danger w-100">Start Shopping</a></div></div>
+<div class="col-md-4 reveal"><div class="price-card popular"><span class="popular-badge">Most Popular</span><h6 class="text-muted mb-1">Monthly Pass</h6><div class="price-amount">₹199</div><div class="price-period">per month</div><ul><li><i class="fa-solid fa-check"></i>Unlimited deliveries</li><li><i class="fa-solid fa-check"></i>Live tracking</li><li><i class="fa-solid fa-check"></i>No minimum order</li><li><i class="fa-solid fa-check"></i>Priority packing</li><li><i class="fa-solid fa-xmark text-muted"></i>Loyalty multiplier</li></ul><a href="cart.html" class="btn btn-danger w-100">Get Monthly Pass</a></div></div>
+<div class="col-md-4 reveal"><div class="price-card"><h6 class="text-muted mb-1">Annual Pass</h6><div class="price-amount">₹999</div><div class="price-period">per year</div><ul><li><i class="fa-solid fa-check"></i>Unlimited deliveries</li><li><i class="fa-solid fa-check"></i>Live tracking</li><li><i class="fa-solid fa-check"></i>No minimum order</li><li><i class="fa-solid fa-check"></i>Priority packing</li><li><i class="fa-solid fa-check"></i>2× loyalty points</li></ul><a href="cart.html" class="btn btn-outline-danger w-100">Best Value</a></div></div>
 </div>
 
 <!-- FAQ -->
 <h4 class="mt-5 mb-4">Frequently Asked Questions</h4>
-<div class="accordion" id="sdFaq">
-<div class="accordion-item mb-2 rounded-3 overflow-hidden border-0 shadow-sm">
-<h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">What is the minimum order for Express Delivery?</button></h2>
-<div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#sdFaq">
-<div class="accordion-body text-muted">There's no minimum order value for Express Delivery, however orders below ₹500 attract a ₹49 delivery fee. Orders above ₹500 are delivered free of charge.</div>
-</div>
-</div>
-<div class="accordion-item mb-2 rounded-3 overflow-hidden border-0 shadow-sm">
-<h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">What areas do you deliver to?</button></h2>
-<div id="faq2" class="accordion-collapse collapse" data-bs-parent="#sdFaq">
-<div class="accordion-body text-muted">We deliver within a 5 km radius of each of our 48 store locations. Enter your PIN code on the homepage to check availability in your area.</div>
-</div>
-</div>
-<div class="accordion-item mb-2 rounded-3 overflow-hidden border-0 shadow-sm">
-<h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">What if an item is out of stock?</button></h2>
-<div id="faq3" class="accordion-collapse collapse" data-bs-parent="#sdFaq">
-<div class="accordion-body text-muted">Our picker will contact you via the app chat to suggest a substitute. You can approve, reject, or choose your own replacement — all in real time.</div>
-</div>
-</div>
-<div class="accordion-item mb-2 rounded-3 overflow-hidden border-0 shadow-sm">
-<h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">Can I schedule a delivery in advance?</button></h2>
-<div id="faq4" class="accordion-collapse collapse" data-bs-parent="#sdFaq">
-<div class="accordion-body text-muted">Yes! Select "Scheduled Delivery" at checkout and pick any 2-hour window up to 7 days in advance. Great for weekly grocery planning.</div>
-</div>
-</div>
-<div class="accordion-item mb-2 rounded-3 overflow-hidden border-0 shadow-sm">
-<h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">How do refunds work?</button></h2>
-<div id="faq5" class="accordion-collapse collapse" data-bs-parent="#sdFaq">
-<div class="accordion-body text-muted">If you're unhappy with any item — wrong product, damaged packaging, substandard freshness — report it within 24 hours in the app and we'll issue an instant refund or replacement.</div>
-</div>
-</div>
+<div class="accordion" id="sd-faq">
+<div class="accordion-item mb-2 rounded-3 overflow-hidden border-0 shadow-sm"><h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">What is the minimum order for Express Delivery?</button></h2><div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#sd-faq"><div class="accordion-body text-muted">There's no minimum order value for Express Delivery, however orders below ₹500 attract a ₹49 delivery fee. Orders above ₹500 are delivered free of charge.</div></div></div>
+<div class="accordion-item mb-2 rounded-3 overflow-hidden border-0 shadow-sm"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">What areas do you deliver to?</button></h2><div id="faq2" class="accordion-collapse collapse" data-bs-parent="#sd-faq"><div class="accordion-body text-muted">We deliver within a 5 km radius of each of our 48 store locations. Enter your PIN code on the homepage to check availability in your area.</div></div></div>
+<div class="accordion-item mb-2 rounded-3 overflow-hidden border-0 shadow-sm"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">What if an item is out of stock?</button></h2><div id="faq3" class="accordion-collapse collapse" data-bs-parent="#sd-faq"><div class="accordion-body text-muted">Our picker will contact you via the app chat to suggest a substitute. You can approve, reject, or choose your own replacement — all in real time.</div></div></div>
+<div class="accordion-item mb-2 rounded-3 overflow-hidden border-0 shadow-sm"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">Can I schedule a delivery in advance?</button></h2><div id="faq4" class="accordion-collapse collapse" data-bs-parent="#sd-faq"><div class="accordion-body text-muted">Yes! Select "Scheduled Delivery" at checkout and pick any 2-hour window up to 7 days in advance. Great for weekly grocery planning.</div></div></div>
+<div class="accordion-item mb-2 rounded-3 overflow-hidden border-0 shadow-sm"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">How do refunds work?</button></h2><div id="faq5" class="accordion-collapse collapse" data-bs-parent="#sd-faq"><div class="accordion-body text-muted">If you're unhappy with any item — wrong product, damaged packaging, substandard freshness — report it within 24 hours in the app and we'll issue an instant refund or replacement.</div></div></div>
 </div>
 
 </div><!-- /col-lg-8 -->
@@ -296,18 +207,20 @@
 
 <!-- Quick CTA -->
 <div class="sd-sidebar-card" style="background:linear-gradient(135deg,var(--color-primary),#ff6b6b);color:#fff;">
-<h5 style="color:#fff;">Ready to order?</h5>
-<p style="color:rgba(255,255,255,.85);font-size:14px;">Start shopping now and get your groceries in 15 minutes.</p>
-<a href="offers.html" class="btn btn-warning w-100 fw-bold">Shop Now</a>
+<h5 style="color:#fff;" id="sd-cta-title">Ready to order?</h5>
+<p style="color:rgba(255,255,255,.85);font-size:14px;" id="sd-cta-sub">Start shopping now and get your groceries in 15 minutes.</p>
+<a href="offers.html" class="btn btn-warning w-100 fw-bold" id="sd-cta-btn">Shop Now</a>
 </div>
 
 <!-- Service Stats -->
 <div class="sd-sidebar-card">
-<h6 class="fw-bold mb-3">Express Delivery Stats</h6>
+<h6 class="fw-bold mb-3" id="sd-stats-title">Express Delivery Stats</h6>
+<div id="sd-stats">
 <div class="d-flex justify-content-between py-2 border-bottom"><span class="text-muted">Avg. Delivery Time</span><strong>12 min</strong></div>
 <div class="d-flex justify-content-between py-2 border-bottom"><span class="text-muted">On-Time Rate</span><strong class="text-success">97.4%</strong></div>
 <div class="d-flex justify-content-between py-2 border-bottom"><span class="text-muted">Customer Rating</span><strong>4.8 ⭐</strong></div>
 <div class="d-flex justify-content-between py-2"><span class="text-muted">Coverage Areas</span><strong>48 cities</strong></div>
+</div>
 </div>
 
 <!-- Other Services -->
@@ -364,5 +277,261 @@
 <script src="../assets/js/main.js"></script>
 <script src="../assets/js/features.js"></script>
 <script src="../assets/js/enhance.js"></script>
+<script>
+(function(){
+  var SERVICES = {
+    'express-delivery': {
+      title:'Express Grocery Delivery', breadcrumb:'Express Delivery',
+      badgeIcon:'fa-bolt', badge:'Most Popular Service',
+      heroDesc:'Fresh groceries from shelf to your door in 15 minutes — any day, any time between 8 AM and 10 PM.',
+      img:'../assets/images/service-express-delivery.png', imgAlt:'Express Delivery',
+      whatH:'What is Express Delivery?',
+      about:'<p class="text-muted">SuperMart Express Delivery is our flagship same-day grocery service. Using a network of 48 dark stores and our own delivery fleet, we pick, pack, and deliver your groceries in record time — often under 15 minutes.</p><p class="text-muted">Whether you\'ve run out of milk at breakfast or need fresh vegetables for dinner, Express Delivery fills the gap without the hassle of a supermarket trip.</p>',
+      features:[
+        {icon:'fa-bolt',title:'15-Minute Delivery Promise',desc:'Our rider is dispatched the moment your order is confirmed. Live tracking lets you watch every step on the map.'},
+        {icon:'fa-temperature-low',title:'Cold Chain Maintained',desc:'Dairy, meat and frozen items are carried in insulated bags to maintain safe temperatures from store to your door.'},
+        {icon:'fa-shield-halved',title:'100% Freshness Guarantee',desc:'Not happy with an item? We\'ll refund or replace it — no questions asked within 24 hours of delivery.'},
+        {icon:'fa-tags',title:'Same Prices as In-Store',desc:'No delivery mark-up on products. All weekly offers and discounts apply to Express orders too.'},
+        {icon:'fa-comments',title:'Real-Time Order Support',desc:'Chat with our support team for instant help — item swaps, address changes, and more.'}
+      ],
+      steps:[
+        {title:'Browse & Add to Cart',desc:'Search from 5,000+ products and add items at in-store prices with all current offers applied automatically.'},
+        {title:'Choose Delivery Time',desc:'Select "Express (15 min)" at checkout or pick a scheduled slot for later in the day or week.'},
+        {title:'We Pick & Pack',desc:'Our trained pickers grab your items from the nearest dark store, quality-check everything, and seal it for delivery.'},
+        {title:'Delivered to Your Door',desc:'Your rider arrives — track them live. Leave delivery instructions in the app.'}
+      ],
+      pricing:[
+        {label:'Pay-As-You-Go',amount:'₹49',period:'per delivery',popular:false,feats:['Express & Scheduled','Live tracking','Free over ₹500 order','✗ Priority packing','✗ Loyalty multiplier'],btn:'Start Shopping',href:'cart.html'},
+        {label:'Monthly Pass',amount:'₹199',period:'per month',popular:true,feats:['Unlimited deliveries','Live tracking','No minimum order','Priority packing','✗ Loyalty multiplier'],btn:'Get Monthly Pass',href:'cart.html'},
+        {label:'Annual Pass',amount:'₹999',period:'per year',popular:false,feats:['Unlimited deliveries','Live tracking','No minimum order','Priority packing','2× loyalty points'],btn:'Best Value',href:'cart.html'}
+      ],
+      faqs:[
+        {q:'What is the minimum order?',a:'No minimum order value. Orders below ₹500 attract a ₹49 delivery fee; above ₹500 is free.'},
+        {q:'What areas do you deliver to?',a:'Within a 5 km radius of each of our 48 store locations. Check availability with your PIN code on the homepage.'},
+        {q:'What if an item is out of stock?',a:'Our picker contacts you via app chat to suggest a substitute — approve, reject, or choose your own in real time.'},
+        {q:'Can I schedule in advance?',a:'Yes — select "Scheduled Delivery" at checkout and pick any 2-hour window up to 7 days ahead.'},
+        {q:'How do refunds work?',a:'Report within 24 hours in the app and we\'ll issue an instant refund or replacement.'}
+      ],
+      statsTitle:'Express Delivery Stats',
+      stats:[{l:'Avg. Delivery Time',v:'12 min'},{l:'On-Time Rate',v:'97.4%'},{l:'Customer Rating',v:'4.8 ⭐'},{l:'Coverage Areas',v:'48 cities'}],
+      ctaTitle:'Ready to order?',ctaSub:'Get your groceries delivered in 15 minutes.',ctaBtn:'Shop Now',ctaHref:'offers.html'
+    },
+    'scheduled-delivery': {
+      title:'Scheduled Grocery Delivery', breadcrumb:'Scheduled Delivery',
+      badgeIcon:'fa-calendar-check', badge:'Plan Your Week',
+      heroDesc:'Choose your 2-hour delivery window up to 7 days in advance — perfect for busy families and weekly shoppers.',
+      img:'../assets/images/service-scheduled-delivery.png', imgAlt:'Scheduled Delivery',
+      whatH:'What is Scheduled Delivery?',
+      about:'<p class="text-muted">SuperMart Scheduled Delivery lets you plan your grocery runs on your own schedule. Pick any 2-hour window from today to 7 days ahead and we\'ll have your order ready exactly when you need it.</p><p class="text-muted">Ideal for working households, weekly grocery planners, and anyone who wants the convenience of a set delivery routine without the rush.</p>',
+      features:[
+        {icon:'fa-clock',title:'Flexible 2-Hour Windows',desc:'Select any 2-hour slot from 8 AM to 10 PM, up to 7 days in advance. Change or cancel up to 1 hour before the slot.'},
+        {icon:'fa-bell',title:'SMS & App Alerts',desc:'Get reminders 1 hour before your slot and a live tracking link when your order is dispatched.'},
+        {icon:'fa-rotate',title:'Recurring Orders',desc:'Save your weekly basket and set it to repeat automatically — weekly or fortnightly — with one click.'},
+        {icon:'fa-hand-holding-heart',title:'No Rush Surcharge',desc:'Scheduled deliveries have no rush fee. All standard delivery pricing applies — free over ₹500.'},
+        {icon:'fa-list-check',title:'Pre-Order Out-of-Stock Items',desc:'Reserve items before they hit shelves. Scheduled orders are prioritised for restocks.'}
+      ],
+      steps:[
+        {title:'Fill Your Cart',desc:'Browse all 5,000+ products and add what you need at standard in-store prices.'},
+        {title:'Pick a Slot',desc:'At checkout, choose any 2-hour delivery window from today up to 7 days ahead.'},
+        {title:'Confirm & Relax',desc:'We\'ll send a confirmation and a reminder before your slot. Your order is locked in.'},
+        {title:'Delivered on Time',desc:'Our rider arrives within your chosen window. Track live in the app from dispatch.'}
+      ],
+      pricing:[
+        {label:'Single Slot',amount:'₹29',period:'per delivery',popular:false,feats:['Any 2-hr window','SMS + app alerts','Free over ₹500 order','✗ Recurring orders','✗ Loyalty multiplier'],btn:'Book a Slot',href:'cart.html'},
+        {label:'Monthly Pass',amount:'₹199',period:'per month',popular:true,feats:['Unlimited scheduled slots','SMS + app alerts','No minimum order','Recurring orders','✗ Loyalty multiplier'],btn:'Get Monthly Pass',href:'cart.html'},
+        {label:'Annual Pass',amount:'₹999',period:'per year',popular:false,feats:['Unlimited scheduled slots','SMS + app alerts','No minimum order','Recurring orders','2× loyalty points'],btn:'Best Value',href:'cart.html'}
+      ],
+      faqs:[
+        {q:'How far in advance can I schedule?',a:'Up to 7 days ahead. Slots open on a rolling basis every day at midnight.'},
+        {q:'Can I change my slot after booking?',a:'Yes — reschedule or cancel up to 1 hour before the delivery window starts, free of charge.'},
+        {q:'Can I add items after placing a scheduled order?',a:'Yes, you can edit your basket up to 2 hours before your delivery slot via the app.'},
+        {q:'Are scheduled deliveries free?',a:'Free for orders above ₹500. A ₹29 fee applies to smaller orders — lower than Express.'},
+        {q:'Can I set up a recurring weekly order?',a:'Yes — save your basket and toggle "Repeat Weekly" or "Repeat Fortnightly" at checkout.'}
+      ],
+      statsTitle:'Scheduled Delivery Stats',
+      stats:[{l:'Slot Accuracy',v:'99.1%'},{l:'On-Time Rate',v:'98.2%'},{l:'Customer Rating',v:'4.9 ⭐'},{l:'Max Advance',v:'7 days'}],
+      ctaTitle:'Plan your weekly shop',ctaSub:'Book a slot and we\'ll handle the rest.',ctaBtn:'Schedule Delivery',ctaHref:'cart.html'
+    },
+    'catering': {
+      title:'Catering & Event Supplies', breadcrumb:'Catering & Events',
+      badgeIcon:'fa-utensils', badge:'For Events of Any Size',
+      heroDesc:'Bulk ingredient orders and pre-packed catering hampers for weddings, corporate events, and parties of any size.',
+      img:'../assets/images/service-catering.png', imgAlt:'Catering & Events',
+      whatH:'What is Catering & Events?',
+      about:'<p class="text-muted">SuperMart Catering supplies fresh, bulk-pack ingredients and fully curated catering hampers for events from 25 to 2,500 guests. Every order is handled by a dedicated catering coordinator.</p><p class="text-muted">Whether you\'re planning a wedding menu, a corporate lunch, or a birthday spread, we\'ll source the freshest produce and deliver it to your venue — chilled, on time, and ready to use.</p>',
+      features:[
+        {icon:'fa-users',title:'Any Event Size',desc:'Minimum 25 guests, no upper limit. We\'ve supplied everything from intimate dinners to 1,000-guest weddings.'},
+        {icon:'fa-clipboard-list',title:'Custom Menu Planning',desc:'Share your menu and guest count — our catering team will build an exact ingredient list and quote within 24 hours.'},
+        {icon:'fa-percent',title:'Volume Discounts',desc:'Automatic bulk discounts: 5% off ₹5K+, 10% off ₹15K+, 15% off ₹30K+. No coupon needed.'},
+        {icon:'fa-truck-fast',title:'Venue Delivery',desc:'We deliver directly to your venue in refrigerated vehicles at your requested time — at least 2 hours before service.'},
+        {icon:'fa-headset',title:'Dedicated Coordinator',desc:'Every catering order gets a single point of contact who manages your order from quote to delivery.'}
+      ],
+      steps:[
+        {title:'Submit Your Brief',desc:'Tell us your event date, guest count, venue, and menu. Use the contact form or call us.'},
+        {title:'Receive a Quote',desc:'Our catering team sends a detailed ingredient list with pricing within 24 hours.'},
+        {title:'Confirm & Pay Deposit',desc:'Approve the quote, pay a 30% deposit, and we lock in your booking.'},
+        {title:'Delivered to Venue',desc:'Fresh, chilled ingredients arrive at your venue in refrigerated packaging at your requested time.'}
+      ],
+      pricing:[
+        {label:'Standard Pack',amount:'₹5K+',period:'minimum order',popular:false,feats:['25–100 guests','Standard ingredients','Venue delivery','Email support','✗ Custom coordinator'],btn:'Get a Quote',href:'contact.html'},
+        {label:'Premium Event',amount:'₹15K+',period:'minimum order',popular:true,feats:['100–500 guests','Premium ingredients','Venue delivery','Dedicated coordinator','10% bulk discount'],btn:'Request a Quote',href:'contact.html'},
+        {label:'Grand Event',amount:'₹30K+',period:'minimum order',popular:false,feats:['500+ guests','Premium + organic','Refrigerated delivery','Dedicated coordinator','15% bulk discount'],btn:'Talk to Us',href:'contact.html'}
+      ],
+      faqs:[
+        {q:'How far in advance should I book?',a:'At least 5 days for standard events, 14 days for 500+ guests. Last-minute 25–50 guest orders may be possible with 48 hours notice.'},
+        {q:'Can you accommodate dietary requirements?',a:'Yes — halal, vegan, gluten-free and other dietary-specific ingredients. Mention requirements in your brief.'},
+        {q:'What is the deposit policy?',a:'30% deposit to confirm, balance due 24 hours before delivery.'},
+        {q:'What if I need to change the guest count?',a:'You can increase or decrease your order by up to 20% up to 48 hours before delivery at no penalty.'},
+        {q:'Do you supply serving equipment?',a:'We supply ingredients and packaging only. We can recommend partner rental companies for crockery and equipment.'}
+      ],
+      statsTitle:'Catering Stats',
+      stats:[{l:'Events Catered',v:'2,400+'},{l:'On-Time Rate',v:'99.3%'},{l:'Customer Rating',v:'4.8 ⭐'},{l:'Max Guests',v:'2,500'}],
+      ctaTitle:'Planning an event?',ctaSub:'Tell us your guest count and we\'ll handle the rest.',ctaBtn:'Get a Quote',ctaHref:'contact.html'
+    },
+    'business': {
+      title:'Business Accounts', breadcrumb:'Business Accounts',
+      badgeIcon:'fa-briefcase', badge:'For Offices & Restaurants',
+      heroDesc:'Dedicated accounts with monthly invoicing, bulk pricing, and a named account manager for offices and food businesses.',
+      img:'../assets/images/service-business.png', imgAlt:'Business Accounts',
+      whatH:'What are Business Accounts?',
+      about:'<p class="text-muted">SuperMart Business Accounts are designed for offices, restaurants, cafes, schools, and any organisation that buys groceries regularly. We make buying simple with consolidated invoicing and pricing that rewards volume.</p><p class="text-muted">Your account manager is available 6 days a week to handle bulk orders, procurement queries, and any delivery issues — so your team can focus on what they do best.</p>',
+      features:[
+        {icon:'fa-file-invoice',title:'Monthly GST Invoicing',desc:'All purchases consolidated into one GST-compliant invoice per month. Export to Tally, Zoho, or any accounting tool.'},
+        {icon:'fa-tags',title:'Negotiated Bulk Pricing',desc:'Spend above ₹10K/month and unlock tiered discounts across all categories.'},
+        {icon:'fa-user-tie',title:'Named Account Manager',desc:'One dedicated contact who knows your business, manages standing orders, and resolves issues same-day.'},
+        {icon:'fa-clock-rotate-left',title:'Standing Orders',desc:'Set up a weekly or monthly standing order for regular items. We\'ll deliver automatically — no re-ordering needed.'},
+        {icon:'fa-shield-halved',title:'Priority Delivery',desc:'Business orders jump the queue. Guaranteed delivery within your chosen 2-hour window, even on peak days.'}
+      ],
+      steps:[
+        {title:'Apply Online',desc:'Fill in your business details — company name, GST number, and estimated monthly spend. Takes 3 minutes.'},
+        {title:'Account Verified',desc:'Our business team verifies your application within 1 working day and assigns your account manager.'},
+        {title:'Start Ordering',desc:'Log in with your business account to access bulk pricing, consolidated checkout, and your dedicated portal.'},
+        {title:'Invoice at Month End',desc:'One GST invoice arrives by email on the 1st of every month covering all orders from the previous month.'}
+      ],
+      pricing:[
+        {label:'Starter',amount:'₹0',period:'setup fee',popular:false,feats:['Up to ₹10K/month','Monthly invoicing','2-hr delivery window','✗ Bulk discount','✗ Account manager'],btn:'Apply Now',href:'contact.html'},
+        {label:'Business',amount:'₹0',period:'setup fee',popular:true,feats:['₹10K–₹50K/month','Monthly GST invoice','Priority delivery','5–10% bulk discount','Named account manager'],btn:'Apply Now',href:'contact.html'},
+        {label:'Enterprise',amount:'Custom',period:'pricing',popular:false,feats:['₹50K+/month','Custom invoicing','Dedicated delivery slots','Up to 18% discount','Senior account manager'],btn:'Talk to Sales',href:'contact.html'}
+      ],
+      faqs:[
+        {q:'Is there a minimum monthly spend?',a:'No minimum for the Starter tier. Business and Enterprise tiers have spend thresholds that unlock better pricing.'},
+        {q:'How does GST invoicing work?',a:'All purchases tracked under your GSTIN. One consolidated invoice emailed on the 1st of each month. Tally and Zoho exports available.'},
+        {q:'Can multiple employees order on the same account?',a:'Yes — up to 10 employee logins on Business tier. Enterprise accounts have unlimited logins.'},
+        {q:'How quickly can I get approved?',a:'Most accounts approved within 1 working day. Enterprise contracts may take 3–5 days.'},
+        {q:'What payment terms are available?',a:'Starter accounts pay on delivery. Business and Enterprise get Net-30 terms, extendable to Net-60 on request.'}
+      ],
+      statsTitle:'Business Account Stats',
+      stats:[{l:'Active Accounts',v:'3,200+'},{l:'Avg. Monthly Savings',v:'11%'},{l:'Account Rating',v:'4.7 ⭐'},{l:'Setup Time',v:'1 day'}],
+      ctaTitle:'Grow with SuperMart',ctaSub:'Open a business account in 3 minutes.',ctaBtn:'Apply Now',ctaHref:'contact.html'
+    },
+    'gift-cards': {
+      title:'SuperMart Gift Cards', breadcrumb:'Gift Cards',
+      badgeIcon:'fa-gift', badge:'The Perfect Gift',
+      heroDesc:'Digital and physical gift cards from ₹250 to ₹5,000 — usable on any SuperMart order, with no expiry date.',
+      img:'../assets/images/service-gift-cards.png', imgAlt:'Gift Cards',
+      whatH:'What are SuperMart Gift Cards?',
+      about:'<p class="text-muted">SuperMart Gift Cards are the easiest way to give someone the gift of fresh groceries. Choose a digital card (delivered instantly by email) or a physical card (delivered in 1–2 days) in any denomination from ₹250 to ₹5,000.</p><p class="text-muted">Cards never expire, can be used across multiple orders, and are redeemable on everything in the store — including fresh produce, daily essentials, and premium products.</p>',
+      features:[
+        {icon:'fa-mobile-screen',title:'Instant Digital Delivery',desc:'Buy a digital gift card and the recipient gets their code by email within minutes. Perfect for last-minute gifting.'},
+        {icon:'fa-credit-card',title:'Physical Cards Available',desc:'Order a beautifully printed physical gift card — delivered to any address in India in 1–2 working days.'},
+        {icon:'fa-infinity',title:'No Expiry Date',desc:'SuperMart gift cards never expire. The recipient can use them whenever they\'re ready, in one order or spread across many.'},
+        {icon:'fa-store',title:'Valid on Everything',desc:'Gift cards work on all products — grocery, fresh produce, household, personal care. Online and in-store.'},
+        {icon:'fa-sliders',title:'Flexible Denominations',desc:'Choose from ₹250, ₹500, ₹1,000, ₹2,000, or ₹5,000 — or enter any custom amount between ₹100 and ₹10,000.'}
+      ],
+      steps:[
+        {title:'Choose Your Card',desc:'Select digital or physical, pick a denomination, and add a personalised message for the recipient.'},
+        {title:'Pay Securely',desc:'Pay by UPI, card, or net banking. Your order is confirmed instantly.'},
+        {title:'Card is Delivered',desc:'Digital: code hits the recipient\'s inbox in minutes. Physical: arrives in 1–2 working days.'},
+        {title:'Recipient Shops',desc:'They apply the code at checkout — balance deducts automatically. No account needed to receive a card.'}
+      ],
+      pricing:[
+        {label:'Standard',amount:'₹250–₹1K',period:'denomination',popular:false,feats:['Digital or physical','Email delivery (digital)','No expiry','All products','✗ Bulk gifting rate'],btn:'Buy Now',href:'contact.html'},
+        {label:'Premium',amount:'₹2,000',period:'denomination',popular:true,feats:['Digital or physical','Priority delivery','No expiry','All products + premium','Gift wrap available'],btn:'Buy Now',href:'contact.html'},
+        {label:'Corporate',amount:'Custom',period:'bulk order',popular:false,feats:['Min 10 cards','Branded packaging','Bulk delivery','All products','5% corporate discount'],btn:'Contact Sales',href:'contact.html'}
+      ],
+      faqs:[
+        {q:'Can a gift card be used for multiple orders?',a:'Yes — the balance carries over. If your order is ₹300 and the card has ₹500, the remaining ₹200 stays on the card.'},
+        {q:'Can I buy a gift card for someone else?',a:'Yes — enter the recipient\'s email (digital) or address (physical) during checkout. We\'ll deliver it directly to them.'},
+        {q:'Do gift cards expire?',a:'No — SuperMart gift cards have no expiry date. They can be used any time after purchase.'},
+        {q:'Can gift cards be used in-store?',a:'Yes — gift cards work for online orders and in all 48 SuperMart store locations.'},
+        {q:'What if the card code isn\'t received?',a:'Check your spam folder first. If it\'s not there, contact us with your order number and we\'ll resend immediately.'}
+      ],
+      statsTitle:'Gift Card Stats',
+      stats:[{l:'Cards Sold',v:'45,000+'},{l:'Redemption Rate',v:'94%'},{l:'Customer Rating',v:'4.9 ⭐'},{l:'Expiry',v:'Never'}],
+      ctaTitle:'Give the gift of fresh food',ctaSub:'Digital gift cards delivered in minutes.',ctaBtn:'Buy a Gift Card',ctaHref:'contact.html'
+    }
+  };
+
+  var svc = new URLSearchParams(window.location.search).get('service') || 'express-delivery';
+  var d = SERVICES[svc] || SERVICES['express-delivery'];
+
+  // Page title & meta
+  document.title = d.title + ' | SuperMart Services';
+  var metaDesc = document.querySelector('meta[name="description"]');
+  if(metaDesc) metaDesc.content = d.heroDesc;
+
+  // Hero
+  document.getElementById('sd-breadcrumb').textContent = d.breadcrumb;
+  document.getElementById('sd-badge-icon').className = 'fa-solid ' + d.badgeIcon + ' me-1';
+  document.getElementById('sd-badge-text').textContent = d.badge;
+  document.getElementById('sd-title').textContent = d.title;
+  document.getElementById('sd-hero-desc').textContent = d.heroDesc;
+
+  // Main image
+  var img = document.getElementById('sd-img');
+  img.src = d.img; img.alt = d.imgAlt;
+
+  // About
+  document.getElementById('sd-what-h').textContent = d.whatH;
+  document.getElementById('sd-about').innerHTML = d.about;
+
+  // Features
+  document.getElementById('sd-features').innerHTML = d.features.map(function(f){
+    return '<div class="feature-item reveal"><div class="feature-icon"><i class="fa-solid '+f.icon+'"></i></div><div><h6 class="fw-bold mb-1">'+f.title+'</h6><p class="text-muted mb-0">'+f.desc+'</p></div></div>';
+  }).join('');
+
+  // Steps
+  document.getElementById('sd-steps').innerHTML = d.steps.map(function(s,i){
+    return '<div class="how-step reveal"><div class="how-num">'+(i+1)+'</div><div><h6 class="fw-bold mb-1">'+s.title+'</h6><p class="text-muted mb-0">'+s.desc+'</p></div></div>';
+  }).join('');
+
+  // Pricing
+  document.getElementById('sd-pricing').innerHTML = d.pricing.map(function(p){
+    var feats = p.feats.map(function(f){
+      var isX = f.startsWith('✗ ');
+      return '<li><i class="fa-solid '+(isX?'fa-xmark text-muted':'fa-check')+'"></i>'+(isX?f.slice(2):f)+'</li>';
+    }).join('');
+    return '<div class="col-md-4 reveal"><div class="price-card'+(p.popular?' popular':'')+'">'+
+      (p.popular?'<span class="popular-badge">Most Popular</span>':'')+
+      '<h6 class="text-muted mb-1">'+p.label+'</h6>'+
+      '<div class="price-amount">'+p.amount+'</div>'+
+      '<div class="price-period">'+p.period+'</div>'+
+      '<ul>'+feats+'</ul>'+
+      '<a href="'+p.href+'" class="btn '+(p.popular?'btn-danger':'btn-outline-danger')+' w-100">'+p.btn+'</a>'+
+      '</div></div>';
+  }).join('');
+
+  // FAQ
+  document.getElementById('sd-faq').innerHTML = d.faqs.map(function(f,i){
+    return '<div class="accordion-item mb-2 rounded-3 overflow-hidden border-0 shadow-sm">'+
+      '<h2 class="accordion-header"><button class="accordion-button'+(i>0?' collapsed':'')+'" type="button" data-bs-toggle="collapse" data-bs-target="#sfaq'+i+'">'+f.q+'</button></h2>'+
+      '<div id="sfaq'+i+'" class="accordion-collapse collapse'+(i===0?' show':'')+'" data-bs-parent="#sd-faq">'+
+      '<div class="accordion-body text-muted">'+f.a+'</div></div></div>';
+  }).join('');
+
+  // Sidebar stats
+  document.getElementById('sd-stats-title').textContent = d.statsTitle;
+  document.getElementById('sd-stats').innerHTML = d.stats.map(function(s,i){
+    var border = i < d.stats.length-1 ? ' border-bottom' : '';
+    return '<div class="d-flex justify-content-between py-2'+border+'"><span class="text-muted">'+s.l+'</span><strong>'+s.v+'</strong></div>';
+  }).join('');
+
+  // Sidebar CTA
+  document.getElementById('sd-cta-title').textContent = d.ctaTitle;
+  document.getElementById('sd-cta-sub').textContent = d.ctaSub;
+  var ctaBtn = document.getElementById('sd-cta-btn');
+  ctaBtn.textContent = d.ctaBtn; ctaBtn.href = d.ctaHref;
+})();
+</script>
 </body>
 </html>
