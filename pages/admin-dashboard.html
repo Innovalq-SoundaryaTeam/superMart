@@ -41,6 +41,32 @@ body{font-family:'Open Sans',sans-serif;background:#f0f2f5;color:#2d3748;display
 .topbar-right{display:flex;align-items:center;gap:10px;}
 .notif-btn{background:#f5f5f5;border:none;width:37px;height:37px;border-radius:10px;cursor:pointer;position:relative;color:#222;font-size:14px;}
 .ndot{width:8px;height:8px;background:#e92424;border-radius:50%;position:absolute;top:5px;right:6px;border:2px solid #f5f5f5;}
+.notif-wrap{position:relative;}
+.notif-dropdown{
+  display:none;position:absolute;top:46px;right:0;width:320px;
+  background:#fff;border-radius:14px;box-shadow:0 8px 32px rgba(0,0,0,.15);
+  z-index:9999;overflow:hidden;border:1px solid #e8ecf0;
+}
+.notif-dropdown.show{display:block;}
+.notif-header{padding:14px 18px 10px;border-bottom:1px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center;}
+.notif-header span{font-weight:700;font-size:14px;color:#1a1d27;}
+.notif-clear{font-size:12px;color:#e92424;cursor:pointer;background:none;border:none;padding:0;font-weight:600;}
+.notif-item{display:flex;gap:12px;padding:12px 18px;border-bottom:1px solid #f7f7f7;cursor:pointer;transition:background .15s;}
+.notif-item:last-child{border-bottom:none;}
+.notif-item:hover{background:#fafafa;}
+.notif-item.unread{background:#fff8f8;}
+.notif-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:15px;}
+.notif-body .notif-title{font-size:13px;font-weight:700;color:#1a1d27;margin-bottom:2px;}
+.notif-body .notif-sub{font-size:12px;color:#888;line-height:1.4;}
+.notif-body .notif-time{font-size:11px;color:#bbb;margin-top:3px;}
+body.adm-dark .notif-dropdown{background:#1e2130;border-color:#2a2d3a;}
+body.adm-dark .notif-header{border-bottom-color:#2a2d3a;}
+body.adm-dark .notif-header span{color:#e8eaf0;}
+body.adm-dark .notif-item{border-bottom-color:#2a2d3a;}
+body.adm-dark .notif-item:hover{background:#252840;}
+body.adm-dark .notif-item.unread{background:#22152a;}
+body.adm-dark .notif-body .notif-title{color:#e8eaf0;}
+body.adm-dark .ndot{border-color:#2a2d3a;}
 .site-btn{background:#1a1d27;color:#fff;border:none;border-radius:10px;padding:7px 16px;font-size:13px;font-weight:600;cursor:pointer;text-decoration:none;}
 .ac{padding:26px;}
 
@@ -200,7 +226,47 @@ body.adm-dark .site-btn{background:#e92424;}
       <div class="pg-crumb" id="pgCrumb">SuperMart Admin → Dashboard</div>
     </div>
     <div class="topbar-right">
-      <button class="notif-btn"><i class="fa-solid fa-bell"></i><span class="ndot"></span></button>
+      <div class="notif-wrap">
+        <button class="notif-btn" id="notifBtn" title="Notifications"><i class="fa-solid fa-bell"></i><span class="ndot" id="notifDot"></span></button>
+        <div class="notif-dropdown" id="notifDropdown">
+          <div class="notif-header">
+            <span>Notifications <span id="notifCount" style="background:#e92424;color:#fff;border-radius:20px;padding:1px 7px;font-size:11px;margin-left:4px;">4</span></span>
+            <button class="notif-clear" id="notifClear">Mark all read</button>
+          </div>
+          <div class="notif-item unread">
+            <div class="notif-icon" style="background:#fff0f0;color:#e92424;"><i class="fa-solid fa-bag-shopping"></i></div>
+            <div class="notif-body">
+              <div class="notif-title">New Order Received</div>
+              <div class="notif-sub">Order #1009 placed by Priya M. — ₹842 · 3 items</div>
+              <div class="notif-time">2 minutes ago</div>
+            </div>
+          </div>
+          <div class="notif-item unread">
+            <div class="notif-icon" style="background:#fff7e6;color:#f59e0b;"><i class="fa-solid fa-box-open"></i></div>
+            <div class="notif-body">
+              <div class="notif-title">Low Stock Alert</div>
+              <div class="notif-sub">Amul Butter 500g is down to 3 units remaining</div>
+              <div class="notif-time">18 minutes ago</div>
+            </div>
+          </div>
+          <div class="notif-item unread">
+            <div class="notif-icon" style="background:#f0fff4;color:#16a34a;"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+            <div class="notif-body">
+              <div class="notif-title">Payment Confirmed</div>
+              <div class="notif-sub">Order #1008 payment of ₹1,240 received via UPI</div>
+              <div class="notif-time">42 minutes ago</div>
+            </div>
+          </div>
+          <div class="notif-item unread">
+            <div class="notif-icon" style="background:#eff6ff;color:#2563eb;"><i class="fa-solid fa-user-plus"></i></div>
+            <div class="notif-body">
+              <div class="notif-title">New Customer Registered</div>
+              <div class="notif-sub">Rahul S. signed up and joined the Loyalty Program</div>
+              <div class="notif-time">1 hour ago</div>
+            </div>
+          </div>
+        </div>
+      </div>
       <button class="notif-btn" id="adminThemeToggle" title="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
       <a href="index.html" class="site-btn" target="_blank"><i class="fa-solid fa-store me-1"></i>View Site</a>
       <button class="btn-logout" id="adminLogoutTop" style="width:auto;padding:7px 16px;"><i class="fa-solid fa-right-from-bracket me-1"></i>Logout</button>
@@ -729,6 +795,38 @@ function initReportCharts(){
 
 /* ── Init ── */
 window.addEventListener('DOMContentLoaded',function(){refreshKPIs();renderRecentOrders();initCharts();});
+
+/* ── Notifications ── */
+(function(){
+  var btn      = document.getElementById('notifBtn');
+  var dropdown = document.getElementById('notifDropdown');
+  var dot      = document.getElementById('notifDot');
+  var countEl  = document.getElementById('notifCount');
+  var clearBtn = document.getElementById('notifClear');
+  var unread   = 4;
+
+  btn.addEventListener('click', function(e){
+    e.stopPropagation();
+    dropdown.classList.toggle('show');
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', function(e){
+    if(!dropdown.contains(e.target) && e.target !== btn){
+      dropdown.classList.remove('show');
+    }
+  });
+
+  // Mark all read
+  clearBtn.addEventListener('click', function(){
+    dropdown.querySelectorAll('.notif-item.unread').forEach(function(item){
+      item.classList.remove('unread');
+    });
+    dot.style.display = 'none';
+    countEl.style.display = 'none';
+    unread = 0;
+  });
+})();
 </script>
 </body>
 </html>
