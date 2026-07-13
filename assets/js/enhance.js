@@ -293,6 +293,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
   function paginate(){
     if(!paginationEl) return;
+    // Explicitly hide filtered-out items (applyAllFilters marks them but doesn't set display)
+    document.querySelectorAll('.offer-item[data-filtered-out="1"]').forEach(item => { item.style.display = 'none'; });
     const visible = visibleItemsList();
     const totalPages = Math.max(1, Math.ceil(visible.length / PAGE_SIZE));
     if(currentPage > totalPages) currentPage = totalPages;
