@@ -97,7 +97,7 @@ Find a Store
 </form>
 
 <div class="map-frame mb-5">
-<iframe
+<iframe id="storeMap"
 src="https://www.google.com/maps?q=Coimbatore,Tamil+Nadu,India&output=embed"
 width="100%"
 height="400"
@@ -108,7 +108,9 @@ title="Map showing SuperMart store locations">
 </iframe>
 </div>
 
-<div class="row g-4">
+<div id="storeResultMsg" class="text-center mb-3" style="display:none;"></div>
+
+<div class="row g-4" id="storeGrid">
 
 <div class="col-md-6 col-lg-4 store-item">
 <div class="store-card">
@@ -224,6 +226,52 @@ title="Map showing SuperMart store locations">
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../assets/js/main.js"></script>
+<script>
+(function(){
+  var form   = document.getElementById('storeSearchForm');
+  var input  = document.getElementById('storeSearch');
+  var map    = document.getElementById('storeMap');
+  var grid   = document.getElementById('storeGrid');
+  var msgEl  = document.getElementById('storeResultMsg');
+  var items  = Array.from(grid.querySelectorAll('.store-item'));
 
+  function doSearch(q){
+    q = q.trim().toLowerCase();
+    var shown = 0;
+    items.forEach(function(item){
+      var text = item.textContent.toLowerCase();
+      var match = !q || text.includes(q);
+      item.style.display = match ? '' : 'none';
+      if(match) shown++;
+    });
+    // Update map
+    if(q){
+      var mapQ = encodeURIComponent(q + ' Coimbatore Tamil Nadu');
+      map.src = 'https://www.google.com/maps?q=' + mapQ + '&output=embed';
+      msgEl.style.display = '';
+      if(shown === 0){
+        msgEl.innerHTML = '<p class="text-muted">No stores found for "<strong>'+q+'</strong>". Showing all locations.</p>';
+        items.forEach(function(item){ item.style.display = ''; });
+        map.src = 'https://www.google.com/maps?q=Coimbatore,Tamil+Nadu,India&output=embed';
+      } else {
+        msgEl.innerHTML = '<p class="text-muted">Showing <strong>'+shown+'</strong> store'+(shown>1?'s':'')+' matching "<strong>'+q+'</strong>".</p>';
+      }
+    } else {
+      msgEl.style.display = 'none';
+      map.src = 'https://www.google.com/maps?q=Coimbatore,Tamil+Nadu,India&output=embed';
+    }
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    doSearch(input.value);
+  });
+
+  // Live filter on typing
+  input.addEventListener('input', function(){
+    if(!this.value.trim()) doSearch('');
+  });
+})();
+</script>
 </body>
 </html>
