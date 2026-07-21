@@ -40,6 +40,9 @@
    Persists in localStorage as smRTL.
    Uses body class so Bootstrap navbar
    layout stays intact on mobile.
+   If #rtlToggle exists in the navbar,
+   binds to it; otherwise injects a
+   floating fallback button.
 ===================================== */
 (function initRTL(){
   if(localStorage.getItem('smRTL')==='1'){
@@ -103,31 +106,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-    // ---- RTL FLOATING BUTTON ----
-    if (!document.getElementById('rtlToggle')) {
-        const isRTL = document.body.classList.contains('rtl-mode');
+    // ---- RTL TOGGLE ----
+    let rtlBtn = document.getElementById('rtlToggle');
 
-        // Inject styles
+    if (!rtlBtn) {
+        // Inject floating fallback (for admin / pages without navbar RTL btn)
+        const isRTL = document.body.classList.contains('rtl-mode');
         const style = document.createElement('style');
         style.textContent = `
-          #rtlToggle{
-            position:fixed;top:110px;left:0;z-index:99999;
-            background:var(--color-primary,#E63946);color:#fff;
-            border:none;border-radius:0 6px 6px 0;
-            padding:6px 14px 6px 10px;font-size:11px;font-weight:700;
-            cursor:pointer;box-shadow:2px 4px 10px rgba(0,0,0,.25);
-            display:flex;align-items:center;gap:6px;
-            letter-spacing:.4px;text-transform:uppercase;
-            transition:background .2s,padding .2s;
-          }
+          #rtlToggle{position:fixed;top:110px;left:0;z-index:99999;background:var(--color-primary,#E63946);color:#fff;border:none;border-radius:0 6px 6px 0;padding:6px 14px 6px 10px;font-size:11px;font-weight:700;cursor:pointer;box-shadow:2px 4px 10px rgba(0,0,0,.25);display:flex;align-items:center;gap:6px;letter-spacing:.4px;text-transform:uppercase;transition:background .2s,padding .2s;}
           #rtlToggle:hover{background:#c1121f;padding-left:16px;}
-          @media(max-width:991.98px){
-            #rtlToggle{top:150px;}
-          }
+          @media(max-width:991.98px){#rtlToggle{top:150px;}}
         `;
         document.head.appendChild(style);
-
-        const rtlBtn = document.createElement('button');
+        rtlBtn = document.createElement('button');
         rtlBtn.id = 'rtlToggle';
         rtlBtn.setAttribute('aria-label', 'Toggle text direction LTR / RTL');
         rtlBtn.setAttribute('title', 'Switch layout direction');
@@ -135,14 +127,47 @@ document.addEventListener("DOMContentLoaded", () => {
           ? '<i class="fa-solid fa-arrow-right-long"></i> LTR'
           : '<i class="fa-solid fa-arrow-left-long"></i> RTL';
         document.body.appendChild(rtlBtn);
+    } else {
+        // Update navbar RTL icon to match current state
+        const isRTL = document.body.classList.contains('rtl-mode');
+        const icon = rtlBtn.querySelector('i');
+        if (icon) icon.className = isRTL ? 'fa-solid fa-arrow-right-long' : 'fa-solid fa-arrow-left-long';
+    }
 
-        rtlBtn.addEventListener('click', () => {
-            const nowRTL = !document.body.classList.contains('rtl-mode');
-            document.body.classList.toggle('rtl-mode', nowRTL);
-            localStorage.setItem('smRTL', nowRTL ? '1' : '0');
+    // Bind RTL click (works for both floating and navbar versions)
+    rtlBtn.addEventListener('click', () => {
+        const nowRTL = !document.body.classList.contains('rtl-mode');
+        document.body.classList.toggle('rtl-mode', nowRTL);
+        localStorage.setItem('smRTL', nowRTL ? '1' : '0');
+        const icon = rtlBtn.querySelector('i');
+        if (icon) icon.className = nowRTL ? 'fa-solid fa-arrow-right-long' : 'fa-solid fa-arrow-left-long';
+        if (rtlBtn.textContent.includes('LTR') || rtlBtn.textContent.includes('RTL')) {
             rtlBtn.innerHTML = nowRTL
               ? '<i class="fa-solid fa-arrow-right-long"></i> LTR'
               : '<i class="fa-solid fa-arrow-left-long"></i> RTL';
+        }
+    });
+
+    // ---- PROFILE DROPDOWN + LOGIN VISIBILITY ----
+    const profileDrop = document.getElementById('navProfileDrop');
+    const loginBtn = document.getElementById('navLoginBtn');
+    let smUser = null;
+    try { smUser = JSON.parse(localStorage.getItem('smUser')); } catch(e){}
+    if (smUser) {
+        if (profileDrop) profileDrop.style.display = '';
+        if (loginBtn) loginBtn.style.display = 'none';
+    } else {
+        if (profileDrop) profileDrop.style.display = 'none';
+        if (loginBtn) loginBtn.style.display = '';
+    }
+
+    // Logout
+    const logoutBtn = document.getElementById('navLogout');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.removeItem('smUser');
+            window.location.href = 'index.html';
         });
     }
 

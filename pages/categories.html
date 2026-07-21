@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="../assets/css/rtl.css">
 <link rel="stylesheet" href="../assets/css/features.css">
 <link rel="stylesheet" href="../assets/css/enhance.css">
-
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%23E63946'/%3E%3Ctext y='.9em' font-size='70' x='50%25' dominant-baseline='hanging' text-anchor='middle' fill='white' font-family='Arial,sans-serif' font-weight='bold'%3ES%3C/text%3E%3C/svg%3E">
 </head>
 <body>
 
@@ -45,7 +45,7 @@ Find a Store
 <nav class="navbar navbar-expand-lg shadow-sm sticky-top">
 <div class="container">
 
-<a class="navbar-brand fw-bold logo" href="index.html">SuperMart</a>
+<a class="navbar-brand fw-bold logo" href="index.html"><i class="fa-solid fa-basket-shopping me-1"></i>SuperMart</a>
 
 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Toggle navigation">
 <span class="navbar-toggler-icon"></span>
@@ -71,12 +71,28 @@ Find a Store
 <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
 <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
 <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-
+<li class="nav-item"><a class="nav-link" href="admin-dashboard.html">Dashboard</a></li>
 </ul>
-
-<button id="themeToggle" class="btn btn-danger ms-lg-3" aria-pressed="false" aria-label="Toggle dark mode">
-<i class="fa-solid fa-moon"></i>
-</button>
+<div class="d-flex align-items-center gap-2 ms-lg-3">
+<a href="cart.html" class="nav-icon-btn" title="Cart"><i class="fa-solid fa-cart-shopping"></i><span class="cart-badge" id="cartCountNav">0</span></a>
+<a href="wishlist.html" class="nav-icon-btn" title="Wishlist"><i class="fa-solid fa-heart"></i></a>
+<div class="dropdown" id="navProfileDrop" style="display:none">
+<button class="nav-icon-btn border-0" id="profileDropBtn" data-bs-toggle="dropdown" aria-expanded="false" title="My Account"><i class="fa-solid fa-circle-user"></i></button>
+<ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="profileDropBtn">
+<li><a class="dropdown-item" href="profile.html"><i class="fa-solid fa-user me-2 text-danger"></i>My Profile</a></li>
+<li><a class="dropdown-item" href="orders.html"><i class="fa-solid fa-box me-2 text-danger"></i>My Orders</a></li>
+<li><a class="dropdown-item" href="wishlist.html"><i class="fa-solid fa-heart me-2 text-danger"></i>Wishlist</a></li>
+<li><hr class="dropdown-divider"></li>
+<li><a class="dropdown-item" href="admin-login.html"><i class="fa-solid fa-user-shield me-2 text-danger"></i>Admin Panel</a></li>
+<li><hr class="dropdown-divider"></li>
+<li><a class="dropdown-item text-danger" href="#" id="navLogout"><i class="fa-solid fa-right-from-bracket me-2"></i>Logout</a></li>
+</ul>
+</div>
+<button id="rtlToggle" class="nav-icon-btn" aria-label="Toggle RTL" title="Switch direction"><i class="fa-solid fa-arrow-left-long"></i></button>
+<button id="themeToggle" class="btn btn-danger btn-sm" aria-pressed="false" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+<a href="login.html" class="btn btn-outline-danger btn-sm" id="navLoginBtn">Login</a>
+<a href="offers.html" class="btn btn-danger btn-sm">Shop Now</a>
+</div>
 
 </div>
 </div>
