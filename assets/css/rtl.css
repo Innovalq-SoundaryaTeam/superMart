@@ -1,21 +1,31 @@
 /* ==========================================================
    RTL SUPPORT
    Activated by adding class "rtl-mode" to <body>.
-   The navbar is intentionally kept in LTR so Bootstrap's
-   responsive layout doesn't break on mobile.
-   All page content (main, sections, footer, hero) flips RTL.
+   Toggles the entire page — including the navbar — to RTL.
 ========================================================== */
 
-/* ---- NAVBAR: mobile only — flips collapsed menu text without
-        breaking Bootstrap's flex layout on desktop ---- */
+/* ---- NAVBAR RTL ---- */
+body.rtl-mode .navbar{
+    direction:rtl;
+}
+/* Brand stays on right; nav items flow right→left; icons on left */
+body.rtl-mode .navbar-nav{
+    flex-direction:row-reverse;
+}
+/* Icon group: swap margin to push left instead of right */
+body.rtl-mode .navbar .d-flex.align-items-center.gap-2.ms-lg-3{
+    margin-left:0 !important;
+    margin-right:12px !important;
+}
+/* Mobile collapsed menu */
 @media(max-width:991.98px){
     body.rtl-mode .navbar-collapse{
         direction:rtl;
         text-align:right;
     }
-    body.rtl-mode .nav-search-input{
-        direction:rtl;
-        text-align:right;
+    body.rtl-mode .navbar-nav{
+        flex-direction:column;  /* keep stacked on mobile */
+        align-items:flex-end;
     }
     body.rtl-mode .navbar-collapse .d-flex{
         justify-content:flex-end;
@@ -74,7 +84,6 @@ body.rtl-mode .benefit-item i{
 
 /* ---- FULL PAGE RTL when body.rtl-mode ---- */
 body.rtl-mode{direction:rtl;}
-body.rtl-mode .navbar{direction:ltr;} /* keep navbar LTR always */
 body.rtl-mode .dropdown-menu{text-align:right;}
 body.rtl-mode .auth-card,
 body.rtl-mode .store-card,
