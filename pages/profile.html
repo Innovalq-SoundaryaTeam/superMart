@@ -13,12 +13,23 @@
 <link rel="stylesheet" href="../assets/css/rtl.css">
 <link rel="stylesheet" href="../assets/css/features.css">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%23E63946'/%3E%3Ctext y='.9em' font-size='70' x='50%25' dominant-baseline='hanging' text-anchor='middle' fill='white' font-family='Arial,sans-serif' font-weight='bold'%3ES%3C/text%3E%3C/svg%3E">
+<style>
+.profile-section{padding:60px 0;}
+.profile-card{background:var(--color-card,#fff);border-radius:20px;box-shadow:0 8px 32px rgba(0,0,0,.09);padding:40px 36px;max-width:680px;margin:0 auto;}
+@media(max-width:576px){.profile-card{padding:28px 18px;}}
+.profile-avatar-wrap{text-align:center;margin-bottom:24px;}
+.profile-avatar{width:84px;height:84px;border-radius:50%;object-fit:cover;border:3px solid var(--color-primary,#E63946);}
+.profile-name{font-family:'Nunito',sans-serif;font-weight:800;font-size:1.25rem;margin-bottom:2px;}
+.profile-email-label{color:#888;font-size:14px;}
+.profile-divider{border-top:1px solid var(--color-border,#eee);margin:24px 0;}
+</style>
 </head>
 <body>
 <div class="top-bar py-2"><div class="container d-flex justify-content-between align-items-center">
 <span><i class="fa-regular fa-clock"></i> Mon - Sun : 8:00 AM - 10:00 PM</span>
 <a href="store-locator.html"><i class="fa-solid fa-location-dot"></i> Find a Store</a>
 </div></div>
+
 <nav class="navbar navbar-expand-lg shadow-sm sticky-top"><div class="container">
 <a class="navbar-brand fw-bold logo" href="index.html"><i class="fa-solid fa-basket-shopping me-1"></i>SuperMart</a>
 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"><span class="navbar-toggler-icon"></span></button>
@@ -47,8 +58,6 @@
 <li><a class="dropdown-item" href="orders.html"><i class="fa-solid fa-box me-2 text-danger"></i>My Orders</a></li>
 <li><a class="dropdown-item" href="wishlist.html"><i class="fa-solid fa-heart me-2 text-danger"></i>Wishlist</a></li>
 <li><hr class="dropdown-divider"></li>
-<li><a class="dropdown-item" href="admin-login.html"><i class="fa-solid fa-user-shield me-2 text-danger"></i>Admin Panel</a></li>
-<li><hr class="dropdown-divider"></li>
 <li><a class="dropdown-item text-danger" href="#" id="navLogout"><i class="fa-solid fa-right-from-bracket me-2"></i>Logout</a></li>
 </ul>
 </div>
@@ -59,51 +68,46 @@
 </div>
 </div></div></nav>
 
-<main class="dashboard-section">
+<main class="profile-section">
 <div class="container">
-<div class="row g-4">
-<!-- Sidebar -->
-<div class="col-lg-3">
-<div class="dash-sidebar">
-<div class="dash-user-info">
-<img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=80&h=80&fit=crop&crop=face" alt="Profile" id="profileAvatar">
-<h5 id="dashName">User</h5>
-<small id="dashEmail">user@email.com</small>
-</div>
-<ul class="dash-nav">
-<li><a href="profile.html" class="active"><i class="fa-solid fa-user"></i> My Profile</a></li>
-<li><a href="orders.html"><i class="fa-solid fa-bag-shopping"></i> My Orders</a></li>
-<li><a href="wishlist.html"><i class="fa-solid fa-heart"></i> My Wishlist</a></li>
-<li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i> My Cart</a></li>
-<li><a href="#" onclick="handleLogout(event)" class="logout-link"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
-</ul>
-</div>
-</div>
-<!-- Content -->
-<div class="col-lg-9">
-<div class="dash-content">
-<h4 class="mb-4"><i class="fa-solid fa-user me-2 text-danger"></i>My Profile</h4>
-<!-- Stats -->
-<div class="row g-3 mb-4">
-<div class="col-sm-4"><div class="stat-card"><div class="stat-icon">📦</div><div class="stat-number" id="statOrders">8</div><div class="stat-label">Total Orders</div></div></div>
-<div class="col-sm-4"><div class="stat-card"><div class="stat-icon">❤️</div><div class="stat-number" id="statWish">0</div><div class="stat-label">Wishlist Items</div></div></div>
-<div class="col-sm-4"><div class="stat-card"><div class="stat-icon">🛒</div><div class="stat-number" id="statCart">0</div><div class="stat-label">Cart Items</div></div></div>
-</div>
-<!-- Edit Profile Form -->
-<h5 class="mb-3">Edit Profile Information</h5>
-<div class="row g-3">
-<div class="col-sm-6"><label class="form-label fw-bold">Full Name</label><input type="text" id="editName" class="form-control" placeholder="Full Name"></div>
-<div class="col-sm-6"><label class="form-label fw-bold">Email</label><input type="email" id="editEmail" class="form-control" placeholder="Email"></div>
-<div class="col-sm-6"><label class="form-label fw-bold">Phone</label><input type="tel" id="editPhone" class="form-control" placeholder="+91 9876543210"></div>
-<div class="col-sm-6"><label class="form-label fw-bold">Date of Birth</label><input type="date" id="editDob" class="form-control"></div>
-<div class="col-12"><label class="form-label fw-bold">Delivery Address</label><textarea class="form-control" id="editAddress" rows="2" placeholder="Your full address…"></textarea></div>
-<div class="col-12">
-<button class="btn btn-danger me-2" onclick="saveProfile()"><i class="fa-solid fa-save me-1"></i>Save Changes</button>
-<button class="btn btn-outline-secondary" onclick="changePassword()"><i class="fa-solid fa-lock me-1"></i>Change Password</button>
-</div>
-</div>
-</div>
-</div>
+<div class="profile-card">
+
+  <div class="profile-avatar-wrap">
+    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=84&h=84&fit=crop&crop=face" alt="Profile" class="profile-avatar">
+    <div class="profile-name mt-2" id="profileDisplayName">User</div>
+    <div class="profile-email-label" id="profileDisplayEmail">user@email.com</div>
+  </div>
+
+  <div class="profile-divider"></div>
+
+  <h5 class="mb-3 fw-bold">Edit Profile</h5>
+  <div class="row g-3">
+    <div class="col-sm-6">
+      <label class="form-label fw-semibold">Full Name</label>
+      <input type="text" id="editName" class="form-control" placeholder="Full Name">
+    </div>
+    <div class="col-sm-6">
+      <label class="form-label fw-semibold">Email</label>
+      <input type="email" id="editEmail" class="form-control" placeholder="you@example.com">
+    </div>
+    <div class="col-sm-6">
+      <label class="form-label fw-semibold">Phone</label>
+      <input type="tel" id="editPhone" class="form-control" placeholder="+91 9876543210">
+    </div>
+    <div class="col-sm-6">
+      <label class="form-label fw-semibold">Date of Birth</label>
+      <input type="date" id="editDob" class="form-control">
+    </div>
+    <div class="col-12">
+      <label class="form-label fw-semibold">Delivery Address</label>
+      <textarea class="form-control" id="editAddress" rows="2" placeholder="Your full address…"></textarea>
+    </div>
+    <div class="col-12 d-flex gap-2 flex-wrap mt-1">
+      <button class="btn btn-danger" onclick="saveProfile()"><i class="fa-solid fa-save me-1"></i>Save Changes</button>
+      <button class="btn btn-outline-secondary" onclick="handleLogout()"><i class="fa-solid fa-right-from-bracket me-1"></i>Logout</button>
+    </div>
+  </div>
+
 </div>
 </div>
 </main>
@@ -156,37 +160,32 @@
 <script src="../assets/js/features.js"></script>
 <script>
 function loadProfile(){
-  const user=JSON.parse(localStorage.getItem('smUser')||'{}');
-  document.getElementById('dashName').textContent=user.name||'User';
-  document.getElementById('dashEmail').textContent=user.email||'';
-  document.getElementById('editName').value=user.name||'';
-  document.getElementById('editEmail').value=user.email||'';
-  document.getElementById('editPhone').value=user.phone||'';
-  document.getElementById('editAddress').value=user.address||'';
-  document.getElementById('statWish').textContent=getWishlist().length;
-  document.getElementById('statCart').textContent=getCart().length;
+  const user = JSON.parse(localStorage.getItem('smUser') || '{}');
+  if(!user.email){ window.location.href = 'login.html'; return; }
+  document.getElementById('profileDisplayName').textContent = user.name || 'User';
+  document.getElementById('profileDisplayEmail').textContent = user.email || '';
+  document.getElementById('editName').value = user.name || '';
+  document.getElementById('editEmail').value = user.email || '';
+  document.getElementById('editPhone').value = user.phone || '';
+  document.getElementById('editAddress').value = user.address || '';
 }
 function saveProfile(){
-  const user={
-    name:document.getElementById('editName').value.trim(),
-    email:document.getElementById('editEmail').value.trim(),
-    phone:document.getElementById('editPhone').value.trim(),
-    address:document.getElementById('editAddress').value.trim()
+  const user = {
+    name: document.getElementById('editName').value.trim(),
+    email: document.getElementById('editEmail').value.trim(),
+    phone: document.getElementById('editPhone').value.trim(),
+    address: document.getElementById('editAddress').value.trim()
   };
-  if(!user.name||!user.email){showToast('Name and email are required.','error');return;}
-  localStorage.setItem('smUser',JSON.stringify(user));
-  document.getElementById('dashName').textContent=user.name;
-  document.getElementById('dashEmail').textContent=user.email;
+  if(!user.name || !user.email){ showToast('Name and email are required.','error'); return; }
+  localStorage.setItem('smUser', JSON.stringify(user));
+  document.getElementById('profileDisplayName').textContent = user.name;
+  document.getElementById('profileDisplayEmail').textContent = user.email;
   showToast('Profile updated successfully!','success');
 }
-function changePassword(){showToast('Password change email sent!','info');}
-function handleLogout(e){
-  e.preventDefault();
-  if(confirm('Are you sure you want to logout?')){
-    localStorage.removeItem('smUser');
-    showToast('Logged out successfully.','info');
-    setTimeout(()=>{window.location.href='index.html';},900);
-  }
+function handleLogout(){
+  localStorage.removeItem('smUser');
+  showToast('Logged out successfully.','info');
+  setTimeout(()=>{ window.location.href = 'index.html'; }, 900);
 }
 loadProfile();
 </script>
