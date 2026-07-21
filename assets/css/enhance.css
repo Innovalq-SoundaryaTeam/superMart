@@ -199,33 +199,27 @@
   .nav-icon-btn{width:34px;height:34px;}
 }
 
-/* ── ALWAYS-VISIBLE NAV CONTROLS (RTL + Theme) ──
-   Hoisted outside .navbar-collapse by main.js so
-   they're always visible even when hamburger is closed. */
-#navQuickControls{
-  flex-shrink:0;
-}
+/* ── ALWAYS-VISIBLE NAV CONTROLS ──
+   main.js hoists controls outside .navbar-collapse so they
+   remain visible regardless of hamburger / collapse state.
+   MOBILE: #navQuickControls wraps RTL + theme before the toggler.
+   DESKTOP: entire icon group (.d-flex[data-hoisted]) is hoisted. */
+
+/* Mobile wrapper */
+#navQuickControls{flex-shrink:0;}
 #navQuickControls .nav-icon-btn,
-#navQuickControls .btn{
-  min-width:38px;min-height:38px;
-  font-size:.9rem;
+#navQuickControls .btn{min-width:34px;min-height:34px;font-size:.85rem;}
+@media(max-width:991.98px){
+  #navQuickControls{gap:4px !important;margin-right:6px !important;}
+  #navQuickControls .nav-icon-btn{width:34px;height:34px;}
 }
-/* Desktop: sit flush at the right end (order-lg-last handles position) */
+
+/* Desktop: hoisted icon group */
 @media(min-width:992px){
-  #navQuickControls{
-    margin-left:0 !important;  /* collapse nav fills the gap via ms-auto */
-    margin-right:0 !important;
+  .navbar .d-flex.align-items-center[data-hoisted]{
+    flex-shrink:0;
     gap:6px !important;
   }
-}
-/* Mobile: tight gap before the hamburger */
-@media(max-width:991.98px){
-  #navQuickControls{
-    gap:4px !important;
-    margin-right:6px !important;
-  }
-  #navQuickControls .nav-icon-btn{width:36px;height:36px;}
-  #navQuickControls .btn-sm{padding:4px 10px;font-size:12px;}
 }
 
 /* ── CATEGORY CARD BULLET ALIGNMENT ──

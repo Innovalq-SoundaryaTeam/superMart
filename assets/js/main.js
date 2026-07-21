@@ -68,24 +68,42 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // ── MOVE RTL + THEME TOGGLES OUTSIDE NAVBAR COLLAPSE ──
-    // Ensures they're always visible on mobile (not hidden behind hamburger)
+    // ── HOIST NAV CONTROLS OUTSIDE COLLAPSE ──
+    // Problem: .navbar-collapse has flex-grow:1 (Bootstrap default), consuming all
+    // horizontal space, so any sibling added after it has no room.
+    // Solution (mobile): move only RTL+theme before the hamburger.
+    // Solution (desktop): move the entire icon group (cart/wishlist/RTL/theme/login/shop)
+    //   out of the collapse, so flex-grow:1 only applies to search + nav links.
     (function hoistNavControls(){
         const navbar   = document.querySelector('.navbar .container, .navbar .container-fluid');
         const toggler  = navbar  && navbar.querySelector('.navbar-toggler');
-        const rtlEl    = document.getElementById('rtlToggle');
-        const themeEl  = document.getElementById('themeToggle');
-        if (!navbar || !toggler || !rtlEl || !themeEl) return;
-        if (!rtlEl.closest('.navbar-collapse')) return; // already outside
+        const collapse = navbar  && navbar.querySelector('.navbar-collapse');
+        if (!navbar || !toggler || !collapse) return;
 
-        const wrap = document.createElement('div');
-        wrap.id = 'navQuickControls';
-        // ms-auto pushes wrapper right on mobile (beside hamburger)
-        // order-lg-last places it at the end on desktop
-        wrap.className = 'd-flex align-items-center gap-1 ms-auto me-2 order-lg-last';
-        wrap.appendChild(rtlEl);   // moves (not clones)
-        wrap.appendChild(themeEl); // moves (not clones)
-        navbar.insertBefore(wrap, toggler);
+        if (window.innerWidth < 992) {
+            /* MOBILE — hoist RTL + theme only so they appear before the hamburger */
+            const rtlEl   = document.getElementById('rtlToggle');
+            const themeEl = document.getElementById('themeToggle');
+            if (!rtlEl || !themeEl || !rtlEl.closest('.navbar-collapse')) return;
+
+            const wrap = document.createElement('div');
+            wrap.id = 'navQuickControls';
+            wrap.className = 'd-flex align-items-center gap-1 ms-auto me-2';
+            wrap.appendChild(rtlEl);
+            wrap.appendChild(themeEl);
+            navbar.insertBefore(wrap, toggler);
+
+        } else {
+            /* DESKTOP — hoist the entire icon group outside the collapse.
+               The collapse (flex-grow:1) then only stretches over search + nav links,
+               and the icon group sits naturally at the right of the navbar. */
+            const iconGroup = collapse.querySelector('.d-flex.align-items-center');
+            if (!iconGroup || !iconGroup.closest('.navbar-collapse')) return;
+
+            iconGroup.setAttribute('data-hoisted', '1');
+            iconGroup.classList.add('ms-auto', 'flex-shrink-0');
+            navbar.insertBefore(iconGroup, toggler);
+        }
     })();
 
     // ── SEARCH ICON TOGGLE (desktop) ──
