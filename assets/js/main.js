@@ -68,6 +68,26 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    // ── MOVE RTL + THEME TOGGLES OUTSIDE NAVBAR COLLAPSE ──
+    // Ensures they're always visible on mobile (not hidden behind hamburger)
+    (function hoistNavControls(){
+        const navbar   = document.querySelector('.navbar .container, .navbar .container-fluid');
+        const toggler  = navbar  && navbar.querySelector('.navbar-toggler');
+        const rtlEl    = document.getElementById('rtlToggle');
+        const themeEl  = document.getElementById('themeToggle');
+        if (!navbar || !toggler || !rtlEl || !themeEl) return;
+        if (!rtlEl.closest('.navbar-collapse')) return; // already outside
+
+        const wrap = document.createElement('div');
+        wrap.id = 'navQuickControls';
+        // ms-auto pushes wrapper right on mobile (beside hamburger)
+        // order-lg-last places it at the end on desktop
+        wrap.className = 'd-flex align-items-center gap-1 ms-auto me-2 order-lg-last';
+        wrap.appendChild(rtlEl);   // moves (not clones)
+        wrap.appendChild(themeEl); // moves (not clones)
+        navbar.insertBefore(wrap, toggler);
+    })();
+
     const themeToggle = document.getElementById("themeToggle");
 
     const stored = localStorage.getItem("theme");

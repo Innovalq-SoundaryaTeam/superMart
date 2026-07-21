@@ -161,10 +161,33 @@
   .nav-icon-btn{width:34px;height:34px;}
 }
 
-/* Fix: RTL icon alignment in navbar */
-#rtlToggle.nav-icon-btn{
-  min-width:42px;min-height:42px;
-  font-size:1rem;
+/* ── ALWAYS-VISIBLE NAV CONTROLS (RTL + Theme) ──
+   Hoisted outside .navbar-collapse by main.js so
+   they're always visible even when hamburger is closed. */
+#navQuickControls{
+  flex-shrink:0;
+}
+#navQuickControls .nav-icon-btn,
+#navQuickControls .btn{
+  min-width:38px;min-height:38px;
+  font-size:.9rem;
+}
+/* Desktop: sit flush at the right end (order-lg-last handles position) */
+@media(min-width:992px){
+  #navQuickControls{
+    margin-left:0 !important;  /* collapse nav fills the gap via ms-auto */
+    margin-right:0 !important;
+    gap:6px !important;
+  }
+}
+/* Mobile: tight gap before the hamburger */
+@media(max-width:991.98px){
+  #navQuickControls{
+    gap:4px !important;
+    margin-right:6px !important;
+  }
+  #navQuickControls .nav-icon-btn{width:36px;height:36px;}
+  #navQuickControls .btn-sm{padding:4px 10px;font-size:12px;}
 }
 
 /* Fix: home2 above-footer CTA padding */
