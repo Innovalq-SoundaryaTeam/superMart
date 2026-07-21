@@ -203,28 +203,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // ---- PROFILE DROPDOWN + LOGIN VISIBILITY ----
-    const profileDrop = document.getElementById('navProfileDrop');
-    const loginBtn = document.getElementById('navLoginBtn');
-    let smUser = null;
-    try { smUser = JSON.parse(localStorage.getItem('smUser')); } catch(e){}
-    if (smUser) {
-        if (profileDrop) profileDrop.style.display = '';
-        if (loginBtn) loginBtn.style.display = 'none';
-    } else {
-        if (profileDrop) profileDrop.style.display = 'none';
-        if (loginBtn) loginBtn.style.display = '';
-    }
-
-    // Logout
-    const logoutBtn = document.getElementById('navLogout');
-    if (logoutBtn) {
-        logoutBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            localStorage.removeItem('smUser');
-            window.location.href = 'index.html';
-        });
-    }
 
 });
 
