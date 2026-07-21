@@ -62,11 +62,12 @@
 .product-rating .rcount{color:#999;}
 
 /* ---- NAV SEARCH ---- */
+/* Mobile: full-width input inside collapsed menu */
 .nav-search-wrap{position:relative;flex:1;max-width:380px;}
 .nav-search-wrap input{
   width:100%;border-radius:30px;padding:9px 40px 9px 16px;
   border:1px solid var(--color-border);background:var(--color-section);
-  color:var(--color-text);font-size:14px;
+  color:var(--color-text);font-size:14px;transition:width .3s ease, opacity .3s ease;
 }
 .nav-search-wrap input:focus{outline:none;border-color:var(--color-primary);background:var(--color-bg);}
 .nav-search-wrap button{
@@ -85,6 +86,43 @@
 .search-suggest img{width:32px;height:32px;border-radius:6px;object-fit:cover;}
 .search-suggest .none{padding:12px 14px;color:#999;font-size:14px;}
 @media(max-width:991px){.nav-search-wrap{max-width:100%;margin:10px 0;order:5;}}
+
+/* Desktop: compact icon — expands to input on click */
+@media(min-width:992px){
+  .nav-search-wrap{
+    flex:none;max-width:none;
+    display:flex;align-items:center;
+    margin:0 8px !important;
+  }
+  .nav-search-wrap .nav-search-input{
+    width:0;opacity:0;padding:0;
+    border-color:transparent;background:transparent;
+    pointer-events:none;
+  }
+  .nav-search-wrap.search-open .nav-search-input{
+    width:200px;opacity:1;
+    padding:8px 36px 8px 14px;
+    border-color:var(--color-border);
+    background:var(--color-section);
+    pointer-events:auto;
+  }
+  .nav-search-wrap button[type="submit"]{
+    position:relative;right:auto;top:auto;transform:none;
+    width:38px;height:38px;border-radius:50%;flex-shrink:0;
+    background:var(--color-section);
+    border:1.5px solid var(--color-border);
+    color:var(--color-text);font-size:14px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .nav-search-wrap button[type="submit"]:hover{background:var(--color-primary);color:#fff;border-color:var(--color-primary);}
+  /* When open, slide the button to act as the right icon */
+  .nav-search-wrap.search-open button[type="submit"]{
+    position:absolute;right:4px;top:50%;transform:translateY(-50%);
+    width:28px;height:28px;border:none;background:none;
+    color:var(--color-primary);
+  }
+  .nav-search-wrap .search-suggest{left:0;min-width:240px;}
+}
 
 /* ---- FILTER SIDEBAR (offers/categories) ---- */
 .filter-sidebar{background:var(--color-card);border-radius:14px;box-shadow:var(--shadow);padding:22px;}
@@ -188,6 +226,26 @@
   }
   #navQuickControls .nav-icon-btn{width:36px;height:36px;}
   #navQuickControls .btn-sm{padding:4px 10px;font-size:12px;}
+}
+
+/* ── CATEGORY CARD BULLET ALIGNMENT ──
+   Card is text-align:center, so inline items shift per line length.
+   Make the ul inline-block so it centers as a block,
+   then left-align text inside and use flex rows for icon+text. */
+.category-card .card-body ul.list-unstyled{
+  display:inline-block;
+  text-align:left;
+}
+.category-card .card-body ul.list-unstyled li{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:3px 0;
+}
+.category-card .card-body ul.list-unstyled li i{
+  flex-shrink:0;
+  width:14px;
+  text-align:center;
 }
 
 /* Fix: home2 above-footer CTA padding */

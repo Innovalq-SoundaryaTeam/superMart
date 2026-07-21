@@ -88,6 +88,39 @@ document.addEventListener("DOMContentLoaded", () => {
         navbar.insertBefore(wrap, toggler);
     })();
 
+    // ── SEARCH ICON TOGGLE (desktop) ──
+    // On desktop (≥992px), the search bar collapses to an icon.
+    // First click opens the input; second click (or form submit) searches.
+    (function initSearchToggle(){
+        const wrap = document.querySelector('.nav-search-wrap');
+        const btn  = wrap && wrap.querySelector('button[type="submit"]');
+        const inp  = wrap && wrap.querySelector('.nav-search-input');
+        if (!wrap || !btn || !inp) return;
+
+        btn.addEventListener('click', function(e){
+            if (window.innerWidth < 992) return; // mobile: behave normally
+            if (!wrap.classList.contains('search-open')) {
+                // First click — open, don't submit
+                e.preventDefault();
+                wrap.classList.add('search-open');
+                inp.focus();
+            }
+            // If already open and input is populated — let form submit normally
+        });
+
+        // Close when clicking outside
+        document.addEventListener('click', function(e){
+            if (wrap && !wrap.contains(e.target)){
+                wrap.classList.remove('search-open');
+            }
+        });
+
+        // Close on Escape
+        inp.addEventListener('keydown', function(e){
+            if (e.key === 'Escape'){ wrap.classList.remove('search-open'); inp.blur(); }
+        });
+    })();
+
     const themeToggle = document.getElementById("themeToggle");
 
     const stored = localStorage.getItem("theme");
