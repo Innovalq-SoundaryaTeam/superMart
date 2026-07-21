@@ -199,28 +199,11 @@
   .nav-icon-btn{width:34px;height:34px;}
 }
 
-/* ── ALWAYS-VISIBLE NAV CONTROLS ──
-   main.js hoists controls outside .navbar-collapse so they
-   remain visible regardless of hamburger / collapse state.
-   MOBILE: #navQuickControls wraps RTL + theme before the toggler.
-   DESKTOP: entire icon group (.d-flex[data-hoisted]) is hoisted. */
-
-/* Mobile wrapper */
-#navQuickControls{flex-shrink:0;}
-#navQuickControls .nav-icon-btn,
-#navQuickControls .btn{min-width:34px;min-height:34px;font-size:.85rem;}
-@media(max-width:991.98px){
-  #navQuickControls{gap:4px !important;margin-right:6px !important;}
-  #navQuickControls .nav-icon-btn{width:34px;height:34px;}
-}
-
-/* Desktop: hoisted icon group */
-@media(min-width:992px){
-  .navbar .d-flex.align-items-center[data-hoisted]{
-    flex-shrink:0;
-    gap:6px !important;
-  }
-}
+/* ── MOBILE NAV QUICK CONTROLS ──
+   On mobile, main.js hoists RTL + theme outside the collapse
+   so they appear before the hamburger toggler. */
+#navQuickControls{flex-shrink:0;gap:4px !important;margin-right:6px !important;}
+#navQuickControls .nav-icon-btn{width:34px;height:34px;font-size:.85rem;}
 
 /* ── CATEGORY CARD BULLET ALIGNMENT ──
    Card is text-align:center, so inline items shift per line length.
