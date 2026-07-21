@@ -103,14 +103,9 @@ body.dark-mode .auth-icon-btn{border-color:#444;color:#e8e8e8;}
 <div class="sm-toast" id="smToast"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/main.js"></script>
 <script src="../assets/js/features.js"></script>
 <script>
-(function(){
-  const t = localStorage.getItem('theme');
-  if(t === 'dark' || (!t && window.matchMedia && window.matchMedia('(prefers-color-scheme:dark)').matches)){
-    document.body.classList.add('dark-mode');
-  }
-})();
 
 document.getElementById('registerForm').addEventListener('submit', function(e){
   e.preventDefault();
