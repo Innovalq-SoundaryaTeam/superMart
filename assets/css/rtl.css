@@ -71,3 +71,14 @@ body.rtl-mode .value-card i,
 body.rtl-mode .benefit-item i{
     margin-left:0;
 }
+
+/* ---- FULL PAGE RTL when body.rtl-mode ---- */
+body.rtl-mode{direction:rtl;}
+body.rtl-mode .navbar{direction:ltr;} /* keep navbar LTR always */
+body.rtl-mode .dropdown-menu{text-align:right;}
+body.rtl-mode .auth-card,
+body.rtl-mode .store-card,
+body.rtl-mode .plan-card{text-align:right;}
+body.rtl-mode .plan-features li{flex-direction:row-reverse;}
+body.rtl-mode .footer{direction:rtl;text-align:right;}
+body.rtl-mode footer .list-unstyled{padding-right:0;padding-left:0;}

@@ -139,3 +139,33 @@
 /* ---- SORT/TOOLBAR ---- */
 .toolbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:22px;}
 .result-count{color:#888;font-size:14px;}
+
+/* ===== RESPONSIVENESS FIXES ===== */
+
+/* Fix: hamburger open causes hero to shift down on 360/768px */
+.navbar-collapse{transition:none !important;}
+.hero-slider,.hero-section{transition:none;}
+
+/* Fix: at 360px, nav icons + text overlap in collapsed menu */
+@media(max-width:400px){
+  .navbar-nav .nav-link{font-size:13px;padding:6px 8px;}
+  .d-flex.align-items-center.gap-2.ms-lg-3{flex-wrap:wrap;gap:6px !important;}
+  .btn.btn-sm{padding:4px 8px;font-size:12px;}
+}
+
+/* Fix: 1024px - navbar links alignment */
+@media(min-width:992px) and (max-width:1199px){
+  .navbar-nav .nav-link{font-size:12px;margin-left:4px !important;padding:6px 4px;}
+  .d-flex.align-items-center.gap-2.ms-lg-3{gap:4px !important;}
+  .btn.btn-sm{font-size:12px;padding:4px 8px;}
+  .nav-icon-btn{width:34px;height:34px;}
+}
+
+/* Fix: RTL icon alignment in navbar */
+#rtlToggle.nav-icon-btn{
+  min-width:42px;min-height:42px;
+  font-size:1rem;
+}
+
+/* Fix: home2 above-footer CTA padding */
+.h2-above-footer,.newsletter{padding-top:60px;padding-bottom:60px;}
