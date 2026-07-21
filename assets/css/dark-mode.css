@@ -104,10 +104,12 @@ body.dark-mode .plan-period{color:#bbb;}
 body.dark-mode .plan-desc{color:#ccc;}
 body.dark-mode .plan-card{background:var(--color-card);color:var(--color-text);}
 body.dark-mode .comp-table td,
-body.dark-mode .comp-table th{color:var(--color-text);border-color:var(--color-border);}
-body.dark-mode .comp-table .cross{color:#888;}
+body.dark-mode .comp-table th{color:#f1f1f1 !important;border-color:#333 !important;}
+body.dark-mode .comp-table td strong{color:#f1f1f1 !important;}
+body.dark-mode .comp-table .cross{color:#888 !important;}
 body.dark-mode .comp-table tr{background:transparent;}
-body.dark-mode .comp-table tr:nth-child(odd){background:rgba(255,255,255,.04);}
+body.dark-mode .comp-table tr:nth-child(odd) td{background:rgba(255,255,255,.06) !important;}
+body.dark-mode .comp-table tr:nth-child(even) td{background:rgba(255,255,255,.02) !important;}
 body.dark-mode .plan-features li{color:var(--color-text);}
 body.dark-mode .billing-toggle button{color:#ccc;background:transparent;}
 body.dark-mode .billing-toggle button.active{background:#fff;color:#302b63;}
