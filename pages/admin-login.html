@@ -15,110 +15,193 @@
 <link rel="stylesheet" href="../assets/css/features.css">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%23E63946'/%3E%3Ctext y='.9em' font-size='70' x='50%25' dominant-baseline='hanging' text-anchor='middle' fill='white' font-family='Arial,sans-serif' font-weight='bold'%3ES%3C/text%3E%3C/svg%3E">
 <style>
-/* ── AUTH PAGE LAYOUT ── */
-.auth-page{min-height:100vh;display:flex;flex-direction:column;}
-.auth-header{border-bottom:1px solid var(--color-border,#eee);background:var(--color-bg,#fff);padding:16px 0;}
-.auth-header .brand{font-family:'Nunito',sans-serif;font-size:1.4rem;font-weight:800;color:var(--color-primary,#E63946);text-decoration:none;}
-.auth-header .brand i{color:var(--color-primary,#E63946);}
-.auth-main{flex:1;display:flex;align-items:center;justify-content:center;padding:48px 16px;background:var(--color-section,#f8f8f8);}
-.auth-card{max-width:420px;width:100%;background:var(--color-card,#fff);border-radius:20px;box-shadow:0 12px 40px rgba(0,0,0,.09);padding:44px 40px;}
-@media(max-width:480px){.auth-card{padding:32px 24px;}}
-.auth-card .icon-badge{width:56px;height:56px;border-radius:50%;background:rgba(230,57,70,.12);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:var(--color-primary,#E63946);font-size:22px;}
-.auth-card h1{font-size:1.55rem;font-family:'Nunito',sans-serif;font-weight:800;margin-bottom:4px;text-align:center;}
-.auth-card .sub{color:#888;margin-bottom:28px;font-size:15px;text-align:center;}
-.auth-card .form-control{height:48px;border-radius:10px;font-size:15px;}
-.auth-card .btn-danger{height:48px;border-radius:10px;font-weight:700;width:100%;font-size:16px;}
-.auth-switch{text-align:center;margin-top:20px;color:#777;font-size:14px;}
-.auth-footer{text-align:center;padding:20px;color:#999;font-size:13px;}
-.auth-icon-btn{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--color-border,#ddd);background:transparent;color:var(--color-text,#333);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s;font-size:14px;}
-.auth-icon-btn:hover{background:var(--color-primary,#E63946);color:#fff;border-color:var(--color-primary,#E63946);}
-body.dark-mode .auth-icon-btn{border-color:#444;color:#e8e8e8;}
+*,*::before,*::after{box-sizing:border-box;}
+
+/* ── PAGE SHELL ── */
+html,body{height:100%;margin:0;}
+body{display:flex;flex-direction:column;background:var(--color-section,#f4f5f7);font-family:'Open Sans',sans-serif;}
+
+/* ── HEADER ── */
+.adm-header{
+  width:100%;
+  background:var(--color-bg,#fff);
+  border-bottom:1px solid var(--color-border,#e8eaed);
+  box-shadow:0 2px 8px rgba(0,0,0,.06);
+  padding:0 32px;
+  height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-shrink:0;
+}
+.adm-brand{
+  font-family:'Nunito',sans-serif;
+  font-size:1.4rem;
+  font-weight:800;
+  color:var(--color-primary,#E63946);
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.adm-brand:hover{opacity:.85;}
+.adm-controls{display:flex;align-items:center;gap:10px;}
+
+/* Icon buttons */
+.adm-icon-btn{
+  width:38px;height:38px;border-radius:50%;
+  border:1.5px solid var(--color-border,#ddd);
+  background:transparent;
+  color:var(--color-text,#444);
+  display:inline-flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:.2s;font-size:14px;
+}
+.adm-icon-btn:hover{background:var(--color-primary,#E63946);color:#fff;border-color:var(--color-primary,#E63946);}
+body.dark-mode .adm-icon-btn{border-color:#444;color:#ccc;}
+body.dark-mode .adm-icon-btn:hover{background:var(--color-primary,#E63946);color:#fff;}
+
+/* ── MAIN AREA ── */
+.adm-main{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:48px 16px;
+}
+
+/* ── CARD ── */
+.adm-card{
+  width:100%;
+  max-width:420px;
+  background:var(--color-card,#fff);
+  border-radius:20px;
+  box-shadow:0 8px 40px rgba(0,0,0,.10);
+  padding:48px 40px;
+}
+@media(max-width:480px){.adm-card{padding:36px 24px;}}
+
+.adm-icon-badge{
+  width:60px;height:60px;border-radius:50%;
+  background:rgba(230,57,70,.10);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 20px;
+  color:var(--color-primary,#E63946);
+  font-size:24px;
+}
+.adm-card h1{
+  font-family:'Nunito',sans-serif;
+  font-size:1.6rem;font-weight:800;
+  text-align:center;margin-bottom:6px;
+}
+.adm-card .sub{
+  text-align:center;color:#888;
+  font-size:14.5px;margin-bottom:32px;
+}
+.adm-card .form-label{font-weight:600;font-size:14px;}
+.adm-card .form-control{
+  height:50px;border-radius:10px;font-size:15px;
+  border:1.5px solid var(--color-border,#ddd);
+}
+.adm-card .form-control:focus{border-color:var(--color-primary,#E63946);box-shadow:0 0 0 3px rgba(230,57,70,.12);}
+.adm-btn{
+  width:100%;height:50px;border-radius:10px;
+  font-weight:700;font-size:16px;
+  background:var(--color-primary,#E63946);
+  border:none;color:#fff;cursor:pointer;
+  transition:.2s;margin-top:4px;
+}
+.adm-btn:hover{background:#c92e3a;}
+.adm-divider{text-align:center;margin-top:24px;color:#aaa;font-size:13.5px;}
+.adm-divider a{color:var(--color-primary,#E63946);font-weight:700;text-decoration:none;}
+.adm-divider a:hover{text-decoration:underline;}
+
+/* ── FOOTER ── */
+.adm-footer{text-align:center;padding:18px;color:#aaa;font-size:13px;flex-shrink:0;}
 </style>
 </head>
 <body>
 
-<div class="auth-page">
-
-<!-- Header -->
-<header class="auth-header">
-<div class="container d-flex align-items-center justify-content-between">
-  <a href="index.html" class="brand">
-    <i class="fa-solid fa-basket-shopping me-1"></i>SuperMart
+<!-- ── HEADER ── -->
+<header class="adm-header">
+  <a href="index.html" class="adm-brand">
+    <i class="fa-solid fa-basket-shopping"></i> SuperMart
   </a>
-  <div class="d-flex align-items-center gap-2">
-    <button id="rtlToggle" class="auth-icon-btn" aria-label="Toggle RTL" title="Switch direction"><i class="fa-solid fa-arrow-left-long"></i></button>
-    <button id="themeToggle" class="auth-icon-btn" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
-    <a href="login.html" class="btn btn-outline-danger btn-sm">Customer Login</a>
+  <div class="adm-controls">
+    <button id="rtlToggle" class="adm-icon-btn" aria-label="Toggle RTL" title="Switch direction">
+      <i class="fa-solid fa-arrow-left-long"></i>
+    </button>
+    <button id="themeToggle" class="adm-icon-btn" aria-label="Toggle dark mode" title="Toggle theme">
+      <i class="fa-solid fa-moon"></i>
+    </button>
+    <a href="login.html" class="btn btn-outline-danger btn-sm px-3">Customer Login</a>
   </div>
-</div>
 </header>
 
-<main class="auth-main" id="main-content">
-<div class="auth-card">
-  <div class="icon-badge"><i class="fa-solid fa-user-shield"></i></div>
-  <h1>Admin Access</h1>
-  <p class="sub">Sign in to manage products, offers &amp; orders.</p>
+<!-- ── MAIN ── -->
+<main class="adm-main" id="main-content">
+  <div class="adm-card">
+    <div class="adm-icon-badge">
+      <i class="fa-solid fa-user-shield"></i>
+    </div>
+    <h1>Admin Access</h1>
+    <p class="sub">Sign in to manage products, offers &amp; orders.</p>
 
-  <form id="adminLoginForm" novalidate>
-  <div class="mb-3">
-    <label class="form-label fw-semibold" for="adminUser">Username</label>
-    <input type="text" class="form-control" id="adminUser" required placeholder="Enter admin username">
-  </div>
-  <div class="mb-4">
-    <label class="form-label fw-semibold" for="adminPass">Password</label>
-    <input type="password" class="form-control" id="adminPass" required placeholder="Enter password">
-  </div>
-  <button type="submit" class="btn btn-danger">Sign In</button>
-  </form>
+    <form id="adminLoginForm" novalidate>
+      <div class="mb-3">
+        <label class="form-label" for="adminUser">Username</label>
+        <input type="text" class="form-control" id="adminUser" required placeholder="Enter admin username" autocomplete="username">
+      </div>
+      <div class="mb-4">
+        <label class="form-label" for="adminPass">Password</label>
+        <input type="password" class="form-control" id="adminPass" required placeholder="Enter password" autocomplete="current-password">
+      </div>
+      <button type="submit" class="adm-btn">Sign In</button>
+    </form>
 
-  <div class="auth-switch mt-3">Not an admin? <a href="login.html" class="text-danger fw-bold">Customer Login</a></div>
-</div>
+    <div class="adm-divider">Not an admin? <a href="login.html">Customer Login</a></div>
+  </div>
 </main>
 
-<footer class="auth-footer">
-&copy; 2026 SuperMart. All Rights Reserved.
+<!-- ── FOOTER ── -->
+<footer class="adm-footer">
+  &copy; 2026 SuperMart. All Rights Reserved.
 </footer>
-
-</div>
 
 <div class="sm-toast" id="smToast"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../assets/js/features.js"></script>
 <script>
-// Apply saved theme
+// Restore theme & RTL on load
 (function(){
   const t = localStorage.getItem('theme');
-  if(t === 'dark' || (!t && window.matchMedia && window.matchMedia('(prefers-color-scheme:dark)').matches)){
+  if(t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme:dark)').matches)){
     document.body.classList.add('dark-mode');
+    const icon = document.querySelector('#themeToggle i');
+    if(icon) icon.className = 'fa-solid fa-sun';
   }
-  const r = localStorage.getItem('smRTL');
-  if(r === '1') document.body.classList.add('rtl-mode');
+  if(localStorage.getItem('smRTL') === '1'){
+    document.body.classList.add('rtl-mode');
+    const icon = document.querySelector('#rtlToggle i');
+    if(icon) icon.className = 'fa-solid fa-arrow-right-long';
+  }
 })();
 
 // RTL toggle
-const rtlBtn = document.getElementById('rtlToggle');
-if(rtlBtn){
-  const icon = rtlBtn.querySelector('i');
-  if(document.body.classList.contains('rtl-mode') && icon) icon.className = 'fa-solid fa-arrow-right-long';
-  rtlBtn.addEventListener('click', () => {
-    const nowRTL = document.body.classList.toggle('rtl-mode');
-    localStorage.setItem('smRTL', nowRTL ? '1' : '0');
-    if(icon) icon.className = nowRTL ? 'fa-solid fa-arrow-right-long' : 'fa-solid fa-arrow-left-long';
-  });
-}
+document.getElementById('rtlToggle').addEventListener('click', function(){
+  const on = document.body.classList.toggle('rtl-mode');
+  localStorage.setItem('smRTL', on ? '1' : '0');
+  const icon = this.querySelector('i');
+  if(icon) icon.className = on ? 'fa-solid fa-arrow-right-long' : 'fa-solid fa-arrow-left-long';
+});
 
 // Theme toggle
-const themeBtn = document.getElementById('themeToggle');
-if(themeBtn){
-  const icon = themeBtn.querySelector('i');
-  if(document.body.classList.contains('dark-mode') && icon) icon.className = 'fa-solid fa-sun';
-  themeBtn.addEventListener('click', () => {
-    const dark = document.body.classList.toggle('dark-mode');
-    localStorage.setItem('theme', dark ? 'dark' : 'light');
-    if(icon) icon.className = dark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
-  });
-}
+document.getElementById('themeToggle').addEventListener('click', function(){
+  const dark = document.body.classList.toggle('dark-mode');
+  localStorage.setItem('theme', dark ? 'dark' : 'light');
+  const icon = this.querySelector('i');
+  if(icon) icon.className = dark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+});
 
 // Admin login
 document.getElementById('adminLoginForm').addEventListener('submit', function(e){
