@@ -32,6 +32,9 @@
 body.dark-mode .social-btn{background:#2a2a2a;border-color:#444;color:#e8e8e8;}
 body.dark-mode .social-btn:hover{background:#333;}
 .auth-footer{text-align:center;padding:20px;color:#999;font-size:13px;}
+.auth-icon-btn{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--color-border,#ddd);background:transparent;color:var(--color-text,#333);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s;font-size:14px;}
+.auth-icon-btn:hover{background:var(--color-primary,#E63946);color:#fff;border-color:var(--color-primary,#E63946);}
+body.dark-mode .auth-icon-btn{border-color:#444;color:#e8e8e8;}
 </style>
 </head>
 <body>
@@ -42,7 +45,11 @@ body.dark-mode .social-btn:hover{background:#333;}
 <a href="index.html" class="brand">
   <i class="fa-solid fa-basket-shopping me-1"></i>SuperMart
 </a>
+<div class="d-flex align-items-center gap-2">
+<button id="rtlToggle" class="auth-icon-btn" aria-label="Toggle RTL" title="Switch direction"><i class="fa-solid fa-arrow-left-long"></i></button>
+<button id="themeToggle" class="auth-icon-btn" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
 <a href="login.html" class="btn btn-outline-danger btn-sm">Login</a>
+</div>
 </div>
 </header>
 
