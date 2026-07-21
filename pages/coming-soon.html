@@ -17,9 +17,50 @@
 </head>
 <body>
 
-<button id="themeToggle" class="btn btn-danger" style="position:fixed;top:20px;right:20px;z-index:100;" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
-<section class="coming-soon">
+<!-- Top Bar -->
+<div class="top-bar py-2">
+<div class="container d-flex justify-content-between align-items-center">
+<span><i class="fa-regular fa-clock"></i> Mon - Sun : 8:00 AM - 10:00 PM</span>
+<a href="store-locator.html" class="text-decoration-none"><i class="fa-solid fa-location-dot"></i> Find a Store</a>
+</div>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg shadow-sm sticky-top">
+<div class="container">
+<a class="navbar-brand fw-bold logo" href="index.html"><i class="fa-solid fa-basket-shopping me-1"></i>SuperMart</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navMenu">
+<ul class="navbar-nav ms-auto align-items-lg-center">
+<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="home2.html">Home2</a></li>
+<li class="nav-item"><a class="nav-link" href="offers.html">Offers</a></li>
+<li class="nav-item"><a class="nav-link" href="categories.html">Categories</a></li>
+<li class="nav-item"><a class="nav-link" href="store-locator.html">Stores</a></li>
+<li class="nav-item"><a class="nav-link" href="loyalty-card.html">Loyalty</a></li>
+<li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+<li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+<li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+<li class="nav-item"><a class="nav-link active" href="coming-soon.html">Recipes</a></li>
+</ul>
+<div class="d-flex align-items-center gap-2 ms-lg-3">
+<a href="cart.html" class="nav-icon-btn" title="Cart"><i class="fa-solid fa-cart-shopping"></i><span class="cart-badge" id="cartCountNav">0</span></a>
+<a href="wishlist.html" class="nav-icon-btn" title="Wishlist"><i class="fa-solid fa-heart"></i></a>
+<button id="rtlToggle" class="nav-icon-btn" aria-label="Toggle RTL" title="Switch direction"><i class="fa-solid fa-arrow-left-long"></i></button>
+<button id="themeToggle" class="btn btn-danger btn-sm" aria-pressed="false" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+<a href="login.html" class="btn btn-outline-danger btn-sm">Login</a>
+</div>
+</div>
+</div>
+</nav>
+
+<section class="coming-soon" id="main-content">
 <div class="container">
 <div class="row justify-content-center">
 <div class="col-lg-9 text-center">
