@@ -48,11 +48,15 @@ let toastTimer;
 function showToast(msg, type='success'){
   const toast=document.getElementById('smToast');
   if(!toast)return;
-  const icon=type==='success'?'✓':type==='error'?'✗':'ℹ';
-  toast.innerHTML=`<span>${icon}</span> ${msg}`;
+  const icon=type==='success'
+    ?'<i class="fa-solid fa-circle-check"></i>'
+    :type==='error'
+    ?'<i class="fa-solid fa-circle-xmark"></i>'
+    :'<i class="fa-solid fa-circle-info"></i>';
+  toast.innerHTML=`${icon} ${msg}`;
   toast.className=`sm-toast ${type} show`;
   clearTimeout(toastTimer);
-  toastTimer=setTimeout(()=>{toast.classList.remove('show');},3000);
+  toastTimer=setTimeout(()=>{toast.classList.remove('show');},3500);
 }
 
 /* ---- INIT ON EVERY PAGE ---- */

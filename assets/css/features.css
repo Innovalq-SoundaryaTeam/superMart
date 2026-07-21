@@ -209,7 +209,8 @@
 .sm-toast.show{transform:translateY(0);opacity:1;}
 .sm-toast.success{border-left:4px solid #2a9d4a;}
 .sm-toast.error{border-left:4px solid #E63946;}
-.sm-toast.info{border-left:4px solid #0dcaf0;}
+.sm-toast.info{background:#1c3557;border-left:4px solid #4fa3e0;color:#e8f3fd;}
+body.dark-mode .sm-toast.info{background:#163050;border-left:4px solid #4fa3e0;}
 
 /* ---- COMING SOON SUBSCRIBE ---- */
 .subscribe-success{
