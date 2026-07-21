@@ -191,29 +191,30 @@
   .btn.btn-sm{padding:4px 8px;font-size:12px;}
 }
 
-/* ── DESKTOP NAVBAR: hide search bar, compact nav links ──
-   Search lives in the collapse; on desktop it clutters the navbar
-   and causes overflow with 12 links + icons. Hidden here, still
-   accessible on mobile inside the hamburger menu. */
+/* ── DESKTOP NAVBAR: hide search, size up nav for readability ──
+   Profile dropdown removed — we have room to grow links & icons. */
 @media(min-width:992px){
   /* Remove search from desktop navbar */
   .nav-search-wrap{ display:none !important; }
 
-  /* Compact nav links so 12 items + all icons fit */
+  /* Readable nav links */
   .navbar-nav .nav-link{
-    font-size:12px !important;
-    padding:8px 6px !important;
+    font-size:13.5px !important;
+    padding:8px 8px !important;
     white-space:nowrap;
+    font-weight:600;
   }
-  /* Tighten icon group gap and left margin */
+  /* Icon group spacing */
   .d-flex.align-items-center.gap-2.ms-lg-3{
-    gap:5px !important;
-    margin-left:10px !important;
+    gap:6px !important;
+    margin-left:12px !important;
   }
-  /* Compact action buttons */
-  .btn.btn-sm{ font-size:11.5px !important; padding:4px 9px !important; }
-  /* Compact icon buttons */
-  .nav-icon-btn{ width:32px !important; height:32px !important; font-size:13px !important; }
+  /* Action buttons */
+  .btn.btn-sm{ font-size:13px !important; padding:6px 14px !important; }
+  /* Icon buttons */
+  .nav-icon-btn{ width:38px !important; height:38px !important; font-size:15px !important; }
+  /* Navbar min-height */
+  .navbar{ min-height:62px; }
 }
 
 /* ── MOBILE NAV QUICK CONTROLS ──
