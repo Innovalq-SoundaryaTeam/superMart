@@ -42,7 +42,7 @@
 <span class="error-message text-center d-block mt-1" id="csErr"></span>
 </div>
 
-<div class="subscribe-success" id="subscribeSuccess">
+<div class="subscribe-success" id="subscribeSuccess" style="display:none">
 <div class="ss-icon"><i class="fa-solid fa-circle-check"></i></div>
 <h3>You're In! 🎉</h3>
 <p>We'll email you the moment SuperMart goes live with online ordering, express delivery and member deals.</p>
@@ -92,7 +92,8 @@ function handleSubscribe(){
     err.innerHTML='<span class="d-inline-flex align-items-center gap-2 mt-2 px-3 py-2" style="background:#fff0f3;color:#c0264f;border-radius:10px;"><i class="fa-solid fa-triangle-exclamation"></i> Oops! Please enter a valid email address.</span>';
     return;
   }
-  window.location.href='404.html';
+  document.getElementById('subscribeForm').style.display='none';
+  document.getElementById('subscribeSuccess').style.display='block';
 }
 </script>
 </body>
