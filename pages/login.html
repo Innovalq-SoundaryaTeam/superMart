@@ -126,8 +126,8 @@ document.getElementById('loginForm').addEventListener('submit', function(e){
     return;
   }
   localStorage.setItem('smUser', JSON.stringify({name:user.name, email:user.email}));
-  showToast('Logged in! Redirecting…','success');
-  setTimeout(()=>{ window.location.href = 'profile.html'; }, 900);
+  showToast('Login successful!','success');
+  setTimeout(()=>{ window.location.href = 'index.html'; }, 1200);
 });
 </script>
 

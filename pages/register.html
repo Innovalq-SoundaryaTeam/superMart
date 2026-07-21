@@ -132,8 +132,8 @@ document.getElementById('registerForm').addEventListener('submit', function(e){
   users.push({name, email, phone, password:pass});
   localStorage.setItem('smUsers', JSON.stringify(users));
   localStorage.setItem('smUser', JSON.stringify({name, email}));
-  showToast('Account created! Redirecting…','success');
-  setTimeout(()=>{ window.location.href = 'profile.html'; }, 900);
+  showToast('Account created successfully!','success');
+  setTimeout(()=>{ window.location.href = 'index.html'; }, 1200);
 });
 </script>
 
