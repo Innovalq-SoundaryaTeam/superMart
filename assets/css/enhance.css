@@ -180,41 +180,74 @@
 
 /* ===== RESPONSIVENESS FIXES ===== */
 
-/* Fix: hamburger open causes hero to shift down on 360/768px */
-.navbar-collapse{transition:none !important;}
-.hero-slider,.hero-section{transition:none;}
-
-/* Fix: at 360px, nav icons + text overlap in collapsed menu */
-@media(max-width:400px){
-  .navbar-nav .nav-link{font-size:13px;padding:6px 8px;}
-  .d-flex.align-items-center.gap-2.ms-lg-3{flex-wrap:wrap;gap:6px !important;}
-  .btn.btn-sm{padding:4px 8px;font-size:12px;}
+/* ── FIX 1: hamburger collapse overlays hero instead of pushing it ──
+   Position collapse absolute so it floats over the page content.
+   Applies to all mobile sizes (< 992px). */
+@media(max-width:991.98px){
+  .navbar{ position:relative; }
+  .navbar-collapse{
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    z-index:1050;
+    background:var(--color-bg,#fff);
+    box-shadow:0 8px 28px rgba(0,0,0,.14);
+    border-radius:0 0 14px 14px;
+    padding:10px 18px 18px;
+    transition:none !important;
+  }
+  body.dark-mode .navbar-collapse{ background:#1a1a1a; }
+  .hero-slider,.hero-section{ transition:none; }
 }
 
-/* ── DESKTOP NAVBAR: hide search, size up nav for readability ──
-   Profile dropdown removed — we have room to grow links & icons. */
-@media(min-width:992px){
-  /* Remove search from desktop navbar */
-  .nav-search-wrap{ display:none !important; }
+/* ── FIX 2: 360px — quick controls + brand + toggler row ──
+   Shrink brand text and quick control buttons so they don't
+   overlap the first nav link (Home) when the menu opens. */
+@media(max-width:400px){
+  .navbar-brand{ font-size:1rem !important; }
+  #navQuickControls .nav-icon-btn{ width:28px !important; height:28px !important; font-size:.75rem !important; }
+  #navQuickControls{ gap:3px !important; margin-right:4px !important; }
+  /* inside open menu */
+  .navbar-nav .nav-link{ font-size:13px; padding:6px 8px; }
+  .d-flex.align-items-center.gap-2.ms-lg-3{ flex-wrap:wrap; gap:6px !important; }
+  .btn.btn-sm{ padding:4px 8px; font-size:12px; }
+}
 
-  /* Readable nav links */
+/* ── DESKTOP NAVBAR: hide search, size nav for readability ── */
+@media(min-width:992px){
+  .nav-search-wrap{ display:none !important; }
+  .navbar-nav .nav-link{ white-space:nowrap; font-weight:600; }
+  .navbar{ min-height:62px; }
+}
+
+/* ── 992–1199px (tablet-landscape / small desktop) ──
+   At 1024px the container is ~960px, so compact slightly. */
+@media(min-width:992px) and (max-width:1199px){
+  .navbar-nav .nav-link{
+    font-size:12px !important;
+    padding:8px 5px !important;
+  }
+  .d-flex.align-items-center.gap-2.ms-lg-3{
+    gap:4px !important;
+    margin-left:8px !important;
+  }
+  .btn.btn-sm{ font-size:11.5px !important; padding:5px 10px !important; }
+  .nav-icon-btn{ width:34px !important; height:34px !important; font-size:13px !important; }
+}
+
+/* ── 1200px+ (large desktop) — full comfortable sizing ── */
+@media(min-width:1200px){
   .navbar-nav .nav-link{
     font-size:13.5px !important;
     padding:8px 8px !important;
-    white-space:nowrap;
-    font-weight:600;
   }
-  /* Icon group spacing */
   .d-flex.align-items-center.gap-2.ms-lg-3{
     gap:6px !important;
     margin-left:12px !important;
   }
-  /* Action buttons */
   .btn.btn-sm{ font-size:13px !important; padding:6px 14px !important; }
-  /* Icon buttons */
   .nav-icon-btn{ width:38px !important; height:38px !important; font-size:15px !important; }
-  /* Navbar min-height */
-  .navbar{ min-height:62px; }
 }
 
 /* ── MOBILE NAV QUICK CONTROLS ──
