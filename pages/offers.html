@@ -70,7 +70,6 @@ Find a Store
 <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
 <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
 <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-<li class="nav-item"><a class="nav-link" href="admin-dashboard.html">Dashboard</a></li>
 </ul>
 <div class="d-flex align-items-center gap-2 ms-lg-3">
 <a href="cart.html" class="nav-icon-btn" title="Cart"><i class="fa-solid fa-cart-shopping"></i><span class="cart-badge" id="cartCountNav">0</span></a>
@@ -81,8 +80,6 @@ Find a Store
 <li><a class="dropdown-item" href="profile.html"><i class="fa-solid fa-user me-2 text-danger"></i>My Profile</a></li>
 <li><a class="dropdown-item" href="orders.html"><i class="fa-solid fa-box me-2 text-danger"></i>My Orders</a></li>
 <li><a class="dropdown-item" href="wishlist.html"><i class="fa-solid fa-heart me-2 text-danger"></i>Wishlist</a></li>
-<li><hr class="dropdown-divider"></li>
-<li><a class="dropdown-item" href="admin-login.html"><i class="fa-solid fa-user-shield me-2 text-danger"></i>Admin Panel</a></li>
 <li><hr class="dropdown-divider"></li>
 <li><a class="dropdown-item text-danger" href="#" id="navLogout"><i class="fa-solid fa-right-from-bracket me-2"></i>Logout</a></li>
 </ul>
@@ -566,6 +563,276 @@ Find a Store
 </section>
 
 </main>
+
+<!-- ══════════════════════════════════════
+     STORE TIMINGS
+══════════════════════════════════════ -->
+<section class="py-5 bg-section">
+<div class="container">
+  <div class="text-center mb-4">
+    <span class="section-label">Always Open for You</span>
+    <h2 class="section-title">Store Timings</h2>
+    <p class="text-muted">All SuperMart branches operate on the schedule below. Extended hours apply on public holidays.</p>
+  </div>
+  <div class="row g-4 justify-content-center">
+
+    <div class="col-md-4">
+      <div class="timing-card">
+        <div class="timing-icon"><i class="fa-solid fa-sun"></i></div>
+        <h5>Weekdays</h5>
+        <p class="timing-days">Monday – Friday</p>
+        <p class="timing-hours">8:00 AM – 10:00 PM</p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="timing-card highlight">
+        <div class="timing-icon"><i class="fa-solid fa-calendar-week"></i></div>
+        <h5>Weekends</h5>
+        <p class="timing-days">Saturday – Sunday</p>
+        <p class="timing-hours">7:00 AM – 11:00 PM</p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="timing-card">
+        <div class="timing-icon"><i class="fa-solid fa-star"></i></div>
+        <h5>Public Holidays</h5>
+        <p class="timing-days">All Gazetted Holidays</p>
+        <p class="timing-hours">9:00 AM – 9:00 PM</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Weekly schedule table -->
+  <div class="timing-table mt-4">
+    <div class="timing-row"><span class="day">Monday</span><span class="badge bg-success">Open</span><span class="hrs">8:00 AM – 10:00 PM</span></div>
+    <div class="timing-row"><span class="day">Tuesday</span><span class="badge bg-success">Open</span><span class="hrs">8:00 AM – 10:00 PM</span></div>
+    <div class="timing-row"><span class="day">Wednesday</span><span class="badge bg-success">Open</span><span class="hrs">8:00 AM – 10:00 PM</span></div>
+    <div class="timing-row"><span class="day">Thursday</span><span class="badge bg-success">Open</span><span class="hrs">8:00 AM – 10:00 PM</span></div>
+    <div class="timing-row"><span class="day">Friday</span><span class="badge bg-success">Open</span><span class="hrs">8:00 AM – 10:00 PM</span></div>
+    <div class="timing-row weekend"><span class="day">Saturday</span><span class="badge bg-warning text-dark">Extended</span><span class="hrs">7:00 AM – 11:00 PM</span></div>
+    <div class="timing-row weekend"><span class="day">Sunday</span><span class="badge bg-warning text-dark">Extended</span><span class="hrs">7:00 AM – 11:00 PM</span></div>
+  </div>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════
+     LOYALTY CARD
+══════════════════════════════════════ -->
+<section class="py-5">
+<div class="container">
+  <div class="row align-items-center g-5">
+    <div class="col-lg-6">
+      <span class="section-label">Exclusive Members</span>
+      <h2 class="section-title">SuperMart Loyalty Card</h2>
+      <p class="text-muted mb-4">Join thousands of smart shoppers earning points on every purchase. Redeem rewards, get early access to deals, and unlock member-only discounts.</p>
+      <div class="loyalty-benefits">
+        <div class="loy-benefit"><i class="fa-solid fa-circle-check text-danger"></i><div><strong>Earn 1 point per ₹10</strong><span>Points never expire — keep saving at your pace.</span></div></div>
+        <div class="loy-benefit"><i class="fa-solid fa-circle-check text-danger"></i><div><strong>Members-only flash sales</strong><span>Up to 60% off — exclusive to loyalty card holders.</span></div></div>
+        <div class="loy-benefit"><i class="fa-solid fa-circle-check text-danger"></i><div><strong>Free delivery threshold drops</strong><span>Members qualify for free delivery on orders above ₹299.</span></div></div>
+        <div class="loy-benefit"><i class="fa-solid fa-circle-check text-danger"></i><div><strong>Birthday bonus</strong><span>Double points for an entire week around your birthday.</span></div></div>
+      </div>
+      <div class="mt-4 d-flex gap-3 flex-wrap">
+        <a href="loyalty-card.html" class="btn btn-danger btn-lg px-4">Get Your Card</a>
+        <a href="login.html" class="btn btn-outline-danger btn-lg px-4">Login to Check Points</a>
+      </div>
+    </div>
+    <div class="col-lg-6 text-center">
+      <div class="loyalty-card-visual mx-auto" style="max-width:340px;">
+        <div class="loy-card-inner">
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <span class="loy-brand"><i class="fa-solid fa-basket-shopping me-1"></i>SuperMart</span>
+            <span class="loy-chip">LOYALTY</span>
+          </div>
+          <div class="loy-chip-icon"><i class="fa-solid fa-credit-card"></i></div>
+          <div class="loy-number mt-3">•••• •••• •••• 7842</div>
+          <div class="d-flex justify-content-between mt-4">
+            <div><div class="loy-label">Member Since</div><div class="loy-value">Jan 2024</div></div>
+            <div class="text-end"><div class="loy-label">Points Balance</div><div class="loy-value">2,480 pts</div></div>
+          </div>
+        </div>
+      </div>
+      <p class="text-muted mt-3 small">Sample card — actual points shown after login.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════
+     NEAREST BRANCH LOCATOR
+══════════════════════════════════════ -->
+<section class="py-5 bg-section">
+<div class="container">
+  <div class="text-center mb-4">
+    <span class="section-label">Find Us Near You</span>
+    <h2 class="section-title">Nearest SuperMart Branch</h2>
+    <p class="text-muted">Walk in, pick up your weekly offers, or call ahead and we'll have your order ready.</p>
+  </div>
+
+  <!-- Quick locator bar -->
+  <div class="locator-bar mb-5">
+    <i class="fa-solid fa-location-dot text-danger"></i>
+    <input type="text" class="locator-input" placeholder="Enter your city or pincode…" aria-label="Search by city or pincode">
+    <a href="store-locator.html" class="btn btn-danger px-4">Find Store</a>
+  </div>
+
+  <div class="row g-4">
+
+    <div class="col-md-6 col-lg-4">
+      <div class="branch-card">
+        <div class="branch-header">
+          <span class="branch-badge open">Open Now</span>
+          <span class="branch-dist"><i class="fa-solid fa-location-dot me-1"></i>1.2 km</span>
+        </div>
+        <h5 class="branch-name">SuperMart — RS Puram</h5>
+        <p class="branch-addr"><i class="fa-solid fa-map-pin me-2 text-danger"></i>14, Avinashi Road, RS Puram, Coimbatore – 641002</p>
+        <p class="branch-phone"><i class="fa-solid fa-phone me-2 text-danger"></i>+91 98765 43210</p>
+        <p class="branch-timing"><i class="fa-regular fa-clock me-2 text-danger"></i>8:00 AM – 10:00 PM · All days</p>
+        <div class="branch-actions">
+          <a href="store-locator.html" class="btn btn-sm btn-outline-danger">Get Directions</a>
+          <a href="tel:+919876543210" class="btn btn-sm btn-danger">Call Store</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+      <div class="branch-card">
+        <div class="branch-header">
+          <span class="branch-badge open">Open Now</span>
+          <span class="branch-dist"><i class="fa-solid fa-location-dot me-1"></i>3.5 km</span>
+        </div>
+        <h5 class="branch-name">SuperMart — Gandhipuram</h5>
+        <p class="branch-addr"><i class="fa-solid fa-map-pin me-2 text-danger"></i>37, Nehru Street, Gandhipuram, Coimbatore – 641012</p>
+        <p class="branch-phone"><i class="fa-solid fa-phone me-2 text-danger"></i>+91 98765 43211</p>
+        <p class="branch-timing"><i class="fa-regular fa-clock me-2 text-danger"></i>8:00 AM – 10:00 PM · All days</p>
+        <div class="branch-actions">
+          <a href="store-locator.html" class="btn btn-sm btn-outline-danger">Get Directions</a>
+          <a href="tel:+919876543211" class="btn btn-sm btn-danger">Call Store</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+      <div class="branch-card">
+        <div class="branch-header">
+          <span class="branch-badge open">Open Now</span>
+          <span class="branch-dist"><i class="fa-solid fa-location-dot me-1"></i>5.8 km</span>
+        </div>
+        <h5 class="branch-name">SuperMart — Saibaba Colony</h5>
+        <p class="branch-addr"><i class="fa-solid fa-map-pin me-2 text-danger"></i>5, 100 Feet Road, Saibaba Colony, Coimbatore – 641011</p>
+        <p class="branch-phone"><i class="fa-solid fa-phone me-2 text-danger"></i>+91 98765 43212</p>
+        <p class="branch-timing"><i class="fa-regular fa-clock me-2 text-danger"></i>8:00 AM – 10:00 PM · All days</p>
+        <div class="branch-actions">
+          <a href="store-locator.html" class="btn btn-sm btn-outline-danger">Get Directions</a>
+          <a href="tel:+919876543212" class="btn btn-sm btn-danger">Call Store</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="text-center mt-4">
+    <a href="store-locator.html" class="btn btn-outline-danger px-5">View All 48 Branches</a>
+  </div>
+</div>
+</section>
+
+<style>
+/* ── STORE TIMINGS ── */
+.timing-card{
+  background:var(--color-card);border-radius:16px;
+  box-shadow:var(--shadow);padding:32px 24px;
+  text-align:center;transition:var(--transition);
+}
+.timing-card.highlight{
+  background:var(--color-primary);color:#fff;
+}
+.timing-card.highlight h5,.timing-card.highlight p{color:#fff !important;}
+.timing-icon{
+  width:56px;height:56px;border-radius:50%;
+  background:rgba(230,57,70,.1);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 14px;font-size:22px;color:var(--color-primary);
+}
+.timing-card.highlight .timing-icon{background:rgba(255,255,255,.2);color:#fff;}
+.timing-card h5{font-weight:800;margin-bottom:4px;}
+.timing-days{font-size:13px;color:#888;margin-bottom:4px;}
+.timing-hours{font-size:1.1rem;font-weight:700;color:var(--color-primary);}
+.timing-card.highlight .timing-hours{color:#fff;}
+
+.timing-table{
+  max-width:540px;margin:0 auto;
+  background:var(--color-card);border-radius:14px;
+  box-shadow:var(--shadow);overflow:hidden;
+}
+.timing-row{
+  display:flex;align-items:center;gap:14px;
+  padding:12px 20px;border-bottom:1px solid var(--color-border);
+  font-size:14px;
+}
+.timing-row:last-child{border-bottom:none;}
+.timing-row.weekend{background:rgba(230,57,70,.04);}
+.timing-row .day{flex:1;font-weight:600;color:var(--color-text);}
+.timing-row .hrs{flex:1;text-align:right;color:#666;}
+
+/* ── LOYALTY CARD ── */
+.loyalty-benefits{display:flex;flex-direction:column;gap:16px;}
+.loy-benefit{display:flex;gap:14px;align-items:flex-start;}
+.loy-benefit i{font-size:20px;margin-top:2px;flex-shrink:0;}
+.loy-benefit div{display:flex;flex-direction:column;}
+.loy-benefit strong{font-size:15px;color:var(--color-text);}
+.loy-benefit span{font-size:13px;color:#888;margin-top:2px;}
+
+.loy-card-inner{
+  background:linear-gradient(135deg,#E63946,#c92e3a);
+  border-radius:20px;padding:30px 28px;color:#fff;
+  box-shadow:0 20px 50px rgba(230,57,70,.35);
+  transform:rotateY(-6deg) rotateX(3deg);transition:.4s;
+}
+.loy-card-inner:hover{transform:rotateY(0) rotateX(0);}
+.loy-brand{font-family:'Nunito',sans-serif;font-size:1.1rem;font-weight:800;}
+.loy-chip{background:rgba(255,255,255,.25);padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:1px;}
+.loy-chip-icon{font-size:2rem;opacity:.6;}
+.loy-number{font-size:1.05rem;font-weight:700;letter-spacing:3px;opacity:.9;}
+.loy-label{font-size:10px;opacity:.7;text-transform:uppercase;letter-spacing:.8px;}
+.loy-value{font-size:14px;font-weight:700;}
+
+/* ── BRANCH LOCATOR ── */
+.locator-bar{
+  display:flex;align-items:center;gap:12px;
+  background:var(--color-card);border-radius:50px;
+  padding:10px 10px 10px 22px;
+  box-shadow:var(--shadow);max-width:560px;margin-left:auto;margin-right:auto;
+}
+.locator-bar i{font-size:18px;flex-shrink:0;}
+.locator-input{
+  flex:1;border:none;outline:none;background:transparent;
+  font-size:15px;color:var(--color-text);
+}
+
+.branch-card{
+  background:var(--color-card);border-radius:16px;
+  box-shadow:var(--shadow);padding:24px;
+  transition:var(--transition);height:100%;
+  display:flex;flex-direction:column;gap:8px;
+}
+.branch-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);}
+.branch-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+.branch-badge.open{
+  display:inline-flex;align-items:center;gap:5px;
+  background:#d4edda;color:#155724;
+  padding:3px 10px;border-radius:20px;font-size:12px;font-weight:700;
+}
+.branch-badge.open::before{content:'';width:7px;height:7px;border-radius:50%;background:#28a745;display:inline-block;}
+.branch-dist{font-size:13px;color:#888;}
+.branch-name{font-weight:800;font-size:1rem;margin:0;}
+.branch-addr,.branch-phone,.branch-timing{font-size:13.5px;color:#666;margin:0;}
+.branch-actions{display:flex;gap:10px;margin-top:8px;}
+body.dark-mode .branch-badge.open{background:rgba(40,167,69,.2);color:#6fcf97;}
+body.dark-mode .timing-row .hrs{color:#aaa;}
+</style>
 
 <footer class="footer py-5">
 <div class="container">
