@@ -181,10 +181,16 @@
 /* ===== RESPONSIVENESS FIXES ===== */
 
 /* ── FIX 1: hamburger collapse overlays hero instead of pushing it ──
-   Position collapse absolute so it floats over the page content.
-   Applies to all mobile sizes (< 992px). */
+   Key: do NOT override .navbar position — Bootstrap's sticky-top must stay
+   so the navbar remains sticky while scrolling on mobile.
+   Instead, make the inner .container the positioning context and position
+   the collapse absolutely so it floats over content below. */
 @media(max-width:991.98px){
-  .navbar{ position:relative; }
+  /* Inner container is the positioning anchor for the absolute collapse */
+  .navbar .container,
+  .navbar .container-fluid{
+    position:relative;
+  }
   .navbar-collapse{
     position:absolute;
     top:100%;
@@ -198,17 +204,30 @@
     transition:none !important;
   }
   body.dark-mode .navbar-collapse{ background:#1a1a1a; }
-  .hero-slider,.hero-section{ transition:none; }
+  /* Theme toggle is btn-danger btn-sm when hoisted to navbar bar —
+     make it match the icon-btn style so it doesn't crowd the bar */
+  #navQuickControls #themeToggle{
+    width:34px;height:34px;padding:0;
+    border-radius:50%;
+    display:inline-flex;align-items:center;justify-content:center;
+  }
 }
 
-/* ── FIX 2: 360px — quick controls + brand + toggler row ──
-   Shrink brand text and quick control buttons so they don't
-   overlap the first nav link (Home) when the menu opens. */
+/* ── FIX 2: 360px — shrink everything in the navbar bar ──
+   Brand + hoisted controls + toggler must all fit in ~330px.
+   Also tighten the open-menu items for readability. */
 @media(max-width:400px){
   .navbar-brand{ font-size:1rem !important; }
-  #navQuickControls .nav-icon-btn{ width:28px !important; height:28px !important; font-size:.75rem !important; }
+  /* Uniformly shrink both icon-btns and the hoisted theme btn */
+  #navQuickControls .nav-icon-btn,
+  #navQuickControls #themeToggle{
+    width:28px !important;height:28px !important;
+    font-size:.75rem !important;padding:0 !important;
+    border-radius:50% !important;
+    display:inline-flex !important;align-items:center !important;justify-content:center !important;
+  }
   #navQuickControls{ gap:3px !important; margin-right:4px !important; }
-  /* inside open menu */
+  /* Open menu items */
   .navbar-nav .nav-link{ font-size:13px; padding:6px 8px; }
   .d-flex.align-items-center.gap-2.ms-lg-3{ flex-wrap:wrap; gap:6px !important; }
   .btn.btn-sm{ padding:4px 8px; font-size:12px; }
