@@ -181,16 +181,15 @@
 /* ===== RESPONSIVENESS FIXES ===== */
 
 /* ── FIX 1: hamburger collapse overlays hero instead of pushing it ──
-   Key: do NOT override .navbar position — Bootstrap's sticky-top must stay
-   so the navbar remains sticky while scrolling on mobile.
-   Instead, make the inner .container the positioning context and position
-   the collapse absolutely so it floats over content below. */
+   RTL + Theme stay INSIDE the collapse (no JS hoisting).
+   On mobile the navbar bar is just [Brand] [Hamburger] — clean and uncluttered.
+   The open collapse floats over hero content via position:absolute. */
 @media(max-width:991.98px){
-  /* Inner container is the positioning anchor for the absolute collapse */
+  /* Inner container is the positioning anchor */
   .navbar .container,
-  .navbar .container-fluid{
-    position:relative;
-  }
+  .navbar .container-fluid{ position:relative; }
+
+  /* Float the open collapse over page content */
   .navbar-collapse{
     position:absolute;
     top:100%;
@@ -199,38 +198,43 @@
     z-index:1050;
     background:var(--color-bg,#fff);
     box-shadow:0 8px 28px rgba(0,0,0,.14);
-    border-radius:0 0 14px 14px;
-    padding:10px 18px 18px;
+    border-radius:0 0 16px 16px;
+    padding:12px 20px 20px;
     transition:none !important;
+    max-height:85vh;
+    overflow-y:auto;
   }
   body.dark-mode .navbar-collapse{ background:#1a1a1a; }
-  /* Theme toggle is btn-danger btn-sm when hoisted to navbar bar —
-     make it match the icon-btn style so it doesn't crowd the bar */
-  #navQuickControls #themeToggle{
-    width:34px;height:34px;padding:0;
-    border-radius:50%;
+
+  /* Controls row (cart/wishlist/RTL/theme/Login) at bottom of mobile menu */
+  .navbar-collapse .d-flex.align-items-center.gap-2.ms-lg-3{
+    flex-wrap:wrap;
+    gap:8px !important;
+    margin-left:0 !important;
+    padding-top:12px;
+    border-top:1px solid var(--color-border,#eee);
+    margin-top:4px;
+    justify-content:flex-start;
+  }
+  body.dark-mode .navbar-collapse .d-flex.align-items-center.gap-2.ms-lg-3{
+    border-top-color:#333;
+  }
+  /* Theme toggle: make it icon-sized in the mobile menu */
+  .navbar-collapse #themeToggle{
+    width:38px;height:38px;padding:0;
+    border-radius:50% !important;
     display:inline-flex;align-items:center;justify-content:center;
   }
 }
 
-/* ── FIX 2: 360px — shrink everything in the navbar bar ──
-   Brand + hoisted controls + toggler must all fit in ~330px.
-   Also tighten the open-menu items for readability. */
+/* ── FIX 2: 360px — only Brand + Hamburger in the navbar bar ──
+   No hoisted controls, so no overflow risk. Just tighten nav items. */
 @media(max-width:400px){
   .navbar-brand{ font-size:1rem !important; }
-  /* Uniformly shrink both icon-btns and the hoisted theme btn */
-  #navQuickControls .nav-icon-btn,
-  #navQuickControls #themeToggle{
-    width:28px !important;height:28px !important;
-    font-size:.75rem !important;padding:0 !important;
-    border-radius:50% !important;
-    display:inline-flex !important;align-items:center !important;justify-content:center !important;
-  }
-  #navQuickControls{ gap:3px !important; margin-right:4px !important; }
-  /* Open menu items */
   .navbar-nav .nav-link{ font-size:13px; padding:6px 8px; }
-  .d-flex.align-items-center.gap-2.ms-lg-3{ flex-wrap:wrap; gap:6px !important; }
-  .btn.btn-sm{ padding:4px 8px; font-size:12px; }
+  .navbar-collapse .d-flex.align-items-center.gap-2.ms-lg-3{
+    gap:6px !important;
+  }
 }
 
 /* ── DESKTOP NAVBAR: hide search, size nav for readability ── */
@@ -269,11 +273,8 @@
   .nav-icon-btn{ width:38px !important; height:38px !important; font-size:15px !important; }
 }
 
-/* ── MOBILE NAV QUICK CONTROLS ──
-   On mobile, main.js hoists RTL + theme outside the collapse
-   so they appear before the hamburger toggler. */
-#navQuickControls{flex-shrink:0;gap:4px !important;margin-right:6px !important;}
-#navQuickControls .nav-icon-btn{width:34px;height:34px;font-size:.85rem;}
+/* ── MOBILE NAV: controls stay inside collapse (no JS hoisting) ──
+   Navbar bar on mobile is just [Brand] + [Hamburger]. Clean. */
 
 /* ── CATEGORY CARD BULLET ALIGNMENT ──
    Card is text-align:center, so inline items shift per line length.

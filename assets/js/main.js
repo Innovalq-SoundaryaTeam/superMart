@@ -68,27 +68,10 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // ── HOIST RTL + THEME OUTSIDE COLLAPSE (mobile only) ──
-    // On desktop the collapse is always expanded — RTL/theme are visible inside it.
-    // On mobile the collapse is hidden behind the hamburger, so we move
-    // RTL + theme outside so they always appear before the toggler button.
-    (function hoistNavControls(){
-        if (window.innerWidth >= 992) return; // desktop: collapse is open, do nothing
-
-        const navbar  = document.querySelector('.navbar .container, .navbar .container-fluid');
-        const toggler = navbar && navbar.querySelector('.navbar-toggler');
-        const rtlEl   = document.getElementById('rtlToggle');
-        const themeEl = document.getElementById('themeToggle');
-        if (!navbar || !toggler || !rtlEl || !themeEl) return;
-        if (!rtlEl.closest('.navbar-collapse')) return; // already hoisted
-
-        const wrap = document.createElement('div');
-        wrap.id = 'navQuickControls';
-        wrap.className = 'd-flex align-items-center gap-1 ms-auto me-2';
-        wrap.appendChild(rtlEl);
-        wrap.appendChild(themeEl);
-        navbar.insertBefore(wrap, toggler);
-    })();
+    // ── RTL + THEME stay inside the collapse on ALL screen sizes ──
+    // On desktop (≥992px) the collapse is always expanded — controls visible in navbar.
+    // On mobile (<992px) they appear at the bottom of the hamburger menu.
+    // This matches the SoleShift reference pattern and avoids navbar-bar crowding at 360px.
 
     // ── SEARCH ICON TOGGLE (desktop) ──
     // On desktop (≥992px), the search bar collapses to an icon.
