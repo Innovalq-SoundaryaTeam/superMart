@@ -317,9 +317,8 @@
 .h2-above-footer,.newsletter{padding-top:60px;padding-bottom:60px;}
 
 /* ── ACCORDION ARROW FIX ──
-   Bootstrap's ::after uses margin-left:auto (flex) to push arrow right.
-   In RTL mode (direction:rtl inherited from section), flex reverses and
-   the arrow collapses next to the text. Explicitly reset for each mode. */
+   LTR: force ltr so inherited rtl-mode direction doesn't flip the arrow.
+   RTL: use absolute positioning — most reliable way to pin arrow to the left. */
 .accordion-button{
   direction:ltr;
   text-align:left;
@@ -331,10 +330,14 @@
 body.rtl-mode .accordion-button{
   direction:rtl;
   text-align:right;
+  padding-left:3rem !important;
+  padding-right:1.25rem !important;
 }
 body.rtl-mode .accordion-button::after{
-  margin-left:0 !important;
-  margin-right:auto !important;
+  position:absolute !important;
+  left:0.75rem !important;
+  right:auto !important;
+  margin:0 !important;
 }
 
 /* ── RTL TOGGLE ACTIVE STATE ──
