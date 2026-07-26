@@ -41,10 +41,18 @@ body.rtl-mode .footer{
     direction:rtl;
     text-align:right;
 }
-/* Page hero always stays centered regardless of RTL */
-body.rtl-mode .page-hero{
+/* Hero/header sections always stay centered regardless of RTL */
+body.rtl-mode .page-hero,
+body.rtl-mode .service-hero,
+body.rtl-mode .page-header{
     direction:rtl;
     text-align:center;
+}
+
+/* Breadcrumb: keep LTR order (Home › Services reads left-to-right in any language) */
+body.rtl-mode .breadcrumb{
+    direction:ltr;
+    justify-content:center;
 }
 
 /* ---- PRODUCT BADGE ---- */
