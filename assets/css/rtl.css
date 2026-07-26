@@ -116,12 +116,10 @@ body.rtl-mode .form-select{
     text-align:right;
     direction:rtl;
 }
-/* Phone, number, email and date: always render content LTR
-   (digits & addresses read left-to-right regardless of UI direction) */
-body.rtl-mode input[type="tel"],
-body.rtl-mode input[type="number"],
+/* Email and date stay LTR (email addresses and dates always read left-to-right) */
 body.rtl-mode input[type="email"],
 body.rtl-mode input[type="date"]{
     direction:ltr;
     text-align:left;
 }
+/* tel/number inputs follow RTL so placeholder aligns right */
