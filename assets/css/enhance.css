@@ -284,10 +284,13 @@
   flex-direction:column;
   overflow:hidden;
 }
-/* Image: full width, natural height — no crop, no empty space */
+/* Image: fixed height, full image visible, background matches card so no visible gap */
 .category-card>img{
   width:100%;
-  height:auto;
+  height:220px;
+  object-fit:contain;
+  background:var(--color-card);
+  padding:8px;
   display:block;
   flex-shrink:0;
 }
