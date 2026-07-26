@@ -91,3 +91,25 @@ body.rtl-mode .plan-card{text-align:right;}
 body.rtl-mode .plan-features li{flex-direction:row-reverse;}
 body.rtl-mode .footer{direction:rtl;text-align:right;}
 body.rtl-mode footer .list-unstyled{padding-right:0;padding-left:0;}
+
+/* ---- FORMS IN RTL MODE ---- */
+/* Labels align right with the rest of the RTL content */
+body.rtl-mode .form-label{
+    display:block;
+    text-align:right;
+}
+/* General inputs: right-align text so it reads naturally in RTL */
+body.rtl-mode .form-control,
+body.rtl-mode .form-select{
+    text-align:right;
+    direction:rtl;
+}
+/* Phone, number, email and date: always render content LTR
+   (digits & addresses read left-to-right regardless of UI direction) */
+body.rtl-mode input[type="tel"],
+body.rtl-mode input[type="number"],
+body.rtl-mode input[type="email"],
+body.rtl-mode input[type="date"]{
+    direction:ltr;
+    text-align:left;
+}
