@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SuperMart | Shop by Category</title>
+<title>SuperMart | Express Delivery — Order Now</title>
 <meta name="description" content="Shop fresh groceries by category — fruits, dairy, bakery, snacks, beverages and more at SuperMart.">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,28 +16,47 @@
 <link rel="stylesheet" href="../assets/css/enhance.css">
 <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
 <style>
-/* ── HERO ── */
+/* ── HERO — dark "express" theme (visually distinct from Home1's light hero) ── */
 .h2-hero{
-  background:linear-gradient(120deg,#fff5f5 0%,#fff 100%);
+  background:linear-gradient(140deg,#0d0507 0%,#1e0c10 50%,#111 100%);
   padding:80px 0 60px;
   overflow:hidden;
   min-height:calc(100vh - 100px);
   display:flex;
   align-items:center;
+  position:relative;
 }
-body.dark-mode .h2-hero{background:linear-gradient(120deg,#1a0a0a 0%,#1e1e1e 100%);}
-.h2-hero h1{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:800;line-height:1.2;}
+/* Dual red glow for depth */
+.h2-hero::before{
+  content:'';position:absolute;top:-80px;right:-80px;
+  width:560px;height:560px;
+  background:radial-gradient(circle,rgba(230,57,70,.2) 0%,transparent 68%);
+  pointer-events:none;z-index:0;
+}
+.h2-hero::after{
+  content:'';position:absolute;bottom:-60px;left:-60px;
+  width:380px;height:380px;
+  background:radial-gradient(circle,rgba(230,57,70,.1) 0%,transparent 68%);
+  pointer-events:none;z-index:0;
+}
+body.dark-mode .h2-hero{background:linear-gradient(140deg,#080204 0%,#1a080c 50%,#0a0a0a 100%);}
+.h2-hero>.container,.h2-hero .container{position:relative;z-index:1;}
+.h2-hero h1{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:800;line-height:1.2;color:#fff;}
+.h2-hero .lead{color:rgba(255,255,255,.76)!important;}
 .h2-hero .hero-img{
   max-height:420px;object-fit:contain;
-  filter:drop-shadow(0 16px 40px rgba(230,57,70,.2));
+  filter:drop-shadow(0 16px 40px rgba(230,57,70,.32));
 }
+/* Glass-pill category buttons for dark hero */
 .cat-pill{
-  display:inline-block;background:#fff;border:2px solid var(--color-border);
+  display:inline-block;
+  background:rgba(255,255,255,.1);
+  border:1.5px solid rgba(255,255,255,.25);
   border-radius:50px;padding:8px 20px;font-size:13px;font-weight:700;
-  color:var(--color-text);text-decoration:none;transition:var(--transition);margin:4px;
+  color:rgba(255,255,255,.9);text-decoration:none;transition:var(--transition);margin:4px;
 }
 .cat-pill:hover,.cat-pill.active{background:var(--color-primary);color:#fff;border-color:var(--color-primary);}
-body.dark-mode .cat-pill{background:#2a2a2a;border-color:#444;}
+body.dark-mode .cat-pill{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.18);}
 
 /* ── CATEGORY GRID ── */
 .cat-card{
@@ -165,7 +184,13 @@ body.dark-mode .cat-pill{background:#2a2a2a;border-color:#444;}
 </div>
 <div class="d-flex gap-3 flex-wrap">
 <a href="offers.html" class="btn btn-danger btn-lg px-4">Shop Today's Deals</a>
-<a href="categories.html" class="btn btn-outline-danger btn-lg px-4">Browse All</a>
+<a href="categories.html" class="btn btn-outline-light btn-lg px-4">Browse All</a>
+</div>
+<div class="d-flex gap-4 mt-4 flex-wrap" style="border-top:1px solid rgba(255,255,255,.12);padding-top:20px;">
+<div><div class="fw-bold fs-5" style="color:#fff;">50K+</div><div style="color:rgba(255,255,255,.56);font-size:12px;">Happy Customers</div></div>
+<div><div class="fw-bold fs-5" style="color:#fff;">5,000+</div><div style="color:rgba(255,255,255,.56);font-size:12px;">Products</div></div>
+<div><div class="fw-bold fs-5 text-danger">15 min</div><div style="color:rgba(255,255,255,.56);font-size:12px;">Avg Delivery</div></div>
+<div><div class="fw-bold fs-5" style="color:#fff;">50+</div><div style="color:rgba(255,255,255,.56);font-size:12px;">Store Locations</div></div>
 </div>
 </div>
 <div class="col-lg-6 text-center">
@@ -601,16 +626,16 @@ body.dark-mode .cat-pill{background:#2a2a2a;border-color:#444;}
 </section>
 
 <!-- ── DELIVERY CTA ── -->
-<section class="py-5 py-md-5" style="background:linear-gradient(120deg,#fff5f5,#fff);padding-top:48px !important;padding-bottom:48px !important;">
+<section class="py-5 py-md-5" style="background:linear-gradient(140deg,#0d0507,#1e0c10);padding-top:48px !important;padding-bottom:48px !important;">
 <div class="container">
 <div class="row align-items-center g-4 text-center text-lg-start">
 <div class="col-lg-8">
-<h2>Get Groceries Delivered in <span class="text-danger">15 Minutes</span></h2>
-<p class="text-muted mb-0 lead">Available 7 days a week, 8 AM – 10 PM. Free delivery on orders above ₹499.</p>
+<h2 style="color:#fff;">Get Groceries Delivered in <span style="color:#E63946;">15 Minutes</span></h2>
+<p style="color:rgba(255,255,255,.72);" class="mb-0 lead">Available 7 days a week, 8 AM – 10 PM. Free delivery on orders above ₹499.</p>
 </div>
 <div class="col-lg-4 d-flex flex-wrap gap-2 justify-content-center justify-content-lg-end align-items-center">
 <a href="store-locator.html" class="btn btn-danger btn-lg px-4">Find a Store</a>
-<a href="services.html" class="btn btn-outline-danger btn-lg px-4">Our Services</a>
+<a href="services.html" class="btn btn-outline-light btn-lg px-4">Our Services</a>
 </div>
 </div>
 </div>

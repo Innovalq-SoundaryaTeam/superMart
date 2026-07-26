@@ -170,15 +170,19 @@ document.addEventListener("DOMContentLoaded", () => {
         const isRTL = document.body.classList.contains('rtl-mode');
         const icon = rtlBtn.querySelector('i');
         if (icon) icon.className = isRTL ? 'fa-solid fa-arrow-right-long' : 'fa-solid fa-arrow-left-long';
+        rtlBtn.title = isRTL ? 'Currently: RTL — click to switch to LTR' : 'Switch direction (LTR → RTL)';
     }
 
     // Bind RTL click (works for both floating and navbar versions)
-    rtlBtn.addEventListener('click', () => {
+    // stopPropagation ensures this click never bubbles to document-level handlers
+    rtlBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
         const nowRTL = !document.body.classList.contains('rtl-mode');
         document.body.classList.toggle('rtl-mode', nowRTL);
         localStorage.setItem('smRTL', nowRTL ? '1' : '0');
         const icon = rtlBtn.querySelector('i');
         if (icon) icon.className = nowRTL ? 'fa-solid fa-arrow-right-long' : 'fa-solid fa-arrow-left-long';
+        rtlBtn.title = nowRTL ? 'Currently: RTL — click to switch to LTR' : 'Switch direction (LTR → RTL)';
         if (rtlBtn.textContent.includes('LTR') || rtlBtn.textContent.includes('RTL')) {
             rtlBtn.innerHTML = nowRTL
               ? '<i class="fa-solid fa-arrow-right-long"></i> LTR'

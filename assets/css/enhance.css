@@ -298,3 +298,33 @@
 
 /* Fix: home2 above-footer CTA padding */
 .h2-above-footer,.newsletter{padding-top:60px;padding-bottom:60px;}
+
+/* ── ACCORDION ARROW FIX ──
+   Bootstrap's ::after uses margin-left:auto (flex) to push arrow right.
+   In RTL mode (direction:rtl inherited from section), flex reverses and
+   the arrow collapses next to the text. Explicitly reset for each mode. */
+.accordion-button{
+  direction:ltr;
+  text-align:left;
+}
+.accordion-button::after{
+  margin-left:auto !important;
+  margin-right:0 !important;
+}
+body.rtl-mode .accordion-button{
+  direction:rtl;
+  text-align:right;
+}
+body.rtl-mode .accordion-button::after{
+  margin-left:0 !important;
+  margin-right:auto !important;
+}
+
+/* ── RTL TOGGLE ACTIVE STATE ──
+   When RTL mode is on, make the toggle button clearly red/filled
+   so users always know which direction mode is active. */
+body.rtl-mode #rtlToggle{
+  background:var(--color-primary) !important;
+  color:#fff !important;
+  border-color:var(--color-primary) !important;
+}
