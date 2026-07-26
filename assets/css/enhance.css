@@ -276,13 +276,25 @@
 /* ── MOBILE NAV: controls stay inside collapse (no JS hoisting) ──
    Navbar bar on mobile is just [Brand] + [Hamburger]. Clean. */
 
-/* ── CATEGORY CARD BULLET ALIGNMENT ──
-   Card is text-align:center, so inline items shift per line length.
-   Make the ul inline-block so it centers as a block,
-   then left-align text inside and use flex rows for icon+text. */
+/* ── CATEGORY CARD LAYOUT ──
+   Bullet points centered vertically, Shop button pinned to bottom.
+   Uses flex column + auto-margins (no HTML changes needed). */
+.category-card{
+  display:flex;
+  flex-direction:column;
+}
+.category-card .card-body{
+  display:flex;
+  flex-direction:column;
+  flex:1;
+  align-items:center;
+}
+/* Auto-margins vertically center the ul between the heading and button */
 .category-card .card-body ul.list-unstyled{
-  display:inline-block;
+  margin-top:auto !important;
+  margin-bottom:auto !important;
   text-align:left;
+  width:fit-content;
 }
 .category-card .card-body ul.list-unstyled li{
   display:flex;
@@ -294,6 +306,11 @@
   flex-shrink:0;
   width:14px;
   text-align:center;
+}
+/* Button always at bottom */
+.category-card .card-body .btn{
+  margin-top:0;
+  flex-shrink:0;
 }
 
 /* Fix: home2 above-footer CTA padding */
