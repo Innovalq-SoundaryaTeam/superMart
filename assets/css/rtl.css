@@ -123,3 +123,30 @@ body.rtl-mode input[type="date"]{
     text-align:left;
 }
 /* tel/number inputs follow RTL so placeholder aligns right */
+
+/* ---- LTR CONTENT INSIDE RTL PAGE ----
+   Use class="ltr-content" on any column whose text should stay
+   left-aligned even when the page is in RTL mode.
+   The columns still visually swap (row flex container remains RTL),
+   but all text, labels and inputs inside stay left-aligned. */
+body.rtl-mode .ltr-content{
+    direction:ltr;
+    text-align:left;
+}
+body.rtl-mode .ltr-content h2,
+body.rtl-mode .ltr-content h3,
+body.rtl-mode .ltr-content h4,
+body.rtl-mode .ltr-content p{
+    text-align:left;
+}
+body.rtl-mode .ltr-content .form-label{
+    text-align:left;
+}
+body.rtl-mode .ltr-content .form-control,
+body.rtl-mode .ltr-content .form-select{
+    direction:ltr;
+    text-align:left;
+}
+body.rtl-mode .ltr-content .benefit-item{
+    flex-direction:row;
+}
