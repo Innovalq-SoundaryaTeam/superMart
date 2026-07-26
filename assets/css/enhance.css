@@ -351,6 +351,13 @@ body.rtl-mode .accordion-button::after{
   margin:0 !important;
 }
 
+/* ── SUPERMART BRAND COLOR ──
+   Navbar: .logo already uses var(--color-primary).
+   Footer: target the h5 that contains the basket icon. */
+.footer h5:has(.fa-basket-shopping){
+  color:var(--color-primary);
+}
+
 /* ── RTL TOGGLE ACTIVE STATE ──
    When RTL mode is on, make the toggle button clearly red/filled
    so users always know which direction mode is active. */

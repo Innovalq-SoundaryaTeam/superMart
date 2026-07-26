@@ -72,7 +72,7 @@ body.dark-mode .navbar-nav .nav-link.active{
     font-weight:700;
 }
 body.dark-mode .navbar-brand.logo{
-    color:#ffffff !important;
+    color:var(--color-primary) !important;
 }
 body.dark-mode .nav-icon-btn{
     color:#e8eaf0 !important;
