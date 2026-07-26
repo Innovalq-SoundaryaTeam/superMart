@@ -34,13 +34,17 @@ body.rtl-mode .navbar .d-flex.align-items-center.gap-2.ms-lg-3{
 
 /* ---- CONTENT AREAS ONLY (navbar excluded) ---- */
 body.rtl-mode main,
-body.rtl-mode .page-hero,
 body.rtl-mode .page-header,
 body.rtl-mode section,
 body.rtl-mode .hero-slider,
 body.rtl-mode .footer{
     direction:rtl;
     text-align:right;
+}
+/* Page hero always stays centered regardless of RTL */
+body.rtl-mode .page-hero{
+    direction:rtl;
+    text-align:center;
 }
 
 /* ---- PRODUCT BADGE ---- */
