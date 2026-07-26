@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SuperMart | Express Delivery — Order Now</title>
-<meta name="description" content="Shop fresh groceries by category — fruits, dairy, bakery, snacks, beverages and more at SuperMart.">
+<title>SuperMart | Fresh From the Farm — Natural Market</title>
+<meta name="description" content="Shop 100% farm-fresh produce, organic dairy, artisan bakery and pantry staples delivered to your door from SuperMart.">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -16,80 +16,101 @@
 <link rel="stylesheet" href="../assets/css/enhance.css">
 <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
 <style>
-/* ── HERO — dark "express" theme (visually distinct from Home1's light hero) ── */
+/* ══════════════════════════════════════════
+   HOME2 — FRESH GREEN / NATURAL MARKET
+   Completely distinct from Home1's red/dark theme
+══════════════════════════════════════════ */
+
+/* ── HERO ── */
 .h2-hero{
-  background:linear-gradient(140deg,#0d0507 0%,#1e0c10 50%,#111 100%);
-  padding:80px 0 60px;
-  overflow:hidden;
-  min-height:calc(100vh - 100px);
-  display:flex;
-  align-items:center;
-  position:relative;
+  background:linear-gradient(140deg,#0a2010 0%,#1a4a1e 55%,#0f2f14 100%);
+  padding:80px 0 60px;min-height:calc(100vh - 100px);
+  display:flex;align-items:center;overflow:hidden;position:relative;
 }
-/* Dual red glow for depth */
 .h2-hero::before{
-  content:'';position:absolute;top:-80px;right:-80px;
-  width:560px;height:560px;
-  background:radial-gradient(circle,rgba(230,57,70,.2) 0%,transparent 68%);
+  content:'';position:absolute;top:-100px;right:-100px;
+  width:640px;height:640px;
+  background:radial-gradient(circle,rgba(76,175,80,.18) 0%,transparent 70%);
   pointer-events:none;z-index:0;
 }
 .h2-hero::after{
-  content:'';position:absolute;bottom:-60px;left:-60px;
-  width:380px;height:380px;
-  background:radial-gradient(circle,rgba(230,57,70,.1) 0%,transparent 68%);
+  content:'';position:absolute;bottom:-80px;left:-60px;
+  width:420px;height:420px;
+  background:radial-gradient(circle,rgba(139,195,74,.12) 0%,transparent 70%);
   pointer-events:none;z-index:0;
 }
-body.dark-mode .h2-hero{background:linear-gradient(140deg,#080204 0%,#1a080c 50%,#0a0a0a 100%);}
-.h2-hero>.container,.h2-hero .container{position:relative;z-index:1;}
+body.dark-mode .h2-hero{background:linear-gradient(140deg,#050f07 0%,#0d2410 55%,#071508 100%);}
+.h2-hero>.container{position:relative;z-index:1;}
 .h2-hero h1{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:800;line-height:1.2;color:#fff;}
 .h2-hero .lead{color:rgba(255,255,255,.76)!important;}
 .h2-hero .hero-img{
-  max-height:420px;object-fit:contain;
-  filter:drop-shadow(0 16px 40px rgba(230,57,70,.32));
+  max-height:460px;width:100%;object-fit:cover;border-radius:24px;
+  box-shadow:0 24px 64px rgba(0,0,0,.45);
 }
-/* Glass-pill category buttons for dark hero */
-.cat-pill{
-  display:inline-block;
-  background:rgba(255,255,255,.1);
-  border:1.5px solid rgba(255,255,255,.25);
-  border-radius:50px;padding:8px 20px;font-size:13px;font-weight:700;
-  color:rgba(255,255,255,.9);text-decoration:none;transition:var(--transition);margin:4px;
+.fresh-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(76,175,80,.22);border:1px solid rgba(76,175,80,.4);
+  color:#a5d6a7;border-radius:50px;padding:8px 18px;
+  font-size:13px;font-weight:700;margin-bottom:20px;
 }
-.cat-pill:hover,.cat-pill.active{background:var(--color-primary);color:#fff;border-color:var(--color-primary);}
-body.dark-mode .cat-pill{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.18);}
 
-/* ── CATEGORY GRID ── */
-.cat-card{
-  background:var(--color-card);border-radius:16px;padding:24px 16px;text-align:center;
-  box-shadow:var(--shadow);transition:var(--transition);text-decoration:none;color:var(--color-text);
-  display:block;height:100%;
-}
-.cat-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-hover);color:var(--color-primary);}
-.cat-card img{width:72px;height:72px;object-fit:contain;margin:0 auto 12px;display:block;}
-.cat-card .cat-name{font-weight:700;font-size:15px;}
-.cat-card .cat-count{font-size:12px;color:var(--color-muted);margin-top:3px;}
+/* ── TRUST STRIP ── */
+.trust-strip{background:var(--color-section);border-bottom:1px solid var(--color-border,#eee);}
+.trust-item{display:flex;align-items:center;gap:10px;padding:14px 0;font-size:13px;font-weight:600;}
+.trust-item i{font-size:1.2rem;color:#4caf50;flex-shrink:0;}
 
-/* ── USP STRIP ── */
-.usp-strip{background:var(--color-section);padding:50px 0;}
-.usp-card{text-align:center;padding:24px 16px;}
-.usp-icon{
-  width:64px;height:64px;border-radius:50%;background:rgba(230,57,70,.1);
+/* ── CATEGORY BANNER TILES ── */
+.cat-banner{
+  border-radius:18px;overflow:hidden;position:relative;
+  display:block;text-decoration:none;
+}
+.cat-banner img{width:100%;height:220px;object-fit:cover;transition:transform .45s ease;display:block;}
+.cat-banner:hover img{transform:scale(1.06);}
+.cat-banner-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 25%,rgba(0,0,0,.75) 100%);
+  display:flex;flex-direction:column;justify-content:flex-end;padding:22px;
+}
+.cat-banner-overlay h5{color:#fff;font-weight:800;font-size:1.1rem;margin:0 0 3px;}
+.cat-banner-overlay span{color:rgba(255,255,255,.72);font-size:12px;}
+.cat-banner-tall img{height:462px;}
+
+/* ── FARM-TO-TABLE SECTION ── */
+.farm-img{border-radius:20px;width:100%;height:420px;object-fit:cover;box-shadow:0 20px 60px rgba(0,0,0,.14);}
+.farm-check{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;}
+.farm-check-icon{width:28px;height:28px;border-radius:50%;background:#e8f5e9;color:#2e7d32;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;font-weight:700;}
+body.dark-mode .farm-check-icon{background:rgba(76,175,80,.2);color:#81c784;}
+
+/* ── PROMISE CARDS ── */
+.promise-card{
+  text-align:center;padding:30px 20px;border-radius:18px;
+  background:var(--color-card);box-shadow:var(--shadow);transition:var(--transition);height:100%;
+}
+.promise-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-hover);}
+.promise-icon{
+  width:72px;height:72px;border-radius:50%;
+  background:linear-gradient(135deg,#e8f5e9,#c8e6c9);
   display:flex;align-items:center;justify-content:center;
-  font-size:1.6rem;color:var(--color-primary);margin:0 auto 16px;
-  transition:var(--transition);
+  font-size:1.8rem;color:#2e7d32;margin:0 auto 18px;transition:var(--transition);
 }
-.usp-card:hover .usp-icon{background:var(--color-primary);color:#fff;}
-.usp-card h6{font-weight:700;margin-bottom:6px;}
+.promise-card:hover .promise-icon{background:linear-gradient(135deg,#4caf50,#1b5e20);color:#fff;}
+body.dark-mode .promise-icon{background:rgba(76,175,80,.18);}
 
-/* ── LOYALTY BANNER ── */
-.loyalty-banner{
-  background:linear-gradient(135deg,var(--color-primary),#ff6b6b);
-  color:#fff;padding:60px 0;
+/* ── SEASONAL DEALS BANNER ── */
+.seasonal-banner{
+  background:linear-gradient(135deg,#f1f8e9,#e8f5e9);
+  border-radius:24px;padding:48px 40px;
 }
-.loyalty-banner h2{color:#fff;font-size:clamp(1.6rem,3.5vw,2.4rem);}
-.loyalty-banner p{color:rgba(255,255,255,.85);}
+body.dark-mode .seasonal-banner{background:linear-gradient(135deg,#0d2010,#112516);}
 
-/* ── TESTIMONIALS ── */
+/* ── GREEN CTA ── */
+.green-cta{
+  background:linear-gradient(140deg,#0a2010,#1a4a1e,#0f2f14);
+  padding:72px 0;
+}
+
+/* ── REVIEW CARDS ── */
 .review-card{
   background:var(--color-card);border-radius:16px;padding:28px;
   box-shadow:var(--shadow);transition:var(--transition);height:100%;
@@ -107,9 +128,10 @@ body.dark-mode .cat-pill{background:rgba(255,255,255,.07);border-color:rgba(255,
 .blog2-card img{width:100%;height:180px;object-fit:cover;}
 .blog2-card .card-body{padding:20px;}
 .blog2-tag{
-  display:inline-block;background:rgba(230,57,70,.1);color:var(--color-primary);
+  display:inline-block;background:rgba(46,125,50,.12);color:#2e7d32;
   font-size:11px;font-weight:700;padding:3px 10px;border-radius:50px;margin-bottom:8px;
 }
+body.dark-mode .blog2-tag{background:rgba(76,175,80,.2);color:#81c784;}
 </style>
 </head>
 <body>
@@ -164,278 +186,146 @@ body.dark-mode .cat-pill{background:rgba(255,255,255,.07);border-color:rgba(255,
 
 <main id="main-content">
 
-<!-- ── HERO ── -->
+<!-- ══ HERO — fresh green natural market ══ -->
 <section class="h2-hero">
 <div class="container">
 <div class="row align-items-center g-5">
 <div class="col-lg-6">
-<span class="badge bg-danger mb-3 px-3 py-2" style="font-size:13px;border-radius:50px;">
-<i class="fa-solid fa-bolt me-1"></i> 15-Minute Express Delivery
-</span>
-<h1>Everything Fresh.<br><span class="text-danger">Delivered Fast.</span></h1>
-<p class="lead mt-3 mb-4 text-muted">From farm-fresh produce to pantry staples — shop over 5,000 products and get them at your door in minutes.</p>
-<div class="mb-4 d-flex flex-wrap gap-2">
-<a href="offers.html?cat=produce" class="cat-pill"><i class="fa-solid fa-apple-whole me-1 text-danger"></i>Fruits & Veg</a>
-<a href="offers.html?cat=dairy" class="cat-pill"><i class="fa-solid fa-droplet me-1 text-danger"></i>Dairy</a>
-<a href="offers.html?cat=bakery" class="cat-pill"><i class="fa-solid fa-bread-slice me-1 text-danger"></i>Bakery</a>
-<a href="offers.html?cat=snacks" class="cat-pill"><i class="fa-solid fa-cookie-bite me-1 text-danger"></i>Snacks</a>
-<a href="offers.html?cat=frozen" class="cat-pill"><i class="fa-solid fa-snowflake me-1 text-danger"></i>Frozen</a>
-<a href="categories.html" class="cat-pill"><i class="fa-solid fa-ellipsis me-1 text-danger"></i>More</a>
+<div class="fresh-badge"><i class="fa-solid fa-seedling"></i> 100% Farm Fresh · Sourced Daily</div>
+<h1>Nature's Best,<br><span style="color:#a5d6a7;">Right at Your Door.</span></h1>
+<p class="lead mt-3 mb-4">Fresh fruits, farm vegetables, organic dairy and wholesome pantry staples — harvested today, delivered to you.</p>
+<div class="d-flex gap-3 flex-wrap mb-4">
+<a href="offers.html" class="btn btn-lg px-4 fw-bold" style="background:#4caf50;border:none;color:#fff;border-radius:50px;">
+<i class="fa-solid fa-cart-shopping me-2"></i>Shop Fresh Now
+</a>
+<a href="categories.html" class="btn btn-outline-light btn-lg px-4" style="border-radius:50px;">Explore All</a>
 </div>
-<div class="d-flex gap-3 flex-wrap">
-<a href="offers.html" class="btn btn-danger btn-lg px-4">Shop Today's Deals</a>
-<a href="categories.html" class="btn btn-outline-light btn-lg px-4">Browse All</a>
-</div>
-<div class="d-flex gap-4 mt-4 flex-wrap" style="border-top:1px solid rgba(255,255,255,.12);padding-top:20px;">
-<div><div class="fw-bold fs-5" style="color:#fff;">50K+</div><div style="color:rgba(255,255,255,.56);font-size:12px;">Happy Customers</div></div>
-<div><div class="fw-bold fs-5" style="color:#fff;">5,000+</div><div style="color:rgba(255,255,255,.56);font-size:12px;">Products</div></div>
-<div><div class="fw-bold fs-5 text-danger">15 min</div><div style="color:rgba(255,255,255,.56);font-size:12px;">Avg Delivery</div></div>
-<div><div class="fw-bold fs-5" style="color:#fff;">50+</div><div style="color:rgba(255,255,255,.56);font-size:12px;">Store Locations</div></div>
+<div class="d-flex gap-4 flex-wrap pt-3" style="border-top:1px solid rgba(255,255,255,.14);">
+<div><div class="fw-bold fs-5 text-white">200+</div><div style="color:rgba(255,255,255,.55);font-size:12px;">Partner Farms</div></div>
+<div><div class="fw-bold fs-5 text-white">3,000+</div><div style="color:rgba(255,255,255,.55);font-size:12px;">Fresh Products</div></div>
+<div><div class="fw-bold fs-5" style="color:#a5d6a7;">Daily</div><div style="color:rgba(255,255,255,.55);font-size:12px;">Restocked</div></div>
+<div><div class="fw-bold fs-5 text-white">₹99</div><div style="color:rgba(255,255,255,.55);font-size:12px;">Delivery</div></div>
 </div>
 </div>
-<div class="col-lg-6 text-center">
-<img src="../assets/images/hero-banner.png" class="hero-img img-fluid" alt="Fresh groceries at SuperMart" loading="eager">
+<div class="col-lg-6">
+<img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=700&q=80"
+  class="hero-img img-fluid" alt="Fresh produce at SuperMart" loading="eager">
 </div>
 </div>
 </div>
 </section>
 
-<!-- ── SHOP BY CATEGORY ── -->
+<!-- ══ TRUST STRIP ══ -->
+<div class="trust-strip py-2">
+<div class="container">
+<div class="row g-0 text-center">
+<div class="col-6 col-md-3"><div class="trust-item justify-content-center"><i class="fa-solid fa-leaf"></i><span>Organic Certified</span></div></div>
+<div class="col-6 col-md-3"><div class="trust-item justify-content-center"><i class="fa-solid fa-truck-fast"></i><span>Same-Day Delivery</span></div></div>
+<div class="col-6 col-md-3"><div class="trust-item justify-content-center"><i class="fa-solid fa-rotate-left"></i><span>Easy Returns</span></div></div>
+<div class="col-6 col-md-3"><div class="trust-item justify-content-center"><i class="fa-solid fa-lock"></i><span>Secure Checkout</span></div></div>
+</div>
+</div>
+</div>
+
+<!-- ══ MARKET AISLES — large image banner tiles ══ -->
 <section class="py-5">
 <div class="container">
 <div class="text-center mb-5">
-<h2>Shop by Category</h2>
-<p class="text-muted">Browse our full range — fresh, frozen, and everything in between.</p>
+<span class="badge px-3 py-2 mb-3" style="background:#e8f5e9;color:#2e7d32;border-radius:50px;font-size:13px;">🌿 Shop by Aisle</span>
+<h2>Fresh Market Aisles</h2>
+<p class="text-muted">Explore our curated sections — straight from farm to shelf</p>
 </div>
 <div class="row g-3">
-
-<div class="col-6 col-md-4 col-lg-2 reveal">
-<a href="offers.html?cat=produce" class="cat-card">
-<img src="../assets/images/cat-produce.png" alt="Fruits & Vegetables">
-<div class="cat-name">Fruits & Veg</div>
-<div class="cat-count">120+ items</div>
+<!-- Tall left tile -->
+<div class="col-md-6">
+<a href="offers.html?cat=produce" class="cat-banner cat-banner-tall">
+<img src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=700&q=80" alt="Fruits & Vegetables">
+<div class="cat-banner-overlay">
+<h5><i class="fa-solid fa-apple-whole me-2"></i>Fruits & Vegetables</h5>
+<span>120+ Farm Fresh Items</span>
+</div>
 </a>
 </div>
-
-<div class="col-6 col-md-4 col-lg-2 reveal">
-<a href="offers.html?cat=dairy" class="cat-card">
-<img src="../assets/images/cat-dairy.png" alt="Dairy & Eggs">
-<div class="cat-name">Dairy & Eggs</div>
-<div class="cat-count">80+ items</div>
+<!-- Right column — 3 stacked tiles -->
+<div class="col-md-6">
+<div class="row g-3">
+<div class="col-12">
+<a href="offers.html?cat=dairy" class="cat-banner">
+<img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?w=700&q=80" alt="Dairy & Eggs">
+<div class="cat-banner-overlay">
+<h5><i class="fa-solid fa-egg me-2"></i>Dairy & Eggs</h5>
+<span>80+ Products</span>
+</div>
 </a>
 </div>
-
-<div class="col-6 col-md-4 col-lg-2 reveal">
-<a href="offers.html?cat=bakery" class="cat-card">
-<img src="../assets/images/cat-bakery.png" alt="Bakery">
-<div class="cat-name">Bakery</div>
-<div class="cat-count">60+ items</div>
+<div class="col-6">
+<a href="offers.html?cat=bakery" class="cat-banner">
+<img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&q=80" alt="Bakery">
+<div class="cat-banner-overlay">
+<h5><i class="fa-solid fa-bread-slice me-1"></i>Bakery</h5>
+<span>Baked Daily</span>
+</div>
 </a>
 </div>
-
-<div class="col-6 col-md-4 col-lg-2 reveal">
-<a href="offers.html?cat=snacks" class="cat-card">
-<img src="../assets/images/cat-snacks.png" alt="Snacks">
-<div class="cat-name">Snacks</div>
-<div class="cat-count">200+ items</div>
+<div class="col-6">
+<a href="offers.html?cat=rice" class="cat-banner">
+<img src="https://images.unsplash.com/photo-1536304993881-ff6e9eefa2a6?w=400&q=80" alt="Rice & Grains">
+<div class="cat-banner-overlay">
+<h5><i class="fa-solid fa-wheat-awn me-1"></i>Rice & Grains</h5>
+<span>70+ Varieties</span>
+</div>
 </a>
 </div>
-
-<div class="col-6 col-md-4 col-lg-2 reveal">
-<a href="offers.html?cat=beverages" class="cat-card">
-<img src="../assets/images/cat-beverages.png" alt="Beverages">
-<div class="cat-name">Beverages</div>
-<div class="cat-count">150+ items</div>
-</a>
 </div>
-
-<div class="col-6 col-md-4 col-lg-2 reveal">
-<a href="offers.html?cat=frozen" class="cat-card">
-<img src="../assets/images/cat-frozen.png" alt="Frozen">
-<div class="cat-name">Frozen</div>
-<div class="cat-count">90+ items</div>
-</a>
 </div>
-
-<div class="col-6 col-md-4 col-lg-2 reveal">
-<a href="offers.html?cat=rice" class="cat-card">
-<img src="../assets/images/cat-rice.png" alt="Rice & Pulses">
-<div class="cat-name">Rice & Pulses</div>
-<div class="cat-count">70+ items</div>
-</a>
 </div>
-
-<div class="col-6 col-md-4 col-lg-2 reveal">
-<a href="offers.html?cat=spices" class="cat-card">
-<img src="../assets/images/cat-spices.png" alt="Spices">
-<div class="cat-name">Spices</div>
-<div class="cat-count">110+ items</div>
-</a>
-</div>
-
-<div class="col-6 col-md-4 col-lg-2 reveal">
-<a href="offers.html?cat=household" class="cat-card">
-<img src="../assets/images/cat-household.png" alt="Household">
-<div class="cat-name">Household</div>
-<div class="cat-count">180+ items</div>
-</a>
-</div>
-
-<div class="col-6 col-md-4 col-lg-2 reveal">
-<a href="offers.html?cat=personalcare" class="cat-card">
-<img src="../assets/images/cat-personal-care.png" alt="Personal Care">
-<div class="cat-name">Personal Care</div>
-<div class="cat-count">140+ items</div>
-</a>
-</div>
-
-<div class="col-6 col-md-4 col-lg-2 reveal">
-<a href="offers.html?cat=cleaningessentials" class="cat-card">
-<img src="../assets/images/cat-cleaning.png" alt="Cleaning">
-<div class="cat-name">Cleaning</div>
-<div class="cat-count">95+ items</div>
-</a>
-</div>
-
-<div class="col-6 col-md-4 col-lg-2 reveal">
-<a href="offers.html?cat=petfood" class="cat-card">
-<img src="../assets/images/cat-pet-food.png" alt="Pet Food">
-<div class="cat-name">Pet Food</div>
-<div class="cat-count">50+ items</div>
-</a>
-</div>
-
+<div class="text-center mt-4">
+<a href="categories.html" class="btn btn-outline-success px-4">View All Categories <i class="fa-solid fa-arrow-right ms-2"></i></a>
 </div>
 </div>
 </section>
 
-<!-- ── FRESH PICKS ── -->
+<!-- ══ FARM TO TABLE STORY ══ -->
 <section class="py-5 bg-section">
 <div class="container">
+<div class="row align-items-center g-5">
+<div class="col-lg-6 reveal">
+<img src="https://images.unsplash.com/photo-1574226516831-e1dff420e562?w=700&q=80" class="farm-img" alt="Fresh vegetable market">
+</div>
+<div class="col-lg-6 reveal">
+<span class="badge px-3 py-2 mb-3" style="background:#e8f5e9;color:#2e7d32;border-radius:50px;font-size:13px;">🌱 Our Promise</span>
+<h2 class="mb-3">From the Farm<br>to Your Table</h2>
+<p class="text-muted mb-4">We partner with 200+ local farms across Tamil Nadu to bring you the freshest produce every single day. No middlemen, no delays — just pure goodness picked at peak ripeness.</p>
+<div class="farm-check"><div class="farm-check-icon"><i class="fa-solid fa-check"></i></div><div><strong>Daily Restocking</strong> — Fresh deliveries arrive at our warehouses every morning by 6 AM.</div></div>
+<div class="farm-check"><div class="farm-check-icon"><i class="fa-solid fa-check"></i></div><div><strong>No Chemicals</strong> — We work only with farms that meet our strict pesticide-free standards.</div></div>
+<div class="farm-check"><div class="farm-check-icon"><i class="fa-solid fa-check"></i></div><div><strong>Cold Chain Maintained</strong> — Temperature-controlled logistics keep produce crisp end-to-end.</div></div>
+<a href="about.html" class="btn btn-outline-success px-4 mt-2">Meet Our Farmers <i class="fa-solid fa-arrow-right ms-2"></i></a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ══ FRESH FROM THE FARM — PRODUCTS ══ -->
+<section class="py-5">
+<div class="container">
 <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
-<h2 class="mb-0">Today's Fresh Picks</h2>
-<a href="offers.html" class="btn btn-outline-danger btn-sm">View All <i class="fa-solid fa-arrow-right ms-1"></i></a>
+<div>
+<h2 class="mb-1">Fresh From the Farm</h2>
+<p class="text-muted mb-0">Harvested this week · best prices guaranteed</p>
+</div>
+<a href="offers.html" class="btn btn-outline-success btn-sm">View All <i class="fa-solid fa-arrow-right ms-1"></i></a>
 </div>
 <div class="row g-4">
-
-<div class="col-md-6 col-lg-3 reveal">
-<div class="product-card" data-product data-rating="4.5" data-reviews="531" data-brand="SuperMart Choice" data-discount="20" data-new="0" data-name="Basmati Rice" data-price="120" data-img="../assets/images/product-basmati-rice.png" data-cat="Rice" data-badge="20% OFF" data-original="150">
-<span class="discount-badge">20% OFF</span>
-<img src="../assets/images/product-basmati-rice.png" alt="Basmati Rice" loading="lazy">
-<div class="card-body">
-<span class="card-delivery-tag"><i class="fa-solid fa-bolt"></i> Delivery in 15 mins</span><span class="card-pack-size">1 kg</span><br>
-<h5><a href="product-details.html?id=Basmati-Rice" class="text-decoration-none text-reset">Basmati Rice</a></h5>
-<div class="rating-slot"></div>
-<p class="mb-2"><s class="text-muted">₹150</s> <strong class="text-danger">₹120</strong></p>
-<small class="text-muted d-block mb-2">Valid Until: Sunday</small>
-<div class="product-actions">
-<button class="btn-add-cart" data-add-cart><i class="fa-solid fa-cart-plus me-1"></i>Add to Cart</button>
-<button class="btn-wishlist" data-wishlist title="Add to Wishlist"><i class="fa-solid fa-heart"></i></button>
-</div>
-</div>
-</div>
-</div>
-
-<div class="col-md-6 col-lg-3 reveal">
-<div class="product-card" data-product data-rating="4.3" data-reviews="389" data-brand="DailyBasket" data-discount="15" data-new="0" data-name="Toor Dal" data-price="85" data-img="../assets/images/product-toor-dal.png" data-cat="Pulses" data-badge="15% OFF" data-original="100">
-<span class="discount-badge">15% OFF</span>
-<img src="../assets/images/product-toor-dal.png" alt="Toor Dal" loading="lazy">
-<div class="card-body">
-<span class="card-delivery-tag"><i class="fa-solid fa-bolt"></i> Delivery in 15 mins</span><span class="card-pack-size">500 g</span><br>
-<h5><a href="product-details.html?id=Toor-Dal" class="text-decoration-none text-reset">Toor Dal</a></h5>
-<div class="rating-slot"></div>
-<p class="mb-2"><s class="text-muted">₹100</s> <strong class="text-danger">₹85</strong></p>
-<small class="text-muted d-block mb-2">Valid Until: Sunday</small>
-<div class="product-actions">
-<button class="btn-add-cart" data-add-cart><i class="fa-solid fa-cart-plus me-1"></i>Add to Cart</button>
-<button class="btn-wishlist" data-wishlist title="Add to Wishlist"><i class="fa-solid fa-heart"></i></button>
-</div>
-</div>
-</div>
-</div>
-
-<div class="col-md-6 col-lg-3 reveal">
-<div class="product-card" data-product data-rating="4.7" data-reviews="623" data-brand="GreenLeaf" data-discount="18" data-new="0" data-name="Masala Tea" data-price="90" data-img="../assets/images/product-masala-tea.png" data-cat="Beverages" data-badge="18% OFF" data-original="110">
-<span class="discount-badge">18% OFF</span>
-<img src="../assets/images/product-masala-tea.png" alt="Masala Tea" loading="lazy">
-<div class="card-body">
-<span class="card-delivery-tag"><i class="fa-solid fa-bolt"></i> Delivery in 15 mins</span><span class="card-pack-size">250 g</span><br>
-<h5><a href="product-details.html?id=Masala-Tea" class="text-decoration-none text-reset">Masala Tea</a></h5>
-<div class="rating-slot"></div>
-<p class="mb-2"><s class="text-muted">₹110</s> <strong class="text-danger">₹90</strong></p>
-<small class="text-muted d-block mb-2">Valid Until: Sunday</small>
-<div class="product-actions">
-<button class="btn-add-cart" data-add-cart><i class="fa-solid fa-cart-plus me-1"></i>Add to Cart</button>
-<button class="btn-wishlist" data-wishlist title="Add to Wishlist"><i class="fa-solid fa-heart"></i></button>
-</div>
-</div>
-</div>
-</div>
-
-<div class="col-md-6 col-lg-3 reveal">
-<div class="product-card" data-product data-rating="4.3" data-reviews="738" data-brand="DailyBasket" data-discount="20" data-new="1" data-name="Mixed Nuts" data-price="240" data-img="../assets/images/product-mixed-nuts.png" data-cat="Snacks" data-badge="20% OFF" data-original="300">
-<span class="discount-badge">20% OFF</span>
-<img src="../assets/images/product-mixed-nuts.png" alt="Mixed Nuts" loading="lazy">
-<div class="card-body">
-<span class="card-delivery-tag"><i class="fa-solid fa-bolt"></i> Delivery in 15 mins</span><span class="card-pack-size">200 g</span><br>
-<h5><a href="product-details.html?id=Mixed-Nuts" class="text-decoration-none text-reset">Mixed Nuts</a></h5>
-<div class="rating-slot"></div>
-<p class="mb-2"><s class="text-muted">₹300</s> <strong class="text-danger">₹240</strong></p>
-<small class="text-muted d-block mb-2">Valid Until: Sunday</small>
-<div class="product-actions">
-<button class="btn-add-cart" data-add-cart><i class="fa-solid fa-cart-plus me-1"></i>Add to Cart</button>
-<button class="btn-wishlist" data-wishlist title="Add to Wishlist"><i class="fa-solid fa-heart"></i></button>
-</div>
-</div>
-</div>
-</div>
-
-<div class="col-md-6 col-lg-3 reveal">
-<div class="product-card" data-product data-rating="4.6" data-reviews="417" data-brand="GreenLeaf" data-discount="25" data-new="0" data-name="Turmeric Powder" data-price="45" data-img="../assets/images/product-turmeric-powder.png" data-cat="Spices" data-badge="25% OFF" data-original="60">
-<span class="discount-badge">25% OFF</span>
-<img src="../assets/images/product-turmeric-powder.png" alt="Turmeric Powder" loading="lazy">
-<div class="card-body">
-<span class="card-delivery-tag"><i class="fa-solid fa-bolt"></i> Delivery in 15 mins</span><span class="card-pack-size">100 g</span><br>
-<h5><a href="product-details.html?id=Turmeric-Powder" class="text-decoration-none text-reset">Turmeric Powder</a></h5>
-<div class="rating-slot"></div>
-<p class="mb-2"><s class="text-muted">₹60</s> <strong class="text-danger">₹45</strong></p>
-<small class="text-muted d-block mb-2">Valid Until: Sunday</small>
-<div class="product-actions">
-<button class="btn-add-cart" data-add-cart><i class="fa-solid fa-cart-plus me-1"></i>Add to Cart</button>
-<button class="btn-wishlist" data-wishlist title="Add to Wishlist"><i class="fa-solid fa-heart"></i></button>
-</div>
-</div>
-</div>
-</div>
-
-<div class="col-md-6 col-lg-3 reveal">
-<div class="product-card" data-product data-rating="4.1" data-reviews="263" data-brand="SuperMart Choice" data-discount="22" data-new="0" data-name="Frozen Green Peas" data-price="70" data-img="../assets/images/product-frozen-green-peas.png" data-cat="Frozen" data-badge="22% OFF" data-original="90">
-<span class="discount-badge">22% OFF</span>
-<img src="../assets/images/product-frozen-green-peas.png" alt="Frozen Green Peas" loading="lazy">
-<div class="card-body">
-<span class="card-delivery-tag"><i class="fa-solid fa-bolt"></i> Delivery in 15 mins</span><span class="card-pack-size">500 g</span><br>
-<h5><a href="product-details.html?id=Frozen-Green-Peas" class="text-decoration-none text-reset">Frozen Green Peas</a></h5>
-<div class="rating-slot"></div>
-<p class="mb-2"><s class="text-muted">₹90</s> <strong class="text-danger">₹70</strong></p>
-<small class="text-muted d-block mb-2">Valid Until: Sunday</small>
-<div class="product-actions">
-<button class="btn-add-cart" data-add-cart><i class="fa-solid fa-cart-plus me-1"></i>Add to Cart</button>
-<button class="btn-wishlist" data-wishlist title="Add to Wishlist"><i class="fa-solid fa-heart"></i></button>
-</div>
-</div>
-</div>
-</div>
-
 <div class="col-md-6 col-lg-3 reveal">
 <div class="product-card" data-product data-rating="4.2" data-reviews="245" data-brand="FreshFarm" data-discount="30" data-new="0" data-name="Cauliflower" data-price="35" data-img="../assets/images/product-cauliflower.png" data-cat="Produce" data-badge="30% OFF" data-original="50">
 <span class="discount-badge">30% OFF</span>
 <img src="../assets/images/product-cauliflower.png" alt="Cauliflower" loading="lazy">
 <div class="card-body">
-<span class="card-delivery-tag"><i class="fa-solid fa-bolt"></i> Delivery in 15 mins</span><span class="card-pack-size">1 pc</span><br>
+<span class="card-delivery-tag"><i class="fa-solid fa-leaf"></i> Farm Fresh</span><span class="card-pack-size">1 pc</span><br>
 <h5><a href="product-details.html?id=Cauliflower" class="text-decoration-none text-reset">Cauliflower</a></h5>
 <div class="rating-slot"></div>
 <p class="mb-2"><s class="text-muted">₹50</s> <strong class="text-danger">₹35</strong></p>
-<small class="text-muted d-block mb-2">Valid Until: Sunday</small>
+<small class="text-muted d-block mb-2">Harvested: Today</small>
 <div class="product-actions">
 <button class="btn-add-cart" data-add-cart><i class="fa-solid fa-cart-plus me-1"></i>Add to Cart</button>
 <button class="btn-wishlist" data-wishlist title="Add to Wishlist"><i class="fa-solid fa-heart"></i></button>
@@ -443,17 +333,16 @@ body.dark-mode .cat-pill{background:rgba(255,255,255,.07);border-color:rgba(255,
 </div>
 </div>
 </div>
-
 <div class="col-md-6 col-lg-3 reveal">
 <div class="product-card" data-product data-rating="4.0" data-reviews="178" data-brand="FreshFarm" data-discount="27" data-new="0" data-name="Green Capsicum" data-price="40" data-img="../assets/images/product-green-capsicum.png" data-cat="Produce" data-badge="27% OFF" data-original="55">
 <span class="discount-badge">27% OFF</span>
 <img src="../assets/images/product-green-capsicum.png" alt="Green Capsicum" loading="lazy">
 <div class="card-body">
-<span class="card-delivery-tag"><i class="fa-solid fa-bolt"></i> Delivery in 15 mins</span><span class="card-pack-size">500 g</span><br>
+<span class="card-delivery-tag"><i class="fa-solid fa-leaf"></i> Farm Fresh</span><span class="card-pack-size">500 g</span><br>
 <h5><a href="product-details.html?id=Green-Capsicum" class="text-decoration-none text-reset">Green Capsicum</a></h5>
 <div class="rating-slot"></div>
 <p class="mb-2"><s class="text-muted">₹55</s> <strong class="text-danger">₹40</strong></p>
-<small class="text-muted d-block mb-2">Valid Until: Sunday</small>
+<small class="text-muted d-block mb-2">Harvested: Today</small>
 <div class="product-actions">
 <button class="btn-add-cart" data-add-cart><i class="fa-solid fa-cart-plus me-1"></i>Add to Cart</button>
 <button class="btn-wishlist" data-wishlist title="Add to Wishlist"><i class="fa-solid fa-heart"></i></button>
@@ -461,83 +350,187 @@ body.dark-mode .cat-pill{background:rgba(255,255,255,.07);border-color:rgba(255,
 </div>
 </div>
 </div>
-
+<div class="col-md-6 col-lg-3 reveal">
+<div class="product-card" data-product data-rating="4.5" data-reviews="531" data-brand="SuperMart Choice" data-discount="20" data-new="0" data-name="Basmati Rice" data-price="120" data-img="../assets/images/product-basmati-rice.png" data-cat="Rice" data-badge="20% OFF" data-original="150">
+<span class="discount-badge">20% OFF</span>
+<img src="../assets/images/product-basmati-rice.png" alt="Basmati Rice" loading="lazy">
+<div class="card-body">
+<span class="card-delivery-tag"><i class="fa-solid fa-wheat-awn"></i> Whole Grain</span><span class="card-pack-size">1 kg</span><br>
+<h5><a href="product-details.html?id=Basmati-Rice" class="text-decoration-none text-reset">Basmati Rice</a></h5>
+<div class="rating-slot"></div>
+<p class="mb-2"><s class="text-muted">₹150</s> <strong class="text-danger">₹120</strong></p>
+<small class="text-muted d-block mb-2">Best Seller</small>
+<div class="product-actions">
+<button class="btn-add-cart" data-add-cart><i class="fa-solid fa-cart-plus me-1"></i>Add to Cart</button>
+<button class="btn-wishlist" data-wishlist title="Add to Wishlist"><i class="fa-solid fa-heart"></i></button>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-lg-3 reveal">
+<div class="product-card" data-product data-rating="4.6" data-reviews="417" data-brand="GreenLeaf" data-discount="25" data-new="0" data-name="Turmeric Powder" data-price="45" data-img="../assets/images/product-turmeric-powder.png" data-cat="Spices" data-badge="25% OFF" data-original="60">
+<span class="discount-badge">25% OFF</span>
+<img src="../assets/images/product-turmeric-powder.png" alt="Turmeric Powder" loading="lazy">
+<div class="card-body">
+<span class="card-delivery-tag"><i class="fa-solid fa-mortar-pestle"></i> Pure Spice</span><span class="card-pack-size">100 g</span><br>
+<h5><a href="product-details.html?id=Turmeric-Powder" class="text-decoration-none text-reset">Turmeric Powder</a></h5>
+<div class="rating-slot"></div>
+<p class="mb-2"><s class="text-muted">₹60</s> <strong class="text-danger">₹45</strong></p>
+<small class="text-muted d-block mb-2">Chemical-free</small>
+<div class="product-actions">
+<button class="btn-add-cart" data-add-cart><i class="fa-solid fa-cart-plus me-1"></i>Add to Cart</button>
+<button class="btn-wishlist" data-wishlist title="Add to Wishlist"><i class="fa-solid fa-heart"></i></button>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-lg-3 reveal">
+<div class="product-card" data-product data-rating="4.3" data-reviews="389" data-brand="DailyBasket" data-discount="15" data-new="0" data-name="Toor Dal" data-price="85" data-img="../assets/images/product-toor-dal.png" data-cat="Pulses" data-badge="15% OFF" data-original="100">
+<span class="discount-badge">15% OFF</span>
+<img src="../assets/images/product-toor-dal.png" alt="Toor Dal" loading="lazy">
+<div class="card-body">
+<span class="card-delivery-tag"><i class="fa-solid fa-leaf"></i> Protein Rich</span><span class="card-pack-size">500 g</span><br>
+<h5><a href="product-details.html?id=Toor-Dal" class="text-decoration-none text-reset">Toor Dal</a></h5>
+<div class="rating-slot"></div>
+<p class="mb-2"><s class="text-muted">₹100</s> <strong class="text-danger">₹85</strong></p>
+<small class="text-muted d-block mb-2">Farm Sourced</small>
+<div class="product-actions">
+<button class="btn-add-cart" data-add-cart><i class="fa-solid fa-cart-plus me-1"></i>Add to Cart</button>
+<button class="btn-wishlist" data-wishlist title="Add to Wishlist"><i class="fa-solid fa-heart"></i></button>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-lg-3 reveal">
+<div class="product-card" data-product data-rating="4.7" data-reviews="623" data-brand="GreenLeaf" data-discount="18" data-new="0" data-name="Masala Tea" data-price="90" data-img="../assets/images/product-masala-tea.png" data-cat="Beverages" data-badge="18% OFF" data-original="110">
+<span class="discount-badge">18% OFF</span>
+<img src="../assets/images/product-masala-tea.png" alt="Masala Tea" loading="lazy">
+<div class="card-body">
+<span class="card-delivery-tag"><i class="fa-solid fa-mug-hot"></i> Natural Blend</span><span class="card-pack-size">250 g</span><br>
+<h5><a href="product-details.html?id=Masala-Tea" class="text-decoration-none text-reset">Masala Tea</a></h5>
+<div class="rating-slot"></div>
+<p class="mb-2"><s class="text-muted">₹110</s> <strong class="text-danger">₹90</strong></p>
+<small class="text-muted d-block mb-2">No Additives</small>
+<div class="product-actions">
+<button class="btn-add-cart" data-add-cart><i class="fa-solid fa-cart-plus me-1"></i>Add to Cart</button>
+<button class="btn-wishlist" data-wishlist title="Add to Wishlist"><i class="fa-solid fa-heart"></i></button>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-lg-3 reveal">
+<div class="product-card" data-product data-rating="4.3" data-reviews="738" data-brand="DailyBasket" data-discount="20" data-new="1" data-name="Mixed Nuts" data-price="240" data-img="../assets/images/product-mixed-nuts.png" data-cat="Snacks" data-badge="20% OFF" data-original="300">
+<span class="discount-badge">20% OFF</span>
+<img src="../assets/images/product-mixed-nuts.png" alt="Mixed Nuts" loading="lazy">
+<div class="card-body">
+<span class="card-delivery-tag"><i class="fa-solid fa-seedling"></i> Natural</span><span class="card-pack-size">200 g</span><br>
+<h5><a href="product-details.html?id=Mixed-Nuts" class="text-decoration-none text-reset">Mixed Nuts</a></h5>
+<div class="rating-slot"></div>
+<p class="mb-2"><s class="text-muted">₹300</s> <strong class="text-danger">₹240</strong></p>
+<small class="text-muted d-block mb-2">High Protein</small>
+<div class="product-actions">
+<button class="btn-add-cart" data-add-cart><i class="fa-solid fa-cart-plus me-1"></i>Add to Cart</button>
+<button class="btn-wishlist" data-wishlist title="Add to Wishlist"><i class="fa-solid fa-heart"></i></button>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-lg-3 reveal">
+<div class="product-card" data-product data-rating="4.1" data-reviews="263" data-brand="SuperMart Choice" data-discount="22" data-new="0" data-name="Frozen Green Peas" data-price="70" data-img="../assets/images/product-frozen-green-peas.png" data-cat="Frozen" data-badge="22% OFF" data-original="90">
+<span class="discount-badge">22% OFF</span>
+<img src="../assets/images/product-frozen-green-peas.png" alt="Frozen Green Peas" loading="lazy">
+<div class="card-body">
+<span class="card-delivery-tag"><i class="fa-solid fa-snowflake"></i> Frozen Fresh</span><span class="card-pack-size">500 g</span><br>
+<h5><a href="product-details.html?id=Frozen-Green-Peas" class="text-decoration-none text-reset">Frozen Green Peas</a></h5>
+<div class="rating-slot"></div>
+<p class="mb-2"><s class="text-muted">₹90</s> <strong class="text-danger">₹70</strong></p>
+<small class="text-muted d-block mb-2">Lock-fresh Sealed</small>
+<div class="product-actions">
+<button class="btn-add-cart" data-add-cart><i class="fa-solid fa-cart-plus me-1"></i>Add to Cart</button>
+<button class="btn-wishlist" data-wishlist title="Add to Wishlist"><i class="fa-solid fa-heart"></i></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text-center mt-4">
+<a href="offers.html" class="btn btn-outline-success px-5">→ View All Fresh Picks</a>
 </div>
 </div>
 </section>
 
-<!-- ── WHY SUPERMART ── -->
-<div class="usp-strip">
+<!-- ══ OUR FRESH PROMISE ══ -->
+<section class="py-5 bg-section">
 <div class="container">
 <div class="text-center mb-5">
-<h2>Why Shop at SuperMart?</h2>
-<p class="text-muted">Quality you can trust, prices you'll love.</p>
+<h2>Our Fresh Promise</h2>
+<p class="text-muted">Every order backed by four pillars of quality</p>
 </div>
 <div class="row g-4">
 <div class="col-6 col-md-3 reveal">
-<div class="usp-card">
-<div class="usp-icon"><i class="fa-solid fa-leaf"></i></div>
-<h6>100% Fresh</h6>
-<p class="text-muted small mb-0">Every item sourced fresh daily from trusted farms and suppliers.</p>
+<div class="promise-card">
+<div class="promise-icon"><i class="fa-solid fa-seedling"></i></div>
+<h6 class="fw-bold mb-2">100% Organic</h6>
+<p class="text-muted small mb-0">Pesticide-free produce from certified organic partner farms.</p>
 </div>
 </div>
 <div class="col-6 col-md-3 reveal">
-<div class="usp-card">
-<div class="usp-icon"><i class="fa-solid fa-bolt"></i></div>
-<h6>Express Delivery</h6>
-<p class="text-muted small mb-0">Order placed? Delivered in 15 minutes to your doorstep.</p>
+<div class="promise-card">
+<div class="promise-icon"><i class="fa-solid fa-temperature-low"></i></div>
+<h6 class="fw-bold mb-2">Cold Chain</h6>
+<p class="text-muted small mb-0">Temperature-controlled from farm to your doorstep, every time.</p>
 </div>
 </div>
 <div class="col-6 col-md-3 reveal">
-<div class="usp-card">
-<div class="usp-icon"><i class="fa-solid fa-tags"></i></div>
-<h6>Best Prices</h6>
-<p class="text-muted small mb-0">Weekly deals, loyalty rewards and price-match guarantee.</p>
+<div class="promise-card">
+<div class="promise-icon"><i class="fa-solid fa-rotate-left"></i></div>
+<h6 class="fw-bold mb-2">Easy Returns</h6>
+<p class="text-muted small mb-0">Not satisfied? Get a full refund or replacement, no questions asked.</p>
 </div>
 </div>
 <div class="col-6 col-md-3 reveal">
-<div class="usp-card">
-<div class="usp-icon"><i class="fa-solid fa-headset"></i></div>
-<h6>24/7 Support</h6>
-<p class="text-muted small mb-0">Our team is available around the clock for any help you need.</p>
+<div class="promise-card">
+<div class="promise-icon"><i class="fa-solid fa-handshake"></i></div>
+<h6 class="fw-bold mb-2">Fair Trade</h6>
+<p class="text-muted small mb-0">We pay farmers fairly so you get quality and they get respect.</p>
 </div>
-</div>
-</div>
-</div>
-</div>
-
-<!-- ── LOYALTY BANNER ── -->
-<section class="loyalty-banner">
-<div class="container">
-<div class="row align-items-center g-4">
-<div class="col-lg-2 text-center">
-<i class="fa-solid fa-credit-card" style="font-size:4rem;opacity:.9;"></i>
-</div>
-<div class="col-lg-7">
-<h2 class="mb-2">Earn Points on Every Purchase</h2>
-<p class="mb-0">Join the SuperMart Loyalty Program — collect 1 point per ₹100 spent and redeem for free groceries, discounts, and exclusive member perks.</p>
-</div>
-<div class="col-lg-3 text-lg-end">
-<a href="loyalty-card.html" class="btn btn-light btn-lg px-4 fw-bold">Join Free <i class="fa-solid fa-arrow-right ms-2"></i></a>
 </div>
 </div>
 </div>
 </section>
 
-<!-- ── TESTIMONIALS ── -->
+<!-- ══ SEASONAL DEALS BANNER ══ -->
 <section class="py-5">
 <div class="container">
+<div class="seasonal-banner reveal">
+<div class="row align-items-center g-4">
+<div class="col-lg-2 text-center">
+<img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=180&h=180&fit=crop" alt="Fresh produce" style="width:140px;height:140px;object-fit:cover;border-radius:50%;border:4px solid #c8e6c9;">
+</div>
+<div class="col-lg-7">
+<span class="badge mb-2 px-3 py-1" style="background:#4caf50;color:#fff;border-radius:50px;">🌾 This Week Only</span>
+<h3 class="mb-2" style="color:#1b5e20;">Seasonal Harvest Special</h3>
+<p class="text-muted mb-0">Stock up on seasonal vegetables and fruits at farm-gate prices. Fresh picks change every week based on what's best at the farms.</p>
+</div>
+<div class="col-lg-3 text-lg-end">
+<a href="offers.html?cat=produce" class="btn btn-lg fw-bold px-4" style="background:#4caf50;color:#fff;border-radius:50px;">Shop Seasonal <i class="fa-solid fa-arrow-right ms-2"></i></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ══ TESTIMONIALS ══ -->
+<section class="py-5 bg-section">
+<div class="container">
 <div class="text-center mb-5">
-<h2>What Our Customers Say</h2>
-<p class="text-muted">Real reviews from our happy shoppers.</p>
+<h2>Happy & Healthy Customers</h2>
+<p class="text-muted">What our fresh-food community says</p>
 </div>
 <div class="row g-4">
-
 <div class="col-md-4 reveal">
 <div class="review-card">
-<div class="review-stars">
-<i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-</div>
+<div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
 <p class="text-muted mb-4">"The freshness of the produce is unbeatable. I get my weekly vegetables delivered in under 20 minutes and everything is crisp and clean."</p>
 <div class="d-flex align-items-center gap-3">
 <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=60&h=60&fit=crop&crop=face" class="review-avatar" alt="Priya">
@@ -545,46 +538,38 @@ body.dark-mode .cat-pill{background:rgba(255,255,255,.07);border-color:rgba(255,
 </div>
 </div>
 </div>
-
 <div class="col-md-4 reveal">
 <div class="review-card">
-<div class="review-stars">
-<i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-</div>
-<p class="text-muted mb-4">"Best grocery app I've used. The loyalty points add up fast and I've already redeemed them twice for free items. Highly recommend!"</p>
+<div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+<p class="text-muted mb-4">"I switched from the local market to SuperMart and the organic produce here is genuinely better quality. My family loves the fresh vegetables."</p>
 <div class="d-flex align-items-center gap-3">
 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face" class="review-avatar" alt="Karthik">
 <div><div class="fw-bold">Karthik Rajan</div><div class="text-muted small">Coimbatore, Tamil Nadu</div></div>
 </div>
 </div>
 </div>
-
 <div class="col-md-4 reveal">
 <div class="review-card">
-<div class="review-stars">
-<i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-</div>
-<p class="text-muted mb-4">"SuperMart's prices are consistently lower than other stores nearby. The weekly deals section alone saves me ₹500–700 every month."</p>
+<div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+<p class="text-muted mb-4">"The farm-to-table promise is real. I can taste the difference compared to supermarket produce. Never going back to chemical-heavy veggies."</p>
 <div class="d-flex align-items-center gap-3">
 <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop&crop=face" class="review-avatar" alt="Meena">
 <div><div class="fw-bold">Meena Subramanian</div><div class="text-muted small">Madurai, Tamil Nadu</div></div>
 </div>
 </div>
 </div>
-
 </div>
 </div>
 </section>
 
-<!-- ── BLOG PREVIEW ── -->
-<section class="py-5 bg-section">
+<!-- ══ BLOG — TIPS & RECIPES ══ -->
+<section class="py-5">
 <div class="container">
 <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
-<h2 class="mb-0">Tips & Recipes</h2>
-<a href="blog.html" class="btn btn-outline-danger btn-sm">All Articles <i class="fa-solid fa-arrow-right ms-1"></i></a>
+<h2 class="mb-0">Tips & Fresh Recipes</h2>
+<a href="blog.html" class="btn btn-outline-success btn-sm">All Articles <i class="fa-solid fa-arrow-right ms-1"></i></a>
 </div>
 <div class="row g-4">
-
 <div class="col-md-4 reveal">
 <div class="blog2-card">
 <img src="../assets/images/blog-budget-recipes.png" alt="Budget Recipes">
@@ -592,11 +577,10 @@ body.dark-mode .cat-pill{background:rgba(255,255,255,.07);border-color:rgba(255,
 <span class="blog2-tag">Recipes</span>
 <h6 class="fw-bold mb-2">5 Budget Recipes Under ₹200</h6>
 <p class="text-muted small mb-3">Healthy, filling meals your family will love — without breaking the bank.</p>
-<a href="blog-details.html" class="text-danger fw-bold small">Read More <i class="fa-solid fa-arrow-right ms-1"></i></a>
+<a href="blog-details.html" class="fw-bold small" style="color:#2e7d32;">Read More <i class="fa-solid fa-arrow-right ms-1"></i></a>
 </div>
 </div>
 </div>
-
 <div class="col-md-4 reveal">
 <div class="blog2-card">
 <img src="../assets/images/blog-meal-prep.png" alt="Meal Prep">
@@ -604,11 +588,10 @@ body.dark-mode .cat-pill{background:rgba(255,255,255,.07);border-color:rgba(255,
 <span class="blog2-tag">Tips</span>
 <h6 class="fw-bold mb-2">Weekly Meal Prep: Save Time & Money</h6>
 <p class="text-muted small mb-3">Plan your week's meals in 2 hours and cut food waste by up to 40%.</p>
-<a href="blog-details.html" class="text-danger fw-bold small">Read More <i class="fa-solid fa-arrow-right ms-1"></i></a>
+<a href="blog-details.html" class="fw-bold small" style="color:#2e7d32;">Read More <i class="fa-solid fa-arrow-right ms-1"></i></a>
 </div>
 </div>
 </div>
-
 <div class="col-md-4 reveal">
 <div class="blog2-card">
 <img src="../assets/images/blog-food-storage.png" alt="Food Storage">
@@ -616,26 +599,25 @@ body.dark-mode .cat-pill{background:rgba(255,255,255,.07);border-color:rgba(255,
 <span class="blog2-tag">Guide</span>
 <h6 class="fw-bold mb-2">How to Store Groceries the Right Way</h6>
 <p class="text-muted small mb-3">Keep your fruits, vegetables and pantry staples fresh for longer.</p>
-<a href="blog-details.html" class="text-danger fw-bold small">Read More <i class="fa-solid fa-arrow-right ms-1"></i></a>
+<a href="blog-details.html" class="fw-bold small" style="color:#2e7d32;">Read More <i class="fa-solid fa-arrow-right ms-1"></i></a>
 </div>
 </div>
 </div>
-
 </div>
 </div>
 </section>
 
-<!-- ── DELIVERY CTA ── -->
-<section class="py-5 py-md-5" style="background:linear-gradient(140deg,#0d0507,#1e0c10);padding-top:48px !important;padding-bottom:48px !important;">
+<!-- ══ GREEN CTA ══ -->
+<section class="green-cta">
 <div class="container">
 <div class="row align-items-center g-4 text-center text-lg-start">
 <div class="col-lg-8">
-<h2 style="color:#fff;">Get Groceries Delivered in <span style="color:#E63946;">15 Minutes</span></h2>
-<p style="color:rgba(255,255,255,.72);" class="mb-0 lead">Available 7 days a week, 8 AM – 10 PM. Free delivery on orders above ₹499.</p>
+<h2 style="color:#fff;">Eat Fresh. <span style="color:#a5d6a7;">Live Better.</span></h2>
+<p style="color:rgba(255,255,255,.72);" class="mb-0 lead">Farm-fresh groceries, sourced today and delivered to your door. Available 7 days a week.</p>
 </div>
-<div class="col-lg-4 d-flex flex-wrap gap-2 justify-content-center justify-content-lg-end align-items-center">
-<a href="store-locator.html" class="btn btn-danger btn-lg px-4">Find a Store</a>
-<a href="services.html" class="btn btn-outline-light btn-lg px-4">Our Services</a>
+<div class="col-lg-4 d-flex flex-wrap gap-3 justify-content-center justify-content-lg-end">
+<a href="offers.html" class="btn btn-lg px-4 fw-bold" style="background:#4caf50;color:#fff;border-radius:50px;">Shop Now</a>
+<a href="about.html" class="btn btn-outline-light btn-lg px-4" style="border-radius:50px;">Our Story</a>
 </div>
 </div>
 </div>
