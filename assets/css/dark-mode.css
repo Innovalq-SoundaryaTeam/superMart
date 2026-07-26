@@ -117,7 +117,7 @@ body.dark-mode .pricing-faq .accordion-button{color:var(--color-text);}
 body.dark-mode .pricing-faq .accordion-body{color:#ccc;}
 
 /* ── Category card image background in dark mode ── */
-body.dark-mode .category-card img{background:#1e1e2e;}
+/* category card image — no background needed (height:auto, no letterbox) */
 
 /* ── Active state indicator in dark mode ── */
 body.dark-mode .navbar-nav .nav-link.active{
