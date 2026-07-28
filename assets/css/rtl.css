@@ -116,13 +116,12 @@ body.rtl-mode .form-select{
     text-align:right;
     direction:rtl;
 }
-/* Email and date stay LTR (email addresses and dates always read left-to-right) */
-body.rtl-mode input[type="email"],
+/* Date stays LTR (date format always reads left-to-right) */
 body.rtl-mode input[type="date"]{
     direction:ltr;
     text-align:left;
 }
-/* tel/number inputs follow RTL so placeholder aligns right */
+/* email/tel/number inputs follow RTL so placeholder aligns right */
 
 /* ---- LTR CONTENT INSIDE RTL PAGE ----
    Use class="ltr-content" on any column whose text should stay
