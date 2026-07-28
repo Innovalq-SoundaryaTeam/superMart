@@ -68,6 +68,22 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    // ── SOCIAL MEDIA LINKS — fix placeholder href="#" on every page ──
+    const socialMap = {
+      'Facebook':   'https://www.facebook.com',
+      'Instagram':  'https://www.instagram.com',
+      'X (Twitter)':'https://www.x.com',
+      'YouTube':    'https://www.youtube.com',
+    };
+    document.querySelectorAll('a[aria-label]').forEach(function(a){
+      const label = a.getAttribute('aria-label');
+      if (socialMap[label] && (a.getAttribute('href') === '#' || !a.getAttribute('href'))) {
+        a.setAttribute('href', socialMap[label]);
+        a.setAttribute('target', '_blank');
+        a.setAttribute('rel', 'noopener');
+      }
+    });
+
     // ── RTL + THEME stay inside the collapse on ALL screen sizes ──
     // On desktop (≥992px) the collapse is always expanded — controls visible in navbar.
     // On mobile (<992px) they appear at the bottom of the hamburger menu.
