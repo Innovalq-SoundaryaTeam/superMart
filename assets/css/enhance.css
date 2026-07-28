@@ -310,7 +310,7 @@
 .category-card .card-body ul.list-unstyled li{
   display:flex;
   align-items:center;
-  gap:6px;
+  gap:12px;
   padding:3px 0;
 }
 .category-card .card-body ul.list-unstyled li i{
