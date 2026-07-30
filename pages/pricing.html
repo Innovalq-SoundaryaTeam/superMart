@@ -18,7 +18,10 @@
 /* ── PRICING HERO ── */
 .pricing-hero{
   background:linear-gradient(135deg,#0f0c29,#302b63);
-  color:#fff;padding:80px 0 100px;text-align:center;position:relative;
+  color:#fff;
+  /* Extra bottom padding creates space for the overlapping cards */
+  padding:80px 0 180px;
+  text-align:center;position:relative;
 }
 .pricing-hero h1{color:#fff;font-size:clamp(2rem,4.5vw,3.2rem);}
 .pricing-hero p{color:rgba(255,255,255,.75);font-size:1.1rem;}
@@ -38,27 +41,31 @@
 }
 
 /* ── PRICING CARDS ── */
-/* Make columns flex so cards can stretch to full row height */
 .plan-cards-row > [class*="col"]{display:flex;}
 .plan-card{
   background:var(--color-card);border-radius:20px;
-  box-shadow:var(--shadow);padding:38px 28px;
+  box-shadow:0 8px 32px rgba(0,0,0,.12);
+  padding:38px 28px;
   position:relative;width:100%;transition:var(--transition);
   border:2px solid transparent;
-  /* Flex column so features list can grow and pin button to bottom */
   display:flex;flex-direction:column;
 }
-.plan-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-hover);}
+.plan-card:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(0,0,0,.16);}
+
+/* Popular card: same vertical position as others, distinguished by border/shadow only */
 .plan-card.popular{
   border-color:var(--color-primary);
-  transform:translateY(-12px);
-  box-shadow:0 20px 50px rgba(230,57,70,.2);
+  box-shadow:0 16px 48px rgba(230,57,70,.25);
+  /* Extra top padding so badge doesn't overlap plan-name */
+  padding-top:52px;
 }
-.plan-card.popular:hover{transform:translateY(-18px);}
+.plan-card.popular:hover{transform:translateY(-6px);}
+
 .plan-badge{
-  position:absolute;top:-16px;left:50%;transform:translateX(-50%);
+  position:absolute;top:-1px;left:50%;transform:translateX(-50%);
   background:var(--color-primary);color:#fff;
-  padding:5px 22px;border-radius:50px;font-size:12px;font-weight:700;
+  padding:5px 22px;border-radius:0 0 16px 16px;
+  font-size:12px;font-weight:700;
   white-space:nowrap;box-shadow:0 4px 12px rgba(230,57,70,.3);
 }
 .plan-name{font-size:14px;text-transform:uppercase;letter-spacing:1.5px;color:#888;font-weight:700;}
@@ -66,7 +73,6 @@
 .plan-price span.curr{font-size:1.4rem;vertical-align:top;margin-top:8px;display:inline-block;}
 .plan-period{font-size:13px;color:#aaa;}
 .plan-desc{font-size:14px;color:#888;margin:16px 0 20px;min-height:40px;}
-/* flex:1 makes the feature list fill remaining height → button always at bottom */
 .plan-features{list-style:none;padding:0;margin:0 0 28px;flex:1;}
 .plan-features li{
   display:flex;align-items:center;gap:10px;
@@ -86,30 +92,28 @@
 .comp-table .cross{color:#ddd;font-size:14px;}
 
 /* ── TRUST STRIP ── */
-.trust-strip{
-  background:var(--color-section);padding:40px 0;text-align:center;
-}
+.trust-strip{background:var(--color-section);padding:40px 0;text-align:center;}
 .trust-item{display:flex;flex-direction:column;align-items:center;gap:8px;}
 .trust-item i{font-size:2rem;color:var(--color-primary);}
 .trust-item span{font-size:13px;font-weight:600;color:var(--color-text);}
 
 /* ── FAQ ── */
 .pricing-faq .accordion-button:not(.collapsed){background:var(--color-primary);color:#fff;}
-/* ── PRICING HERO Z-INDEX ── */
-.pricing-hero .container{position:relative;z-index:2;}
-.plan-cards-row{margin-top:-60px;position:relative;z-index:3;}
 
-/* ── HERO SECTION SPACING — prevent double negative margin ── */
-.pricing-plans-section{ margin-top:0 !important; padding-top:0 !important; }
+/* ── HERO Z-INDEX & CARD OVERLAP ── */
+.pricing-hero .container{position:relative;z-index:2;}
+/* Cards pulled up so they sit within the hero's generous bottom padding */
+.plan-cards-row{margin-top:-120px;position:relative;z-index:3;}
+.pricing-plans-section{margin-top:0 !important;padding-top:0 !important;}
 
 /* ── TESTIMONIAL CARDS — always left-align content ── */
-.testi-card{ text-align:left !important; }
-.testi-card p, .testi-card strong, .testi-card small{ text-align:left !important; }
+.testi-card{text-align:left !important;}
+.testi-card p,.testi-card strong,.testi-card small{text-align:left !important;}
 
 /* ── ABOVE-FOOTER CTA — "Browse Offers First" always visible ── */
 .pricing-cta-outline{
   background:rgba(255,255,255,.15) !important;
-  border-color:#fff !important;
+  border:2px solid #fff !important;
   color:#fff !important;
 }
 </style>
