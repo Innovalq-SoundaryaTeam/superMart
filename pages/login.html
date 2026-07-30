@@ -47,14 +47,13 @@ body.dark-mode .auth-icon-btn{border-color:#444;color:#e8e8e8;}
 <!-- Minimal Auth Header -->
 <div class="auth-page">
 <header class="auth-header">
-<div class="container d-flex align-items-center justify-content-between">
-<a href="index.html" class="brand">
+<div class="container" style="position:relative;">
+<a href="index.html" class="brand d-block text-center">
   <i class="fa-solid fa-basket-shopping me-1"></i>SuperMart
 </a>
-<div class="d-flex align-items-center gap-2">
+<div class="d-flex align-items-center gap-2" style="position:absolute;top:50%;right:0;transform:translateY(-50%);">
 <button id="rtlToggle" class="auth-icon-btn" aria-label="Toggle RTL" title="Switch direction"><i class="fa-solid fa-arrow-left-long"></i></button>
 <button id="themeToggle" class="auth-icon-btn" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
-<a href="register.html" class="btn btn-outline-danger btn-sm">Create Account</a>
 </div>
 </div>
 </header>
@@ -91,9 +90,6 @@ body.dark-mode .auth-icon-btn{border-color:#444;color:#e8e8e8;}
 </div>
 </main>
 
-<footer class="auth-footer">
-&copy; 2026 SuperMart. All Rights Reserved.
-</footer>
 </div>
 
 <div class="sm-toast" id="smToast"></div>

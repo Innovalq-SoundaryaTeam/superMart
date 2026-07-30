@@ -248,15 +248,24 @@
    At 1024px the container is ~960px, so compact slightly. */
 @media(min-width:992px) and (max-width:1199px){
   .navbar-nav .nav-link{
-    font-size:12px !important;
-    padding:8px 5px !important;
+    font-size:11.5px !important;
+    padding:8px 4px !important;
   }
+  /* Icon group: never shrink, always stays visible */
   .d-flex.align-items-center.gap-2.ms-lg-3{
-    gap:4px !important;
-    margin-left:8px !important;
+    gap:3px !important;
+    margin-left:4px !important;
+    flex-shrink:0 !important;
   }
-  .btn.btn-sm{ font-size:11.5px !important; padding:5px 10px !important; }
-  .nav-icon-btn{ width:34px !important; height:34px !important; font-size:13px !important; }
+  .btn.btn-sm{ font-size:11px !important; padding:4px 8px !important; }
+  .nav-icon-btn{ width:32px !important; height:32px !important; font-size:12px !important; }
+  .navbar #themeToggle{ width:32px !important; height:32px !important; }
+  /* Login button: compact but visible */
+  .navbar a.btn-outline-danger.btn-sm,
+  .navbar a[href="login.html"]{ height:32px !important; padding-left:10px !important; padding-right:10px !important; font-size:11px !important; }
+  /* Ensure navbar doesn't wrap */
+  .navbar-collapse{ flex-wrap:nowrap !important; }
+  .navbar-collapse .navbar-nav{ flex-wrap:nowrap; overflow-x:auto; }
 }
 
 /* ── 1200px+ (large desktop) — full comfortable sizing ── */

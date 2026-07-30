@@ -98,6 +98,20 @@
 /* ── PRICING HERO Z-INDEX ── */
 .pricing-hero .container{position:relative;z-index:2;}
 .plan-cards-row{margin-top:-60px;position:relative;z-index:3;}
+
+/* ── HERO SECTION SPACING — prevent double negative margin ── */
+.pricing-plans-section{ margin-top:0 !important; padding-top:0 !important; }
+
+/* ── TESTIMONIAL CARDS — always left-align content ── */
+.testi-card{ text-align:left !important; }
+.testi-card p, .testi-card strong, .testi-card small{ text-align:left !important; }
+
+/* ── ABOVE-FOOTER CTA — "Browse Offers First" always visible ── */
+.pricing-cta-outline{
+  background:rgba(255,255,255,.15) !important;
+  border-color:#fff !important;
+  color:#fff !important;
+}
 </style>
 <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
 </head>
@@ -164,7 +178,7 @@
 </div>
 
 <!-- Plans -->
-<section class="py-5" style="margin-top:-60px;">
+<section class="pricing-plans-section py-5">
 <div class="container">
 <div class="row g-4 justify-content-center plan-cards-row">
 
@@ -317,7 +331,7 @@
 <h3 class="text-center mb-5">What Pass Members Say</h3>
 <div class="row g-4">
 <div class="col-md-4 reveal">
-<div class="testi-card" style="background:var(--color-card);border-radius:16px;padding:28px;box-shadow:var(--shadow);height:100%;">
+<div class="testi-card" style="background:var(--color-card);border-radius:16px;padding:28px;box-shadow:var(--shadow);height:100%;text-align:left;">
 <div style="color:#FFD166;margin-bottom:10px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
 <p class="text-muted">"Monthly Pass paid for itself after 5 deliveries. With a family of 4, we order almost daily. Best ₹199 I spend every month."</p>
 <div class="d-flex align-items-center gap-3 mt-3">
@@ -327,7 +341,7 @@
 </div>
 </div>
 <div class="col-md-4 reveal">
-<div class="testi-card" style="background:var(--color-card);border-radius:16px;padding:28px;box-shadow:var(--shadow);height:100%;">
+<div class="testi-card" style="background:var(--color-card);border-radius:16px;padding:28px;box-shadow:var(--shadow);height:100%;text-align:left;">
 <div style="color:#FFD166;margin-bottom:10px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
 <p class="text-muted">"The Annual Pass double points feature alone is worth it. I redeemed ₹1,800 in loyalty points in the first 4 months — essentially free groceries."</p>
 <div class="d-flex align-items-center gap-3 mt-3">
@@ -337,7 +351,7 @@
 </div>
 </div>
 <div class="col-md-4 reveal">
-<div class="testi-card" style="background:var(--color-card);border-radius:16px;padding:28px;box-shadow:var(--shadow);height:100%;">
+<div class="testi-card" style="background:var(--color-card);border-radius:16px;padding:28px;box-shadow:var(--shadow);height:100%;text-align:left;">
 <div style="color:#FFD166;margin-bottom:10px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
 <p class="text-muted">"As a restaurant owner, the Business Account means I get invoices monthly and a 12% bulk discount. Saves hours of admin compared to regular shopping."</p>
 <div class="d-flex align-items-center gap-3 mt-3">
@@ -417,7 +431,7 @@
 <p style="color:rgba(255,255,255,.8);font-size:1.1rem;">Join 50,000+ Pass members who never pay a delivery fee.</p>
 <div class="d-flex gap-3 justify-content-center flex-wrap mt-4">
 <a href="register.html" class="btn btn-warning btn-lg px-5 fw-bold text-dark">Get Monthly Pass — ₹199</a>
-<a href="offers.html" class="btn btn-outline-warning btn-lg px-5">Browse Offers First</a>
+<a href="offers.html" class="btn btn-lg px-5 pricing-cta-outline" style="border:2px solid #fff;color:#fff;background:rgba(255,255,255,.15);">Browse Offers First</a>
 </div>
 </div>
 </section>
