@@ -49,14 +49,9 @@ body.rtl-mode .page-header{
     text-align:center;
 }
 
-/* Hero SLIDE content: keep column order and text alignment LTR */
-body.rtl-mode .hero-slide .row{
-    direction:ltr;
-}
-body.rtl-mode .hero-slide .col-lg-5,
-body.rtl-mode .hero-slide [class*="col-lg-5"]{
+/* Hero slide text column: left-align text even in RTL (image flips right, text stays left-aligned) */
+body.rtl-mode .hero-slide .col-lg-5{
     text-align:left;
-    direction:ltr;
 }
 
 /* Breadcrumb: keep LTR order (Home › Services reads left-to-right in any language) */
