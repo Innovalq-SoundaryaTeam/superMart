@@ -207,3 +207,47 @@ body.dark-mode .modal-content{background:var(--color-card);color:var(--color-tex
 body.dark-mode .modal-header,
 body.dark-mode .modal-footer{border-color:#333;}
 body.dark-mode .btn-close{filter:invert(1);}
+
+/* ── Blog details page — dark mode text visibility ── */
+body.dark-mode .breadcrumb-item,
+body.dark-mode .breadcrumb-item a,
+body.dark-mode .breadcrumb-item.active{color:#ccc !important;}
+body.dark-mode .breadcrumb-item+.breadcrumb-item::before{color:#666;}
+
+/* Post meta (comments, views, read time, date, author) */
+body.dark-mode .post-meta,
+body.dark-mode .post-meta span,
+body.dark-mode .post-meta i,
+body.dark-mode .blog-meta,
+body.dark-mode .blog-meta span{color:#bbb !important;}
+
+/* Article body text */
+body.dark-mode .article-body,
+body.dark-mode .article-body p,
+body.dark-mode .article-body li,
+body.dark-mode .article-body h2,
+body.dark-mode .article-body h3,
+body.dark-mode .article-body h4,
+body.dark-mode .post-content,
+body.dark-mode .post-content p,
+body.dark-mode .post-content li,
+body.dark-mode .post-content h2,
+body.dark-mode .post-content h3{color:var(--color-text) !important;}
+
+/* .text-muted in dark mode — make readable */
+body.dark-mode .text-muted{color:#aaa !important;}
+
+/* Author name & role in blog */
+body.dark-mode .author-name,
+body.dark-mode .author-role{color:#f1f1f1 !important;}
+
+/* Sidebar widgets */
+body.dark-mode .sidebar-widget,
+body.dark-mode .sidebar-widget h5,
+body.dark-mode .sidebar-widget p,
+body.dark-mode .sidebar-widget a{color:var(--color-text) !important;background:var(--color-card);}
+
+/* Review cards (home2) */
+body.dark-mode .review-card{background:var(--color-card) !important;color:var(--color-text) !important;}
+body.dark-mode .review-card .text-muted{color:#aaa !important;}
+body.dark-mode .review-card .fw-bold{color:#f1f1f1 !important;}
