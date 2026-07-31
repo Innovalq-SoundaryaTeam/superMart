@@ -134,12 +134,34 @@
 <div class="dash-content">
 <h5 class="mb-3"><i class="fa-solid fa-location-dot me-2 text-danger"></i>Delivery Address</h5>
 <div class="row g-3">
-<div class="col-sm-6"><input type="text" class="form-control" placeholder="Full Name" id="delName"></div>
-<div class="col-sm-6"><input type="tel" class="form-control" placeholder="Phone Number"></div>
-<div class="col-12"><input type="text" class="form-control" placeholder="Street Address, Apt/Suite" id="delAddr"></div>
-<div class="col-sm-4"><input type="text" class="form-control" placeholder="City" value="Coimbatore"></div>
-<div class="col-sm-4"><input type="text" class="form-control" placeholder="State" value="Tamil Nadu"></div>
-<div class="col-sm-4"><input type="text" class="form-control" placeholder="PIN Code"></div>
+<div class="col-sm-6">
+  <input type="text" class="form-control" placeholder="Full Name *" id="delName" autocomplete="name">
+  <div class="invalid-feedback">Please enter your full name (letters only).</div>
+</div>
+<div class="col-sm-6">
+  <input type="tel" class="form-control" placeholder="Phone Number * (10 digits)" id="delPhone"
+    inputmode="numeric" maxlength="10"
+    oninput="this.value=this.value.replace(/\D/g,'')" autocomplete="tel">
+  <div class="invalid-feedback">Enter a valid 10-digit phone number.</div>
+</div>
+<div class="col-12">
+  <input type="text" class="form-control" placeholder="Street Address, Apt/Suite *" id="delAddr" autocomplete="street-address">
+  <div class="invalid-feedback">Please enter your street address.</div>
+</div>
+<div class="col-sm-4">
+  <input type="text" class="form-control" placeholder="City *" id="delCity" value="Coimbatore" autocomplete="address-level2">
+  <div class="invalid-feedback">Please enter your city.</div>
+</div>
+<div class="col-sm-4">
+  <input type="text" class="form-control" placeholder="State *" id="delState" value="Tamil Nadu" autocomplete="address-level1">
+  <div class="invalid-feedback">Please enter your state.</div>
+</div>
+<div class="col-sm-4">
+  <input type="text" class="form-control" placeholder="PIN Code * (6 digits)" id="delPin"
+    inputmode="numeric" maxlength="6"
+    oninput="this.value=this.value.replace(/\D/g,'')" autocomplete="postal-code">
+  <div class="invalid-feedback">Enter a valid 6-digit PIN code (numbers only).</div>
+</div>
 </div>
 </div>
 </div>
@@ -231,11 +253,41 @@ function renderPayItems(){
   </div>`).join('');
   recalcTotal();
 }
+function setFieldError(id, hasError){
+  const el = document.getElementById(id);
+  if(!el) return;
+  el.classList.toggle('is-invalid', hasError);
+  el.classList.toggle('is-valid', !hasError);
+}
 function placeOrder(){
   if(!selectedMethod){showToast('Please select a payment method.','error');return;}
-  const name=document.getElementById('delName').value.trim();
-  const addr=document.getElementById('delAddr').value.trim();
-  if(!name||!addr){showToast('Please fill delivery address.','error');return;}
+
+  const name  = document.getElementById('delName').value.trim();
+  const phone = document.getElementById('delPhone').value.trim();
+  const addr  = document.getElementById('delAddr').value.trim();
+  const city  = document.getElementById('delCity').value.trim();
+  const state = document.getElementById('delState').value.trim();
+  const pin   = document.getElementById('delPin').value.trim();
+
+  const nameOk  = name.length >= 2 && /^[a-zA-Z\s]+$/.test(name);
+  const phoneOk = /^\d{10}$/.test(phone);
+  const addrOk  = addr.length >= 5;
+  const cityOk  = city.length >= 2;
+  const stateOk = state.length >= 2;
+  const pinOk   = /^\d{6}$/.test(pin);
+
+  setFieldError('delName',  !nameOk);
+  setFieldError('delPhone', !phoneOk);
+  setFieldError('delAddr',  !addrOk);
+  setFieldError('delCity',  !cityOk);
+  setFieldError('delState', !stateOk);
+  setFieldError('delPin',   !pinOk);
+
+  if(!nameOk||!phoneOk||!addrOk||!cityOk||!stateOk||!pinOk){
+    showToast('Please fix the highlighted fields before placing your order.','error');
+    return;
+  }
+
   const orderId='SM-'+Date.now().toString().slice(-7);
   document.getElementById('confirmOrderId').textContent='#'+orderId;
   localStorage.setItem('smCart','[]');
