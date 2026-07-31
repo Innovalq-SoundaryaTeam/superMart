@@ -672,6 +672,23 @@ footer i:hover{
     margin-bottom:8px;
 }
 
+/* Social icons row — equal gap in both LTR and RTL */
+.footer .mt-3{
+    display:flex;
+    gap:20px;
+    align-items:center;
+    flex-wrap:wrap;
+}
+.footer .mt-3 i{
+    margin:0 !important;
+}
+.footer .mt-3 a{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.2rem;
+}
+
 /* ==========================
    404 PAGE
 ========================== */
