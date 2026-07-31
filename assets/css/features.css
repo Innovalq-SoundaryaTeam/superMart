@@ -25,22 +25,34 @@
 /* Theme toggle: always circular like other nav icon buttons */
 #themeToggle.nav-icon-btn,
 .navbar #themeToggle{
-  width:42px;height:42px;border-radius:50% !important;
-  padding:0 !important;display:inline-flex;
-  align-items:center;justify-content:center;
-  background:var(--color-primary);color:#fff;
-  border:none;flex-shrink:0;
+  width:42px !important;height:42px !important;
+  border-radius:50% !important;
+  padding:0 !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  background:var(--color-primary) !important;
+  color:#fff !important;
+  border:none !important;
+  flex-shrink:0;
+  line-height:1 !important;
+  font-size:1rem !important;
 }
 .navbar #themeToggle:hover{ opacity:.85; }
 
 /* Login button: same height as nav-icon-btn (42px), text centered */
 .navbar a.btn-outline-danger.btn-sm,
 .navbar a[href="login.html"]{
-  height:42px;display:inline-flex;
-  align-items:center;justify-content:center;
-  padding-left:16px;padding-right:16px;
-  font-size:14px;font-weight:600;
+  height:42px !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  padding-left:16px !important;
+  padding-right:16px !important;
+  font-size:14px !important;
+  font-weight:600;
   flex-shrink:0;
+  line-height:1 !important;
 }
 
 /* ---- PRODUCT / OFFER CARD OVERLAYS ---- */
