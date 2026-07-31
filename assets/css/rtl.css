@@ -44,6 +44,7 @@ body.rtl-mode .footer{
 /* Hero/header sections always stay centered regardless of RTL */
 body.rtl-mode .page-hero,
 body.rtl-mode .service-hero,
+body.rtl-mode .sd-hero,
 body.rtl-mode .page-header{
     direction:rtl;
     text-align:center;
