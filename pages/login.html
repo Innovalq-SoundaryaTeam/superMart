@@ -18,16 +18,17 @@
 <style>
 /* ── AUTH PAGE LAYOUT ── */
 .auth-page{min-height:100vh;display:flex;flex-direction:column;}
-.auth-header{border-bottom:1px solid var(--color-border,#eee);background:var(--color-bg,#fff);padding:16px 0;}
-.auth-header .brand{font-family:'Nunito',sans-serif;font-size:1.4rem;font-weight:800;color:var(--color-primary,#E63946);text-decoration:none;}
-.auth-header .brand i{color:var(--color-primary,#E63946);}
-.auth-main{flex:1;display:flex;align-items:center;justify-content:center;padding:48px 16px;background:var(--color-section,#f8f8f8);}
-.auth-card{max-width:440px;width:100%;background:var(--color-card,#fff);border-radius:20px;box-shadow:0 12px 40px rgba(0,0,0,.09);padding:44px 40px;}
-@media(max-width:480px){.auth-card{padding:32px 24px;}}
-.auth-card h1{font-size:1.65rem;font-family:'Nunito',sans-serif;font-weight:800;margin-bottom:4px;}
+.auth-main{flex:1;display:flex;align-items:center;justify-content:center;padding:40px 16px;background:var(--color-section,#f8f8f8);}
+.auth-card{max-width:520px;width:100%;background:var(--color-card,#fff);border-radius:24px;box-shadow:0 16px 56px rgba(0,0,0,.11);padding:44px 48px;}
+@media(max-width:560px){.auth-card{padding:32px 24px;border-radius:18px;}}
+/* Brand row inside card */
+.auth-brand-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--color-border,#eee);}
+.auth-brand{font-family:'Nunito',sans-serif;font-size:1.6rem;font-weight:800;color:var(--color-primary,#E63946);text-decoration:none;display:flex;align-items:center;gap:8px;}
+.auth-brand i{font-size:1.5rem;}
+.auth-card h1{font-size:1.75rem;font-family:'Nunito',sans-serif;font-weight:800;margin-bottom:4px;}
 .auth-card .sub{color:#888;margin-bottom:28px;font-size:15px;}
-.auth-card .form-control{height:48px;border-radius:10px;font-size:15px;}
-.auth-card .btn-danger{height:48px;border-radius:10px;font-weight:700;width:100%;font-size:16px;}
+.auth-card .form-control{height:50px;border-radius:10px;font-size:15px;}
+.auth-card .btn-danger{height:50px;border-radius:10px;font-weight:700;width:100%;font-size:16px;}
 .auth-switch{text-align:center;margin-top:20px;color:#777;font-size:14px;}
 /* Social Login */
 .social-divider{display:flex;align-items:center;gap:12px;color:#999;font-size:13px;margin:24px 0 20px;}
@@ -36,34 +37,28 @@
 .social-btn:hover{border-color:#aaa;background:#fafafa;}
 body.dark-mode .social-btn{background:#2a2a2a;border-color:#444;color:#e8e8e8;}
 body.dark-mode .social-btn:hover{background:#333;}
-.auth-footer{text-align:center;padding:20px;color:#999;font-size:13px;}
-.auth-icon-btn{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--color-border,#ccc);background:var(--color-section,#f4f4f4);color:var(--color-text,#333);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s;font-size:14px;}
+.auth-icon-btn{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--color-border,#ccc);background:var(--color-section,#f4f4f4);color:var(--color-text,#333);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s;font-size:15px;}
 .auth-icon-btn:hover{background:var(--color-primary,#E63946);color:#fff;border-color:var(--color-primary,#E63946);}
 body.dark-mode .auth-icon-btn{border-color:#444;background:#2a2a2a;color:#e8e8e8;}
 </style>
 </head>
 <body>
 
-<!-- Minimal Auth Header -->
 <div class="auth-page">
-<header class="auth-header">
-<div class="container">
-<!-- Three-column trick: left spacer | centered brand | right icons -->
-<div class="d-flex align-items-center">
-  <div style="flex:1;"></div>
-  <a href="index.html" class="brand">
-    <i class="fa-solid fa-basket-shopping me-1"></i>SuperMart
+<main class="auth-main" id="main-content">
+<div class="auth-card">
+
+<!-- Brand + Icons inside card -->
+<div class="auth-brand-row">
+  <a href="index.html" class="auth-brand">
+    <i class="fa-solid fa-basket-shopping"></i>SuperMart
   </a>
-  <div style="flex:1;" class="d-flex align-items-center justify-content-end gap-2">
+  <div class="d-flex align-items-center gap-2">
     <button id="rtlToggle" class="auth-icon-btn" aria-label="Toggle RTL" title="Switch direction"><i class="fa-solid fa-arrow-left-long"></i></button>
     <button id="themeToggle" class="auth-icon-btn" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
   </div>
 </div>
-</div>
-</header>
 
-<main class="auth-main" id="main-content">
-<div class="auth-card">
 <h1>Welcome Back</h1>
 <p class="sub">Login to track orders and get faster checkout.</p>
 

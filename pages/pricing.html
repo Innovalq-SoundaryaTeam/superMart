@@ -19,8 +19,7 @@
 .pricing-hero{
   background:linear-gradient(135deg,#0f0c29,#302b63);
   color:#fff;
-  /* Extra bottom padding creates space for the overlapping cards */
-  padding:80px 0 180px;
+  padding:80px 0 60px;
   text-align:center;position:relative;
 }
 .pricing-hero h1{color:#fff;font-size:clamp(2rem,4.5vw,3.2rem);}
@@ -100,11 +99,11 @@
 /* ── FAQ ── */
 .pricing-faq .accordion-button:not(.collapsed){background:var(--color-primary);color:#fff;}
 
-/* ── HERO Z-INDEX & CARD OVERLAP ── */
+/* ── HERO Z-INDEX ── */
 .pricing-hero .container{position:relative;z-index:2;}
-/* Cards pulled up so they sit within the hero's generous bottom padding */
-.plan-cards-row{margin-top:-120px;position:relative;z-index:3;}
-.pricing-plans-section{margin-top:0 !important;padding-top:0 !important;}
+/* Cards sit below hero — no overlap */
+.plan-cards-row{margin-top:0;position:relative;z-index:3;}
+.pricing-plans-section{padding-top:48px !important;}
 
 /* ── TESTIMONIAL CARDS — always left-align content ── */
 .testi-card{text-align:left !important;}
@@ -335,7 +334,7 @@
 <h3 class="text-center mb-5">What Pass Members Say</h3>
 <div class="row g-4">
 <div class="col-md-4 reveal">
-<div class="testi-card" style="background:var(--color-card);border-radius:16px;padding:28px;box-shadow:var(--shadow);height:100%;text-align:left;display:flex;flex-direction:column;">
+<div class="testi-card" style="background:var(--color-card);border-radius:16px;padding:28px;box-shadow:var(--shadow);height:100%;text-align:left;display:flex;flex-direction:column;direction:ltr;">
 <div style="color:#FFD166;margin-bottom:10px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
 <p class="text-muted" style="flex:1;">"Monthly Pass paid for itself after 5 deliveries. With a family of 4, we order almost daily. Best ₹199 I spend every month."</p>
 <div class="d-flex align-items-center gap-3 mt-3">
@@ -345,7 +344,7 @@
 </div>
 </div>
 <div class="col-md-4 reveal">
-<div class="testi-card" style="background:var(--color-card);border-radius:16px;padding:28px;box-shadow:var(--shadow);height:100%;text-align:left;display:flex;flex-direction:column;">
+<div class="testi-card" style="background:var(--color-card);border-radius:16px;padding:28px;box-shadow:var(--shadow);height:100%;text-align:left;display:flex;flex-direction:column;direction:ltr;">
 <div style="color:#FFD166;margin-bottom:10px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
 <p class="text-muted" style="flex:1;">"The Annual Pass double points feature alone is worth it. I redeemed ₹1,800 in loyalty points in the first 4 months — essentially free groceries."</p>
 <div class="d-flex align-items-center gap-3 mt-3">
@@ -355,7 +354,7 @@
 </div>
 </div>
 <div class="col-md-4 reveal">
-<div class="testi-card" style="background:var(--color-card);border-radius:16px;padding:28px;box-shadow:var(--shadow);height:100%;text-align:left;display:flex;flex-direction:column;">
+<div class="testi-card" style="background:var(--color-card);border-radius:16px;padding:28px;box-shadow:var(--shadow);height:100%;text-align:left;display:flex;flex-direction:column;direction:ltr;">
 <div style="color:#FFD166;margin-bottom:10px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
 <p class="text-muted" style="flex:1;">"As a restaurant owner, the Business Account means I get invoices monthly and a 12% bulk discount. Saves hours of admin compared to regular shopping."</p>
 <div class="d-flex align-items-center gap-3 mt-3">
