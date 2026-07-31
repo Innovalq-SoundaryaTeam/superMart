@@ -117,7 +117,11 @@ body.dark-mode .seasonal-banner{background:linear-gradient(135deg,#0d2010,#11251
 }
 .review-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-hover);}
 .review-stars{color:#FFD166;font-size:13px;margin-bottom:10px;}
-.review-avatar{width:48px;height:48px;border-radius:50%;object-fit:cover;}
+.review-avatar{
+  width:48px;height:48px;min-width:48px;min-height:48px;
+  border-radius:50%;object-fit:cover;flex-shrink:0;
+  display:block;
+}
 
 /* ── BLOG CARDS ── */
 .blog2-card{
@@ -533,8 +537,8 @@ body.dark-mode .blog2-tag{background:rgba(76,175,80,.2);color:#81c784;}
 <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
 <p class="text-muted mb-4">"The freshness of the produce is unbeatable. I get my weekly vegetables delivered in under 20 minutes and everything is crisp and clean."</p>
 <div class="d-flex align-items-center gap-3">
-<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=60&h=60&fit=crop&crop=face" class="review-avatar" alt="Priya">
-<div><div class="fw-bold">Priya Nair</div><div class="text-muted small">Chennai, Tamil Nadu</div></div>
+<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=48&h=48&fit=crop&crop=face" class="review-avatar" alt="Priya">
+<div class="d-flex flex-column justify-content-center"><div class="fw-bold lh-sm">Priya Nair</div><div class="text-muted small">Chennai, Tamil Nadu</div></div>
 </div>
 </div>
 </div>
@@ -543,8 +547,8 @@ body.dark-mode .blog2-tag{background:rgba(76,175,80,.2);color:#81c784;}
 <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
 <p class="text-muted mb-4">"I switched from the local market to SuperMart and the organic produce here is genuinely better quality. My family loves the fresh vegetables."</p>
 <div class="d-flex align-items-center gap-3">
-<img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face" class="review-avatar" alt="Karthik">
-<div><div class="fw-bold">Karthik Rajan</div><div class="text-muted small">Coimbatore, Tamil Nadu</div></div>
+<img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=48&h=48&fit=crop&crop=face" class="review-avatar" alt="Karthik">
+<div class="d-flex flex-column justify-content-center"><div class="fw-bold lh-sm">Karthik Rajan</div><div class="text-muted small">Coimbatore, Tamil Nadu</div></div>
 </div>
 </div>
 </div>
@@ -553,8 +557,8 @@ body.dark-mode .blog2-tag{background:rgba(76,175,80,.2);color:#81c784;}
 <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
 <p class="text-muted mb-4">"The farm-to-table promise is real. I can taste the difference compared to supermarket produce. Never going back to chemical-heavy veggies."</p>
 <div class="d-flex align-items-center gap-3">
-<img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop&crop=face" class="review-avatar" alt="Meena">
-<div><div class="fw-bold">Meena Subramanian</div><div class="text-muted small">Madurai, Tamil Nadu</div></div>
+<img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=48&h=48&fit=crop&crop=face" class="review-avatar" alt="Meena">
+<div class="d-flex flex-column justify-content-center"><div class="fw-bold lh-sm">Meena Subramanian</div><div class="text-muted small">Madurai, Tamil Nadu</div></div>
 </div>
 </div>
 </div>
