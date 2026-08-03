@@ -22,7 +22,8 @@
   .hero-slider{min-height:auto;padding-bottom:40px;}
   .hero-slide-img{max-height:320px;object-fit:contain;margin-top:20px;}
 }
-.hero-slider .display-4{animation:heroFadeUp .7s ease both;}
+.hero-slider .display-4,
+.hero-slider .hero-headline{animation:heroFadeUp .7s ease both;}
 .hero-slider .lead{animation:heroFadeUp .7s .12s ease both;}
 .hero-slider .hero-cta{animation:heroFadeUp .7s .24s ease both;}
 @keyframes heroFadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}

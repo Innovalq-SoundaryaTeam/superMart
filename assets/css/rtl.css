@@ -50,10 +50,8 @@ body.rtl-mode .page-header{
     text-align:center;
 }
 
-/* Hero slide text column: left-align text even in RTL (image flips right, text stays left-aligned) */
-body.rtl-mode .hero-slide .col-lg-5{
-    text-align:left;
-}
+/* Hero is now fully centered — Bootstrap .text-center overrides RTL text-align:right */
+/* No column override needed for the redesigned centered hero */
 
 /* Breadcrumb: keep LTR order (Home › Services reads left-to-right in any language) */
 body.rtl-mode .breadcrumb{
