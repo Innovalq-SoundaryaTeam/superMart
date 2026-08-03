@@ -55,7 +55,7 @@ body.dark-mode .hero-slider{
 }
 .hero-sub{animation:heroFadeUp .7s .15s ease both;}
 .hero-trust-strip{
-  display:flex;justify-content:center;flex-wrap:wrap;gap:10px;
+  display:flex;flex-wrap:wrap;gap:10px;
   animation:heroFadeUp .7s .35s ease both;
 }
 .trust-pill{
@@ -70,12 +70,12 @@ body.dark-mode .hero-slider{
 /* Hero image wrapper */
 .hero-img-wrap{
   position:relative;display:inline-block;
-  max-width:700px;margin:0 auto;
+  max-width:100%;
 }
 .hero-img-wrap .hero-slide-img{
-  max-height:380px;object-fit:contain;
+  max-height:480px;object-fit:contain;width:100%;
   border-radius:0 !important;box-shadow:none !important;
-  filter:drop-shadow(0 28px 48px rgba(230,57,70,.16));
+  filter:drop-shadow(0 28px 48px rgba(230,57,70,.18));
   animation:heroFloat 4s ease-in-out infinite !important;
 }
 /* Floating mini cards */
@@ -88,8 +88,8 @@ body.dark-mode .hero-slider{
 .hero-fc i{font-size:1.5rem;}
 .fc-title{font-weight:700;font-size:13px;color:var(--color-text,#2D2D2D);line-height:1.2;}
 .fc-sub{font-size:11px;color:#888;margin-top:2px;}
-.hero-fc-a{bottom:32px;left:-10px;animation:fcFloatA 3s ease-in-out infinite;}
-.hero-fc-b{top:32px;right:-10px;animation:fcFloatB 3s .9s ease-in-out infinite;}
+.hero-fc-a{bottom:28px;left:10px;animation:fcFloatA 3s ease-in-out infinite;}
+.hero-fc-b{top:28px;right:10px;animation:fcFloatB 3s .9s ease-in-out infinite;}
 @keyframes fcFloatA{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
 @keyframes fcFloatB{0%,100%{transform:translateY(0);}50%{transform:translateY(10px);}}
 @media(max-width:991px){.hero-fc{display:none;}}
@@ -97,7 +97,7 @@ body.dark-mode .hero-slider{
   .hero-headline{font-size:2.1rem;}
   .hero-trust-strip{gap:6px;}
   .trust-pill{font-size:11px;padding:5px 11px;}
-  .hero-img-wrap .hero-slide-img{max-height:260px;}
+  .hero-img-wrap .hero-slide-img{max-height:280px;}
 }
 </style>
 </head>
@@ -156,29 +156,24 @@ body.dark-mode .hero-slider{
 <div class="hero-slide active">
 <div class="container">
 
-  <!-- Centered text content -->
-  <div class="row justify-content-center text-center">
-    <div class="col-lg-9 col-xl-8 pt-5 pb-4">
+  <div class="row align-items-center g-4 g-lg-5 py-5">
 
+    <!-- LEFT: Text content -->
+    <div class="col-lg-6 col-xl-5">
       <!-- Badge pill -->
       <div class="mb-3">
-        <span class="hero-badge-pill">
-          <i class="fa-solid fa-bolt"></i> Fresh Deals Every Week
-        </span>
+        <span class="hero-badge-pill"><i class="fa-solid fa-bolt me-1"></i>Fresh Deals Every Week</span>
       </div>
-
       <!-- Headline -->
       <h1 class="display-4 fw-bold hero-headline mb-3">
         This Week's Best<br><span class="hero-highlight">Deals &amp; Offers</span>
       </h1>
-
       <!-- Sub-text -->
-      <p class="lead text-muted mx-auto mb-4 hero-sub" style="max-width:520px;">
+      <p class="lead text-muted mb-4 hero-sub">
         Save up to <strong class="text-danger">50%</strong> on fresh groceries, dairy, bakery, beverages and household essentials — delivered in just 15 minutes.
       </p>
-
       <!-- CTA buttons -->
-      <div class="hero-cta mb-4 d-flex justify-content-center gap-3 flex-wrap">
+      <div class="hero-cta mb-4 d-flex gap-3 flex-wrap">
         <a href="offers.html" class="btn btn-danger btn-lg px-5">
           <i class="fa-solid fa-fire me-2"></i>Shop Offers
         </a>
@@ -186,44 +181,32 @@ body.dark-mode .hero-slider{
           <i class="fa-solid fa-location-dot me-2"></i>Find a Store
         </a>
       </div>
-
       <!-- Trust chips -->
-      <div class="hero-trust-strip mb-4">
+      <div class="hero-trust-strip">
         <span class="trust-pill"><i class="fa-solid fa-store text-danger"></i>48+ Stores</span>
         <span class="trust-pill"><i class="fa-solid fa-users text-danger"></i>2.5L+ Customers</span>
         <span class="trust-pill"><i class="fa-solid fa-tags text-danger"></i>Up to 60% Off</span>
         <span class="trust-pill"><i class="fa-solid fa-bolt text-danger"></i>15-min Delivery</span>
       </div>
-
     </div>
-  </div>
 
-  <!-- Hero image — centered, with floating cards -->
-  <div class="row justify-content-center">
-    <div class="col-lg-8 col-xl-7 text-center pb-5">
+    <!-- RIGHT: Hero image -->
+    <div class="col-lg-6 col-xl-7 text-center">
       <div class="hero-img-wrap">
         <img src="../assets/images/hero-banner.png" class="hero-slide-img" alt="Fresh produce at SuperMart" loading="eager" fetchpriority="high">
-
-        <!-- Floating card: left -->
+        <!-- Floating card: bottom-left -->
         <div class="hero-fc hero-fc-a">
           <i class="fa-solid fa-apple-whole text-danger"></i>
-          <div>
-            <div class="fc-title">Fresh Fruits</div>
-            <div class="fc-sub">Starting ₹49</div>
-          </div>
+          <div><div class="fc-title">Fresh Fruits</div><div class="fc-sub">Starting ₹49</div></div>
         </div>
-
-        <!-- Floating card: right -->
+        <!-- Floating card: top-right -->
         <div class="hero-fc hero-fc-b">
           <i class="fa-solid fa-fire text-warning"></i>
-          <div>
-            <div class="fc-title">Today's Deal</div>
-            <div class="fc-sub">Up to 50% off</div>
-          </div>
+          <div><div class="fc-title">Today's Deal</div><div class="fc-sub">Up to 50% off</div></div>
         </div>
-
       </div>
     </div>
+
   </div>
 
 </div>
