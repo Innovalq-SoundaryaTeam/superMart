@@ -245,51 +245,66 @@
   .navbar{ min-height:62px; }
 }
 
-/* ── 992–1199px: HAMBURGER MODE ──
-   Too many nav links to fit at this width — use hamburger instead.
-   The collapse panel drops full-width below the brand bar. */
-@media(min-width:992px) and (max-width:1199px){
+/* ── 992–1399px: HAMBURGER MODE ──
+   12 nav links + icons don't fit until xxl (1400px+).
+   Strategy: keep collapse visible (so icons always show on bar),
+   but hide nav links + search until hamburger is clicked. */
+@media(min-width:992px) and (max-width:1399px){
 
-  /* 1. Let the navbar container wrap so the collapse falls to row 2 */
+  /* 1. Container: allow full-width row-2 collapse panel */
   .navbar > .container,
   .navbar > .container-fluid{
     flex-wrap:wrap !important;
     align-items:center;
   }
 
-  /* 2. Show the hamburger toggle button (Bootstrap hides it at lg+) */
+  /* 2. Show the hamburger toggle (Bootstrap hides it at lg+) */
   .navbar-expand-lg .navbar-toggler{
     display:flex !important;
     align-items:center;
     justify-content:center;
-    margin-left:auto;
-    order:2;
+    order:3;
+    margin-left:8px;
   }
 
-  /* 3. Collapse: hidden by default, pinned below the brand row */
+  /* 3. Collapse stays display:flex (icons always visible on bar)
+        but shrinks to only the icon group until .show is added */
   .navbar-expand-lg .navbar-collapse{
-    display:none !important;
-    flex-basis:100%;
-    order:99;
-    width:100%;
+    display:flex !important;
+    flex:0 0 auto !important;
+    flex-basis:auto !important;
+    width:auto !important;
+    order:2;
+    margin-left:auto;
+    padding:0 !important;
   }
 
-  /* 4. When Bootstrap's JS adds .show — reveal the panel */
+  /* 4. Hide nav links + search when panel is closed */
+  .navbar-expand-lg .navbar-collapse:not(.show) .navbar-nav,
+  .navbar-expand-lg .navbar-collapse:not(.show) .nav-search-wrap{
+    display:none !important;
+  }
+
+  /* 5. When .show — full-width panel drops below the bar */
   .navbar-expand-lg .navbar-collapse.show{
-    display:flex !important;
-    flex-direction:column;
-    padding:8px 4px 18px;
+    flex:0 0 100% !important;
+    flex-basis:100% !important;
+    width:100% !important;
+    flex-direction:column !important;
+    order:99;
+    padding:8px 4px 18px !important;
     border-top:2px solid var(--color-primary,#E63946);
     box-shadow:0 8px 24px rgba(0,0,0,.08);
+    margin-left:0;
   }
 
-  /* 5. Nav links: vertical list */
+  /* 6. Nav links: vertical list inside open panel */
   .navbar-expand-lg .navbar-collapse.show .navbar-nav{
+    display:flex !important;
     flex-direction:column !important;
     flex:unset !important;
     min-width:unset !important;
     overflow:visible !important;
-    flex-wrap:wrap !important;
     width:100%;
   }
   .navbar-expand-lg .navbar-collapse.show .nav-link{
@@ -303,13 +318,13 @@
     border-bottom:none;
   }
 
-  /* 6. Hide the inline search bar inside the panel */
-  .navbar-collapse.show .nav-search-wrap{
+  /* 7. Hide search inside open panel too */
+  .navbar-expand-lg .navbar-collapse.show .nav-search-wrap{
     display:none !important;
   }
 
-  /* 7. Icon group: pinned at the bottom of the panel */
-  .navbar-collapse.show .d-flex.align-items-center.gap-2{
+  /* 8. Icon group in open panel: pinned at bottom with divider */
+  .navbar-expand-lg .navbar-collapse.show .d-flex.align-items-center.gap-2{
     margin-left:0 !important;
     margin-right:0 !important;
     margin-top:14px !important;
@@ -320,13 +335,13 @@
     justify-content:flex-start;
   }
 
-  /* 8. Restore full-size icon buttons inside the panel */
-  .navbar-collapse.show .nav-icon-btn{
+  /* 9. Restore full-size icon/button sizes inside open panel */
+  .navbar-expand-lg .navbar-collapse.show .nav-icon-btn{
     width:42px !important;
     height:42px !important;
     font-size:1rem !important;
   }
-  .navbar-collapse.show #themeToggle{
+  .navbar-expand-lg .navbar-collapse.show #themeToggle{
     width:42px !important;
     height:42px !important;
     font-size:1rem !important;
@@ -334,8 +349,8 @@
     display:inline-flex !important;
     line-height:1 !important;
   }
-  .navbar-collapse.show .btn-outline-danger.btn-sm,
-  .navbar-collapse.show a[href="login.html"]{
+  .navbar-expand-lg .navbar-collapse.show .btn-outline-danger.btn-sm,
+  .navbar-expand-lg .navbar-collapse.show a[href="login.html"]{
     height:42px !important;
     padding-left:16px !important;
     padding-right:16px !important;
