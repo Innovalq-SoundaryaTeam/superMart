@@ -439,9 +439,10 @@ body.rtl-mode .accordion-button::after{
 
 /* ── SUPERMART BRAND COLOR ──
    Navbar: .logo already uses var(--color-primary).
-   Footer: target the h5 that contains the basket icon. */
-.footer h5:has(.fa-basket-shopping){
-  color:var(--color-primary);
+   Footer: target the h5 and the <a> inside it (overrides Bootstrap text-white). */
+.footer h5:has(.fa-basket-shopping),
+.footer h5:has(.fa-basket-shopping) a{
+  color:var(--color-primary) !important;
 }
 
 /* ── RTL TOGGLE ACTIVE STATE ──
