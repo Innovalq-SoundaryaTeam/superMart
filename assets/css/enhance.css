@@ -452,3 +452,13 @@ body.rtl-mode #rtlToggle{
   color:#fff !important;
   border-color:var(--color-primary) !important;
 }
+
+/* ── DATE PICKER CALENDAR ICON ──
+   Browser renders the native icon white in dark mode — darken it. */
+input[type="date"]::-webkit-calendar-picker-indicator{
+  cursor:pointer;
+}
+body.dark-mode input[type="date"]::-webkit-calendar-picker-indicator{
+  filter:brightness(.35);
+  cursor:pointer;
+}
